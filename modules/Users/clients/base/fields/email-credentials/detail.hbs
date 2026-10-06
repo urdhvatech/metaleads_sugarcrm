@@ -1,0 +1,26 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="font-bold text-xs ellipsis_inline" title="{{str 'LBL_MAIL_SERVICE' module}}">{{str 'LBL_MAIL_SERVICE' module}}</div>
+<div class="ellipsis_inline" title="{{credentials.service}}">{{credentials.service}}</div>
+
+{{#eq credentials.mail_authtype 'oauth2'}}
+    {{#if credentials.authorized_account}}
+        <div class="font-bold text-xs pt-2 ellipsis_inline" title="{{str status module}}">{{str status module}}</div>
+        {{#if isConnected}}
+            <div class="ellipsis_inline" title="{{credentials.authorized_account}}">{{credentials.authorized_account}}</div>
+        {{/if}}
+    {{/if}}
+{{else}}
+    <div class="font-bold text-xs pt-2 ellipsis_inline" title="{{str 'LBL_MAIL_USERNAME' module}}">{{str 'LBL_MAIL_USERNAME' module}}</div>
+    <div class="ellipsis_inline" title="{{credentials.mail_smtpuser}}">{{credentials.mail_smtpuser}}</div>
+{{/eq}}

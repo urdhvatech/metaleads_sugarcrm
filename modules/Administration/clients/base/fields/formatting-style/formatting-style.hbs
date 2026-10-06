@@ -1,0 +1,67 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="{{name}} relative h-6">
+    <div class="control {{colorway.class}} rounded-sm border border-[--border-base] text-[--label-color] cursor-pointer">
+        <span>{{colorway.title}}</span>
+        <i class="sicon sicon-chevron-down float-right"></i>
+    </div>
+
+    <div class="style-picker rounded-b-sm shadow-xl text-sm bg-[--foreground-base]
+                border border-t-0 border-[--border-base] p-3 hide"
+            data-mode="light">
+        {{#each modes}}
+            <table class="style-picker-mode mode-{{this}} w-full hide">
+                <tr>
+                    <td>
+                        <div class="box no-style" data-mode="No style" data-name="">Aa</div>
+                    </td>
+                    <td colspan=6>{{str "LBL_DROPDOWN_NO_STYLE" ../module}}</td>
+                </tr>
+                <tr>
+                    {{#each ../keywordColors.fRow}}
+                        <td>
+                            <div class="box {{../this}}-{{this}}" data-mode="{{../this}}" data-name="{{this}}">Aa</div>
+                        </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each ../keywordColors.sRow}}
+                        <td rel="tooltip" title="{{../this}} {{this}}">
+                            <div class="box {{../this}}-{{this}}" data-mode="{{../this}}" data-name="{{this}}">Aa</div>
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        {{/each}}
+
+        <div class="style-picker-scrolling flex items-center mt-4 ltr:text-left rtl:text-right">
+            <div class="item prev flex-1">
+                <span class="inline-block">
+                    <i class="sicon sicon-chevron-left"></i>
+                    {{str "LBL_TOUR_BACK"}}
+                </span>
+            </div>
+            <div class="item indicator flex w-9">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="item next flex-1 ltr:text-right rtl:text-left">
+                <span class="inline-block">
+                    {{str "LBL_TOUR_NEXT"}}
+                    <i class="sicon sicon-chevron-right"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{!-- Progress Alert View Container ->>> --}}
+<div class="progress-alert-container">
+
+</div>
+
+{{!-- List View ->>> --}}
+<div id="remote_packages" class"ml-1.5 mr-1.5 text-sm bg-white">
+    <table class="table" id="fields_table">
+        <thead>
+            <tr class="headerRow">
+                {{#if headerLabels}}
+                    {{#each headerLabels}}
+                        <th id="{{@index}}" class="{{#eq @index 3}}actions{{/eq}} sorting">
+                        {{#eq @index 3}}<div>{{/eq}}
+                            <span>{{str this 'Administration'}}
+                                {{#eq @index 3}}
+                                    <i id="showDisabled" rel="tooltip"
+                                        data-original-title="{{#eq true ../../showDisabled}}{{str 'LBL_PACKAGE_BUILDER_HIDE_DISABLED_ROWS' 'Administration'}}{{/eq}}{{#eq false ../../showDisabled}}{{str 'LBL_PACKAGE_BUILDER_SHOW_DISABLED_ROWS' 'Administration'}}{{/eq}}"
+                                        class="sicon {{#eq true ../../showDisabled}}sicon-hide{{/eq}} {{#eq false ../../showDisabled}}sicon-preview{{/eq}}"></i>
+                                {{/eq}}
+                            </span>
+                        {{#eq @index 3}}</div>{{/eq}}
+                        </th>
+                    {{/each}}
+                {{/if}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each entries}}
+                {{!-- Build entry data rows --}}
+                <tr class="regularRow" id="row-{{@index}}">
+                    <td>{{name}}</td>
+                    <td>{{version}}</td>
+                    {{#if description}}
+                        <td>{{description}}</td>
+                    {{else}}
+                        <td>{{str 'LBL_PACKAGE_BUILDER_NO_DESCRIPTION' 'Administration'}}</td>
+                    {{/if}}
+                    {{!-- Add pull/update button --}}
+                    <td class="actions">
+                        <div>
+                            <span class="package-builder-remote-packages-subtab actionsSpan" rel="tooltip"
+                                data-bs-original-title="{{str 'LBL_PACKAGE_BUILDER_PULL_PACKAGE_TOOLTIP' 'Administration'}}">
+                                <a id="{{@index}}"
+                                    class="btn btn-primary pullButton" role="button"
+                                    name="pull_package_button" track="click:pull_package_button">
+                                    {{str 'LBL_PACKAGE_BUILDER_PULL_PACKAGE' 'Administration'}}
+                                </a>
+                            </span>
+                            <a id="{{@index}}" class="hide btn btn-primary updateButton"
+                                role="button" name="update_package_button" track="click:update_package_button" rel="tooltip"
+                                data-bs-original-title="{{str 'LBL_PACKAGE_BUILDER_UPDATE_PACKAGE_TOOLTIP' 'Administration'}}">
+                                {{str 'LBL_PACKAGE_BUILDER_UPDATE_PACKAGE' 'Administration'}}
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{!-- <<<--- List View --}}
+
+{{#each meta.buttons}}
+    <div class="mt-2.5">
+        {{field ../this}}
+    </div>
+{{/each}}

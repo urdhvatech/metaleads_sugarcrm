@@ -1,0 +1,31 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#with this.itemModel.attributes}}
+    <div class="block preview-data rounded-lg shadow w-fit flex preview-formatting"
+         style="
+             color: {{dropdownStyle.text.color}};
+             background-color: {{dropdownStyle.backgroundColor}};
+             {{#if dropdownStyle.text.isBold}}font-weight: bold; {{/if}}
+             {{#if dropdownStyle.text.isItalic}}font-style: italic; {{/if}}
+             text-decoration:
+             {{#if dropdownStyle.text.isUnderline}} underline {{/if}}
+             {{#if dropdownStyle.text.isLineThrough}} line-through {{/if}};"
+    >
+        {{#if dropdownStyle.icon.class}}
+            <i style="color: {{dropdownStyle.icon.color}};"
+               class="sicon sicon-{{dropdownStyle.icon.class}} ltr:mr-1.5 rtl:ml-1.5">
+            </i>
+        {{/if}}
+        {{~dropdown_label~}}
+    </div>
+{{/with}}

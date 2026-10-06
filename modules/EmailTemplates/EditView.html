@@ -1,0 +1,318 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+{PAGE_TITLE}
+<style>
+    #subjectfield { height: 1.6em; }
+</style>
+<script src="include/javascript/csp/inline-handlers.js" nonce="{sugar_nonce}"></script>
+<script nonce="{sugar_nonce}">
+    initInlineHandlers('{sugar_nonce}');
+</script>
+{JAVASCRIPT}
+<script type="text/javascript" src="cache/include/javascript/sugar_grp1.js?v={VERSION_MARK}" nonce="{sugar_nonce}"></script>
+{JSLANG}
+<script type="text/javascript" language="Javascript" src="modules/Emails/javascript/Email.js?v={VERSION_MARK}" nonce="{sugar_nonce}"></script>
+<script type="text/javascript" language="Javascript" src="modules/EmailTemplates/EmailTemplate.js?v={VERSION_MARK}" nonce="{sugar_nonce}"></script>
+<script type="text/javascript" nonce="{sugar_nonce}">
+    {FIELD_DEFS_JS}
+</script>
+
+<form name="EditView" id="EditView" method="POST" action="index.php" enctype="multipart/form-data">
+    {sugar_csrf_form_token}
+    <input type="hidden" name="module" value="EmailTemplates">
+    <input type="hidden" name="record" value="{ID.ESCAPE_HTML_ATTR}">
+    <input type="hidden" name="action">
+    <input type="hidden" name="form">
+    <input type="hidden" name="return_module" value="{RETURN_MODULE.ESCAPE_HTML_ATTR}">
+    <input type="hidden" name="return_id" value="{RETURN_ID.ESCAPE_HTML_ATTR}">
+    <input type="hidden" name="return_action" value="{RETURN_ACTION.ESCAPE_HTML_ATTR}">
+    <input type="hidden" name="inpopupwindow" value="{INPOPUPWINDOW.ESCAPE_HTML_ATTR}">
+    <input type="hidden" name="old_id" value="{OLD_ID.ESCAPE_HTML_ATTR}">
+    <input type="hidden" name="type" value="campaign">
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <input title="{APP.LBL_SAVE_BUTTON_TITLE.ESCAPE_HTML_ATTR}" accesskey="{APP.LBL_SAVE_BUTTON_KEY.ESCAPE_HTML_ATTR}" class="button primary"
+                       data-onclick-{sugar_nonce}="	this.form.action.value='Save';
+<!-- BEGIN: NoInbound1 -->
+								addUploadFiles('EditView');
+								addUploadDocs('EditView');
+<!-- END: NoInbound1 -->
+								return check_form('EditView');"
+                       type="submit" name="button" value="{APP.LBL_SAVE_BUTTON_LABEL.ESCAPE_HTML_ATTR}" id="SAVE">
+                <input title="{APP.LBL_CANCEL_BUTTON_TITLE.ESCAPE_HTML_ATTR}" accesskey="{APP.LBL_CANCEL_BUTTON_KEY.ESCAPE_HTML_ATTR}" class="button" data-onclick-{sugar_nonce}="{CANCEL_SCRIPT}" type="submit" name="button" value="{APP.LBL_CANCEL_BUTTON_LABEL.ESCAPE_HTML_ATTR}" id="CANCEL">
+            </td>
+            <td align="right" nowrap>
+				<span class="required">
+					{APP.LBL_REQUIRED_SYMBOL.ESCAPE_HTML}
+				</span>
+                {APP.NTC_REQUIRED.ESCAPE_HTML}
+            </td>
+            <td align='right'>
+                {ADMIN_EDIT}
+            </td>
+        </tr>
+    </table>
+    <div class="edit view">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="15%" scope="row">
+                                {MOD.LBL_NAME.ESCAPE_HTML}
+                                <span class="required">
+								{APP.LBL_REQUIRED_SYMBOL.ESCAPE_HTML}
+							</span>
+                            </td>
+                            <td width="30%" >
+                                <input id='name' name='name' tabindex="0" type="text" size='30' maxlength="255" value="{NAME.ESCAPE_HTML_ATTR}">
+                            </td>
+                            <td width="15%" scope="row">
+                                {MOD.LBL_TEAM.ESCAPE_HTML}&nbsp;
+                            </td>
+                            <td width="30%" >
+                                {TEAM}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="15%" scope="row">
+                                {MOD.LBL_TYPE.ESCAPE_HTML}
+                            </td>
+                            <td width="30%" >
+                                <select name='type' tabindex="11">{TYPEDROPDOWN}</select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="15%" scope="row">
+                                {MOD.LBL_DESCRIPTION.ESCAPE_HTML}
+                            </td>
+                            <td colspan="3" >
+                                <textarea name='description' tabindex='0' cols="90" rows="1" style="height: 1.6em; overflow-y:auto; font-family:sans-serif,monospace; font-size:inherit;" id="description">{DESCRIPTION.SANITIZE_HTML}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <!-- BEGIN: NoInbound -->
+                        <tr>
+                            <td width="15%" scope="row" align='left'>
+                                {MOD.LBL_INSERT_VARIABLE.ESCAPE_HTML}&nbsp;
+                            </td>
+                            <td width="30%"  colspan="3">
+                                <select name='variable_module' tabindex="0" data-onchange-{sugar_nonce}="addVariables(document.EditView.variable_name,this.options[this.selectedIndex].value);">
+                                    {DROPDOWN}
+                                </select>
+                                <select name='variable_name' tabindex="0" data-onchange-{sugar_nonce}="showVariable();">
+                                </select>
+                                <span scope="row">
+								{MOD.LBL_USE.ESCAPE_HTML}:
+							</span>
+                                <input type="text" size="30" tabindex="0" name="variable_text" />
+                                <!-- BEGIN: variable_button -->
+                                <input type='button' tabindex="0" data-onclick-{sugar_nonce}='{INSERT_VARIABLE_ONCLICK}' class='button' value='{MOD.LBL_INSERT.ESCAPE_HTML_ATTR}'>
+                                <!-- END: variable_button -->
+                            </td>
+                        </tr>
+                        <!-- BEGIN: tracker_url -->
+                        <tr>
+                            <td width="15%" scope="row" align='left'>
+                                {MOD.LBL_INSERT_TRACKER_URL.ESCAPE_HTML}&nbsp;
+                            </td>
+                            <td width="85%" colspan="3" valign="top" >
+                                <select tabindex='0' name='tracker_url' data-onchange-{sugar_nonce}='this.form.url_text.value=this.value'>
+                                    {TRACKER_KEY_OPTIONS}
+                                </select>
+                                <input type="text" size="30" id="url_text" name="url_text" value="{DEFAULT_URL_TEXT.ESCAPE_HTML_ATTR}" />
+                                <input type='button' tabindex="0" data-onclick-{sugar_nonce}='{INSERT_URL_ONCLICK}' class='button' value='{MOD.LBL_INSERT_URL_REF.ESCAPE_HTML_ATTR}'>
+                            </td>
+                        </tr>
+                        <!-- END: tracker_url -->
+                        <!-- END: NoInbound -->
+                        <tr>
+                            <td width="15%" scope="row">
+                                {MOD.LBL_SUBJECT.ESCAPE_HTML}
+                            </td>
+                            <td colspan='4' >
+                                <textarea data-onblur-{sugar_nonce}="remember_place(this);" name='subject' tabindex='0' cols="90" rows="1" style="height: 1.6.em; overflow-y:auto; font-family:sans-serif,monospace; font-size:inherit;" id="subjectfield">{SUBJECT.SANITIZE_HTML}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td colspan='4'>
+                                <input name="toggle_textonly" id="toggle_textonly" data-onclick-{sugar_nonce}="toggle_text_only();"
+                                       type="checkbox" {TEXTONLY_CHECKED} {TEXTONLY_DISABLED} />
+                                <input  name="text_only"  id="text_only"  type="hidden" value='{TEXTONLY_VALUE.ESCAPE_HTML_ATTR}'/>
+                                &nbsp;{MOD.LBL_SEND_AS_TEXT.ESCAPE_HTML}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" scope="row">
+                                {MOD.LBL_BODY.ESCAPE_HTML}
+                            </td>
+
+                            <!-- BEGIN: textarea -->
+                            <td colspan="4" >
+                                <div id='body_text_div'>
+                                    <textarea id='body_text' tabindex='0' name='body_html' cols="100" rows="20">{BODY_HTML.SANITIZE_HTML}</textarea>
+                                </div>
+                                <br>
+                                <div id='toggle_textarea_option'>
+                                    <input id='toggle_textarea_elem' data-onclick-{sugar_nonce}="toggle_textarea_edit(this);" type="button" name="toggle_html" value="{MOD.LBL_EDIT_ALT_TEXT.ESCAPE_HTML_ATTR}" />
+                                </div>
+                                <br>
+                                <div id="text_div" style="display: none">
+                                    <textarea tabindex='0' name='body' cols="100" rows="20" >{BODY.SANITIZE_HTML}</textarea>
+                                </div>
+                            </td>
+                            <!-- END: textarea -->
+                        </tr>
+                        <!-- BEGIN: NoInbound2 -->
+                        <tr>
+                            <td valign="top" scope="row">
+                                {MOD.LBL_ATTACHMENTS.ESCAPE_HTML}:
+                            </td>
+                            <td colspan="2" nowrap>
+                                {ATTACHMENTS_JAVASCRIPT} {ATTACHMENTS}
+                            </td>
+                        </tr>
+                        <!-- END: NoInbound2 -->
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<!-- BEGIN: NoInbound3 -->
+<form id="upload_form" name="upload_form" method="POST" action='AttachDocuments.php' enctype="multipart/form-data">
+    {sugar_csrf_form_token}
+    <div id="upload_div">
+        <input type="file" id="my_file" name="file_1" size="40" />
+        <input type="hidden" id="documentName" name="uploaddoc" data-onchange-{sugar_nonce}="docUpload(); form_reset_doc();" size="1" />
+        <input type="hidden" id="documentId" name="seldoc" tabindex="0" />
+        <input type="hidden" id="docRevId" name="seldoc" tabindex="0" />
+        <input type="hidden" id="documentType" name="seldoc" tabindex="0" />
+        <input type="button" name="add_doc" id="add_doc" data-onclick-{sugar_nonce}="selectDoc();" value='{MOD.LBL_SUGAR_DOCUMENT.ESCAPE_HTML_ATTR}' class="button" />
+    </div>
+    <div id="attachments_div">
+    </div>
+</form>
+<!-- END: NoInbound3 -->
+{tiny}
+<script type="text/javascript" language="javascript" nonce="{sugar_nonce}">
+    <!-- BEGIN: NoInbound4 -->
+    toggle_textarea_elem_values = ['{MOD.LBL_EDIT_ALT_TEXT.ESCAPE_JS}', '{MOD.LBL_HIDE_ALT_TEXT.ESCAPE_JS}'];
+
+    if(document.getElementById('upload_form') != null){
+        var multi_selector = new multiFiles(document.getElementById('upload_div'));
+        multi_selector.addElement( document.getElementById('my_file'));
+    }
+    <!-- END: NoInbound4 -->
+    //call the function on load, this will hide the tinyMCE editor if needed
+    toggle_text_only(true);
+
+    function toggle_portal_flag() {
+        {TOGGLE_JS}
+    }
+    <!-- BEGIN: NoInbound5 -->
+    addVariables(document.EditView.variable_name,'{DEFAULT_MODULE}');
+    <!-- END: NoInbound5 -->
+    focus_obj = document.EditView.body;
+    toggle_portal_flag();
+    update_textarea_button();
+    function handleAttachmentButtons() {
+        document.addEventListener('click', function(e) {
+            var target = e.target;
+
+            // Handle remove button
+            if (target.classList.contains('remove-button')) {
+                e.preventDefault();
+
+                let fileElement = target.parentNode.element;
+                if (fileElement && fileElement.value) {
+                    let filePathComponents = fileElement.value.split('\\');
+                    let fileName = filePathComponents[filePathComponents.length - 1];
+
+                    let tiny = tinymce.get('body_text');
+
+                    if (tiny) {
+                        try {
+                            var dom = tiny.dom || (tiny.editor && tiny.editor.dom);
+                            if (dom && typeof dom.select === 'function') {
+                                // Remove any <img> whose src contains the fileName
+                                var selector = 'img[src*="' + encodeURIComponent(fileName) + '"]';
+                                var imgs = dom.select(selector);
+                                if (imgs && imgs.length) {
+                                    for (var i = 0; i < imgs.length; i++) {
+                                        dom.remove(imgs[i]);
+                                    }
+                                }
+                            } else if (typeof tiny.getContent === 'function'
+                                && typeof tiny.setContent === 'function') {
+                                // Fallback: strip via regex if DOM API isn’t available
+                                var html = tiny.getContent();
+                                var re = new RegExp(
+                                    '<img[^>]*' +
+                                    fileName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
+                                    '[^>]*>',
+                                    'gi'
+                                );
+                                tiny.setContent(html.replace(re, ''));
+                            }
+                        } catch (ignore) {}
+                    }
+                }
+
+                // Remove the file element
+                if (target.parentNode && target.parentNode.parentNode) {
+                    target.parentNode.parentNode.removeChild(target.parentNode);
+                }
+            }
+
+            // Handle embed button
+            if (target.classList.contains('embed-button')) {
+                e.preventDefault();
+                let fileElement = target.parentNode.element;
+                if (fileElement && fileElement.value) {
+                    let filePathComponents = fileElement.value.split('\\');
+                    let fileName = filePathComponents[filePathComponents.length - 1];
+                    let allowedTypes = ['png', 'jpg', 'jpeg', 'gif'];
+                    let imglocation = 'cache/images/';
+
+                    if (SUGAR.util.validateFileExt(fileName, allowedTypes)) {
+                        var embedImage = '<img src="' + imglocation + encodeURI(fileName) + '" alt="">';
+                        if (typeof insert_variable === 'function') {
+                            insert_variable(embedImage);
+                        }
+                        // Mark as embedded
+                        var checkbox = target.parentNode.querySelector('input[type="checkbox"]');
+                        if (checkbox) {
+                            checkbox.checked = true;
+                        }
+                    } else {
+                        alert(SUGAR.language.get('app_strings', 'LBL_ONLY_IMAGE_ATTACHMENT'));
+                    }
+                }
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', handleAttachmentButtons);
+</script>
+
+
+
+<!-- END: main -->

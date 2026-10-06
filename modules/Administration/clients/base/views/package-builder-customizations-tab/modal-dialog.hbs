@@ -1,0 +1,45 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div id="pb_modal_local_package" class="modal hide">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="inline ml-4">
+                    {{str 'LBL_PACKAGE_BUILDER_ADD_TO_LOCAL_PACKAGES' 'Administration'}} </h4>
+            </div>
+            <div class="modal-body !pb-10 ml-5 mb-5">
+                <div class="mt-5 mb-4 ml-2 text-sm">
+                    {{str 'LBL_PACKAGE_BUILDER_ADD_TO_LOCAL_PACKAGES_LABEL' 'Administration'}}
+                </div>
+                <div id="additional_settings">
+                    <div class="ml-2 mt-2 mb-2 mr-8">
+                        <label class="flex mb-1"> {{str 'LBL_PACKAGE_BUILDER_PACKAGE_NAME' 'Administration'}}:</label>
+                        <input type="text" name="name" value="{{packageName}}" maxlength="255"
+                               aria-label="{{str 'LBL_PACKAGE_BUILDER_PACKAGE_NAME' 'Administration'}}"
+                               class="input-large !w-full">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer !p-2.5">
+                <button type="button" class="btn btn-secondary !text-gray-800 !border-gray-300 !leading-[1.375rem]
+                        dark:!bg-gray-800 dark:!border-gray-600 dark:!text-gray-400
+                        dark:hover:!bg-gray-700 dark:hover:!border-gray-400"
+                        data-bs-dismiss="modal"> {{str 'LBL_PACKAGE_BUILDER_CLOSE' 'Administration'}}
+                </button>
+                <a id="add_to_local" class="btn btn-primary !leading-[1.5rem] !m-0" data-bs-dismiss="modal">
+                    {{str 'LBL_PACKAGE_BUILDER_ADD_TO_LOCAL_PACKAGES' 'Administration'}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>'

@@ -1,0 +1,103 @@
+.dashboard {
+  .dashlet-content {
+    .forecast-details {
+      .span6.text-right {
+        text-align: left;
+      }
+    }
+
+    .bestNumbers {
+      .span6.text-center:not(:first-child) {
+        margin-right: @fluidGridGutterWidth;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.dashboard .btn-slider .noUiSliderEnds {
+  margin: 0 0 0 30px;
+}
+
+.dashboard .dashlet-content .dashlet-options > .row-fluid > div:last-child {
+  float: left;
+  margin-left: 0;
+}
+
+.dashlet {
+  .dashlet-title.record-toolbar .record-cell {
+    &[data-type="name"],
+    &[data-type="fullname"] {
+      margin-right: 0.5rem;
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+.resource-info {
+  margin-right: 44px;
+  margin-left: 0;
+}
+
+#tutorial .resource-info {
+  text-align: right;
+}
+
+.dashboard .dashlets .dashlet-row .rows.well > .btn {
+  left: 0;
+  right: auto;
+}
+
+.dashboard .dashlets .dashlet-row .rows.well > .btn:not(:nth-child(1)) {
+  left: 20px;
+}
+
+.news-article .avatar {
+  float: right;
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+/* NEW SKIN START */
+
+.record-panel .record-panel-header-container .record-panel-header .record-panel-arrow {
+  margin-left: 8px;
+}
+
+.dashlet-controls-header .dashlet-controls-sort .dashlet-controls-label {
+  margin-left: 10px;
+}
+
+.toggle-actions.actions.flex.items-center {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.filter-view .select2-container .select2-search-choice span .sicon,
+.filter-view .select2-container .select2-choice span .sicon {
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+.agent_workbench_dashboard,
+.console_dashboard {
+  .multi-line-list-view tbody .left-column .dropdown-menu {
+    left: auto;
+    right: 5px;
+  }
+}
+
+/* NEW SKIN END */
+
+.placeholder-empty {
+  transform: scaleX(-1);
+}
+
+.nav-tabs-indented li.tab:first-child {
+  margin-left: 0;
+  margin-right: 40px;
+}
+
+.empty-create-button {
+  direction: rtl;
+}

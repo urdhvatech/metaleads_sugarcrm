@@ -1,0 +1,45 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{! Header }}
+<div class="headerpane bg-[--primary-content-background] box-border fixed">
+	<h1>
+		<span class="record-cell">
+			<span>{{str 'LBL_PACKAGE_BUILDER_HEADER' 'Administration'}}</span>
+		</span>
+		<div class="btn-toolbar pull-right">
+			{{#each meta.buttons}}
+				{{field ../this}}
+			{{/each}}
+		</div>
+	</h1>
+</div>
+
+{{! Tabs }}
+<div class="tab-list parentTabs">
+	<ul class="nav nav-tabs" id="recordTab">
+		{{#each this.tabList}}
+			<li class="tab panel_body {{value}}_tab mt-0 {{#if active}}active{{/if}} {{#if disabled}}disabled{{/if}}">
+				<a name="{{value}}" data-toggle="tab" {{#if tooltip}} rel="tooltip" data-placement="bottom"
+					title="{{str tooltip 'Administration'}}" {{/if}}>{{str label 'Administration'}}</a>
+				{{#eq value "customizations"}}
+					<span class="customizationsDot"></span>
+				{{/eq}}
+			</li>
+		{{/each}}
+	</ul>
+</div>
+
+{{! Selected Tab Content }}
+<div class="tab-content">
+
+</div>

@@ -1,0 +1,83 @@
+.dri-workflow-wrapper .dri-subworkflow.group\/subworkflow {
+  margin-left: 0;
+  margin-right: 5px;
+
+  &:first-child {
+    margin-right: 0;
+  }
+}
+
+.dri-workflow-wrapper .dri-subworkflow .dri-subworkflow-arrow {
+  &::before {
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: none;
+    border-right: 20px solid @gray30;
+  }
+
+  &::after {
+    border-top: 20px solid @gray30;
+    border-bottom: 20px solid @gray30;
+    border-left: none;
+    border-right: 20px solid transparent;
+  }
+
+  &-in_progress {
+    background: @lightOcean;
+
+    &::before {
+      border-right-color: @lightOcean;
+    }
+
+    &::after {
+      border-top-color: @lightOcean;
+      border-bottom-color: @lightOcean;
+    }
+  }
+
+  &-ready_for_next_step {
+    background: @lust;
+
+    &::before {
+      border-right-color: @lust;
+    }
+
+    &::after {
+      border-top-color: @lust;
+      border-bottom-color: @lust;
+    }
+  }
+
+  &-completed {
+    background: @lightGreen;
+
+    &::before {
+      border-right-color: @lightGreen;
+    }
+
+    &::after {
+      border-top-color: @lightGreen;
+      border-bottom-color: @lightGreen;
+    }
+  }
+
+  &-cancelled,
+  &-not_completed {
+    background: @lightYellow;
+
+    &::before {
+      border-right-color: @lightYellow;
+    }
+
+    &::after {
+      border-top-color: @lightYellow;
+      border-bottom-color: @lightYellow;
+    }
+  }
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(-24px);
+  -ms-transform: translateX(-24px);
+  transform: translateX(-24px);
+}

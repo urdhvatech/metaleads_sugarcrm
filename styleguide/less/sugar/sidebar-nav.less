@@ -1,0 +1,306 @@
+/* SIDEBAR NAV
+  ----------------*/
+.banner-shifted {
+  .sidebar-nav {
+    top: @bannerHeight;
+    height: calc(100% ~"-" @bannerHeight);
+  }
+}
+
+.sidebar-nav-overlay {
+  z-index: (@zindexSidebarNav - 1);
+}
+
+.sidebar-nav {
+  .sidebar-nav-item {
+    a {
+      text-decoration: none;
+    }
+
+    .sidebar-nav-item-kebab-disabled {
+      .hide();
+    }
+
+    .sidebar-nav-item-sugarcrm-logo {
+      height: 1.17rem;
+      margin-left: -0.16rem;
+      margin-top: -0.04rem;
+    }
+
+    .sicon.omnichannel-logged-in {
+      left: 2rem;
+      height: 0.625rem;
+
+      &::before {
+        top: -1px;
+        position: absolute;
+      }
+    }
+  }
+
+  .sidebar-nav-item-group-modules {
+    .sidebar-nav-item {
+      &:not(.active):not(.default) {
+        .hide();
+      }
+    }
+  }
+
+  // When fully collapsed
+  &:not(.expanded):not(.expanding):not(.collapsing) {
+    left: -11.5rem;
+
+    .sidebar-nav-item {
+      left: 11.5rem;
+      width: 3.5rem;
+    }
+
+    .expanded {
+      .hide();
+    }
+
+    .sidebar-nav-item-group-modules {
+      .sidebar-nav-item {
+        &:not(.active):not(.pinned) {
+          .hide();
+        }
+      }
+    }
+
+    .sidebar-nav-flyout {
+      left: 1.125rem !important;
+    }
+  }
+
+  // When fully expanded
+  &.expanded:not(.collapsing):not(.expanding) {
+    left: 0;
+
+    .sidebar-nav-item {
+      left: 0;
+    }
+
+    .collapsed {
+      .hide();
+    }
+  }
+
+  // While expanding
+  &.expanding {
+    left: 0;
+
+    .sidebar-nav-item {
+      left: 0;
+    }
+
+    .collapsed {
+      .hide();
+    }
+
+    .sidebar-nav-item-group-modules {
+      .sidebar-nav-item {
+        &:not(.active):not(.pinned) {
+          .hide();
+        }
+      }
+    }
+  }
+
+  // While collapsing
+  &.collapsing {
+    left: -11.5rem;
+
+    .sidebar-nav-item {
+      left: 11.5rem;
+    }
+
+    .collapsed {
+      .hide();
+    }
+
+    .sidebar-nav-item-group-modules {
+      .sidebar-nav-item {
+        &:not(.active):not(.pinned) {
+          .hide();
+        }
+      }
+    }
+  }
+}
+
+.sidebar-nav-flyout {
+  // this z-index should be higher then z-index of .sidebar-nav-overlay
+  z-index: 1060;
+
+  &.popover[data-popper-placement="right"] {
+    .flyout-close {
+      right: 4px;
+      top: 4px;
+      z-index: 2000;
+
+      &:hover {
+        .sicon {
+          color: @sicon-hover-color;
+        }
+      }
+    }
+  }
+
+  .helplet {
+    a:hover {
+      color: @linkColorHover;
+    }
+  }
+}
+
+.sidebar-nav.expanded {
+  .sidebar-nav-flyout {
+    box-shadow: 0 0.25rem 0.25rem var(--sidebar-nav-flyout-shadow-color);
+  }
+}
+
+/*
+CSS related to the animations inside sidebar items
+ */
+.sidebar-nav {
+  // Animations specific to collapsed mode
+  &:not(.expanded):not(.expanding):not(.collapsing) {
+    .sidebar-nav-item {
+      &:hover,
+      &:focus-within,
+      &.selected {
+        // When the nav item is hovered, focused, or selected, the color block fills the whole nav item
+        .animated-background {
+          height: 100%;
+          width: 100%;
+          transform: translateX(0);
+          border-radius: 0;
+        }
+
+        &:not(.active) {
+          // If the nav item is not active, the animation should expand the color block from the notch state by first
+          // filling the height, then filling the width all over 300ms
+          .animated-background {
+            transition:
+              height 0.1s linear,
+              border-radius 0.1s linear,
+              width 0.2s linear 0.1s,
+              transform 0.2s linear 0.1s;
+          }
+        }
+
+        &.active {
+          // If the nav item is active, the animation should expand the color block to fill width and height evenly over
+          // 300ms
+          .animated-background {
+            transition:
+              height 0.3s linear,
+              border-radius 0.3s linear,
+              width 0.3s linear,
+              transform 0.3s linear;
+          }
+        }
+
+        // Wait 300ms for the color block animation to finish, then expand the kebab over 100ms
+        .sidebar-nav-item-kebab,
+        .sidebar-nav-item-kebab-disabled,
+        .sidebar-nav-item-tab {
+          width: 1.125rem;
+          transition: width 0.1s linear 0.3s;
+        }
+      }
+
+      &:not(:hover):not(:focus-within):not(.selected) {
+        // When the nav item comes off hover/focus/selected, first shrink the kebab width to 0 over 100ms
+        .sidebar-nav-item-kebab,
+        .sidebar-nav-item-kebab-disabled,
+        .sidebar-nav-item-tab {
+          transition: width 0.1s linear;
+        }
+
+        // If the nav item is not active, wait 100ms for the kebab to shrink, then shrink the width of the color block,
+        // then shrink its height to return it to the default "notch" state
+        &:not(.active) {
+          .animated-background {
+            transition:
+              transform 0.2s linear 0.1s,
+              width 0.2s linear 0.1s,
+              border-radius 0.1s linear 0.3s,
+              height 0.1s linear 0.3s;
+          }
+        }
+
+        // If the nav item is active, wait 100ms for the kebab to shrink, then shrink the width and height of the color
+        // block evenly to return to the active state over 300ms
+        &.active {
+          .animated-background {
+            transition:
+              transform 0.3s linear 0.1s,
+              width 0.3s linear 0.1s,
+              border-radius 0.3s linear 0.1s,
+              height 0.3s linear 0.1s;
+          }
+        }
+      }
+    }
+  }
+
+  // Animations specific to expanded mode
+  &.expanded {
+    .sidebar-nav-item {
+      &:hover,
+      &:focus-within,
+      &.selected {
+        // When the nav item is hovered, focused, selected, slide the color block over the icon over 400ms. If the color
+        // block is marked as expanded-full-fill, fill the whole nav item over 400ms
+        .animated-background {
+          transform: translateX(0.75rem);
+          transition: transform 0.4s linear;
+
+          &.expanded-full-fill {
+            height: 100%;
+            width: 100%;
+            transform: translateX(0);
+            border-radius: 0;
+            transition:
+              height 0.1s linear,
+              border-radius 0.1s linear,
+              width 0.3s linear 0.1s,
+              transform 0.3s linear 0.1s;
+          }
+        }
+
+        // Wait for 300ms of the color block animation, then expand the kebab over 100ms so the color block and kebab
+        // finish at the same time
+        .sidebar-nav-item-kebab,
+        .sidebar-nav-item-kebab-disabled,
+        .sidebar-nav-item-tab {
+          width: 1.125rem;
+          transition: width 0.1s linear 0.3s;
+        }
+      }
+
+      &:not(:hover):not(:focus-within):not(.selected) {
+        // When the nav item comes off hover/focus/selected, slide the color block back to the notch state over 400ms
+        .animated-background {
+          transition: transform 0.4s linear;
+
+          &.expanded-full-fill {
+            transition:
+              transform 0.3s linear,
+              width 0.3s linear,
+              border-radius 0.1s linear 0.3s,
+              height 0.1s linear 0.3s;
+          }
+        }
+
+        // At the same time the color block animation starts, shrink the kebab width to 0 over 100ms
+        .sidebar-nav-item-kebab,
+        .sidebar-nav-item-kebab-disabled,
+        .sidebar-nav-item-tab {
+          transition: width 0.1s linear;
+        }
+      }
+    }
+  }
+}

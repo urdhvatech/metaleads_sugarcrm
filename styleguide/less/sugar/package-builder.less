@@ -1,0 +1,191 @@
+.package-builder {
+  .table {
+    width: 100%;
+    background: @tableBackground;
+  }
+
+  .tab-list a:hover, .nav-tabs>.active>a {
+    font-weight: bold;
+  }
+
+  #recordTab {
+    padding: 6px 0;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  .btn {
+    margin-left: 0.625rem;
+  }
+
+  .btn-inline {
+    margin-left: 0;
+  }
+
+  .btn.btn-link.btn-inline:not(.disabled):not(.btn-invisible):hover {
+    background: transparent;
+  }
+
+  .customizations_tab, .packages_tab, .installed_packages_tab, .remote_packages_tab {
+    position: relative;
+  }
+
+  .customizationsDot, .remote_packagesDot {
+    position: absolute;
+    right: 4px;
+    padding: 3px 3px;
+    border-radius: 100%;
+    background-color: #6fabd6;
+    color: white;
+    display: none;
+  }
+
+  /* Jump notification tab animation -> -> */
+  .customizations_tab, .remote_packages_tab {
+    .start_animation {
+      position: relative;
+      top: 0;
+      display: inline-block;
+      animation: bounce 0.3s ease 2 alternate;
+    }
+  }
+
+  @keyframes bounce {
+    100% {
+      top: -6px;
+    }
+  }
+
+  .ciCancel:hover {
+    text-decoration: underline !important;
+  }
+
+  .selectAllButton {
+    font-size: 18px;
+  }
+
+  .selectAllButton:hover {
+    text-decoration: none;
+  }
+
+  .selectAllButton:focus {
+    outline: none !important;
+  }
+
+  .modal-header .close {
+    color: var(--text-color);
+  }
+
+  .tab-content {
+    #no_data_message {
+      text-align: center;
+      line-height: 38px;
+      font-size: 0.75rem;
+    }
+
+    th.sorting_desc span::after {
+      font: normal normal normal 1em/1 SugarIcons;
+      content: @sicon-arrow-down;
+      margin-left: 3px;
+    }
+
+    th.sorting_asc span::after {
+      font: normal normal normal 1em/1 SugarIcons;
+      content: @sicon-arrow-up;
+      margin-left: 3px;
+    }
+
+    /* Default hover color */
+    #fields_table tbody tr:hover,
+    #fields_table thead th:hover {
+      background-color: @tableRowHover;
+    }
+
+    #fields_table td:hover {
+      cursor: pointer;
+    }
+
+    /* Filter */
+    .record-cell[data-type="bool"] {
+      display: inline-flex;
+    }
+
+    .record-cell[data-type="bool"] label {
+      padding-top: 5px;
+    }
+
+    .clearFilterInputButton {
+      font-size: 18px;
+    }
+
+    .record .normal {
+      width: auto;
+    }
+  }
+
+  .installed-packages-subtab, .remote-packages-subtab {
+    th.actions, td.actions {
+      text-align: center;
+    }
+
+    .pullButton, .updateButton {
+      width: 90px !important;
+    }
+  }
+
+  #remote_packages {
+    .actions {
+      div {
+        display: flex;
+        justify-content: center;
+      }
+
+      .btn {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .alert-page-overlay {
+    .alert-content {
+      flex: max-content;
+      position: relative;
+      width: 100%;
+
+      .alert-status {
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .alert-close {
+        width: 100%;
+        border: 0px none;
+        height: 36px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* Dark mode styling */
+body.sugar-dark-theme .package-builder {
+  .nav-tabs li.disabled {
+    opacity: 1;
+
+    & > a {
+      color: var(--gray-600);
+    }
+  }
+}

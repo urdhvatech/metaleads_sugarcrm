@@ -1,0 +1,43 @@
+<svg width="389" height="176" viewBox="0 0 389 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1298_8008" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="389" height="176">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16H368C372.418 16 376 12.4183 376 8C376 3.58172 372.418 0 368 0H8ZM8 32C3.58172 32 0 35.5817 0 40C0 44.4183 3.58171 48 7.99999 48H333C337.418 48 341 44.4183 341 40C341 35.5817 337.418 32 333 32H8ZM0 136C0 131.582 3.58172 128 8 128H340C344.418 128 348 131.582 348 136C348 140.418 344.418 144 340 144H8C3.58172 144 0 140.418 0 136ZM8 160C3.58172 160 0 163.582 0 168C0 172.418 3.58172 176 8 176H162C166.418 176 170 172.418 170 168C170 163.582 166.418 160 162 160H8ZM0 72C0 67.5817 3.58172 64 8 64H381C385.418 64 389 67.5817 389 72C389 76.4183 385.418 80 381 80H8.00001C3.58173 80 0 76.4183 0 72ZM8 96C3.58172 96 0 99.5817 0 104C0 108.418 3.58172 112 8 112H290C294.418 112 298 108.418 298 104C298 99.5817 294.418 96 290 96H8Z" fill="#E5EAED"/>
+
+                                    </mask>
+<g mask="url(#mask0_1298_8008)">
+<rect x="-38" y="-22" width="466" height="220" fill="#E5EAED"/>
+<g filter="url(#filter0_f_1298_8008)">
+<ellipse cx="-179" cy="104" rx="144" ry="144" fill="#FFDEBC">
+                                    <animate attributeName="cx" values="-179;499;-179" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="cy" values="104;208;104" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="rx" values="144;110;144" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="ry" values="144;110;144" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/></ellipse>
+</g>
+<g filter="url(#filter1_f_1298_8008)">
+<ellipse cx="-203" cy="-57" rx="158" ry="158" fill="#DFD1FD">
+                                    <animate attributeName="cx" values="-203;408;-203" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="cy" values="-57;327;-57" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/></ellipse>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_1298_8008" x="-383" y="-100" width="408" height="408" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_1298_8008">
+                                    </feGaussianBlur>
+
+                                    
+                                    <animate attributeName="x" values="-383;329;-383" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="y" values="-100;38;-100" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="width" values="408;340;408" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="height" values="408;340;408" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/></filter>
+<filter id="filter1_f_1298_8008" x="-445" y="-299" width="484" height="484" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="42" result="effect1_foregroundBlur_1298_8008">
+                                    </feGaussianBlur>
+
+                                    
+                                    <animate attributeName="x" values="-445;166;-445" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/>
+                                    <animate attributeName="y" values="-299;85;-299" begin="0s" dur="2.5s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.5;1"/></filter>
+</defs>
+</svg>

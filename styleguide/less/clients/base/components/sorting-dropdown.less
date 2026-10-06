@@ -1,0 +1,31 @@
+.sorting-dropdown {
+  .sorting-dropdown-select {
+    .select2-choice {
+      border-radius: @inputBorderRadius 0 0 @inputBorderRadius;
+    }
+  }
+
+  .sorting-dropdown-arrow {
+    border: @borderWidget;
+    border-left: 0;
+    border-radius: 0 @inputBorderRadius @inputBorderRadius 0;
+    padding: 4px 8px;
+    cursor: pointer;
+
+    .sicon {
+      color: @sicon-active-color;
+    }
+  }
+
+  .sorting-dropdown-arrow.disabled {
+    .sicon {
+      color: #b8bcbe;
+    }
+  }
+
+  .sorting-dropdown-arrow:not(.disabled):hover {
+    .sicon {
+      color: var(--sicon-hover-color);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#each visibleModels}}
+    <tr class="single dropdown-editor-record-row" id="{{cid}}">
+        {{#each ../view.meta.panels}}
+            {{#each fields}}
+            <td class="{{name}}">
+                {{#eq name 'dropdown_label'}}
+                    <div
+                        {{#with ../../../attributes.dropdownStyle}}
+                        {{#if ../../../../../formatting}}
+                        style="
+                            color: {{text.color}};
+                            background-color: {{backgroundColor}};
+                            {{#if text.isBold}} font-weight: bold; {{/if}}
+                            {{#if text.isItalic}} font-style: italic; {{/if}}
+                            text-decoration:
+                                {{#if text.isUnderline}} underline {{/if}}
+                                {{#if text.isLineThrough}} line-through {{/if}};
+                            "
+                        {{/if}}
+                        class="w-56 overflow-hidden border border-[--border-base] rounded-sm px-2 flex">
+                        {{#if ../../../../../formatting}}
+                        <i style="color: {{icon.color}};" class="sicon sicon-{{icon.class}}"></i>
+                        {{/if}}
+                        {{/with}}
+                        {{field ../../../../view model=../../../this template=../template}}
+                    </div>
+                {{else}}
+                    {{#if ../../../attributes.is_new}}
+                        {{field ../../../../../view model=../../../../this template="edit"}}
+                    {{else}}
+                        {{field ../../../../../view model=../../../../this template=../template}}
+                    {{/if}}
+                {{/eq}}
+            </td>
+            {{/each}}
+            {{#if ../../isBaseRole}}
+                <td>
+                    {{#each buttons}}
+                        {{field ../../../../view model=../../../this template="icon"}}
+                    {{/each}}
+                </td>
+            {{/if}}
+        {{/each}}
+    </tr>
+{{/each}}

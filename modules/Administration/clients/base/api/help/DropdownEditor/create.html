@@ -1,0 +1,160 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Dropdown Editor
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Create Dropdown DOM issue as a php-file in customer storage directory.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>dropdown_name</td>
+            <td>string</td>
+            <td>New dropdown dom name</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>language</td>
+            <td>string</td>
+            <td>Selected language</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>items</td>
+            <td>array</td>
+            <td>Set of key-label pairs</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>formatting</td>
+            <td>boolean</td>
+            <td>Is formatting enabled?</td>
+            <td>True</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Value</th>
+        <th>Label</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="3" align="center">Empty array</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request Example</h3>
+<pre class="pre-scrollable">
+{
+    "dropdown_name":"domains_list_dom",
+    "language":"en_en",
+    "comparisonLanguage":"pl_pl",
+    "role":"813c0628-0a40-11f0-9d19-0242ac120002",
+    "formatting":true,
+    "dropdownData": [
+        "cn": {
+            "label": "China",
+            "value": "cn",
+            "role": true,
+            "style": {
+                "backgroundColor": "#6EE7B7",
+                "text": {
+                    "isBold": true,
+                    "isItalic": true,
+                    "isUnderline": true,
+                    "isLineThrough": true,
+                    "color": "#065F46",
+                },
+                "icon": {
+                    "class": "check-circle",
+                    "color": "#6EE7B7",
+                },
+            },
+        },
+        "us": {
+            "label": "USA",
+            "value": "us",
+            "role": false,
+            "style": {
+                "backgroundColor": "#6EE7B7",
+                "text": {
+                    "isBold": true,
+                    "isItalic": true,
+                    "isUnderline": true,
+                    "isLineThrough": true,
+                    "color": "#065F46",
+                },
+                "icon": {
+                    "class": "check-circle",
+                    "color": "#6EE7B7",
+                },
+            },
+        },
+        "pl": {
+            "label": "Poland",
+            "value": "pl",
+            "role": true,
+            "style": {
+                "backgroundColor": "#6EE7B7",
+                "text": {
+                    "isBold": true,
+                    "isItalic": true,
+                    "isUnderline": true,
+                    "isLineThrough": true,
+                    "color": "#065F46",
+                },
+                "icon": {
+                    "class": "check-circle",
+                    "color": "#6EE7B7",
+                },
+            },
+        },
+    ]
+}
+</pre>
+
+<h3>Response Example</h3>
+<pre class="pre-scrollable"> [] </pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td> v11.27 </td>
+        <td> Added <code>/Administration/dropdownEditor/create</code> POST endpoint. </td>
+    </tr>
+</table>

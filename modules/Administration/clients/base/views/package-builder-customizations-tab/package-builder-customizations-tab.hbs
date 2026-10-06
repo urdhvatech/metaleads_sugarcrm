@@ -1,0 +1,31 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{! Tabs }}
+<div class="customizations-tab-list">
+    <ul class="nav nav-tabs" id="recordTab">
+        {{#each this.customizationsTabs}}
+            <li class="tab panel_body customizationsTabs mt-0 {{value}}_tab {{#if active}}active{{/if}} {{#if disabled}}disabled{{/if}}">
+                <a name="{{value}}" data-toggle="tab">
+                    {{str label 'Administration'}}
+                    <span name="{{value}}" id="selected_display">
+                    </span>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
+{{! Selected Customizations Tab Content }}
+<div class="customizations-tab-content">
+
+</div>

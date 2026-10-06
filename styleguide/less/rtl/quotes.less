@@ -1,0 +1,43 @@
+.quote-data-container {
+  .actions {
+    .dropdown-menu {
+      right: 0;
+      left: inherit;
+    }
+  }
+
+  .flex-list-view {
+    &.left-actions .dataTable {
+      td:first-child {
+        .actions {
+          .dropdown-menu {
+            right: 0;
+            left: inherit;
+
+            a {
+              text-align: right;
+            }
+          }
+        }
+
+        .fieldset-field {
+          .btn {
+            max-width: inherit;
+            margin-left: inherit;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .quote-summary-data-list-table a.btn {
+    border: none;
+  }
+
+  .footer-fields {
+    .quote-footer-item {
+      text-align: left;
+    }
+  }
+}

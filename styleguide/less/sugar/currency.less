@@ -1,0 +1,36 @@
+/* CURRENCY
+  ----------------*/
+
+.currency-field {
+  white-space: nowrap;
+
+  label.original {
+    margin: 0 6px 0 0;
+    display: inline-block;
+    color: @textColor;
+    background-color: @labelBackground;
+    border-radius: @baseBorderRadius;
+    padding: 2px 4px;
+  }
+
+  label.original.price-down {
+    color: var(--red-500);
+  }
+
+  .converted.price-down {
+    color: var(--red-500);
+  }
+
+  label.original.price-up {
+    color: var(--emerald-500);
+  }
+
+  .converted.price-up {
+    color: var(--emerald-500);
+  }
+
+  .converted {
+    display: inline-block;
+    width: calc(~"50% - 6px");
+  }
+}

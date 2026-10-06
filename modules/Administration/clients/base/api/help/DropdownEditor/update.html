@@ -1,0 +1,316 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Dropdown Editor Update
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Set details of dropdown
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                dropdownName
+            </td>
+            <td>
+                string
+            </td>
+            <td>
+                The dropdown name
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                language
+            </td>
+            <td>
+                string
+            </td>
+            <td>
+                The dropdown language
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                comparisonLanguage
+            </td>
+            <td>
+                string
+            </td>
+            <td>
+                The dropdown comparison language
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                role
+            </td>
+            <td>
+                string
+            </td>
+            <td>
+                The role for view selection
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                formatting
+            </td>
+            <td>
+                boolean
+            </td>
+            <td>
+                Is formatting enabled?
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            success 
+        </td>
+        <td>
+            boolean
+        </td>
+        <td>
+            True if the request was successful
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request Example</h3>
+<pre class="pre-scrollable">
+{
+    "language":"fr_FR",
+    "comparisonLanguage":"en_us",
+    "role":"813c0628-0a40-11f0-9d19-0242ac120002",
+    "formatting": false,
+    "dropdownData":{
+        "Prospecting": {
+            "label": "Prospection",
+            "value": "Prospecting",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Prospecting",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Qualification": {
+            "label": "Qualification",
+            "value": "Qualification",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Qualification",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Needs Analysis": {
+            "label": "Analyse des besoins",
+            "value": "Needs Analysis",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Needs Analysis",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Value Proposition": {
+            "label": "Proposition de valeur",
+            "value": "Value Proposition",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Value Proposition",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Id. Decision Makers": {
+            "label": "Ident. Décideurs",
+            "value": "Id. Decision Makers",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Id. Decision Makers",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Perception Analysis": {
+            "label": "Analyse de la perception",
+            "value": "Perception Analysis",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Perception Analysis",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Proposal/Price Quote": {
+            "label": "Devis/Proposition",
+            "value": "Proposal/Price Quote",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Proposal/Price Quote",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Negotiation/Review": {
+            "label": "Négociation/Examen",
+            "value": "Negotiation/Review",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Open"
+            },
+            "comparisonLabel": "Negotiation/Review",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Closed Won": {
+            "label": "Gagné",
+            "value": "Closed Won",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Closed Won"
+            },
+            "comparisonLabel": "Closed Won",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        },
+        "Closed Lost": {
+            "label": "Perdu",
+            "value": "Closed Lost",
+            "role": true,
+            "classification": {
+                "sales_stage_category": "Closed Lost"
+            },
+            "comparisonLabel": "Closed Lost",
+            "style": {
+                "backgroundColor": "#36b0ff",
+                "textColor": "#517bf8",
+                "icon": "sicon-arrow-up",
+                "iconColor": "#517bf8"
+            }
+        }
+    },
+}
+</pre>
+
+<h3>Response Example</h3>
+<pre class="pre-scrollable">
+{
+  {
+    'success': true
+  }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v11.27
+        </td>
+        <td>
+            Added <code>/Administration/dropdownEditor/:dropdownName</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

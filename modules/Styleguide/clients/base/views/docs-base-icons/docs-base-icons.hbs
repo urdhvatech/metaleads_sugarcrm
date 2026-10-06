@@ -1,0 +1,802 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- Icons
+================================================== -->
+<script src="styleguide/content/charts/js/chart-utils.js"></script>
+
+
+<section id="icons-description">
+  {{#if meta.description}}
+    <div class="page-header">
+      <p class="lead">{{{meta.description}}}</p>
+    </div>
+  {{/if}}
+
+  <p> SugarIcons is the icon font built for and used in SugarCRM. It provides a default icon set for everything that is needed inside of the application.</p>
+</section>
+
+<section id="icons">
+  <div class="row-fluid">
+    <div class="span12">
+      <h3 class="page-header">Available SugarIcons</h3>
+    </div>
+  </div>
+  <div class="row-fluid">
+      <div class="span4">
+          <ul class="the-icons">
+              <li><i class="sicon sicon-account"></i>sicon-account<li>
+              <li><i class="sicon sicon-account-lg"></i>sicon-account-lg<li>
+              <li><i class="sicon sicon-account-xl"></i>sicon-account-xl<li>
+              <li><i class="sicon sicon-actionbutton"></i>sicon-actionbutton<li>
+              <li><i class="sicon sicon-activity"></i>sicon-activity<li>
+              <li><i class="sicon sicon-activity-feed-xl"></i>sicon-activity-feed-xl<li>
+              <li><i class="sicon sicon-add-circle-lg"></i>sicon-add-circle-lg<li>
+              <li><i class="sicon sicon-add-dashlet-lg"></i>sicon-add-dashlet-lg<li>
+              <li><i class="sicon sicon-add-existing"></i>sicon-add-existing<li>
+              <li><i class="sicon sicon-add-folder"></i>sicon-add-folder<li>
+              <li><i class="sicon sicon-add-line-lg"></i>sicon-add-line-lg<li>
+              <li><i class="sicon sicon-add-target"></i>sicon-add-target<li>
+              <li><i class="sicon sicon-add-target-lg"></i>sicon-add-target-lg<li>
+              <li><i class="sicon sicon-address"></i>sicon-address<li>
+              <li><i class="sicon sicon-advanced-filter"></i>sicon-advanced-filter<li>
+              <li><i class="sicon sicon-ai"></i>sicon-ai<li>
+              <li><i class="sicon sicon-ai-xl"></i>sicon-ai-xl<li>
+              <li><i class="sicon sicon-airplane"></i>sicon-airplane<li>
+              <li><i class="sicon sicon-airplane-lg"></i>sicon-airplane-lg<li>
+              <li><i class="sicon sicon-all-fields-xxl"></i>sicon-all-fields-xxl<li>
+              <li><i class="sicon sicon-amazon"></i>sicon-amazon<li>
+              <li><i class="sicon sicon-analytics-lg"></i>sicon-analytics-lg<li>
+              <li><i class="sicon sicon-archive"></i>sicon-archive<li>
+              <li><i class="sicon sicon-archive-box-lg"></i>sicon-archive-box-lg<li>
+              <li><i class="sicon sicon-archive-lg"></i>sicon-archive-lg<li>
+              <li><i class="sicon sicon-arrow-down"></i>sicon-arrow-down<li>
+              <li><i class="sicon sicon-arrow-left"></i>sicon-arrow-left<li>
+              <li><i class="sicon sicon-arrow-left-double"></i>sicon-arrow-left-double<li>
+              <li><i class="sicon sicon-arrow-right"></i>sicon-arrow-right<li>
+              <li><i class="sicon sicon-arrow-right-double"></i>sicon-arrow-right-double<li>
+              <li><i class="sicon sicon-arrow-right-lg"></i>sicon-arrow-right-lg<li>
+              <li><i class="sicon sicon-arrow-top-right"></i>sicon-arrow-top-right<li>
+              <li><i class="sicon sicon-arrow-up"></i>sicon-arrow-up<li>
+              <li><i class="sicon sicon-arrow-up-circle-line"></i>sicon-arrow-up-circle-line<li>
+              <li><i class="sicon sicon-asterisk"></i>sicon-asterisk<li>
+              <li><i class="sicon sicon-attach"></i>sicon-attach<li>
+              <li><i class="sicon sicon-autoincrement"></i>sicon-autoincrement<li>
+              <li><i class="sicon sicon-automate-scroll"></i>sicon-automate-scroll<li>
+              <li><i class="sicon sicon-automate-stacked"></i>sicon-automate-stacked<li>
+              <li><i class="sicon sicon-automate-web-hooks-xl"></i>sicon-automate-web-hooks-xl<li>
+              <li><i class="sicon sicon-ban"></i>sicon-ban<li>
+              <li><i class="sicon sicon-bed-lg"></i>sicon-bed-lg<li>
+              <li><i class="sicon sicon-bell-cross-lg"></i>sicon-bell-cross-lg<li>
+              <li><i class="sicon sicon-bell-lg"></i>sicon-bell-lg<li>
+              <li><i class="sicon sicon-bell-lg-line"></i>sicon-bell-lg-line<li>
+              <li><i class="sicon sicon-bin-lg"></i>sicon-bin-lg<li>
+              <li><i class="sicon sicon-bitcoin-lg"></i>sicon-bitcoin-lg<li>
+              <li><i class="sicon sicon-blockquote-lg"></i>sicon-blockquote-lg<li>
+              <li><i class="sicon sicon-blueprint-lg"></i>sicon-blueprint-lg<li>
+              <li><i class="sicon sicon-bold"></i>sicon-bold<li>
+              <li><i class="sicon sicon-bool"></i>sicon-bool<li>
+              <li><i class="sicon sicon-bool-lg"></i>sicon-bool-lg<li>
+              <li><i class="sicon sicon-briefcase"></i>sicon-briefcase<li>
+              <li><i class="sicon sicon-bug"></i>sicon-bug<li>
+              <li><i class="sicon sicon-bug-xl"></i>sicon-bug-xl<li>
+              <li><i class="sicon sicon-business-centers-lg"></i>sicon-business-centers-lg<li>
+              <li><i class="sicon sicon-calculator-lg"></i>sicon-calculator-lg<li>
+              <li><i class="sicon sicon-calendar"></i>sicon-calendar<li>
+              <li><i class="sicon sicon-calendar-lg"></i>sicon-calendar-lg<li>
+              <li><i class="sicon sicon-campaigns-lg"></i>sicon-campaigns-lg<li>
+              <li><i class="sicon sicon-campaigns-xl"></i>sicon-campaigns-xl<li>
+              <li><i class="sicon sicon-car-front"></i>sicon-car-front<li>
+              <li><i class="sicon sicon-caret-down"></i>sicon-caret-down<li>
+              <li><i class="sicon sicon-caret-up"></i>sicon-caret-up<li>
+              <li><i class="sicon sicon-case-lg"></i>sicon-case-lg<li>
+              <li><i class="sicon sicon-cases-xl"></i>sicon-cases-xl<li>
+              <li><i class="sicon sicon-casino-lg"></i>sicon-casino-lg<li>
+              <li><i class="sicon sicon-catalog"></i>sicon-catalog<li>
+              <li><i class="sicon sicon-catalog-xl"></i>sicon-catalog-xl<li>
+              <li><i class="sicon sicon-cents-lg"></i>sicon-cents-lg<li>
+              <li><i class="sicon sicon-check"></i>sicon-check<li>
+              <li><i class="sicon sicon-check-circle"></i>sicon-check-circle<li>
+              <li><i class="sicon sicon-check-circle-lg"></i>sicon-check-circle-lg<li>
+              <li><i class="sicon sicon-check-circle-line-lg"></i>sicon-check-circle-line-lg<li>
+              <li><i class="sicon sicon-check-circle-xl-32"></i>sicon-check-circle-xl-32<li>
+              <li><i class="sicon sicon-check-lg"></i>sicon-check-lg<li>
+              <li><i class="sicon sicon-checkbox-btn"></i>sicon-checkbox-btn<li>
+              <li><i class="sicon sicon-checkbox-btn-checked"></i>sicon-checkbox-btn-checked<li>
+              <li><i class="sicon sicon-checkbox-btn-checked-lg"></i>sicon-checkbox-btn-checked-lg<li>
+              <li><i class="sicon sicon-checkbox-btn-lg"></i>sicon-checkbox-btn-lg<li>
+              <li><i class="sicon sicon-chevron-down"></i>sicon-chevron-down<li>
+              <li><i class="sicon sicon-chevron-down-lg"></i>sicon-chevron-down-lg<li>
+              <li><i class="sicon sicon-chevron-left"></i>sicon-chevron-left<li>
+              <li><i class="sicon sicon-chevron-left-lg"></i>sicon-chevron-left-lg<li>
+              <li><i class="sicon sicon-chevron-left-xl"></i>sicon-chevron-left-xl<li>
+              <li><i class="sicon sicon-chevron-right"></i>sicon-chevron-right<li>
+              <li><i class="sicon sicon-chevron-right-lg"></i>sicon-chevron-right-lg<li>
+              <li><i class="sicon sicon-chevron-up"></i>sicon-chevron-up<li>
+              <li><i class="sicon sicon-chevron-up-lg"></i>sicon-chevron-up-lg<li>
+              <li><i class="sicon sicon-clicks-lg"></i>sicon-clicks-lg<li>
+              <li><i class="sicon sicon-clock"></i>sicon-clock<li>
+              <li><i class="sicon sicon-clock-lg"></i>sicon-clock-lg<li>
+              <li><i class="sicon sicon-close"></i>sicon-close<li>
+              <li><i class="sicon sicon-close-lg"></i>sicon-close-lg<li>
+              <li><i class="sicon sicon-close-xl"></i>sicon-close-xl<li>
+              <li><i class="sicon sicon-cloud"></i>sicon-cloud<li>
+              <li><i class="sicon sicon-cloud-download-lg"></i>sicon-cloud-download-lg<li>
+              <li><i class="sicon sicon-cloud-download-xl"></i>sicon-cloud-download-xl<li>
+              <li><i class="sicon sicon-cloud-insights"></i>sicon-cloud-insights<li>
+              <li><i class="sicon sicon-clouds"></i>sicon-clouds<li>
+              <li><i class="sicon sicon-clubs-lg"></i>sicon-clubs-lg<li>
+              <li><i class="sicon sicon-cocktail-lg"></i>sicon-cocktail-lg<li>
+              <li><i class="sicon sicon-coffee-lg"></i>sicon-coffee-lg<li>
+              <li><i class="sicon sicon-collapse-lg"></i>sicon-collapse-lg<li>
+              <li><i class="sicon sicon-comment-lg"></i>sicon-comment-lg<li>
+              <li><i class="sicon sicon-comment-line-xl"></i>sicon-comment-line-xl<li>
+              <li><i class="sicon sicon-comment-xl"></i>sicon-comment-xl<li>
+              <li><i class="sicon sicon-config-api"></i>sicon-config-api<li>
+              <li><i class="sicon sicon-config-nav"></i>sicon-config-nav<li>
+              <li><i class="sicon sicon-connectors"></i>sicon-connectors<li>
+              <li><i class="sicon sicon-contact-lg"></i>sicon-contact-lg<li>
+              <li><i class="sicon sicon-contact-xl"></i>sicon-contact-xl<li>
+              <li><i class="sicon sicon-content-delivery-lg"></i>sicon-content-delivery-lg<li>
+              <li><i class="sicon sicon-content-security"></i>sicon-content-security<li>
+              <li><i class="sicon sicon-contracts"></i>sicon-contracts<li>
+              <li><i class="sicon sicon-contracts-lg"></i>sicon-contracts-lg<li>
+              <li><i class="sicon sicon-contracts-xl"></i>sicon-contracts-xl<li>
+              <li><i class="sicon sicon-copy"></i>sicon-copy<li>
+              <li><i class="sicon sicon-copy-calendar-link-xl"></i>sicon-copy-calendar-link-xl<li>
+              <li><i class="sicon sicon-copy-lg"></i>sicon-copy-lg<li>
+              <li><i class="sicon sicon-copy-meeting-xl"></i>sicon-copy-meeting-xl<li>
+              <li><i class="sicon sicon-copy-xl"></i>sicon-copy-xl<li>
+              <li><i class="sicon sicon-credit-card-lg"></i>sicon-credit-card-lg<li>
+              <li><i class="sicon sicon-csv-file-xxl"></i>sicon-csv-file-xxl<li>
+              <li><i class="sicon sicon-currencies"></i>sicon-currencies<li>
+              <li><i class="sicon sicon-currency"></i>sicon-currency<li>
+              <li><i class="sicon sicon-customer-journey"></i>sicon-customer-journey<li>
+              <li><i class="sicon sicon-customer-journey-lg"></i>sicon-customer-journey-lg<li>
+              <li><i class="sicon sicon-customer-journey-stages-lg"></i>sicon-customer-journey-stages-lg<li>
+              <li><i class="sicon sicon-daily-lg"></i>sicon-daily-lg<li>
+              <li><i class="sicon sicon-dashboard"></i>sicon-dashboard<li>
+              <li><i class="sicon sicon-dashboard-default"></i>sicon-dashboard-default<li>
+              <li><i class="sicon sicon-dashboard-default-xl"></i>sicon-dashboard-default-xl<li>
+              <li><i class="sicon sicon-dashboard-fill-lg"></i>sicon-dashboard-fill-lg<li>
+              <li><i class="sicon sicon-dashboard-lg"></i>sicon-dashboard-lg<li>
+              <li><i class="sicon sicon-dashboard-line-lg"></i>sicon-dashboard-line-lg<li>
+              <li><i class="sicon sicon-dashboard-xl"></i>sicon-dashboard-xl<li>
+              <li><i class="sicon sicon-data-privacy"></i>sicon-data-privacy<li>
+              <li><i class="sicon sicon-data-privacy-lg"></i>sicon-data-privacy-lg<li>
+              <li><i class="sicon sicon-data-privacy-xl"></i>sicon-data-privacy-xl<li>
+              <li><i class="sicon sicon-data-table"></i>sicon-data-table<li>
+              <li><i class="sicon sicon-database-lg"></i>sicon-database-lg<li>
+              <li><i class="sicon sicon-date"></i>sicon-date<li>
+              <li><i class="sicon sicon-datetime"></i>sicon-datetime<li>
+              <li><i class="sicon sicon-datetimecombo"></i>sicon-datetimecombo<li>
+              <li><i class="sicon sicon-decentralize-lg"></i>sicon-decentralize-lg<li>
+              <li><i class="sicon sicon-decimal"></i>sicon-decimal<li>
+              <li><i class="sicon sicon-default-module-lg"></i>sicon-default-module-lg<li>
+              <li><i class="sicon sicon-desktop-xl"></i>sicon-desktop-xl<li>
+              <li><i class="sicon sicon-details-lg"></i>sicon-details-lg<li>
+              <li><i class="sicon sicon-diagnostics"></i>sicon-diagnostics<li>
+              <li><i class="sicon sicon-diamonds-lg"></i>sicon-diamonds-lg<li>
+              <li><i class="sicon sicon-discover-xl"></i>sicon-discover-xl<li>
+              <li><i class="sicon sicon-display-modules"></i>sicon-display-modules<li>
+              <li><i class="sicon sicon-divide-line-lg"></i>sicon-divide-line-lg<li>
+              <li><i class="sicon sicon-document"></i>sicon-document<li>
+              <li><i class="sicon sicon-document-lg"></i>sicon-document-lg<li>
+              <li><i class="sicon sicon-document-line"></i>sicon-document-line<li>
+              <li><i class="sicon sicon-document-line-lg"></i>sicon-document-line-lg<li>
+              <li><i class="sicon sicon-document-templates-xl"></i>sicon-document-templates-xl<li>
+              <li><i class="sicon sicon-documents-xl"></i>sicon-documents-xl<li>
+              <li><i class="sicon sicon-docusign-xl"></i>sicon-docusign-xl<li>
+              <li><i class="sicon sicon-dollar-bill-lg"></i>sicon-dollar-bill-lg<li>
+              <li><i class="sicon sicon-dollar-lg"></i>sicon-dollar-lg<li>
+              <li><i class="sicon sicon-door-lg"></i>sicon-door-lg<li>
+              <li><i class="sicon sicon-dot-circle-o-lg"></i>sicon-dot-circle-o-lg<li>
+              <li><i class="sicon sicon-download"></i>sicon-download<li>
+              <li><i class="sicon sicon-download-lg"></i>sicon-download-lg<li>
+              <li><i class="sicon sicon-dropdown-editor"></i>sicon-dropdown-editor<li>
+              <li><i class="sicon sicon-edit"></i>sicon-edit<li>
+              <li><i class="sicon sicon-edit-lg"></i>sicon-edit-lg<li>
+              <li><i class="sicon sicon-edit-xl"></i>sicon-edit-xl<li>
+              <li><i class="sicon sicon-ellipsis"></i>sicon-ellipsis<li>
+              <li><i class="sicon sicon-email"></i>sicon-email<li>
+              <li><i class="sicon sicon-email-archive"></i>sicon-email-archive<li>
+              <li><i class="sicon sicon-email-campaign"></i>sicon-email-campaign<li>
+              <li><i class="sicon sicon-email-contacts"></i>sicon-email-contacts<li>
+              <li><i class="sicon sicon-email-inbound"></i>sicon-email-inbound<li>
+              <li><i class="sicon sicon-email-lg"></i>sicon-email-lg<li>
+              <li><i class="sicon sicon-email-queue"></i>sicon-email-queue<li>
+              <li><i class="sicon sicon-encrypt"></i>sicon-encrypt<li>
+              <li><i class="sicon sicon-end-event"></i>sicon-end-event<li>
+              <li><i class="sicon sicon-entries"></i>sicon-entries<li>
+              <li><i class="sicon sicon-entries-lg"></i>sicon-entries-lg<li>
+          </ul>
+      </div>
+      <div class="span4">
+          <ul class="the-icons">
+              <li><i class="sicon sicon-enum"></i>sicon-enum<li>
+              <li><i class="sicon sicon-equal"></i>sicon-equal<li>
+              <li><i class="sicon sicon-error-lg"></i>sicon-error-lg<li>
+              <li><i class="sicon sicon-escalation-lg"></i>sicon-escalation-lg<li>
+              <li><i class="sicon sicon-escalation-xl"></i>sicon-escalation-xl<li>
+              <li><i class="sicon sicon-euro-lg"></i>sicon-euro-lg<li>
+              <li><i class="sicon sicon-event-mgmt-xl"></i>sicon-event-mgmt-xl<li>
+              <li><i class="sicon sicon-events-lg"></i>sicon-events-lg<li>
+              <li><i class="sicon sicon-exchange-lg"></i>sicon-exchange-lg<li>
+              <li><i class="sicon sicon-exclusive"></i>sicon-exclusive<li>
+              <li><i class="sicon sicon-expand-left"></i>sicon-expand-left<li>
+              <li><i class="sicon sicon-expand-lg"></i>sicon-expand-lg<li>
+              <li><i class="sicon sicon-expand-right"></i>sicon-expand-right<li>
+              <li><i class="sicon sicon-external-authentication-lg"></i>sicon-external-authentication-lg<li>
+              <li><i class="sicon sicon-external-users-xl"></i>sicon-external-users-xl<li>
+              <li><i class="sicon sicon-facebook"></i>sicon-facebook<li>
+              <li><i class="sicon sicon-fan-lg"></i>sicon-fan-lg<li>
+              <li><i class="sicon sicon-features-lg"></i>sicon-features-lg<li>
+              <li><i class="sicon sicon-fields"></i>sicon-fields<li>
+              <li><i class="sicon sicon-file-upload"></i>sicon-file-upload<li>
+              <li><i class="sicon sicon-filter"></i>sicon-filter<li>
+              <li><i class="sicon sicon-filter-lg"></i>sicon-filter-lg<li>
+              <li><i class="sicon sicon-fire-lg"></i>sicon-fire-lg<li>
+              <li><i class="sicon sicon-flag-lg"></i>sicon-flag-lg<li>
+              <li><i class="sicon sicon-float"></i>sicon-float<li>
+              <li><i class="sicon sicon-focus-drawer"></i>sicon-focus-drawer<li>
+              <li><i class="sicon sicon-folder"></i>sicon-folder<li>
+              <li><i class="sicon sicon-folder-line"></i>sicon-folder-line<li>
+              <li><i class="sicon sicon-folder-open"></i>sicon-folder-open<li>
+              <li><i class="sicon sicon-font-size"></i>sicon-font-size<li>
+              <li><i class="sicon sicon-forecasts"></i>sicon-forecasts<li>
+              <li><i class="sicon sicon-forecasts-lg"></i>sicon-forecasts-lg<li>
+              <li><i class="sicon sicon-format-color"></i>sicon-format-color<li>
+              <li><i class="sicon sicon-format-lg"></i>sicon-format-lg<li>
+              <li><i class="sicon sicon-forward"></i>sicon-forward<li>
+              <li><i class="sicon sicon-full-screen"></i>sicon-full-screen<li>
+              <li><i class="sicon sicon-full-screen-exit"></i>sicon-full-screen-exit<li>
+              <li><i class="sicon sicon-gavel"></i>sicon-gavel<li>
+              <li><i class="sicon sicon-google-lg"></i>sicon-google-lg<li>
+              <li><i class="sicon sicon-graph-lg"></i>sicon-graph-lg<li>
+              <li><i class="sicon sicon-grid-lg"></i>sicon-grid-lg<li>
+              <li><i class="sicon sicon-hamburger-lg"></i>sicon-hamburger-lg<li>
+              <li><i class="sicon sicon-hearts-lg"></i>sicon-hearts-lg<li>
+              <li><i class="sicon sicon-help"></i>sicon-help<li>
+              <li><i class="sicon sicon-help-circle-lg"></i>sicon-help-circle-lg<li>
+              <li><i class="sicon sicon-help-lg"></i>sicon-help-lg<li>
+              <li><i class="sicon sicon-hide"></i>sicon-hide<li>
+              <li><i class="sicon sicon-hide-lg"></i>sicon-hide-lg<li>
+              <li><i class="sicon sicon-home-lg"></i>sicon-home-lg<li>
+              <li><i class="sicon sicon-horizontal-split"></i>sicon-horizontal-split<li>
+              <li><i class="sicon sicon-html"></i>sicon-html<li>
+              <li><i class="sicon sicon-iframe"></i>sicon-iframe<li>
+              <li><i class="sicon sicon-image"></i>sicon-image<li>
+              <li><i class="sicon sicon-import"></i>sicon-import<li>
+              <li><i class="sicon sicon-inbox"></i>sicon-inbox<li>
+              <li><i class="sicon sicon-info"></i>sicon-info<li>
+              <li><i class="sicon sicon-info-circle-lg"></i>sicon-info-circle-lg<li>
+              <li><i class="sicon sicon-info-fill-lg"></i>sicon-info-fill-lg<li>
+              <li><i class="sicon sicon-info-fill-xl-32"></i>sicon-info-fill-xl-32<li>
+              <li><i class="sicon sicon-info-lg"></i>sicon-info-lg<li>
+              <li><i class="sicon sicon-insights-lg"></i>sicon-insights-lg<li>
+              <li><i class="sicon sicon-insights-xl"></i>sicon-insights-xl<li>
+              <li><i class="sicon sicon-int"></i>sicon-int<li>
+              <li><i class="sicon sicon-invalid-circle-lg"></i>sicon-invalid-circle-lg<li>
+              <li><i class="sicon sicon-italics"></i>sicon-italics<li>
+              <li><i class="sicon sicon-jacuzzi-lg"></i>sicon-jacuzzi-lg<li>
+              <li><i class="sicon sicon-kebab"></i>sicon-kebab<li>
+              <li><i class="sicon sicon-kebab-lg"></i>sicon-kebab-lg<li>
+              <li><i class="sicon sicon-kebab-xl"></i>sicon-kebab-xl<li>
+              <li><i class="sicon sicon-knowledgebase-lg"></i>sicon-knowledgebase-lg<li>
+              <li><i class="sicon sicon-knowledgebase-xl"></i>sicon-knowledgebase-xl<li>
+              <li><i class="sicon sicon-lab"></i>sicon-lab<li>
+              <li><i class="sicon sicon-landing-pages-xl"></i>sicon-landing-pages-xl<li>
+              <li><i class="sicon sicon-languages"></i>sicon-languages<li>
+              <li><i class="sicon sicon-laptop"></i>sicon-laptop<li>
+              <li><i class="sicon sicon-launch"></i>sicon-launch<li>
+              <li><i class="sicon sicon-launch-lg"></i>sicon-launch-lg<li>
+              <li><i class="sicon sicon-layout-lg"></i>sicon-layout-lg<li>
+              <li><i class="sicon sicon-layout-xl"></i>sicon-layout-xl<li>
+              <li><i class="sicon sicon-lead-lg"></i>sicon-lead-lg<li>
+              <li><i class="sicon sicon-leads-xl"></i>sicon-leads-xl<li>
+              <li><i class="sicon sicon-left-paren-line-lg"></i>sicon-left-paren-line-lg<li>
+              <li><i class="sicon sicon-link"></i>sicon-link<li>
+              <li><i class="sicon sicon-linkedin"></i>sicon-linkedin<li>
+              <li><i class="sicon sicon-list"></i>sicon-list<li>
+              <li><i class="sicon sicon-list-lg"></i>sicon-list-lg<li>
+              <li><i class="sicon sicon-list-view"></i>sicon-list-view<li>
+              <li><i class="sicon sicon-lock"></i>sicon-lock<li>
+              <li><i class="sicon sicon-lock-lg"></i>sicon-lock-lg<li>
+              <li><i class="sicon sicon-log-viewer"></i>sicon-log-viewer<li>
+              <li><i class="sicon sicon-login"></i>sicon-login<li>
+              <li><i class="sicon sicon-login-lg"></i>sicon-login-lg<li>
+              <li><i class="sicon sicon-login-lockout-lg"></i>sicon-login-lockout-lg<li>
+              <li><i class="sicon sicon-logo-fb-simple"></i>sicon-logo-fb-simple<li>
+              <li><i class="sicon sicon-logo-instagram"></i>sicon-logo-instagram<li>
+              <li><i class="sicon sicon-logo-linkedin"></i>sicon-logo-linkedin<li>
+              <li><i class="sicon sicon-logo-snapchat"></i>sicon-logo-snapchat<li>
+              <li><i class="sicon sicon-logout"></i>sicon-logout<li>
+              <li><i class="sicon sicon-logout-lg"></i>sicon-logout-lg<li>
+              <li><i class="sicon sicon-lotus-lg"></i>sicon-lotus-lg<li>
+              <li><i class="sicon sicon-machine-learning-lg"></i>sicon-machine-learning-lg<li>
+              <li><i class="sicon sicon-manufacturers"></i>sicon-manufacturers<li>
+              <li><i class="sicon sicon-map-pin"></i>sicon-map-pin<li>
+              <li><i class="sicon sicon-marketplace"></i>sicon-marketplace<li>
+              <li><i class="sicon sicon-marketplace-lg"></i>sicon-marketplace-lg<li>
+              <li><i class="sicon sicon-martini-lg"></i>sicon-martini-lg<li>
+              <li><i class="sicon sicon-mask"></i>sicon-mask<li>
+              <li><i class="sicon sicon-mask-disabled"></i>sicon-mask-disabled<li>
+              <li><i class="sicon sicon-matrix-xxl"></i>sicon-matrix-xxl<li>
+              <li><i class="sicon sicon-media-player-lg"></i>sicon-media-player-lg<li>
+              <li><i class="sicon sicon-medical-clipboard-lg"></i>sicon-medical-clipboard-lg<li>
+              <li><i class="sicon sicon-medicine-lg"></i>sicon-medicine-lg<li>
+              <li><i class="sicon sicon-meetings-lg"></i>sicon-meetings-lg<li>
+              <li><i class="sicon sicon-meetings-xl"></i>sicon-meetings-xl<li>
+              <li><i class="sicon sicon-message"></i>sicon-message<li>
+              <li><i class="sicon sicon-message-lg"></i>sicon-message-lg<li>
+              <li><i class="sicon sicon-messages-xl"></i>sicon-messages-xl<li>
+              <li><i class="sicon sicon-minus"></i>sicon-minus<li>
+              <li><i class="sicon sicon-mobile"></i>sicon-mobile<li>
+              <li><i class="sicon sicon-mobile-lg"></i>sicon-mobile-lg<li>
+              <li><i class="sicon sicon-mobile-xl"></i>sicon-mobile-xl<li>
+              <li><i class="sicon sicon-module-builder"></i>sicon-module-builder<li>
+              <li><i class="sicon sicon-module-loader"></i>sicon-module-loader<li>
+              <li><i class="sicon sicon-money-bag-lg"></i>sicon-money-bag-lg<li>
+              <li><i class="sicon sicon-moon_crescent"></i>sicon-moon_crescent<li>
+              <li><i class="sicon sicon-multienum"></i>sicon-multienum<li>
+              <li><i class="sicon sicon-multiply-line-lg"></i>sicon-multiply-line-lg<li>
+              <li><i class="sicon sicon-my-sites"></i>sicon-my-sites<li>
+              <li><i class="sicon sicon-name"></i>sicon-name<li>
+              <li><i class="sicon sicon-news-lg"></i>sicon-news-lg<li>
+              <li><i class="sicon sicon-nodes"></i>sicon-nodes<li>
+              <li><i class="sicon sicon-note"></i>sicon-note<li>
+              <li><i class="sicon sicon-note-lg"></i>sicon-note-lg<li>
+              <li><i class="sicon sicon-note-xl"></i>sicon-note-xl<li>
+              <li><i class="sicon sicon-number"></i>sicon-number<li>
+              <li><i class="sicon sicon-oauth-key"></i>sicon-oauth-key<li>
+              <li><i class="sicon sicon-opportunities"></i>sicon-opportunities<li>
+              <li><i class="sicon sicon-opportunity-lg"></i>sicon-opportunity-lg<li>
+              <li><i class="sicon sicon-opportunity-xl"></i>sicon-opportunity-xl<li>
+              <li><i class="sicon sicon-organic-lg"></i>sicon-organic-lg<li>
+              <li><i class="sicon sicon-package"></i>sicon-package<li>
+              <li><i class="sicon sicon-package-lg"></i>sicon-package-lg<li>
+              <li><i class="sicon sicon-package-xl"></i>sicon-package-xl<li>
+              <li><i class="sicon sicon-pages-lg"></i>sicon-pages-lg<li>
+              <li><i class="sicon sicon-parallel"></i>sicon-parallel<li>
+              <li><i class="sicon sicon-parent"></i>sicon-parent<li>
+              <li><i class="sicon sicon-password-mgmt"></i>sicon-password-mgmt<li>
+              <li><i class="sicon sicon-pdf-file-xxl"></i>sicon-pdf-file-xxl<li>
+              <li><i class="sicon sicon-pdf-manager"></i>sicon-pdf-manager<li>
+              <li><i class="sicon sicon-phone"></i>sicon-phone<li>
+              <li><i class="sicon sicon-phone-lg"></i>sicon-phone-lg<li>
+              <li><i class="sicon sicon-phone-xl"></i>sicon-phone-xl<li>
+              <li><i class="sicon sicon-phonefill"></i>sicon-phonefill<li>
+              <li><i class="sicon sicon-pin-fill-lg"></i>sicon-pin-fill-lg<li>
+              <li><i class="sicon sicon-pin-lg"></i>sicon-pin-lg<li>
+              <li><i class="sicon sicon-planet-lg"></i>sicon-planet-lg<li>
+              <li><i class="sicon sicon-plant-lg"></i>sicon-plant-lg<li>
+              <li><i class="sicon sicon-play"></i>sicon-play<li>
+              <li><i class="sicon sicon-playlist-lg"></i>sicon-playlist-lg<li>
+              <li><i class="sicon sicon-plug-lg"></i>sicon-plug-lg<li>
+              <li><i class="sicon sicon-plus"></i>sicon-plus<li>
+              <li><i class="sicon sicon-plus-lg"></i>sicon-plus-lg<li>
+              <li><i class="sicon sicon-plus-sm"></i>sicon-plus-sm<li>
+              <li><i class="sicon sicon-portal"></i>sicon-portal<li>
+              <li><i class="sicon sicon-pound-lg"></i>sicon-pound-lg<li>
+              <li><i class="sicon sicon-presentation-lg"></i>sicon-presentation-lg<li>
+              <li><i class="sicon sicon-preview"></i>sicon-preview<li>
+              <li><i class="sicon sicon-preview-lg"></i>sicon-preview-lg<li>
+              <li><i class="sicon sicon-privacy-lg"></i>sicon-privacy-lg<li>
+              <li><i class="sicon sicon-process-business-rules-lg"></i>sicon-process-business-rules-lg<li>
+              <li><i class="sicon sicon-process-definitions-lg"></i>sicon-process-definitions-lg<li>
+              <li><i class="sicon sicon-process-email-templates-lg"></i>sicon-process-email-templates-lg<li>
+              <li><i class="sicon sicon-processes-lg"></i>sicon-processes-lg<li>
+              <li><i class="sicon sicon-product-types"></i>sicon-product-types<li>
+              <li><i class="sicon sicon-project-tasks-xl"></i>sicon-project-tasks-xl<li>
+              <li><i class="sicon sicon-projects-lg"></i>sicon-projects-lg<li>
+              <li><i class="sicon sicon-projects-xl"></i>sicon-projects-xl<li>
+              <li><i class="sicon sicon-purchase-lg"></i>sicon-purchase-lg<li>
+              <li><i class="sicon sicon-purchase-xl"></i>sicon-purchase-xl<li>
+              <li><i class="sicon sicon-purchased-line-items-lg"></i>sicon-purchased-line-items-lg<li>
+              <li><i class="sicon sicon-purchased-line-items-xl"></i>sicon-purchased-line-items-xl<li>
+              <li><i class="sicon sicon-questionnaire-lg"></i>sicon-questionnaire-lg<li>
+              <li><i class="sicon sicon-quote-lg"></i>sicon-quote-lg<li>
+          </ul>
+      </div>
+      <div class="span4">
+          <ul class="the-icons">
+              <li><i class="sicon sicon-quoted-line-items-lg"></i>sicon-quoted-line-items-lg<li>
+              <li><i class="sicon sicon-quoted-line-items-xl"></i>sicon-quoted-line-items-xl<li>
+              <li><i class="sicon sicon-quotes"></i>sicon-quotes<li>
+              <li><i class="sicon sicon-quotes-xl"></i>sicon-quotes-xl<li>
+              <li><i class="sicon sicon-radioenum"></i>sicon-radioenum<li>
+              <li><i class="sicon sicon-record-fill-lg"></i>sicon-record-fill-lg<li>
+              <li><i class="sicon sicon-record-line-lg"></i>sicon-record-line-lg<li>
+              <li><i class="sicon sicon-redo"></i>sicon-redo<li>
+              <li><i class="sicon sicon-redo-lg"></i>sicon-redo-lg<li>
+              <li><i class="sicon sicon-refresh"></i>sicon-refresh<li>
+              <li><i class="sicon sicon-refresh-lg"></i>sicon-refresh-lg<li>
+              <li><i class="sicon sicon-relate"></i>sicon-relate<li>
+              <li><i class="sicon sicon-relate-fields"></i>sicon-relate-fields<li>
+              <li><i class="sicon sicon-remove"></i>sicon-remove<li>
+              <li><i class="sicon sicon-remove-field"></i>sicon-remove-field<li>
+              <li><i class="sicon sicon-remove-field-hover"></i>sicon-remove-field-hover<li>
+              <li><i class="sicon sicon-repair"></i>sicon-repair<li>
+              <li><i class="sicon sicon-reply"></i>sicon-reply<li>
+              <li><i class="sicon sicon-reply-all"></i>sicon-reply-all<li>
+              <li><i class="sicon sicon-reply-lg"></i>sicon-reply-lg<li>
+              <li><i class="sicon sicon-reports"></i>sicon-reports<li>
+              <li><i class="sicon sicon-reset"></i>sicon-reset<li>
+              <li><i class="sicon sicon-reset-lg"></i>sicon-reset-lg<li>
+              <li><i class="sicon sicon-resize-lg"></i>sicon-resize-lg<li>
+              <li><i class="sicon sicon-revenue-line-items-lg"></i>sicon-revenue-line-items-lg<li>
+              <li><i class="sicon sicon-revenue-line-items-xl"></i>sicon-revenue-line-items-xl<li>
+              <li><i class="sicon sicon-right-paren-line-lg"></i>sicon-right-paren-line-lg<li>
+              <li><i class="sicon sicon-role-mgmt"></i>sicon-role-mgmt<li>
+              <li><i class="sicon sicon-role-mgmt-lg"></i>sicon-role-mgmt-lg<li>
+              <li><i class="sicon sicon-route"></i>sicon-route<li>
+              <li><i class="sicon sicon-rows-and-columns-xxl"></i>sicon-rows-and-columns-xxl<li>
+              <li><i class="sicon sicon-save"></i>sicon-save<li>
+              <li><i class="sicon sicon-save-lg"></i>sicon-save-lg<li>
+              <li><i class="sicon sicon-scheduler"></i>sicon-scheduler<li>
+              <li><i class="sicon sicon-scheduler-lg"></i>sicon-scheduler-lg<li>
+              <li><i class="sicon sicon-scissors-lg"></i>sicon-scissors-lg<li>
+              <li><i class="sicon sicon-scoring-lg"></i>sicon-scoring-lg<li>
+              <li><i class="sicon sicon-search"></i>sicon-search<li>
+              <li><i class="sicon sicon-search-lg"></i>sicon-search-lg<li>
+              <li><i class="sicon sicon-search-small"></i>sicon-search-small<li>
+              <li><i class="sicon sicon-send"></i>sicon-send<li>
+              <li><i class="sicon sicon-send-lg"></i>sicon-send-lg<li>
+              <li><i class="sicon sicon-settings"></i>sicon-settings<li>
+              <li><i class="sicon sicon-settings-lg"></i>sicon-settings-lg<li>
+              <li><i class="sicon sicon-share-lg"></i>sicon-share-lg<li>
+              <li><i class="sicon sicon-shield-lg"></i>sicon-shield-lg<li>
+              <li><i class="sicon sicon-shippers"></i>sicon-shippers<li>
+              <li><i class="sicon sicon-shortcuts-lg"></i>sicon-shortcuts-lg<li>
+              <li><i class="sicon sicon-shuttle-lg"></i>sicon-shuttle-lg<li>
+              <li><i class="sicon sicon-sidebyside"></i>sicon-sidebyside<li>
+              <li><i class="sicon sicon-single-bed"></i>sicon-single-bed<li>
+              <li><i class="sicon sicon-skull-lg"></i>sicon-skull-lg<li>
+              <li><i class="sicon sicon-slicers-lg"></i>sicon-slicers-lg<li>
+              <li><i class="sicon sicon-slicers-xl"></i>sicon-slicers-xl<li>
+              <li><i class="sicon sicon-smart-guide-activity-templates-xl"></i>sicon-smart-guide-activity-templates-xl<li>
+              <li><i class="sicon sicon-smart-guide-stage-templates-xl"></i>sicon-smart-guide-stage-templates-xl<li>
+              <li><i class="sicon sicon-smart-guide-sugar_actions-xl"></i>sicon-smart-guide-sugar_actions-xl<li>
+              <li><i class="sicon sicon-smart-guide-templates-xl"></i>sicon-smart-guide-templates-xl<li>
+              <li><i class="sicon sicon-smart-guides-xl"></i>sicon-smart-guides-xl<li>
+              <li><i class="sicon sicon-smart-phone-lg"></i>sicon-smart-phone-lg<li>
+              <li><i class="sicon sicon-smart_guides-stages-xl"></i>sicon-smart_guides-stages-xl<li>
+              <li><i class="sicon sicon-sort-fields-xxl"></i>sicon-sort-fields-xxl<li>
+              <li><i class="sicon sicon-soundwave-lg"></i>sicon-soundwave-lg<li>
+              <li><i class="sicon sicon-spades-lg"></i>sicon-spades-lg<li>
+              <li><i class="sicon sicon-stacked"></i>sicon-stacked<li>
+              <li><i class="sicon sicon-stadium-lg"></i>sicon-stadium-lg<li>
+              <li><i class="sicon sicon-star-fill"></i>sicon-star-fill<li>
+              <li><i class="sicon sicon-star-fill-lg"></i>sicon-star-fill-lg<li>
+              <li><i class="sicon sicon-star-outline"></i>sicon-star-outline<li>
+              <li><i class="sicon sicon-star-outline-lg"></i>sicon-star-outline-lg<li>
+              <li><i class="sicon sicon-stars_group"></i>sicon-stars_group<li>
+              <li><i class="sicon sicon-statistics-lg"></i>sicon-statistics-lg<li>
+              <li><i class="sicon sicon-storage-lg"></i>sicon-storage-lg<li>
+              <li><i class="sicon sicon-string"></i>sicon-string<li>
+              <li><i class="sicon sicon-studio"></i>sicon-studio<li>
+              <li><i class="sicon sicon-studio-lg"></i>sicon-studio-lg<li>
+              <li><i class="sicon sicon-subtract"></i>sicon-subtract<li>
+              <li><i class="sicon sicon-subtract-line-lg"></i>sicon-subtract-line-lg<li>
+              <li><i class="sicon sicon-sugar-club"></i>sicon-sugar-club<li>
+              <li><i class="sicon sicon-sugar-club-bw"></i>sicon-sugar-club-bw<li>
+              <li><i class="sicon sicon-sugar-live-lg"></i>sicon-sugar-live-lg<li>
+              <li><i class="sicon sicon-sugar-logo-12"></i>sicon-sugar-logo-12<li>
+              <li><i class="sicon sicon-sugar-logo-16"></i>sicon-sugar-logo-16<li>
+              <li><i class="sicon sicon-sugar-logo-24"></i>sicon-sugar-logo-24<li>
+              <li><i class="sicon sicon-sugar-logo-lg"></i>sicon-sugar-logo-lg<li>
+              <li><i class="sicon sicon-sugar-predict"></i>sicon-sugar-predict<li>
+              <li><i class="sicon sicon-sugar-predict-lg"></i>sicon-sugar-predict-lg<li>
+              <li><i class="sicon sicon-sugar-u"></i>sicon-sugar-u<li>
+              <li><i class="sicon sicon-summation-details-xxl"></i>sicon-summation-details-xxl<li>
+              <li><i class="sicon sicon-summation-xxl"></i>sicon-summation-xxl<li>
+              <li><i class="sicon sicon-sun_rays"></i>sicon-sun_rays<li>
+              <li><i class="sicon sicon-swap"></i>sicon-swap<li>
+              <li><i class="sicon sicon-switch-name"></i>sicon-switch-name<li>
+              <li><i class="sicon sicon-sync-lg"></i>sicon-sync-lg<li>
+              <li><i class="sicon sicon-sync-off-lg"></i>sicon-sync-off-lg<li>
+              <li><i class="sicon sicon-tablet-xl"></i>sicon-tablet-xl<li>
+              <li><i class="sicon sicon-tag"></i>sicon-tag<li>
+              <li><i class="sicon sicon-tag-lg"></i>sicon-tag-lg<li>
+              <li><i class="sicon sicon-target-email-lg"></i>sicon-target-email-lg<li>
+              <li><i class="sicon sicon-target-lg"></i>sicon-target-lg<li>
+              <li><i class="sicon sicon-target-lists-lg"></i>sicon-target-lists-lg<li>
+              <li><i class="sicon sicon-targets-xl"></i>sicon-targets-xl<li>
+              <li><i class="sicon sicon-task-lg"></i>sicon-task-lg<li>
+              <li><i class="sicon sicon-task-xl"></i>sicon-task-xl<li>
+              <li><i class="sicon sicon-tax-rates"></i>sicon-tax-rates<li>
+              <li><i class="sicon sicon-team-mgmt"></i>sicon-team-mgmt<li>
+              <li><i class="sicon sicon-team-perm"></i>sicon-team-perm<li>
+              <li><i class="sicon sicon-telescope-lg"></i>sicon-telescope-lg<li>
+              <li><i class="sicon sicon-text"></i>sicon-text<li>
+              <li><i class="sicon sicon-text-align-center"></i>sicon-text-align-center<li>
+              <li><i class="sicon sicon-text-align-left"></i>sicon-text-align-left<li>
+              <li><i class="sicon sicon-text-align-right"></i>sicon-text-align-right<li>
+              <li><i class="sicon sicon-text-formatting"></i>sicon-text-formatting<li>
+              <li><i class="sicon sicon-theme-lg"></i>sicon-theme-lg<li>
+              <li><i class="sicon sicon-thumbs-down"></i>sicon-thumbs-down<li>
+              <li><i class="sicon sicon-thumbs-down-lg"></i>sicon-thumbs-down-lg<li>
+              <li><i class="sicon sicon-thumbs-down-line-lg"></i>sicon-thumbs-down-line-lg<li>
+              <li><i class="sicon sicon-thumbs-up"></i>sicon-thumbs-up<li>
+              <li><i class="sicon sicon-thumbs-up-lg"></i>sicon-thumbs-up-lg<li>
+              <li><i class="sicon sicon-thumbs-up-line-lg"></i>sicon-thumbs-up-line-lg<li>
+              <li><i class="sicon sicon-tiktok"></i>sicon-tiktok<li>
+              <li><i class="sicon sicon-tile-view"></i>sicon-tile-view<li>
+              <li><i class="sicon sicon-tile-view-grid"></i>sicon-tile-view-grid<li>
+              <li><i class="sicon sicon-timeline"></i>sicon-timeline<li>
+              <li><i class="sicon sicon-tracker"></i>sicon-tracker<li>
+              <li><i class="sicon sicon-tracking-activity-lg"></i>sicon-tracking-activity-lg<li>
+              <li><i class="sicon sicon-trainer-lg"></i>sicon-trainer-lg<li>
+              <li><i class="sicon sicon-transactions-lg"></i>sicon-transactions-lg<li>
+              <li><i class="sicon sicon-trash"></i>sicon-trash<li>
+              <li><i class="sicon sicon-trash-lg"></i>sicon-trash-lg<li>
+              <li><i class="sicon sicon-trash-xl"></i>sicon-trash-xl<li>
+              <li><i class="sicon sicon-trophy"></i>sicon-trophy<li>
+              <li><i class="sicon sicon-tv-lg"></i>sicon-tv-lg<li>
+              <li><i class="sicon sicon-twitter"></i>sicon-twitter<li>
+              <li><i class="sicon sicon-underline"></i>sicon-underline<li>
+              <li><i class="sicon sicon-undo-lg"></i>sicon-undo-lg<li>
+              <li><i class="sicon sicon-unlink"></i>sicon-unlink<li>
+              <li><i class="sicon sicon-unlock"></i>sicon-unlock<li>
+              <li><i class="sicon sicon-update"></i>sicon-update<li>
+              <li><i class="sicon sicon-upgrade"></i>sicon-upgrade<li>
+              <li><i class="sicon sicon-upload"></i>sicon-upload<li>
+              <li><i class="sicon sicon-upload-lg"></i>sicon-upload-lg<li>
+              <li><i class="sicon sicon-url"></i>sicon-url<li>
+              <li><i class="sicon sicon-user"></i>sicon-user<li>
+              <li><i class="sicon sicon-user-check"></i>sicon-user-check<li>
+              <li><i class="sicon sicon-user-check-lg"></i>sicon-user-check-lg<li>
+              <li><i class="sicon sicon-user-check-xl"></i>sicon-user-check-xl<li>
+              <li><i class="sicon sicon-user-group"></i>sicon-user-group<li>
+              <li><i class="sicon sicon-user-group-3-xl"></i>sicon-user-group-3-xl<li>
+              <li><i class="sicon sicon-user-group-lg"></i>sicon-user-group-lg<li>
+              <li><i class="sicon sicon-user-group-xl"></i>sicon-user-group-xl<li>
+              <li><i class="sicon sicon-user-lg"></i>sicon-user-lg<li>
+              <li><i class="sicon sicon-user-sm"></i>sicon-user-sm<li>
+              <li><i class="sicon sicon-validate"></i>sicon-validate<li>
+              <li><i class="sicon sicon-varchar"></i>sicon-varchar<li>
+              <li><i class="sicon sicon-vertical-split"></i>sicon-vertical-split<li>
+              <li><i class="sicon sicon-video"></i>sicon-video<li>
+              <li><i class="sicon sicon-video-lg"></i>sicon-video-lg<li>
+              <li><i class="sicon sicon-video-player-lg"></i>sicon-video-player-lg<li>
+              <li><i class="sicon sicon-virus-lg"></i>sicon-virus-lg<li>
+              <li><i class="sicon sicon-voice-recognition-lg"></i>sicon-voice-recognition-lg<li>
+              <li><i class="sicon sicon-wand-lg"></i>sicon-wand-lg<li>
+              <li><i class="sicon sicon-warning-circle"></i>sicon-warning-circle<li>
+              <li><i class="sicon sicon-warning-circle-lg"></i>sicon-warning-circle-lg<li>
+              <li><i class="sicon sicon-warning-circle-xl-32"></i>sicon-warning-circle-xl-32<li>
+              <li><i class="sicon sicon-warning-lg"></i>sicon-warning-lg<li>
+              <li><i class="sicon sicon-warning-line-lg"></i>sicon-warning-line-lg<li>
+              <li><i class="sicon sicon-warning-triangle"></i>sicon-warning-triangle<li>
+              <li><i class="sicon sicon-warning-xl-32"></i>sicon-warning-xl-32<li>
+              <li><i class="sicon sicon-web-activity-detail-xl"></i>sicon-web-activity-detail-xl<li>
+              <li><i class="sicon sicon-web-lg"></i>sicon-web-lg<li>
+              <li><i class="sicon sicon-web-logic"></i>sicon-web-logic<li>
+              <li><i class="sicon sicon-web-xl"></i>sicon-web-xl<li>
+              <li><i class="sicon sicon-weekly-lg"></i>sicon-weekly-lg<li>
+              <li><i class="sicon sicon-wifi"></i>sicon-wifi<li>
+              <li><i class="sicon sicon-wifi-lg"></i>sicon-wifi-lg<li>
+              <li><i class="sicon sicon-windmill-lg"></i>sicon-windmill-lg<li>
+              <li><i class="sicon sicon-window-lg"></i>sicon-window-lg<li>
+              <li><i class="sicon sicon-wizard-circle-line-xl"></i>sicon-wizard-circle-line-xl<li>
+              <li><i class="sicon sicon-wizard-circle-xl"></i>sicon-wizard-circle-xl<li>
+              <li><i class="sicon sicon-workflow"></i>sicon-workflow<li>
+              <li><i class="sicon sicon-world-lg"></i>sicon-world-lg<li>
+              <li><i class="sicon sicon-yen-lg"></i>sicon-yen-lg<li>
+          </ul>
+      </div>
+  </div>
+</section>
+
+<section id="examples">
+  <div class="row-fluid">
+    <div class="span12">
+      <h3 class="page-header">Examples</h3>
+      <p>Many examples re-used from the Twitter Bootstrap documentation.</p>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <div class="well well-transparent">
+        <p>Use SugarIcons in:</p>
+        <ul class="icons">
+          <li>Bulleted lists (like this one)</li>
+          <li>Buttons</li>
+          <li>Button groups</li>
+          <li>Navigation</li>
+          <li>Prepended form inputs</li>
+          <li>And many more with Custom CSS</li>
+        </ul>
+      </div>
+    </div>
+    <div class="span5">
+      <p>
+        <a class="btn icon-and-text"><i class="sicon sicon-reset"></i> Reload</a>
+        <a class="btn icon-and-text btn-success"><i class="sicon sicon-calendar"></i> Checkout</a>
+        <a class="btn icon-and-text btn-danger"><i class="sicon sicon-remove"></i> Delete</a>
+      </p>
+      <p>
+        <a class="btn icon-and-text btn-primary"><i class="sicon sicon-message"></i> Comment</a>
+        <a class="btn icon-and-text btn-small"><i class="sicon sicon-settings"></i> Settings</a>
+        <a class="btn icon-and-text btn-small btn-info"><i class="sicon sicon-info"></i> Info</a>
+      </p>
+      <div class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="active"><a><i class="sicon sicon-dashboard"></i> Home</a></li>
+          <li><a><i class="sicon sicon-document"></i> Library</a></li>
+          <li><a><i class="sicon sicon-edit"></i> Applications</a></li>
+          <li><a><i class="sicon sicon-settings"></i> Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <h3 class="page-header">Example HTML</h3>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <h4 class="topic-header">Inline Icons</h4>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <p>Place SugarIcons just about anywhere with the <code>&lt;i&gt;</code> or <code>&lt;span&gt;</code> tag.</p>
+    </div>
+    <div class="span5">
+      <div class="well well-transparent">
+        <div>
+          <i class="sicon sicon-check"></i> sicon-check
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <pre class="prettyprint linenums">
+      &lt;i class="sicon sicon-check"&gt;&lt;/i&gt; sicon-check
+      </pre>
+      <div class="alert alert-info">
+        <i class="sicon sicon-info"></i> Icon classes are echoed via CSS :before.
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <h4 class="topic-header">Larger Icons</h4>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <p>
+          To increase the size of icons relative to its container, use our supported utility classes <code>sicon-lg</code> or <code>sicon-32</code>. <br> Note: We have certain icons that have designated larger versions, please refer to the above list of icons. In order to render as a larger size, use the <code>sicon-lg</code> class.
+      </p>
+    </div>
+    <div class="span5">
+      <div class="well well-transparent">
+        <div style="font-size: 24px; line-height: 1.5em;">
+          <p><i class="sicon sicon-dashboard"></i> sicon-dashboard</p>
+          <p><i class="sicon sicon-lg sicon-dashboard"></i> sicon-lg sicon-dashboard</p>
+          <p><i class="sicon sicon-32 sicon-dashboard"></i> sicon-32 sicon-dashboard</p>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <pre class="prettyprint linenums">
+      &lt;p&gt;&lt;i class=&quot;sicon sicon-dashboard&quot;&gt;&lt;/i&gt; sicon-dashboard&lt;/p&gt;
+      &lt;p&gt;&lt;i class=&quot;sicon sicon-lg sicon-dashboard&quot;&gt;&lt;/i&gt; sicon-lg sicon-dashboard&lt;/p&gt;
+      &lt;p&gt;&lt;i class=&quot;sicon sicon-32 sicon-dashboard&quot;&gt;&lt;/i&gt; sicon-32 sicon-dashboard&lt;/p&gt;
+      </pre>
+      <div class="alert alert-info">
+        <i class="sicon sicon-info"></i> If your icons are getting chopped off on top and bottom, make sure you have
+        sufficient line-height.
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <h4 class="topic-header">Animated Spinner</h4>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <p>
+        Use the <code>sicon-is-spinning</code> class to get any icon to rotate. Works best with <code>sicon-refresh</code> and
+        <code>sicon-reset</code>.
+      </p>
+    </div>
+    <div class="span5">
+      <div class="well well-large well-transparent lead">
+        <i class="sicon sicon-refresh sicon-is-spinning"></i> Spinner icon when loading content...
+      </div>
+    </div>
+    <div class="span4">
+      <pre class="prettyprint linenums">
+      &lt;i class=&quot;sicon sicon-refresh sicon-is-spinning&quot;&gt;&lt;/i&gt; Spinner icon when loading content...
+      </pre>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <h4 class="topic-header">Chart Icons</h4>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <p>
+        The Sugar chart types have icons created in svg. The svg code is available in the <code>/assets/js/chart-utils.js</code> page. SVG images can be scaled by setting their height and width.
+      </p>
+    </div>
+    <div class="span5">
+      <div class="well well-large well-transparent chart-icon-container">
+        <b>Donut</b>
+        <span class="chart-icon" data-chart-type="donut"></span>
+        <b>Funnel</b>
+        <span class="chart-icon" data-chart-type="funnel"></span>
+        <b>Horizontal</b>
+        <span class="chart-icon" data-chart-type="horizontal"></span>
+        <b>Line</b>
+        <span class="chart-icon" data-chart-type="line"></span>
+      </div>
+      <div class="well well-large well-transparent chart-icon-container">
+        <b>Pareto</b>
+        <span class="chart-icon" data-chart-type="pareto"></span>
+        <b>Pie</b>
+        <span class="chart-icon" data-chart-type="pie"></span>
+        <b>Stack</b>
+        <span class="chart-icon" data-chart-type="stack"></span>
+        <b>Vertical</b>
+        <span class="chart-icon" data-chart-type="vertical"></span>
+      </div>
+    </div>
+    <div class="span4">
+      <pre class="prettyprint linenums">
+      &lt;script&gt;
+        var myChartSvg = svgChartIcon('funnel');
+      &lt;/script&gt;
+      </pre>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <h4 class="topic-header">Filetype Thumbnails</h4>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span3">
+      <p>
+        File type thumbnails are created by inserting a <code>span</code> tag with a classname of <code>.filetype-thumbnail</code> and adding a data-filetype property that is set to the file extension. If the file extension is one of "PDF,PNG,TXT,JPG,GIF,PPT,DOC,XLS" then it will have a colored background, else it will be grey. The last step is to insert the thumbmail SVG into the span.
+      </p>
+    </div>
+    <div class="span5 filetype-thumbnails">
+      <span class="filetype-thumbnail" data-filetype="PDF"></span>
+      <span class="filetype-thumbnail" data-filetype="DOC"></span>
+      <span class="filetype-thumbnail" data-filetype="PPT"></span>
+      <span class="filetype-thumbnail" data-filetype="XLS"></span>
+      <span class="filetype-thumbnail" data-filetype="PNG"></span>
+      <span class="filetype-thumbnail" data-filetype="JPG"></span>
+      <span class="filetype-thumbnail" data-filetype="GIF"></span>
+      <span class="filetype-thumbnail" data-filetype="TXT"></span>
+      <span class="filetype-thumbnail" data-filetype="XYZ"></span>
+    </div>
+    <div class="span4">
+      <pre class="prettyprint linenums">
+      &lt;script&gt;
+      $('.filetype-thumbnail').each(function(){
+        $(this).html( '&lt;svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="28" height="33" id="filetype-svg2"&gt;&lt;g id="layer1"&gt;&lt;path d="m 1,1 19,0 7,7 0,24 -26,0 z" id="rect2985" style="fill:#ececec;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" /&gt;&lt;path d="m 20,1 0,7 7,0 z" style="fill:#cccccc;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:round;" /&gt;&lt;/g&gt;&lt;/svg&gt;' );
+      });
+      &lt;/script&gt;
+      </pre>
+    </div>
+  </div>
+</section>

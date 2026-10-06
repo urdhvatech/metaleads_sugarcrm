@@ -1,0 +1,590 @@
+@tailwind base;
+@tailwind components;
+
+/**
+ * Tailwind customization file
+ * ------------------------------
+ */
+
+/* Miscellaneous */
+@layer components {
+  .report-loading-screen-overlay {
+    @apply absolute flex flex-col h-full items-center justify-center w-full;
+
+    @apply z-[95] bg-[--foreground-base];
+  }
+
+  .ui-timepicker-wrapper {
+    @apply border-[--dropdown-border-widget] shadow-xl text-sm;
+  }
+}
+
+/* Buttons */
+@layer components {
+  .btn {
+    @apply align-middle bg-[--btn-background] border border-[--border-base] cursor-pointer font-semibold hover:text-[--text-color-hover] inline-flex items-center justify-center mb-0 px-2 py-1.5 rounded shadow-none text-center text-xs;
+  }
+
+  .btn-primary {
+    @apply bg-[--button-primary-background] dark:hover:bg-blue-300 dark:hover:text-gray-800 hover:bg-blue-700 hover:text-white text-[--button-primary-text];
+  }
+
+  .btn-primary.dropdown-toggle {
+    @apply bg-[--button-primary-background] text-[--button-primary-text];
+  }
+
+  .btn-primary.dropdown-toggle:hover,
+  .btn-primary.dropdown-toggle:hover,
+  .btn-primary.dropdown-toggle.show,
+  .btn-primary.dropdown-toggle.show:hover {
+    @apply bg-blue-700 text-white dark:bg-blue-300 dark:text-gray-800;
+  }
+
+  .btn-primary.dropdown-toggle, .btn-primary.dropdown-toggle.show > span.sicon.sicon-chevron-down {
+    @apply text-[--button-primary-text];
+  }
+}
+
+/* SugarIcons */
+@layer components {
+  .sicon {
+    @apply align-middle antialiased inline-flex items-center justify-center normal-case shrink-0 text-[--sicon];
+
+    font: normal normal normal 1em/1 'SugarIcons';
+  }
+}
+
+/* Labels and Badges */
+@layer components {
+  .label-important,
+  .badge-important {
+    @apply bg-red-200 text-red-700 dark:bg-red-900 dark:text-red-300;
+  }
+
+  .label-warning,
+  .badge-warning {
+    @apply bg-yellow-200 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300;
+  }
+
+  .label-pending,
+  .badge-pending {
+    @apply bg-gray-200 text-gray-700 dark:bg-gray-600 dark:text-white;
+  }
+
+  .label-success,
+  .badge-success {
+    @apply bg-green-200 text-green-700 dark:bg-green-900 dark:text-green-300;
+  }
+
+  .label-info,
+  .badge-info {
+    @apply bg-indigo-200 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300;
+  }
+
+  .label-inverse,
+  .badge-inverse,
+  .label-log,
+  .badge-log {
+    @apply bg-gray-800 text-white;
+  }
+
+  .label-inverse,
+  .badge-inverse {
+    @apply dark:bg-gray-600 dark:text-white;
+  }
+}
+
+/* Module Icons and Colors */
+@layer components {
+  .label-module-size-sm {
+    @apply h-6 text-xs w-6;
+  }
+
+  .label-module-size-lg {
+    @apply h-8 text-base w-8;
+  }
+
+  /* Mappings of sugar module colors to Tailwind colors */
+  .module-color-army {
+    --module-color-50: var(--lime-50);
+    --module-color-100: var(--lime-100);
+    --module-color-200: var(--lime-200);
+    --module-color-300: var(--lime-300);
+    --module-color-400: var(--lime-400);
+    --module-color-500: var(--lime-500);
+    --module-color-600: var(--lime-600);
+    --module-color-700: var(--lime-700);
+    --module-color-800: var(--lime-800);
+    --module-color-900: var(--lime-900);
+    --module-color-950: var(--lime-950);
+    --module-text-default: var(--lime-200);
+    --module-text-default-dark: var(--lime-300);
+    --module-bg-default: var(--lime-500);
+    --module-bg-default-dark: var(--lime-800);
+  }
+
+  .module-color-coral {
+    --module-color-50: var(--fuschia-50);
+    --module-color-100: var(--fuschia-100);
+    --module-color-200: var(--fuschia-200);
+    --module-color-300: var(--fuschia-300);
+    --module-color-400: var(--fuschia-400);
+    --module-color-500: var(--fuschia-500);
+    --module-color-600: var(--fuschia-600);
+    --module-color-700: var(--fuschia-700);
+    --module-color-800: var(--fuschia-800);
+    --module-color-900: var(--fuschia-900);
+    --module-color-950: var(--fuschia-950);
+    --module-text-default: var(--fuschia-200);
+    --module-text-default-dark: var(--fuschia-300);
+    --module-bg-default: var(--fuschia-500);
+    --module-bg-default-dark: var(--fuschia-800);
+  }
+
+  .module-color-green {
+    --module-color-50: var(--emerald-50);
+    --module-color-100: var(--emerald-100);
+    --module-color-200: var(--emerald-200);
+    --module-color-300: var(--emerald-300);
+    --module-color-400: var(--emerald-400);
+    --module-color-500: var(--emerald-500);
+    --module-color-600: var(--emerald-600);
+    --module-color-700: var(--emerald-700);
+    --module-color-800: var(--emerald-800);
+    --module-color-900: var(--emerald-900);
+    --module-color-950: var(--emerald-950);
+    --module-text-default: var(--emerald-200);
+    --module-text-default-dark: var(--emerald-300);
+    --module-bg-default: var(--emerald-500);
+    --module-bg-default-dark: var(--emerald-800);
+  }
+
+  .module-color-ocean {
+    --module-color-50: var(--indigo-50);
+    --module-color-100: var(--indigo-100);
+    --module-color-200: var(--indigo-200);
+    --module-color-300: var(--indigo-300);
+    --module-color-400: var(--indigo-400);
+    --module-color-500: var(--indigo-500);
+    --module-color-600: var(--indigo-600);
+    --module-color-700: var(--indigo-700);
+    --module-color-800: var(--indigo-800);
+    --module-color-900: var(--indigo-900);
+    --module-color-950: var(--indigo-950);
+    --module-text-default: var(--indigo-200);
+    --module-text-default-dark: var(--indigo-300);
+    --module-bg-default: var(--indigo-500);
+    --module-bg-default-dark: var(--indigo-800);
+  }
+
+  .module-color-orange {
+    --module-color-50: var(--orange-50);
+    --module-color-100: var(--orange-100);
+    --module-color-200: var(--orange-200);
+    --module-color-300: var(--orange-300);
+    --module-color-400: var(--orange-400);
+    --module-color-500: var(--orange-500);
+    --module-color-600: var(--orange-600);
+    --module-color-700: var(--orange-700);
+    --module-color-800: var(--orange-800);
+    --module-color-900: var(--orange-900);
+    --module-color-950: var(--orange-950);
+    --module-text-default: var(--orange-200);
+    --module-text-default-dark: var(--orange-300);
+    --module-bg-default: var(--orange-500);
+    --module-bg-default-dark: var(--orange-800);
+  }
+
+  .module-color-pacific {
+    --module-color-50: var(--cyan-50);
+    --module-color-100: var(--cyan-100);
+    --module-color-200: var(--cyan-200);
+    --module-color-300: var(--cyan-300);
+    --module-color-400: var(--cyan-400);
+    --module-color-500: var(--cyan-500);
+    --module-color-600: var(--cyan-600);
+    --module-color-700: var(--cyan-700);
+    --module-color-800: var(--cyan-800);
+    --module-color-900: var(--cyan-900);
+    --module-color-950: var(--cyan-950);
+    --module-text-default: var(--cyan-200);
+    --module-text-default-dark: var(--cyan-300);
+    --module-bg-default: var(--cyan-500);
+    --module-bg-default-dark: var(--cyan-800);
+  }
+
+  .module-color-pink {
+    --module-color-50: var(--pink-50);
+    --module-color-100: var(--pink-100);
+    --module-color-200: var(--pink-200);
+    --module-color-300: var(--pink-300);
+    --module-color-400: var(--pink-400);
+    --module-color-500: var(--pink-500);
+    --module-color-600: var(--pink-600);
+    --module-color-700: var(--pink-700);
+    --module-color-800: var(--pink-800);
+    --module-color-900: var(--pink-900);
+    --module-color-950: var(--pink-950);
+    --module-text-default: var(--pink-200);
+    --module-text-default-dark: var(--pink-300);
+    --module-bg-default: var(--pink-500);
+    --module-bg-default-dark: var(--pink-800);
+  }
+
+  .module-color-purple {
+    --module-color-50: var(--purple-50);
+    --module-color-100: var(--purple-100);
+    --module-color-200: var(--purple-200);
+    --module-color-300: var(--purple-300);
+    --module-color-400: var(--purple-400);
+    --module-color-500: var(--purple-500);
+    --module-color-600: var(--purple-600);
+    --module-color-700: var(--purple-700);
+    --module-color-800: var(--purple-800);
+    --module-color-900: var(--purple-900);
+    --module-color-950: var(--purple-950);
+    --module-text-default: var(--purple-200);
+    --module-text-default-dark: var(--purple-300);
+    --module-bg-default: var(--purple-500);
+    --module-bg-default-dark: var(--purple-800);
+  }
+
+  .module-color-red {
+    --module-color-50: var(--red-50);
+    --module-color-100: var(--red-100);
+    --module-color-200: var(--red-200);
+    --module-color-300: var(--red-300);
+    --module-color-400: var(--red-400);
+    --module-color-500: var(--red-500);
+    --module-color-600: var(--red-600);
+    --module-color-700: var(--red-700);
+    --module-color-800: var(--red-800);
+    --module-color-900: var(--red-900);
+    --module-color-950: var(--red-950);
+    --module-text-default: var(--red-200);
+    --module-text-default-dark: var(--red-300);
+    --module-bg-default: var(--red-500);
+    --module-bg-default-dark: var(--red-800);
+  }
+
+  .module-color-teal {
+    --module-color-50: var(--teal-50);
+    --module-color-100: var(--teal-100);
+    --module-color-200: var(--teal-200);
+    --module-color-300: var(--teal-300);
+    --module-color-400: var(--teal-400);
+    --module-color-500: var(--teal-500);
+    --module-color-600: var(--teal-600);
+    --module-color-700: var(--teal-700);
+    --module-color-800: var(--teal-800);
+    --module-color-900: var(--teal-900);
+    --module-color-950: var(--teal-950);
+    --module-text-default: var(--teal-200);
+    --module-text-default-dark: var(--teal-300);
+    --module-bg-default: var(--teal-500);
+    --module-bg-default-dark: var(--teal-800);
+  }
+
+  .module-color-yellow {
+    --module-color-50: var(--yellow-50);
+    --module-color-100: var(--yellow-100);
+    --module-color-200: var(--yellow-200);
+    --module-color-300: var(--yellow-300);
+    --module-color-400: var(--yellow-400);
+    --module-color-500: var(--yellow-500);
+    --module-color-600: var(--yellow-600);
+    --module-color-700: var(--yellow-700);
+    --module-color-800: var(--yellow-800);
+    --module-color-900: var(--yellow-900);
+    --module-color-950: var(--yellow-950);
+    --module-text-default: var(--yellow-100);
+    --module-text-default-dark: var(--yellow-200);
+    --module-bg-default: var(--yellow-400);
+    --module-bg-default-dark: var(--yellow-700);
+  }
+
+  /* Module color utility classes */
+  .bg-module-50 {
+    background-color: var(--module-color-50);
+  }
+
+  .bg-module-100 {
+    background-color: var(--module-color-100);
+  }
+
+  .bg-module-200 {
+    background-color: var(--module-color-200);
+  }
+
+  .bg-module-300 {
+    background-color: var(--module-color-300);
+  }
+
+  .bg-module-400 {
+    background-color: var(--module-color-400);
+  }
+
+  .bg-module-500 {
+    background-color: var(--module-color-500);
+  }
+
+  .bg-module-600 {
+    background-color: var(--module-color-600);
+  }
+
+  .bg-module-700 {
+    background-color: var(--module-color-700);
+  }
+
+  .bg-module-800 {
+    background-color: var(--module-color-800);
+  }
+
+  .bg-module-900 {
+    background-color: var(--module-color-900);
+  }
+
+  .bg-module-950 {
+    background-color: var(--module-color-950);
+  }
+
+  .bg-module-default {
+    @apply bg-[--module-bg-default] dark:bg-[--module-bg-default-dark];
+  }
+
+  .text-module-50 {
+    color: var(--module-color-50);
+  }
+
+  .text-module-100 {
+    color: var(--module-color-100);
+  }
+
+  .text-module-200 {
+    color: var(--module-color-200);
+  }
+
+  .text-module-300 {
+    color: var(--module-color-300);
+  }
+
+  .text-module-400 {
+    color: var(--module-color-400);
+  }
+
+  .text-module-500 {
+    color: var(--module-color-500);
+  }
+
+  .text-module-600 {
+    color: var(--module-color-600);
+  }
+
+  .text-module-700 {
+    color: var(--module-color-700);
+  }
+
+  .text-module-800 {
+    color: var(--module-color-800);
+  }
+
+  .text-module-900 {
+    color: var(--module-color-900);
+  }
+
+  .text-module-950 {
+    color: var(--module-color-950);
+  }
+
+  .text-module-default {
+    @apply text-[--module-text-default] dark:text-[--module-text-default-dark];
+  }
+
+  /* Legacy module color definitons */
+  .label-module-color-army,
+  .label-module-color-army a,
+  .label-module-color-army a.sicon {
+    @apply module-color-army bg-module-default text-module-default;
+  }
+
+  .label-module-color-coral,
+  .label-module-color-coral a,
+  .label-module-color-coral a.sicon {
+    @apply module-color-coral bg-module-default text-module-default;
+  }
+
+  .label-module-color-green,
+  .label-module-color-green a,
+  .label-module-color-green a.sicon {
+    @apply module-color-green bg-module-default text-module-default;
+  }
+
+  .label-module-color-ocean,
+  .label-module-color-ocean a,
+  .label-module-color-ocean a.sicon {
+    @apply module-color-ocean bg-module-default text-module-default;
+  }
+
+  .label-module-color-orange,
+  .label-module-color-orange a,
+  .label-module-color-orange a.sicon {
+    @apply module-color-orange bg-module-default text-module-default;
+  }
+
+  .label-module-color-pacific,
+  .label-module-color-pacific a,
+  .label-module-color-pacific a.sicon {
+    @apply module-color-pacific bg-module-default text-module-default;
+  }
+
+  .label-module-color-pink,
+  .label-module-color-pink a,
+  .label-module-color-pink a.sicon {
+    @apply module-color-pink bg-module-default text-module-default;
+  }
+
+  .label-module-color-purple,
+  .label-module-color-purple a,
+  .label-module-color-purple a.sicon {
+    @apply module-color-purple bg-module-default text-module-default;
+  }
+
+  .label-module-color-red,
+  .label-module-color-red a,
+  .label-module-color-red a.sicon {
+    @apply module-color-red bg-module-default text-module-default;
+  }
+
+  .label-module-color-teal,
+  .label-module-color-teal a,
+  .label-module-color-teal a.sicon {
+    @apply module-color-teal bg-module-default text-module-default;
+  }
+
+  .label-module-color-yellow,
+  .label-module-color-yellow a,
+  .label-module-color-yellow a.sicon {
+    @apply module-color-yellow bg-module-default text-module-default;
+  }
+}
+
+/* Side navigation bar */
+@layer components {
+  .bg-sidebar-item-default {
+    @apply bg-[--blue-500] dark:bg-[--blue-800];
+  }
+
+  .text-sidebar-item-default {
+    @apply text-[--blue-200] dark:text-[--blue-300];
+  }
+}
+
+/* Bootstrap collapse drawer */
+@layer components {
+  .bs-collapse {
+    @apply relative duration-300 ease-linear h-0 overflow-hidden transition-[height];
+
+    &.show {
+      @apply h-auto;
+    }
+  }
+}
+
+/* Main #content div */
+@layer components {
+  .content-full {
+    @apply !h-full !left-0 !right-0 !rounded-none !top-0 !w-full;
+  }
+}
+
+/* Dropdowns */
+@layer components {
+  .dropdown-menu {
+    @apply bg-white dark:bg-gray-800 border border-[--border-base] m-0 rounded-md shadow-lg;
+  }
+
+  .dropdown-menu .menu-item,
+  .dropdown-menu .menuitem-config > span,
+  .dropdown-menu a,
+  .dropdown-menu li a,
+  .dropdown-menu button,
+  .dropdown-menu li button {
+    @apply text-sm box-content clear-both font-normal m-0 py-2.5 px-3 flex items-center bg-transparent text-[--text-base] whitespace-nowrap w-full;
+
+    & > .sicon {
+      @apply text-xs ltr:mr-2 rtl:ml-2;
+    }
+  }
+
+  .dropdown-menu li.divider {
+    @apply border-b border-gray-200 dark:border-gray-700 h-0 m-0 p-0;
+  }
+}
+
+/* Select2 */
+@layer components {
+  .select2-results {
+    @apply text-sm;
+  }
+}
+
+@tailwind utilities;
+
+/* Custom classes */
+@layer utilities {
+  .reset-width {
+    @apply !min-w-0 !w-auto;
+  }
+}
+
+/* Tables */
+/*
+ * TODO move this @layer base when we add in base directive.
+ * Not using @layer declaration currently as the tree-shaking messes with the output build.
+ * In the future, we can add postcss to achieve proper CSS nesting functionality.
+ */
+table {
+  @apply border-separate border-spacing-0 max-w-full;
+
+  & thead {
+    @apply table-header-group;
+  }
+
+  & thead > tr > th {
+    @apply bg-[--foreground-base] border-b border-r border-[--border-base] box-border [&:nth-last-child(2)]:border-r-0 last:border-l table-cell text-left;
+  }
+
+  & tbody {
+    @apply table-row-group;
+  }
+
+  & tbody > tr > td {
+    @apply bg-[--foreground-base] border-b border-[--border-base] table-cell;
+  }
+
+  & tbody > tr:last-child > td {
+    @apply border-b-0;
+  }
+
+  & tbody > tr > td &[data-type="avatar"] .label-module {
+    @apply label-module-size-sm;
+  }
+
+  & tbody > tr.tr-inline-edit > td &[data-type$="-cascade"] {
+      @apply h-auto max-h-[5rem] min-w-[13.75rem];
+  }
+
+  & tbody > tr.inline-edit > td .cascade-label-wrapper {
+    @apply mt-1 mb-0;
+  }
+
+  & tr {
+    @apply table-row;
+  }
+}
+
+.dataTable {
+  & th > .sortable-row-header-container .sortable-row-header-arrows {
+    @apply ltr:right-0 rtl:left-0;
+  }
+}

@@ -1,0 +1,346 @@
+.dropdown-editor-headerpane {
+  border-bottom: 1px solid var(--border-base);
+
+  .btn-toolbar {
+    padding-right: 1rem;
+
+    a:first-child.btn {
+      &.restore_button {
+        color: var(--btn-secondary-dropdown);
+        line-height: inherit;
+      }
+    }
+  }
+}
+
+.formatting-options-panel {
+  background-color: var(--background-base);
+  border: none;
+  border-radius: 0;
+  height: 100%;
+  width: 40%;
+  margin: 0;
+}
+
+.dropdown-editor-record-group {
+  background-color: var(--background-base);
+  border: none;
+  border-radius: 0;
+  height: 100%;
+  width: inherit;
+  margin: 0;
+
+  .select2-container {
+    .select2-choice {
+      border-color: var(--border-base);
+    }
+
+    .select2-arrow {
+      b {
+        color: var(--gray-400);
+      }
+    }
+  }
+
+  .items-list-controls {
+    .search-group {
+      width: calc(~"100% - 208px");
+      margin-left: 1rem;
+      top: 2px;
+
+      input {
+        padding: 3px 12px;
+      }
+
+      i {
+        top: 0.25rem;
+      }
+    }
+
+    .dropdown-editor-record {
+      [name=add_new_dropdown_btn] {
+        margin: 0 1rem;
+      }
+    }
+  }
+
+  .dropdown-editor-record {
+    .btn {
+      color: var(--btn-secondary-dropdown);
+    }
+  }
+
+  .dropdown-editor-record-table {
+    border: solid var(--border-base);
+    border-width: 1px 0;
+
+    thead {
+      height: 45px;
+
+      th {
+        min-width: 0;
+
+        &[data-fieldname="dropdown_role"] {
+          width: 3.5rem;
+        }
+
+        &[data-fieldname="dropdown_controls"] {
+          border-left: none;
+        }
+      }
+
+      span {
+        width: auto;
+
+        &.sicon {
+          position: relative;
+          top: 0.5rem;
+        }
+      }
+    }
+
+    .dropdown-editor-record-row {
+      cursor: pointer;
+
+      &:active {
+        cursor: grabbing;
+      }
+
+      &:hover, &.active {
+        td {
+          background-color: var(--dropdown-link-background-hover);
+        }
+      }
+
+      &.active > td.dropdown_format {
+        i {
+          color: var(--gray-500);
+        }
+      }
+
+      & > td.dropdown-editor-record-row-buttons {
+        div > span.icon > a {
+          border: 0;
+          background: none;
+        }
+      }
+
+      td[class*="dropdown"] {
+
+        &.dropdown_key {
+          padding-left: 2rem;
+        }
+
+        &.dropdown_format, &.dropdown_delete {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        &.dropdown_role {
+          padding: 0 1rem;
+        }
+
+        &.dropdown_label {
+          div {
+            background-color: var(--input-background);
+
+            span {
+              color: inherit;
+              font-weight: inherit;
+              font-style: inherit;
+              text-decoration: inherit;
+              display: flex;
+
+              input {
+                color: inherit;
+                font-weight: inherit;
+                font-style: inherit;
+                text-decoration: inherit;
+                background-color: transparent;
+                border: none !important;
+                box-shadow: none !important;
+              }
+
+              &.detail {
+                div {
+                  line-height: 28px;
+                  margin-left: 6px;
+                  background-color: transparent;
+                }
+              }
+            }
+          }
+        }
+
+        & > span {
+          max-width: 65%;
+        }
+      }
+
+      td {
+        .icon {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  input {
+    border: 1px solid var(--border-base);
+
+    &[name=dropdown_name] {
+      height: 27px;
+    }
+  }
+
+  .error input::placeholder {
+    color: @errorText;
+  }
+
+  .sicon {
+    color: var(--gray-400);
+  }
+}
+
+.unsaved-role-change-alert {
+  width: 32rem;
+}
+
+
+.unsaved-lang-change-alert {
+  width: 35rem;
+}
+
+@media screen and (max-width: 768px) {
+  .drawer .main-pane {
+    margin-bottom: 0;
+  }
+}
+
+.conditional-formatting {
+  &.side {
+    &.sidebar-content {
+        top: 3.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      &.sidebar-content {
+        top: auto;
+      }
+    }
+  }
+
+  .preview-headerbar {
+    top: auto;
+    border-radius: 0;
+  }
+
+  .preview-pane {
+    .field-row {
+      border-top: 0;
+
+      &:nth-child(2) {
+        margin-left: 0;
+      }
+    }
+
+    .formatting-text-emphasis {
+      display: inline-flex;
+      border-radius: 5px;
+      font-size: 16px;
+      border-color: @borderColor;
+
+      .active {
+        background-color: var(--btn-active-background);
+        color: var(--link-color-active);
+      }
+    }
+  }
+
+  .preview-data {
+    &.preview-formatting {
+      padding: 4px 15px 4px 16px;
+      margin: auto 16px 62px 24px;
+    }
+
+    &.remove-formatting {
+      padding: 1px 15px 1px 16px;
+      margin: 14px 16px 14px 14px;
+    }
+
+    .field-row {
+      border-top: 0;
+
+      &[data-name='formatting-icon'] {
+        position: relative;
+      }
+    }
+
+    &.body-formatting {
+      margin: 60px 16px 14px 14px;
+
+      .formatting-panel-inline {
+        overflow: auto;
+
+        .field-row {
+          float: left;
+          width: 48%;
+          top: 0;
+
+          .field-label {
+            margin-top: 0;
+          }
+
+          .formatting-color {
+            display: flex;
+
+            // Ensure the text input container can shrink and not overflow
+            > div { flex: 1 1 0%; min-width: 0; }
+
+            [type=color] {
+              padding: 0;
+              width: 1.75rem;
+              height: 1.75rem;
+              box-shadow: none;
+
+              // fix border associated with browser generated pseudo element
+              &::-webkit-color-swatch-wrapper {
+                padding: 0;
+              }
+
+              &::-webkit-color-swatch {
+                border: none;
+              }
+            }
+
+            [type=text] {
+              box-sizing: border-box;
+              min-width: 0;           // allow shrink in flex
+              height: 28px;
+            }
+          }
+
+          &:nth-child(2) {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-pane {
+  &.overflow-y-auto {
+    &.span12 {
+      margin-left: 0;
+    }
+
+    &.span8 {
+      margin-left: 0;
+    }
+  }
+}
+
+.hidden-icon {
+  visibility: hidden;
+}

@@ -1,0 +1,77 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="bg-[--foreground-base] px-3 rounded-md [&>.merge-row:not(:last-child)]:border-b [&>.merge-row:first-child]:mt-1">
+    {{#if merges}}
+        {{#each merges}}
+            <div class="group/merge-item merge-row pt-2 border-[--border-base]" merge-id="{{id}}">
+                <div class="flex items-center justify-between">
+                    <div class="min-w-0 w-full">
+                        <div class="font-bold text-sm ellipsis_inline" data-bs-placement="bottom" title="{{name}}">
+                            {{name}}
+                        </div>
+                        <div class="flex items-center mt-0.5">
+                            {{moduleLabel parent_type 'sm' rel='tooltip' title=(getModuleName parent_type plural=true)}}
+                            {{#if isMultiMerge}}
+                                <span class="ellipsis_inline" data-bs-placement="bottom" title="{{str 'LBL_DOCUMENTMERGE_MULTIPLE' 'DocumentMerges'}}">
+                                    {{str 'LBL_DOCUMENTMERGE_MULTIPLE' 'DocumentMerges'}}
+                                </span>
+                            {{else}}
+                                <a href="#{{buildRoute module=parent_type id=parent_id}}" class="ellipsis_inline ml-1.5" data-bs-placement="bottom" title="{{parent_name}}">
+                                    {{parent_name}}
+                                </a>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="group-[:not(:hover)]/merge-item:hidden shrink-0 grow-0">
+                        <div class="btn-group pull-right" id="actions">
+                            {{#eq status "success"}}
+                                <button class="btn btn-invisible send-email" rel="tooltip" data-bs-placement="bottom" title="{{str 'LBL_SEND_AS_ATTACHMENT' _module}}">
+                                    <i class="sicon sicon-email"></i>
+                                </button>
+                                <button class="btn btn-invisible send-link" rel="tooltip" data-bs-placement="bottom" title="{{str 'LBL_SEND_AS_NOTIFICATION' _module}}">
+                                    <i class="sicon sicon-link"></i>
+                                </button>
+                                <button class="btn btn-invisible send-docusign" rel="tooltip" data-bs-placement="bottom" title="{{str 'LBL_SEND_TO_DOCUSIGN' _module}}">
+                                    <i class="sicon sicon-edit"></i>
+                                </button>
+                            {{/eq}}
+                            <button class="btn btn-invisible remove-merge" rel="tooltip" data-bs-placement="bottom" title="{{str 'LBL_REMOVE_FROM_WIDGET' _module}}">
+                                <i class="sicon sicon-close"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-2">
+                    <div class="bg-[--progress-bar-background] h-1.5 overflow-hidden rounded-full">
+                        <div class="bg-emerald-500 h-full{{#eq status "error"}} bg-red-500{{/eq}}" data-merge-id={{id}}></div>
+                    </div>
+                    <div class="flex items-center justify-end mt-1">
+                        <span class="{{#if generated_document_id}}dm-cursor{{/if}} download
+                        dm-icon dm-filetype-thumbnail" document-id="{{generated_document_id}}">
+                            <img src="{{icon_path}}" class="w-6 h-6" />
+                        </span>
+                        <span class="text ml-1">
+                            {{#eq status "success"}}
+                                <a target="_blank" href="#Documents/{{generated_document_id}}">{{str "LBL_GENERATED_DOCUMENT" "DocumentMerges"}}</a>
+                            {{else}}
+                                {{message}}
+                            {{/eq}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <div>{{str LBL_NO_MERGES}}</div>
+    {{/if}}
+</div>

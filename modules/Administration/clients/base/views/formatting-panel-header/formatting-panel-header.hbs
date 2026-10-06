@@ -1,0 +1,38 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="sticky top-0 z-20">
+    <div class="preview-headerbar bg-[--background-base]">
+        <h1 class="ellipsis_inline" data-bs-placement="bottom" data-original-title="{{str "LBL_DROPDOWN_FORMATTING" this.module}}">{{str "LBL_DROPDOWN_FORMATTING" this.module}}</h1>
+        <div class="btn-toolbar pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn btn-invisible btn-left{{#unless layout.previous}} disabled{{/unless}}"
+                        data-direction="left" {{#unless layout.previous}} tabindex="-1"{{/unless}}
+                        aria-label="{{str 'LBL_PREVIEW_PREVIOUS'}}"
+                >
+                    <i class="sicon sicon-chevron-left rtl:-scale-x-100"></i>
+                </button>
+                <button type="button" class="btn btn-invisible btn-right{{#unless layout.next}} disabled{{/unless}}"
+                        data-direction="right" {{#unless layout.next}} tabindex="-1"{{/unless}}
+                        aria-label="{{str 'LBL_PREVIEW_NEXT'}}"
+                >
+                    <i class="sicon sicon-chevron-right rtl:-scale-x-100"></i>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-invisible closeSubdetail" aria-label="{{str 'LBL_PREVIEW_CLOSE'}}">
+                    <i class="sicon sicon-close"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

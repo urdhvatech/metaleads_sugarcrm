@@ -1,0 +1,96 @@
+#content {
+  left: 0;
+  right: 2.5rem;
+}
+
+.sidebar-nav {
+  .sidebar-nav-item {
+    .sicon.omnichannel-logged-in {
+      right: 2rem;
+      left: auto;
+    }
+
+    .expanded {
+      padding-right: 0;
+    }
+  }
+
+  // When fully collapsed
+  &:not(.expanded):not(.expanding):not(.collapsing) {
+    right: -11.5rem;
+
+    .sidebar-nav-item {
+      right: 11.5rem;
+    }
+
+    .sidebar-nav-flyout {
+      margin-right: 1.125rem !important;
+      left: auto !important;
+    }
+  }
+
+  &.expanded:not(.collapsing):not(.expanding) {
+    right: 0;
+
+    .sidebar-nav-item {
+      right: 0;
+    }
+  }
+
+  // While expanding
+  &.expanding {
+    right: 0;
+
+    .sidebar-nav-item {
+      right: 0;
+    }
+  }
+
+  // While collapsing
+  &.collapsing {
+    right: -11.5rem;
+
+    .sidebar-nav-item {
+      right: 11.5rem;
+    }
+  }
+}
+
+.popover[data-popper-placement="left"] {
+  margin-left: 0;
+
+  .flyout-close {
+    left: 0.25rem;
+    z-index: 2000;
+  }
+}
+
+/*
+CSS related to the animations inside sidebar items
+ */
+.sidebar-nav {
+  // Animations specific to expanded mode
+  &.expanded {
+    .sidebar-nav-item {
+      &:hover,
+      &:focus-within,
+      &.selected {
+        .animated-background {
+          transform: translateX(-0.75rem);
+
+          &.expanded-full-fill {
+            height: 100%;
+            width: 100%;
+            transform: translateX(0);
+            border-radius: 0;
+            transition:
+              height 0.1s linear,
+              border-radius 0.1s linear,
+              width 0.3s linear 0.1s,
+              transform 0.3s linear 0.1s;
+          }
+        }
+      }
+    }
+  }
+}

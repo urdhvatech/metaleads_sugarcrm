@@ -1,0 +1,117 @@
+.headerpane {
+  h1 {
+    > .record-cell[data-type="label"] {
+      padding-left: 0;
+      padding-right: 20px;
+
+      & + [data-type="collection-count"] {
+        padding-right: 5px;
+        padding-left: 18px;
+      }
+    }
+
+    .edit .btn-group {
+      padding-left: 0;
+      padding-right: 8px;
+    }
+
+    > .record-cell {
+      padding: 0 1rem 0 0;
+
+      &:last-of-type {
+        margin-right: initial;
+        margin-left: auto;
+      }
+
+      .record-cell {
+        padding: 0 0 0 4px;
+      }
+
+      &[data-type="favorite"] {
+        padding: 0 1rem;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .record-label {
+    padding: 0 7px 0 0;
+  }
+
+  span[data-type="name"]:not(.edit),
+  span[data-type="hint-accounts-search-dropdown"]:not(.edit),
+  span[data-type="fullname"]:not(.edit) {
+    padding-left: 0;
+  }
+
+  h1 .btn-toolbar .btn-group {
+    padding: 0;
+  }
+
+  span[data-type="enum"],
+  span[data-type="relate"] {
+    .edit.error .add-on.error-tooltip {
+      left: 16px;
+      right: auto;
+    }
+  }
+
+  .record-edit-link-wrapper,
+  .record-lock-link-wrapper {
+    .record-edit-link,
+    .record-lock-link {
+      .sicon-edit,
+      .sicon-lock {
+        left: auto;
+        right: -0.875rem;
+      }
+    }
+  }
+
+  &.listheaderpane {
+    .box {
+      &.quarter-picker {
+        .select2-choice .select2-arrow {
+          left: -7px;
+        }
+      }
+
+      &.btn-toolbar {
+        left: 0;
+        right: auto;
+      }
+    }
+
+    .btn-toolbar {
+      padding: 0 0 0 0.5rem;
+    }
+  }
+}
+
+/* NEW SKIN START */
+
+@media (max-width: 768px) {
+  .main-pane.span8 .headerpane {
+    border-top-left-radius: @mainPaneTopBorderRadius;
+  }
+}
+
+.main-pane {
+  .headerpane {
+    .btn-toolbar {
+      padding: 0 0 0 0.5rem;
+    }
+  }
+
+  &:not(.span12) .headerpane {
+    border-radius: 0 @mainPaneTopBorderRadius 0 0;
+  }
+}
+
+.side.sidebar-content {
+  .headerpane {
+    border-radius: @mainPaneTopBorderRadius 0 0 0;
+  }
+}
+
+/* NEW SKIN END */

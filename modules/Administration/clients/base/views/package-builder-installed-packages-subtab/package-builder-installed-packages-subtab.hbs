@@ -1,0 +1,62 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{!-- Progress Alert View Container ->>> --}}
+<div class="progress-alert-container">
+
+</div>
+
+{{!-- List View ->>> --}}
+<div id="installed_packages" class="ml-1.5 mr-1.5 text-sm">
+    <table class="table" id="fields_table">
+        <thead>
+            <tr class="headerRow">
+                {{#if headerLabels}}
+                    {{#each headerLabels}}
+                        <th id="{{@index}}" class="sorting">
+                            <span>
+                                {{str this 'Administration'}}
+                            </span>
+                        </th>
+                    {{/each}}
+                {{/if}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#if isEntries}}
+                {{#each entries}}
+                    {{!-- Build entry data rows --}}
+                    <tr class="regularRow" id="row-{{@index}}">
+                        <td>{{name}}</td>
+                        <td>{{version}}</td>
+                        {{#if description}}
+                            <td>{{description}}</td>
+                        {{else}}
+                            <td>{{str 'LBL_PACKAGE_BUILDER_NO_DESCRIPTION' 'Administration'}}</td>
+                        {{/if}}
+                    </tr>
+                {{/each}}
+            {{/if}}
+        </tbody>
+    </table>
+    {{#unless isEntries}}
+        <div id="no_data_message">{{str 'LBL_PACKAGE_BUILDER_NO_DATA_AVAILABLE' 'Administration'}}</div>
+    {{/unless}}
+</div>
+
+{{!-- <<<--- List View --}}
+
+{{#each meta.buttons}}
+    <div class="mt-2.5">
+        {{field ../this}}
+    </div>
+{{/each}}

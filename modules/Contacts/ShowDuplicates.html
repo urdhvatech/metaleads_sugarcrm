@@ -1,0 +1,41 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<!-- BEGIN: error -->
+<span class="color">{ERROR.SANITIZE_HTML}</span>
+<!-- END: error -->
+
+<form action='index.php' method='post' name='Save'>
+{sugar_csrf_form_token}
+	<input type="hidden" name="module" value="Contacts">
+	<input type="hidden" name="return_module" value="{RETURN_MODULE.ESCAPE_HTML_ATTR}">
+	<input type="hidden" name="return_action" value="{RETURN_ACTION.ESCAPE_HTML_ATTR}">
+	<input type="hidden" name="return_id" value="{RETURN_ID.ESCAPE_HTML_ATTR}">
+	<input type="hidden" name="inbound_email_id" value="{INBOUND_EMAIL_ID.ESCAPE_HTML_ATTR}">
+	<input type="hidden" name="start" value="{START.ESCAPE_HTML_ATTR}">
+	<input type="hidden" name="dup_checked" value="true">
+	<input type="hidden" name="action" value="">
+{INPUT_FIELDS}
+<p>	<table class='{TABLECLASS.ESCAPE_HTML_ATTR}' cellpadding="0" cellspacing="0" width="100%" border="0" >
+	<tr><td>
+	<table cellpadding="0" cellspacing="0" width="100%" border="0" >
+	
+	<tr ><td valign='top' align='left' border='0' class="{CLASS.ESCAPE_HTML_ATTR}"><h4 class="{CLASS.ESCAPE_HTML_ATTR}">{FORMHEADER}</h4></td></tr>
+	<tr><td  valign='top' align='left'>{FORMBODY}{FORMFOOTER}{POSTFORM}</td></tr>
+	</table>
+</td>
+</tr>
+</table>
+</p>
+
+<!-- END: main -->

@@ -1,0 +1,95 @@
+/* Smart Banner
+  ----------------*/
+
+.mobile-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  height: 65px;
+  box-sizing: border-box;
+
+  .mobile-banner__info {
+    flex-grow: 1;
+    max-height: 35px;
+    overflow: hidden;
+  }
+
+  .mobile-banner__btn {
+    white-space: nowrap;
+
+    i {
+      font-size: 24px;
+    }
+  }
+
+  .mobile-banner__title {
+    font-size: 16px;
+  }
+
+  .mobile-banner__msg {
+    font-size: 13px;
+  }
+
+  .mobile-banner__icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+body.sugar-light-theme {
+  .mobile-banner {
+    background-color: #f7f7f7;
+
+    .mobile-banner__icon {
+      color: @color-black
+    }
+
+    .mobile-banner__title {
+      color: var(--gray-900);
+    }
+
+    .mobile-banner__msg {
+      color: var(--gray-600);
+    }
+
+    .mobile-banner__btn i {
+        color: #007aff;
+    }
+
+    .mobile-banner__close {
+      color: var(--gray-400);
+    }
+  }
+}
+
+body.sugar-dark-theme {
+  .mobile-banner {
+    background-color: @color-black;
+
+    .mobile-banner__icon {
+      color: @color-white;
+    }
+
+    .mobile-banner__title {
+      color: @color-white;
+    }
+
+    .mobile-banner__msg {
+      color: var(--gray-300);
+    }
+
+    .mobile-banner__btn i {
+      color: var(--gray-500);
+    }
+
+    .mobile-banner__close {
+      color: var(--gray-500);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if usingInternalEmailClient}}
+    <button class="ellipsis_inline bg-[--foreground-base] py-1.5 pl-3 pr-2 rtl:text-right text-xs text-[--text-base] hover:bg-gray-100 dark:hover:bg-gray-800 group/action-button text-left w-full"
+        data-action="email"
+        track="click:quickCreate-Emails"
+        data-bs-placement="bottom"
+        title="{{str label def.module}}"
+    >
+        {{#if def.icon}}
+            <span class="w-6 h-6 bg-transparent my-1.5 inline-flex flex-row items-center justify-center group-hover/action-button:bg-sidebar-item-default group-focus-within/action-button:bg-sidebar-item-default mr-1 rounded-sm">
+                <i class="{{buildIcon def.icon}} group-hover/action-button:text-sidebar-item-default group-focus-within/action-button:text-sidebar-default"></i>
+            </span>
+        {{/if}}
+        <span class="my-1.5 text-sm group-hover/action-button:font-semibold">
+            {{label}}
+        </span>
+    </button>
+{{else}}
+    <a class="ellipsis_inline bg-[--foreground-base] py-1.5 pl-3 pr-2 rtl:text-right text-xs text-[--text-base] hover:bg-gray-100 dark:hover:bg-gray-800 group/action-button"
+        data-action="email"
+        href="mailto:"
+        track="click:quickCreate-Emails"
+        data-bs-placement="bottom"
+        title="{{str label def.module}}"
+    >
+        {{#if def.icon}}
+            <span class="w-6 h-6 bg-transparent my-1.5 inline-flex flex-row items-center justify-center group-hover/action-button:bg-sidebar-item-default group-focus-within/action-button:bg-sidebar-item-default mr-1 rounded-sm">
+                <i class="{{buildIcon def.icon}} group-hover/action-button:text-sidebar-item-default group-focus-within/action-button:text-sidebar-default"></i>
+            </span>
+        {{/if}}
+        <span class="my-1.5 text-sm group-hover/action-button:font-semibold">
+            {{label}}
+        </span>
+    </a>
+{{/if}}

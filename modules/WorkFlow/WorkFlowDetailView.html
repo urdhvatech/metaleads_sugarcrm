@@ -1,0 +1,105 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+<form action="index.php" method="post" name="form" id="form">
+{sugar_csrf_form_token}
+		<table cellpadding="0" cellspacing="0" border="0" width='100%'>
+			<input type="hidden" name="module" value="WorkFlow">
+			<input type="hidden" name="record" value="{ID.ESCAPE_HTML_ATTR}">
+			<input type="hidden" name="isDuplicate" value=false>
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module">
+			<input type="hidden" name="return_action">
+			<input type="hidden" name="return_id">
+			{PORTAL_ON}
+		<tr>
+		<td><input title="{APP.LBL_EDIT_BUTTON_TITLE.ESCAPE_HTML_ATTR}" accessKey="{APP.LBL_EDIT_BUTTON_KEY.ESCAPE_HTML_ATTR}" class="button" data-onclick-{sugar_nonce}="this.form.return_module.value='WorkFlow'; this.form.return_action.value='WorkFlowDetailView'; this.form.return_id.value='{ID.ESCAPE_JS}'; this.form.action.value='WorkFlowEditView'" type="submit" name="button" value="  {APP.LBL_EDIT_BUTTON_LABEL.ESCAPE_HTML_ATTR}  ">
+		<input title="{APP.LBL_DUPLICATE_BUTTON_TITLE.ESCAPE_HTML_ATTR}" accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY.ESCAPE_HTML_ATTR}" class="button" data-onclick-{sugar_nonce}="this.form.return_module.value='WorkFlow'; this.form.return_action.value='WorkFlowListView'; this.form.isDuplicate.value=true; this.form.action.value='WorkFlowEditView'" type="submit" name="button" value=" {APP.LBL_DUPLICATE_BUTTON_LABEL.ESCAPE_HTML_ATTR} ">
+		<input title="{APP.LBL_DELETE_BUTTON_TITLE.ESCAPE_HTML_ATTR}" accessKey="{APP.LBL_DELETE_BUTTON_KEY.ESCAPE_HTML_ATTR}" class="button" data-onclick-{sugar_nonce}="this.form.return_module.value='WorkFlow'; this.form.return_action.value='WorkFlowListView'; this.form.action.value='Delete'; this.form.module.value='EmailTemplates';  return confirm('{APP.NTC_DELETE_CONFIRMATION.ESCAPE_JS}')" type="submit" name="button" value=" {APP.LBL_DELETE_BUTTON_LABEL.ESCAPE_HTML_ATTR} "></td>
+		<td align='right'>{ADMIN_EDIT}</td>
+		</tr></table>
+
+	</form>
+
+<div class="detail view">
+<table width="100%" border="0" cellspacing="{GRIDLINE.ESCAPE_HTML_ATTR}" cellpadding="0">
+{PAGINATION}
+
+	<tr>
+	<td width='15%' scope="row"><slot>{MOD.LBL_NAME.ESCAPE_HTML}</slot></td>
+	<td><slot>{NAME.ESCAPE_HTML}</slot></td>
+	<td scope="row"><slot>{APP.LBL_DATE_MODIFIED.ESCAPE_HTML}</slot></td>
+	<td><slot>{DATE_MODIFIED.ESCAPE_HTML} {APP.LBL_BY.ESCAPE_HTML} {MODIFIED_BY.ESCAPE_HTML}</slot></td>
+	<!--
+	<td scope="row"><slot>{MOD.LBL_PUBLISH}</slot></td>
+	<td><slot><input type="checkbox" name="published" disabled {PUBLISHED}></slot></td>
+	-->
+	</tr>
+	<tr>
+	<td scope="row" width='15%'><slot>{MOD.LBL_DESCRIPTION.ESCAPE_HTML}</slot></td>
+	<td><slot>{DESCRIPTION.SANITIZE_HTML}</slot></td>
+	<td scope="row"><slot>{APP.LBL_DATE_ENTERED.ESCAPE_HTML}</slot></td>
+	<td><slot>{DATE_ENTERED.ESCAPE_HTML} {APP.LBL_BY.ESCAPE_HTML} {CREATED_BY.ESCAPE_HTML}</slot></td>
+	</tr>	
+	<tr>
+	<td scope="row"><slot>{MOD.LBL_FROM_NAME.ESCAPE_HTML}</slot></td>
+	<td><slot>{FROM_NAME.ESCAPE_HTML}</slot></td>
+	<td scope="row"><slot>{MOD.LBL_FROM_ADDRESS.ESCAPE_HTML}</slot></td>
+	<td><slot>{FROM_ADDRESS.ESCAPE_HTML}</slot></td>
+	</tr>
+	<tr>
+	<td scope="row" width='15%'><slot>{MOD.LBL_BASE_MODULE.ESCAPE_HTML}</slot></td>
+	<td><slot>{BASE_MODULE.ESCAPE_HTML}</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	</tr>	
+<!--
+	<tr>
+	<td scope="row" valign="top"><slot></slot></td>
+	<td><slot></slot></td>
+	</tr>
+-->
+	<tr>
+	<td scope="row" valign="top"><slot>{MOD.LBL_SUBJECT.ESCAPE_HTML}</slot></td>
+	<td><slot>{SUBJECT.ESCAPE_HTML}</slot></td>
+	<td scope="row" valign="top"><slot></slot></td>
+	<td><slot></slot></td>
+	</tr>
+	<tr>
+	<td scope="row" valign="top"><slot>{MOD.LBL_BODY.ESCAPE_HTML}</slot></td>
+        <td colspan="3"  style="background-color: #ffffff;" ><slot><div id="html_div" style="background-color: #ffffff;padding: 5px">{BODY_HTML.SANITIZE_HTML}</div>
+<input id='toggle_textarea_elem' data-onchange-{sugar_nonce}="toggle_textarea(this);" type="checkbox" name="toggle_html" {ALT_CHECKED}/> {MOD.LBL_EDIT_ALT_TEXT.ESCAPE_HTML}<br>
+<div id="text_div" style="display: none;background-color: #ffffff;padding: 5px">{BODY.SANITIZE_HTML}</textarea></div>
+<script nonce="{sugar_nonce}">
+function toggle_textarea(obj)
+{
+ if (obj.checked == true)
+ {
+        document.getElementById('text_div').style.display = 'block';
+ } else
+ {
+        document.getElementById('text_div').style.display = 'none';
+ }
+}
+toggle_textarea( document.getElementById('toggle_textarea_elem'));
+</script>
+
+	</tr>
+    <tr>
+        <td scope="row" valign="top"><slot>{MOD_EMAILS.LBL_ATTACHMENTS.ESCAPE_HTML}</td>
+        <td colspan="3"><slot>{ATTACHMENTS}&nbsp;</slot></td>
+    </tr>
+</table>
+</div>
+<!-- END: main -->

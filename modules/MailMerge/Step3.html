@@ -1,0 +1,71 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<!-- BEGIN: error -->
+<span class="error">{ERROR.SANITIZE_HTML}</span>
+<!-- END: error -->
+			<form enctype="multipart/form-data" name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="MailMerge">
+			<input type="hidden" name="step" value="4">
+			<input type="hidden" name="action" value="index">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE.ESCAPE_HTML_ATTR}">
+			<input type="hidden" name="return_id" value="{RETURN_ID.ESCAPE_HTML_ATTR}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION.ESCAPE_HTML_ATTR}">
+			<input type="hidden" name="selected_objects_def" value="{MAILMERGE_SELECTED_OBJECTS_DEF.ESCAPE_HTML_ATTR}">
+<p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+	<th align="left" scope="row" colspan="2"><h4 class="">{STEP_NUM}&nbsp;{STEP3_HEADER}</h4></th>
+</tr>
+<tr>
+<td>
+<em>{MOD.LBL_RELATED_INFO_SELECTION.ESCAPE_HTML}</em>
+</td></tr>
+<tr>
+<td>
+<!-- BEGIN: items -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td width="28%" >{MOD.LBL_LIST_NAME.ESCAPE_HTML}</td>
+	<td width="45%" >{STEP3_HEADER}</td>
+	
+	</tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR.ESCAPE_HTML_ATTR}S1">
+    	<td valign="top">{MAILMERGE.NAME.SANITIZE_HTML}</td>
+		<td valign="top"><input name='rel_type_{MAILMERGE.CODE.ESCAPE_HTML_ATTR}' type="hidden" value="{MAILMERGE.REL_MODULE.ESCAPE_HTML_ATTR}"><input name='rel_id_{MAILMERGE.CODE.ESCAPE_HTML_ATTR}' type="hidden" value='{MAILMERGE.CONTACT_ID.ESCAPE_HTML_ATTR}'><input name='rel_name_{MAILMERGE.CODE.ESCAPE_HTML_ATTR}' tabindex='0' readonly type='text' value='{MAILMERGE.CONTACT_NAME.ESCAPE_HTML_ATTR}'>{MAILMERGE.CHANGE_RELATIONSHIP}</td>
+
+</tr>
+<tr>
+	<td colspan="1" valign=TOP bgcolor="{BG_COLOR.ESCAPE_HTML_ATTR}" class="{ROW_COLOR.ESCAPE_HTML_ATTR}S1"></td>
+	<td colspan="1" valign=TOP bgcolor="{BG_COLOR.ESCAPE_HTML_ATTR}" class="{ROW_COLOR.ESCAPE_HTML_ATTR}S1"></td>
+</tr>
+<tr><td colspan="2" class="listViewHRS1"></td></tr>
+<!-- END: row -->
+</table>
+<!-- END: items -->
+</td>
+</tr>
+</table>
+</p>
+<p><table width="100%" cellpadding="2" cellspacing="0" border="0"><tr> 
+	<td align="left"><input title="{MOD.LBL_BACK.ESCAPE_HTML_ATTR}"  class="button" type="submit" name="button" value="  {MOD.LBL_BACK.ESCAPE_HTML_ATTR}  "  data-onclick-{sugar_nonce}="this.form.action.value='index'; this.form.step.value='{PREV_STEP.ESCAPE_JS}'; return true;"></td>
+	<td align="right"><input title="{MOD.LBL_FINISH.ESCAPE_HTML_ATTR}"  class="button" type="submit" name="button" value="  {MOD.LBL_NEXT.ESCAPE_HTML_ATTR}  "></td>
+</tr>
+</table>  </p>
+	</form>
+{JAVASCRIPT}
+
+<!-- END: main -->

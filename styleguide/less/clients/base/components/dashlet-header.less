@@ -1,0 +1,89 @@
+// Surrounding container for icon
+.dashlet-open-icon-container {
+  display: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  // The icon itself
+  .dashlet-open-icon {
+    display: block;
+    font-size: 12px;
+    line-height: 12px;
+
+    &:hover {
+      cursor: pointer;
+      color: @sicon-hover-color;
+    }
+  }
+}
+
+// Hide the dashlet header action buttons unless the user is hovering over the
+// dashlet. We base this on grid-stack-item to match the behavior of the
+// dashlet's resize controls
+.grid-stack-item {
+  .dashlet-container {
+    .dashlet-header {
+      h4 {
+        display: flex;
+        align-items: center;
+
+        &.dashlet-title.record-toolbar {
+          .record-cell {
+            position: relative;
+            vertical-align: middle;
+
+            &.edit {
+              padding: 0;
+              display: inline-block;
+            }
+          }
+        }
+      }
+
+      .btn-toolbar {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &:not(:hover):not(:focus-within) {
+    .dashlet-container {
+      .dashlet-header {
+        .btn-toolbar {
+          transform: translateX(-9999px);
+        }
+      }
+    }
+  }
+}
+
+// Hide and show the icon based on hovering over the record name
+.dashlet-header {
+  .dashlet-open-container:hover {
+    .dashlet-open-icon-container {
+      display: block;
+    }
+  }
+}
+
+.dashlet-header {
+  .dashlet-title {
+    text-align: initial;
+    text-overflow: ellipsis;
+  }
+
+  .btn-toolbar {
+    font-size: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
+}

@@ -1,0 +1,39 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#each meta.panels}}
+    <div class="record">
+        {{#each fields}}
+
+            {{#if openRow}}
+                <div class="row-fluid">
+            {{/if}}
+            <div class='span{{span}} record-cell' data-type='{{type}}' data-name='{{name}}'>
+                <label for="{{name}}">{{str label ../../module}}</label>
+                <span class='normal index' data-fieldname='{{name}}'>
+
+                    {{field ../../this model=../../model parent=../../model template='edit'}}
+
+                </span>
+            </div>
+            {{#if closeRow}}
+    </div>
+    {{/if}}
+{{/each}}
+</div>
+{{/each}}
+
+{{#each meta.buttons}}
+    <div class="pt-2.5 pr-0 pb-0 pl-1.5">
+        {{field ../this}}
+    </div>
+{{/each}}

@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="widget-help-icon">
+    <i class="sicon sicon-help dm-help-icon"
+        id="dm-help-icon"
+        rel="tooltip"
+        title="{{str 'LBL_DOCUMENT_MERGE_HELP_DOC' module}}">
+    </i>
+</div>
+
+<button id="template-assistant" class="btn pull-right template-builder">{{str 'LBL_DOCUMENT_MERGE_TEMPLATE_ASSISTANT' 'DocumentMerges'}}</button>
+<a class="sicon sicon-close pull-right feedback-close document-merge absolute m-0 right-3 top-3" data-action="close"></a>
+
+<script type="text/javascript">
+    (function() {
+        var helpIcon = document.getElementById('dm-help-icon');
+        if (helpIcon && window.App && App.utils && App.utils.DocumentMerge && typeof App.utils.DocumentMerge.openHelpDocumentation === 'function') {
+            helpIcon.addEventListener('click', function() {
+                App.utils.DocumentMerge.openHelpDocumentation('DocMergeWidget');
+            });
+        }
+    })();
+</script>

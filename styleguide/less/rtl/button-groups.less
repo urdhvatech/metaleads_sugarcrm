@@ -1,0 +1,48 @@
+.btn-toolbar {
+  padding-right: 20px;
+  padding-left: initial;
+}
+
+.btn-group .btn {
+  margin-right: -1px;
+  margin-left: 0;
+  border-radius: 0;
+}
+
+.btn-group {
+  span:first-child .btn,
+  & > .btn:first-child {
+    margin-left: 0;
+    border-top-right-radius: var(--rounded-sm);
+    border-bottom-right-radius: var(--rounded-sm);
+  }
+
+  .btn {
+    &.btn-primary {
+      border-radius: var(--rounded) 0 0 var(--rounded);
+
+      &.rowaction {
+        margin-left: 0;
+        border-radius: 0 var(--rounded) var(--rounded) 0;
+      }
+    }
+  }
+
+  span:last-child .btn,
+  & > .btn:last-child,
+  & > .dropdown-toggle {
+    border-top-left-radius: var(--rounded-sm);
+    border-bottom-left-radius: var(--rounded-sm);
+  }
+
+  // Reset corners for large buttons
+  .btn.large:first-child {
+    border-top-right-radius: var(--rounded-sm);
+    border-bottom-right-radius: var(--rounded-sm);
+  }
+}
+
+.control-group .controls.btn-group-fit .btn-group {
+  left: 0;
+  right: auto;
+}

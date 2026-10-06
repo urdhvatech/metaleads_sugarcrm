@@ -1,0 +1,31 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{! SubTabs }}
+<div class="package-subtab-list">
+    <ul class="nav nav-tabs" id="recordTab">
+        {{#each this.packagesSubtabs}}
+            <li class="tab panel_body packagesSubtab mt-0 {{value}}_tab {{#if active}}active{{/if}} {{#if disabled}}disabled{{/if}}">
+                <a name="{{value}}" data-toggle="tab" {{#if tooltip}} rel="tooltip" data-placement="bottom"
+                    title="{{str tooltip 'Administration'}}" {{/if}}>{{str label 'Administration'}}</a>
+                {{#eq value "remote_packages"}}
+                    <span class="remote_packagesDot"></span>
+                {{/eq}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
+{{! Selected SubTab Content }}
+<div class="subtab-content">
+
+</div>

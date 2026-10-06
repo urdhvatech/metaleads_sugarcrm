@@ -1,0 +1,77 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{!-- Filter -->>> --}}
+{{#if hasContent}}
+  <div id="filterCustomizations">
+    {{#each meta.panels}}
+      <div class="record flex flex-wrap">
+        {{#each fields}}
+
+          {{#if openRow}}
+            <div class="row-fluid {{#notEq name "filterInput"}}flex flex-[50%]{{/notEq}}">
+          {{/if}}
+
+          <div class='{{#if span}}span{{span}} {{/if}} record-cell' data-type='{{type}}' data-name='{{name}}'>
+            {{#eq labelDown false}}
+              <label for="{{name}}">{{str label 'Administration'}}</label>
+            {{/eq}}
+
+            <span class='normal index w-auto' data-fieldname='{{name}}'>
+              {{field ../../this model=../../model parent=../../model template='edit'}}
+            </span>
+
+            {{#eq labelDown true}}
+              <label for="{{name}}">{{str label 'Administration'}}</label>
+            {{/eq}}
+          </div>
+
+          {{!-- for filter input, add clear button --}}
+          {{#eq name "filterInput"}}
+            <div class="mt-[23px]">
+              <span sfuuid="16" tabindex="-1">
+                <a class="btn btn-primary clearFilterInputButton" role="button" tabindex="0"
+                  name="select_all_button" track="click:clear_filter_input_button" rel="tooltip"
+                  data-original-title="{{str 'LBL_PACKAGE_BUILDER_CLEAR_FILTER' 'Administration'}}">
+                  <i class="sicon sicon-close pr-[5px]"></i>
+                </a>
+              </span>
+            </div>
+          {{/eq}}
+
+          {{#if closeRow}}
+      </div>
+{{/if}}
+
+{{/each}}
+</div>
+{{/each}}
+      {{#each meta.buttons}}
+          {{field ../this model=../this.model}}
+      {{/each}}
+</div>
+
+{{!-- <<<--- Filter --}}
+
+{{!-- List View ->>> --}}
+<div id="{{title}}" class="ml-1.5 mr-1.5 text-sm bg-white">
+  <div id="table-content"></div>
+  {{else}}
+    <div>
+      <h1 id="no_data_message">{{str 'LBL_PACKAGE_BUILDER_NO_DATA' 'Administration'}}</h1>
+    </div>
+    {{/if}}
+</div>
+
+<div class="customizations-pagination"></div>
+
+{{!-- <<<--- List View --}}

@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<tr class="flex-list-row-header sticky top-0 z-0">
+    {{#each view.meta.panels}}
+        {{#each fields}}
+            <th data-fieldname="{{name}}" class="px-4 font-normal">
+                {{#eq this.type 'bool'}}
+                    <input type="checkbox" class="toggle_all">
+                {{else}}
+                    <span class="list-header">
+                        {{str label ../../../view.module}}
+                    </span>
+                {{/eq}}
+                {{#if sortDirection}}
+                    <span class="sicon sicon-{{sortDirection}} pull-right"></span>
+                {{/if}}
+            </th>
+        {{/each}}
+        {{#if ../this.isBaseRole}}
+            <th data-fieldname="dropdown_controls" class="w-24"></th>
+        {{/if}}
+    {{/each}}
+</tr>

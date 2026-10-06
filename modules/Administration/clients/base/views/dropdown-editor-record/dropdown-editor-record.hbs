@@ -1,0 +1,100 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="py-3 ltr:float-left rtl:float-right">
+    <div class="flex mb-4 w-full">
+        <span class="w-24 pt-1.5 pull-right text-end text-gray-500 text-xs">
+            {{str 'LBL_DROPDOWN_NAME' module}}
+        </span>
+        {{#if isCreateMode}}
+            <input type="text" name="dropdown_name" value="{{dropdown_name}}"
+                   class="mx-4 w-56 box-border required" placeholder="{{str 'LBL_REQUIRED'}}">
+        {{else}}
+            <span class="font-bold mx-4 pt-1.5 w-56 text-xs">{{dropdown_name}}</span>
+        {{/if}}
+    </div>
+
+    <div class="flex w-full mb-4">
+        {{#each meta.roles_field}}
+            <span class="w-24 pt-1.5 pull-right text-end text-gray-500 text-xs">
+                {{str this.label ../module}}
+            </span>
+            <span class="mx-4 w-56">
+                {{field ../this model=../model template=../this.tplRoles}}
+            </span>
+        {{/each}}
+    </div>
+
+    <div class="flex w-full mb-4">
+        {{#each meta.language_field}}
+            <span class="w-24 pt-1.5 pull-right text-end text-xs text-gray-500">
+                {{str this.label ../module}}
+            </span>
+            <span class="mx-4 w-56">
+                {{field ../this model=../model template=../this.tplLangs}}
+            </span>
+        {{/each}}
+        {{#unless hideComparisonLanguage}}
+            {{#each meta.comparison_language_field}}
+                <span class="w-36 pt-1.5 pull-right text-end text-xs text-gray-500">
+                    {{str this.label ../module}}
+                </span>
+                <span class="mx-4 w-56">
+                    {{field ../this model=../model template='edit'}}
+                </span>
+            {{/each}}
+        {{/unless}}
+    </div>
+    <div class="flex w-full mb-4">
+        <label class="switch-formatting">
+            <input type="checkbox" id="togBtn"{{#if formatting}} checked{{/if}} />
+            <div class="slider round">
+                <span class="on"></span>
+                <span class="off"></span>
+            </div>
+        </label>
+        <span class="mx-4 w-56">
+            {{str 'LBL_DROPDOWN_BTN_ENABLE_FORMATTING' module}}
+        </span>
+    </div>
+</div>
+
+<div class="items-list-controls">
+    <div class="search-group box-border shadow-none mx-4">
+        <input class="search-input w-full" type="text" data-action="search" value="{{needle}}"
+            placeholder="{{str 'LBL_DROPDOWN_QUICK_SEARCH' this.module}}" />
+        <i class="sicon sicon-close cursor-pointer hidden"></i>
+        <i class="sicon sicon-search cursor-pointer !z-0"></i>
+    </div>
+    {{#if isBaseRole}}
+        {{#each meta.buttons}}
+            <div class="ltr:float-right rtl:float-left">
+                {{field ../this}}
+            </div>
+        {{/each}}
+    {{/if}}
+</div>
+
+<table class="dataTable dropdown-editor-record-table mt-4">
+    <thead>
+        {{partial 'header' this view=this isBaseRole=isBaseRole}}
+    </thead>
+    <tbody>
+        {{partial 'row' this view=this visibleModels=visibleModels dropdown_name=dropdown_name isBaseRole=isBaseRole formatting=formatting}}
+    </tbody>
+</table>
+
+{{#if emptySearchResult}}
+    <div class="no-data-available text-center text-xs my-2">
+        {{str 'LBL_NO_DATA_AVAILABLE'}}
+    </div>
+{{/if}}

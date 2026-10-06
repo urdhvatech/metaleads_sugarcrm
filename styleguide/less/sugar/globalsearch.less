@@ -1,0 +1,317 @@
+/* GLOBAL SEARCH
+  ----------------*/
+
+.navbar {
+  .search {
+    min-width: 170px !important;
+
+    // Tags UL dropdown menu
+    .quicksearch-tags {
+      .qs-tags-row {
+        &.active {
+          background: @dropdownLinkBackgroundHover;
+        }
+
+        a {
+          color: @textColor;
+          padding: 0;
+          border-top: 0;
+        }
+      }
+    }
+
+    // Typeahead UL dropdown menu
+    .typeahead {
+      height: auto;
+      right: -1px;
+      left: 1px;
+      overflow: hidden;
+    }
+
+    // Override the styling of the .navbar-search
+    // if tag results are shown
+    &.quicksearch-tags-open {
+      .navbar-search {
+        border-bottom: none;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .search-results {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
+
+// Navbar search input and controls
+.navbar-search {
+  float: none;
+  margin: 0;
+  white-space: nowrap;
+
+  .quicksearch-taglist {
+    display: flex;
+    align-items: flex-start;
+
+    .tag-dropdown-list {
+      li.menu-item {
+        &:focus,
+        &:hover {
+          text-decoration: none;
+          filter: none;
+
+          .sicon.sicon-check {
+            color: @white;
+          }
+        }
+      }
+    }
+  }
+
+  // Module type table cell
+  .quicksearch-modulelist-wrapper {
+    vertical-align: top;
+
+    .module-dropdown {
+      cursor: pointer;
+      display: flex;
+      outline: 0;
+
+      &:focus {
+        outline: none;
+      }
+
+      .label {
+        margin-right: 2px;
+        float: left;
+        cursor: inherit;
+      }
+
+      .label-module {
+        border-radius: var(--rounded-sm);
+        border: 2px solid var(--quick-search-icon);
+      }
+
+      .module-dropdown-button {
+        margin-top: 0;
+        margin-left: 0;
+        padding: 0;
+        cursor: inherit;
+        vertical-align: top;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .module-dropdown-list {
+      position: fixed;
+      top: 3.5rem;
+      left: auto;
+      right: auto;
+      width: 200px;
+      overflow-y: auto;
+      height: calc(~"100vh - 100px");
+
+      &::-webkit-scrollbar {
+        width: 11px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #bfbfbf;
+        border: 2px solid transparent;
+        border-radius: 0.5rem;
+        background-clip: padding-box;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #888;
+        border: 2px solid transparent;
+        border-radius: 0.5rem;
+        background-clip: padding-box;
+      }
+    }
+
+    .menu-item {
+      padding: 8px 12px;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      font-size: 14px;
+
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        filter: none;
+
+        .sicon.sicon-check {
+          color: @white;
+        }
+      }
+    }
+  }
+
+  .tag-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin: 2px 4px;
+    padding: 2px 4px 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 12px;
+    color: @white;
+    white-space: nowrap;
+    background: @gray80;
+    border: none;
+    border-radius: 11px;
+    box-shadow: none;
+
+    &.highlight {
+      background: @black;
+    }
+  }
+  // Input field table cell
+  .quicksearch-bar-wrapper {
+    width: 100%;
+    min-width: 6.25rem;
+
+    .search-query {
+      padding: 7px 4px 7px 12px;
+      height: 2rem;
+      border: 0;
+      border-radius: var(--rounded-lg);
+      background-color: var(--quick-search-field);
+      color: var(--quick-search-text);
+
+      &::placeholder {
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+      }
+
+      .placeholder(var(--quick-search-placeholder));
+    }
+  }
+
+  &.hover {
+    .search-query {
+      background-color: var(--quick-search-field-hover);
+      outline: 2px solid var(--quick-search-border-hover);
+    }
+
+    .quicksearch-button {
+      .sicon {
+        &.sicon-search {
+          background-color: transparent;
+          color: var(--quick-search-icon-hover);
+        }
+      }
+    }
+  }
+}
+
+//CSS required for the results page
+ul.search-results:not(.dropdown-menu) {
+  .no-results {
+    text-align: center;
+    margin-top: 15px;
+  }
+}
+
+li.search-result {
+  .primary {
+    > h3 {
+      .ellipsis_inline {
+        display: inherit !important;
+      }
+    }
+  }
+
+  &.highlighted {
+    &.current {
+      .btn.preview-list-item,
+      .rowaction.btn:not(.btn-invisible) {
+        background: @gray80;
+      }
+
+      background: @tableRowHover;
+    }
+  }
+}
+
+.search-more-results {
+  margin-left: 6px;
+
+  .block-footer {
+    display: none;
+  }
+}
+
+/* NEW SKIN START */
+// Navbar search input and controls
+.navbar-search {
+  /* override */
+  height: @headerNavHeight;
+
+  /* override */
+  border-radius: 0;
+
+  /* override */
+  border: none;
+
+  // Module type table cell
+  .quicksearch-modulelist-wrapper,
+  .quicksearch-taglist {
+    .dropdown-menu {
+      border: 1px solid var(--quick-search-module-dropdown-border-widget);
+      background-color: var(--quick-search-module-list-bg);
+      color: var(--quick-search-module-list);
+
+      .menu-item {
+        background: none;
+      }
+    }
+
+    .menu-item {
+      &:hover {
+        background: var(--quick-search-module-list-bg-hover);
+        font-weight: 600;
+      }
+
+      &:active {
+        /* additive */
+        color: @navbarDropdownLinkHover;
+        background: @navbarDropdownBackgroundActive;
+      }
+    }
+  }
+}
+
+// Global search icon button
+.quicksearch-button-wrapper {
+  .quicksearch-button {
+    right: 34px;
+    background-color: transparent;
+
+    .sicon {
+      padding: 5px;
+
+      &.sicon-search {
+        color: var(--quick-search-icon);
+        border-radius: var(--rounded-full);
+        background-color: var(--blue-600);
+      }
+
+      &.sicon-close {
+        color: var(--quick-search-icon-hover);
+      }
+    }
+  }
+}
+
+/* NEW SKIN END */

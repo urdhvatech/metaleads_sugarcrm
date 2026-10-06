@@ -1,0 +1,26 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<tr class="flex-list-row-header table-row top-0 h-11 ltr:[&>th:not(:first-child)]:left-[72px] rtl:[&>th:not(:first-child)]:right-[72px]">
+    {{#each leftColumns}}
+        <th class="absolute h-[inherit] table-cell ltr:sticky-border-tl rtl:sticky-border-tr ltr:stick-left rtl:stick-right" {{#if name}} data-fieldname="{{name}}"{{/if}}>
+            {{field ../this model=../model template='list'}}
+        </th>
+    {{/each}}
+    {{#each _fields}}
+        <th class="relative table-cell {{widthClass}} px-2" {{#if name}} data-fieldname="{{name}}"{{/if}}>
+        <span class="ellipsis_inline" title="{{str label labelModule}}">
+            {{str label labelModule}}
+        </span>
+        </th>
+    {{/each}}
+</tr>

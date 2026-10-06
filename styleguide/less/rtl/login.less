@@ -1,0 +1,66 @@
+.welcome {
+  .modal-header-firstlogin {
+    .step-circle {
+      right: 8px;
+    }
+
+    .firstlogin-title {
+      margin: 0 3.5rem 0 0;
+    }
+
+    .progress-section {
+      margin: 0 0 0 0.875rem;
+    }
+  }
+
+  .modal-body {
+    &.record .record-cell:first-child {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+
+  .modal-footer {
+    text-align: left;
+
+    .btn {
+      float: none;
+    }
+  }
+
+  .record-cell .normal .select2-container .select2-choice {
+    padding-right: 0;
+    padding-left: 6px;
+  }
+
+  .modal ul {
+    margin: 0 0 9px 25px;
+  }
+
+  .thumbnails.row-fluid [class*="span"]:last-child {
+    margin-left: 0;
+  }
+
+  .thumbnails.row-fluid [class*="span"]:first-child {
+    margin-left: @fluidGridGutterWidth;
+  }
+}
+
+.thumbnail.signup .help-block,
+.thumbnail.login .help-block,
+.thumbnail .opportunity-metric {
+  float: right;
+}
+
+.signup-footer,
+.login-footer {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.marketing-extras {
+  right: auto;
+  left: 0;
+  direction: rtl;
+}
