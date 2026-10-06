@@ -1,0 +1,64 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<ul class="nav megamenu" id="userList">
+    <li class="dropdown" id="userActions" data-menu="user-actions">
+        <div class="btn-group pl-1 bg-transparent">
+            <button data-bs-toggle="dropdown" class="btn btn-invisible dropdown-toggle group/dropdown-toggle"
+                    track="click:userActions" aria-label="{{str 'LBL_USER_MENU'}}" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                <span class="block w-14 h-9 rounded-full bg-blue-300 dark:bg-blue-800 flex items-center gap-1 group-[:not(:hover):not(:focus-within):not(:active):not(.show)]/dropdown-toggle:bg-transparent"
+                      rel="tooltip" data-bs-placement="bottom" title="{{userName}}">
+                    {{#if pictureUrl}}
+                        <img src="{{pictureUrl}}" alt="{{userName}}" class="avatar avatar-md ml-0.5">
+                    {{else}}
+                        <i class="{{buildIcon 'sicon-user'}} !w-8 !h-8 !rounded-full inline-flex items-center justify-center bg-blue-600 dark:bg-blue-300 ml-0.5 text-base !text-white dark:!text-gray-800"></i>
+                    {{/if}}
+                    <i class="sicon sicon-chevron-down text-white hover:text-white group-[:active]/dropdown-toggle:text-blue-600 group-[.show]/dropdown-toggle:text-blue-600"></i>
+                </span>
+            </button>
+            <div class="dropdown-menu ltr:!right-6 rtl:!left-6 w-[15.625rem]">
+                <ul role="menu">
+                    {{#each menulist}}
+                        <li class="{{css_class}} hover:bg-slate-100 click:bg-blue-500 click:text-white" role="menuitem">
+                            {{#if route}}
+                                <a href="{{route}}" {{#if openwindow}}target="_blank"{{/if}} track="click:userAction-{{label}}" tabindex="-1">
+                            {{else}}
+                                <button class="w-full text-[14px]" track="click:userAction-{{label}}" tabindex="-1">
+                            {{/if}}
+                            {{#if img_url}}
+                                <img src="{{img_url}}" alt="{{../../userName}}" class="avatar {{#eq id "user-profile"}}avatar-md {{else}}avatar-mini ml-1 {{/eq}} mr-3 shadow-lg">
+                            {{else}}
+                                {{#if icon}}
+                                    <i class="{{buildIcon icon}}"></i>
+                                {{/if}}
+                            {{/if}}
+                            {{#eq id "user-profile"}}
+                                <div class="flex flex-col min-w-0">
+                                    <span class="ellipsis_inline font-semibold text-sm" data-bs-placement="bottom" title="{{../../fullName}}">{{ ../../fullName }}</span>
+                                    <span class="ellipsis_inline font-normal text-sm" data-bs-placement="bottom" title="{{../../email}}">{{ ../../email }}</span>
+                                </div>
+                            {{else}}
+                                {{ str label }}
+                            {{/eq}}
+                            {{#if route}}
+                                </a>
+                            {{else}}
+                                </button>
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>

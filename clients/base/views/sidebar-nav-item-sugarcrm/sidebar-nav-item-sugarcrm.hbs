@@ -1,0 +1,42 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if appIsSynced}}
+    <span class="animated-background expanded-full-fill inline-block absolute h-8 w-8 -translate-x-7 rtl:translate-x-7 rounded-sm group-[.active]/nav-item:translate-x-3 rtl:group-[.active]/nav-item:-translate-x-3 bg-sidebar-item-default z-10"></span>
+    <a class="collapsed sidebar-nav-item-btn absolute bg-transparent cursor-pointer h-full rtl:text-right text-base w-full z-20"
+        href="{{logoTargetUrl}}"
+        target="_blank"
+        rel="tooltip"
+        title="{{str label module}}"
+        data-bs-placement="{{tooltipPlacement}}"
+        data-bs-custom-class="!ml-[1.125rem] rtl:!mr-[1.125rem]"
+       tabindex="0"
+    >
+        <span class="{{buildIcon icon}} inline-flex items-center justify-center h-full text-black dark:text-white group-hover/nav-item:!text-white group-focus-within/nav-item:!text-white group-[.selected]/nav-item:!text-white w-full relative transition-[color] duration-300"
+              aria-hidden="true"></span>
+        <span class="sidebar-nav-item-tab bg-sidebar-item-default fixed h-14 left-14 rtl:right-14 p-0 rounded-tr-sm rounded-br-sm rtl:rounded-tr-none rtl:rounded-br-none rtl:rounded-tl-sm rtl:rounded-bl-sm top-[inherit] w-0"
+              aria-hidden="true"></span>
+    </a>
+    <a class="expanded sidebar-nav-item-btn absolute bg-transparent cursor-pointer h-full rtl:text-right text-base w-full z-20"
+        href="{{logoTargetUrl}}"
+        target="_blank"
+        rel="tooltip"
+        title="{{str label module}}"
+        data-bs-placement="{{tooltipPlacement}}"
+       tabindex="0"
+    >
+        <span class="inline-flex items-center h-full w-[7rem] px-5 text-[--sicon] group-hover/nav-item:!text-white group-focus-within/nav-item:!text-white group-[.selected]/nav-item:!text-white relative transition-[color] duration-300"
+              aria-hidden="true">
+            {{partial 'sugarcrm-logo' this this}}
+        </span>
+    </a>
+{{/if}}

@@ -1,0 +1,28 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div>
+    <div class="gai-token-usage-container"></div>
+    <ul class="list-disc ps-5 ml-0 pb-1">
+        <li class="py-1 text-sm leading-4">{{str "LBL_GAI_INFO_1"}}</li>
+        <li class="py-1 text-sm leading-4">{{str "LBL_GAI_INFO_2"}}</li>
+        <li class="py-1 text-sm leading-4">{{module_information}}<div class="asterisk inline-block">*</div></li>
+        <li class="py-1 text-sm leading-4">{{str "LBL_GAI_INFO_4"}}</li>
+        <li class="py-1 text-sm leading-4">{{str "LBL_GAI_LEARN_MORE"}}
+            <a href={{url}} target="_blank" class= "text-blue-600">{{str "LBL_GAI_LEARN_MORE_LINK"}}</a>.
+        </li>
+    </ul>
+    <div class="text-xs leading-4">
+        <div class="asterisk inline-block">*</div>
+        {{module_information_asterisk}}
+    </div>
+</div>

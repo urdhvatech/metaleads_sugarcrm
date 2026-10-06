@@ -1,0 +1,47 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if isAvailable}}
+    <span class="animated-background inline-block absolute h-8 w-8 -translate-x-7 rtl:translate-x-7 rounded-sm group-[.active]/nav-item:translate-x-3 rtl:group-[.active]/nav-item:-translate-x-3 bg-sidebar-item-default z-10"></span>
+    <button class="sidebar-nav-item-btn absolute bg-transparent flex flex-row items-center h-full p-0 rtl:text-right text-base text-initial w-full"
+            tabindex="0">
+        {{partial 'collapsed' this this}}
+        {{partial 'expanded' this this}}
+    </button>
+
+    {{#if secondaryAction}}
+        <button class="collapsed sidebar-nav-item-kebab fixed left-14 rtl:right-14 bg-sidebar-item-default h-[inherit] focus-within:bg-blue-200 hover:bg-blue-200 group-[.selected]/nav-item:bg-blue-200 group/kebab overflow-hidden p-0 rounded-tr-sm rounded-br-sm rtl:rounded-r-none rtl:rounded-l-sm w-0" aria-label="{{secondaryActionLabel}}">
+            <i class="{{buildIcon 'sicon-kebab'}} text-sidebar-item-default group-hover/kebab:!text-blue-600 group-focus-within/kebab:!text-blue-600 group-[.selected]/nav-item:!text-blue-600 transition-[color] duration-300"></i>
+        </button>
+        <button class="expanded sidebar-nav-item-kebab absolute bg-sidebar-item-default group-hover/nav-item:[&:not(:hover):not(:focus-within)]:bg-transparent h-[inherit] group-[:not(:hover):not(:focus-within):not(.selected)]/nav-item:invisible group/kebab overflow-hidden p-0 right-0 rtl:right-auto rtl:left-0 w-0" aria-label="{{secondaryActionLabel}}">
+            <i class="{{buildIcon 'sicon-kebab'}} group-hover/kebab:!text-sidebar-item-default group-focus-within/kebab:!text-sidebar-item-default group-[.selected]/nav-item:!text-sidebar-item-default transition-[color] duration-300"></i>
+        </button>
+        <button
+            class="collapsed !cursor-default sidebar-nav-item-kebab-disabled group/kebab bg-sidebar-item-default fixed h-[inherit] hidden [&:not(.hidden)]:block invisible left-14 rtl:right-14 group-hover/nav-item:visible overflow-hidden p-0 rounded-tr-sm rounded-br-sm rtl:rounded-tr-none rtl:rounded-br-none rtl:rounded-tl-sm rtl:rounded-bl-sm w-0"
+            rel="tooltip"
+            title="{{str 'LBL_OMNICHANNEL_SET_OFFLINE_BEFORE_CONFIGURING'}}"
+            aria-label="{{str 'LBL_OMNICHANNEL_SET_OFFLINE_BEFORE_CONFIGURING'}}"
+            disabled
+        >
+            <i class="{{buildIcon 'sicon-kebab'}} disabled text-blue-300 transition-[color] duration-300"></i>
+        </button>
+        <button
+            class="expanded !cursor-default sidebar-nav-item-kebab-disabled group/kebab absolute h-[inherit] hidden [&:not(.hidden)]:block group-[:not(:hover):not(:focus-within):not(.selected)]/nav-item:invisible p-0 right-0 rtl:right-auto rtl:left-0 w-0"
+            rel="tooltip"
+            title="{{str 'LBL_OMNICHANNEL_SET_OFFLINE_BEFORE_CONFIGURING'}}"
+            aria-label="{{str 'LBL_OMNICHANNEL_SET_OFFLINE_BEFORE_CONFIGURING'}}"
+            disabled
+        >
+            <i class="{{buildIcon 'sicon-kebab'}} disabled text-gray-300 transition-[color] duration-300"></i>
+        </button>
+    {{/if}}
+{{/if}}

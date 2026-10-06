@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<ul class="nav-tabs flex flex-row h-10 m-0 mx-4">
+    {{#each _tabs}}
+        {{#if hasTitle}}
+            <li class="tab{{#eq ../../activeTabIndex @index}} active{{/eq}} group/tab h-8 inline-flex items-center max-w-[18rem] min-w-[1.5rem] w-full py-1 px-0" data-bs-toggle="tab">
+                <a
+                    class="flex flex-row items-center overflow-hidden text-xs"
+                    data-index="{{@index}}"
+                    data-html="true"
+                    rel="tooltip"
+                    data-bs-placement="bottom"
+                    data-original-title="{{#if ../isFocusDashboard}}{{../../fdTitle}} | {{../../context.dataTitle.view}}
+{{../../context.dataTitle.name}}{{else}}{{../../recordName}}{{/if}}"
+                >
+                    {{moduleLabel context.module 'sm' class="ltr:ml-2 rtl:mr-2"}}
+                    <span class="tab-title ellipsis_inline font-semibold ltr:ml-1.5 rtl:mr-1.5">{{#if ../isFocusDashboard}}{{../../dashboardName}}{{else}}{{../../recordName}}{{/if}}</span>
+                    <i class="{{buildIcon 'sicon-close'}} cursor-pointer group-[:first-child]/tab:hidden group-[:not(:first-child):not(:hover):not(:focus-within)]/tab:hidden hover:text-[--sicon-hover-color] ltr:ml-auto ltr:mr-2 rtl:mr-auto rtl:ml-2" data-index="{{@index}}"></i>
+                </a>
+            </li>
+        {{/if}}
+    {{/each}}
+</ul>

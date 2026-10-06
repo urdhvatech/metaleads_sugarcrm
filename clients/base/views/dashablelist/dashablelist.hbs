@@ -1,0 +1,85 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if collection.dataFetched}}
+    {{#each meta.panels}}
+        <table class="table table-striped dataTable right-actions">
+            <thead>
+                <tr>
+                    {{#if ../../leftColumns.length}}
+                        <th class="cell-small nosort hide left-column sticky ltr:stick-left rtl:stick-right w-4"></th>
+                    {{/if}}
+                    {{#each fields}}
+                        <th class="relative {{#if @first}} {{#if ../../../../settings.attributes.freeze_first_column}} border-r sticky stick-first [&&]:ltr:left-0 [&&]:rtl:right-0 {{else}} [&&]:ltr:left-0 [&&]:rtl:right-0 {{/if}}{{/if}} {{#isSortable ../../module this}}sorting{{#eq ../../../collection.orderBy.field name}}_{{../../../../orderBy.direction}}{{/eq}} orderBy{{name}}{{/isSortable}}{{#if widthClass}} {{widthClass}}{{/if}}"
+                        {{#if styles}} style="{{styles}}"{{/if}}
+                        {{#if name}} data-fieldname="{{name}}"{{/if}} data-orderby="{{orderBy}}"
+                            aria-label="{{str label ../../module}}">
+                            <div class="sortable-row-header-container p-2">
+                            {{#isSortable ../../module this}}
+                            <a class="sortable-row-header sortable-row-header w-full font-normal text-inherit"
+                               role="button" tabindex="0" aria-label="{{str label ../../../module}}, {{#isSortable ../../../module this}}{{str 'LBL_ALT_SORTABLE'}}, {{#eq ../../../../collection.orderBy.field name}}{{#eq ../../../../../collection.orderBy.direction 'asc'}}{{str 'LBL_ALT_SORT_ASC'}}{{else}}{{str 'LBL_ALT_SORT_DESC'}}{{/eq}}{{else}}{{str 'LBL_ALT_NOT_SORTED'}}{{/eq}}{{else}}{{str 'LBL_ALT_NOT_SORTABLE'}}{{/isSortable}}">
+                            {{/isSortable}}
+                            <span aria-hidden="true">
+                                {{#if icon}}
+                                    <i class="{{buildIcon icon.type}}" rel="tooltip"  title="{{str icon.tooltip ../../../module}} "></i>
+                                {{/if}}
+                                {{str label ../../module}}
+                            </span>
+                            {{#isSortable ../../module this}}
+                                <span class="sortable-row-header-arrows" aria-hidden="true">
+                                  <i class="sicon sicon-arrow-up"></i>
+                                  <i class="sicon sicon-arrow-down"></i>
+                                </span>
+                              </a>
+                            {{/isSortable}}
+                            </div>
+                        </th>
+                    {{/each}}
+                    {{#unless ../../meta.preview}}
+                        {{#if ../../rightColumns.length}}
+                            <th class="cell-small morecol nosort sticky ltr:stick-right rtl:stick-left ltr:right-0 rtl:left-0 z-20 w-4"></th>
+                        {{/if}}
+                    {{/unless}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each ../collection.models}}
+                    <tr class="single" {{#if id}} data-id="{{id}}" {{/if}} name="{{module}}_{{id}}">
+                       {{#each ../../../leftColumns}}
+                            <td data-column="{{name}}" class="left-column table-cell hide sticky ltr:stick-left rtl:stick-right">
+                                {{field ../../../this model=../this template=../../../viewName}}
+                            </td>
+                        {{/each}}
+                        {{#each ../fields}}
+                            <td class="{{align}} {{#if @first}}{{#if ../../../../settings.attributes.freeze_first_column}} border-r sticky stick-first [&&]:ltr:left-0 [&&]:rtl:right-0{{else}} [&&]:ltr:left-0 [&&]:rtl:right-0 {{/if}}{{/if}} [&&&&]:bg-[--foreground-base]" {{#if name}} data-fieldname="{{name}}"{{/if}} data-type="{{type}}">{{field ../../../this model=../this template=../../../viewName}}</td>
+                        {{/each}}
+                        {{#unless ../../../meta.preview}}
+                            {{#each ../../../../rightColumns}}
+                                <td data-column="{{name}}" class="[&&&&]:bg-[--foreground-base] cell-small absolute focus-within:z-20 group-hover/row:bg-[--primary-content-hover-background] items-center justify-center right-column table-cell sticky ltr:stick-right rtl:stick-left ltr:sticky-border-tr rtl:sticky-border-tl ltr:right-0 rtl:left-0 z-10">
+                                    {{#if name}}
+                                        <span class="right-column-label">{{str label ../../../../module}}</span>
+                                    {{/if}}
+                                    {{field ../../../../this model=../../this template=../../../../viewName}}
+                                </td>
+                            {{/each}}
+                        {{/unless}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{/each}}
+    {{#unless collection.length}}
+        <div class="block-footer">
+            {{str "LBL_NO_DATA_AVAILABLE"}}
+        </div>
+    {{/unless}}
+{{/if}}

@@ -1,0 +1,39 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if appIsSynced}}
+    <span class="animated-background inline-block absolute h-8 w-8 -translate-x-7 rtl:translate-x-7 rounded-sm group-[.active]/nav-item:translate-x-3 rtl:group-[.active]/nav-item:-translate-x-3 module-color-{{color}} bg-module-default z-10"></span>
+    <a class="sidebar-nav-item-btn absolute flex flex-row items-center h-full rtl:text-right text-base w-full" href="{{route}}" aria-label="{{str label module}}" tabindex="0">
+        {{partial 'collapsed' this this}}
+        {{partial 'expanded' this this}}
+    </a>
+    {{#if secondaryAction}}
+        <button class="collapsed sidebar-nav-item-kebab fixed left-14 rtl:right-14 module-color-{{color}} bg-module-default h-[inherit]
+            focus-within:bg-module-200 dark:focus-within:bg-module-300
+            hover:bg-module-200 dark:hover:bg-module-300
+            group-[.selected]/nav-item:bg-module-200 dark:group-[.selected]/nav-item:bg-module-300
+            group/kebab overflow-hidden p-0 rounded-tr-sm rounded-br-sm w-0 rtl:rounded-tr-none rtl:rounded-br-none rtl:rounded-tl-sm rtl:rounded-bl-sm"
+                aria-label="{{secondaryActionLabel}}" tabindex="0" aria-haspopup="menu" aria-expanded="false"
+        >
+            <i class="{{buildIcon 'sicon-kebab'}} module-color-{{color}} text-module-default
+                group-hover/kebab:!text-module-600 dark:group-hover/kebab:!text-module-800
+                group-focus-within/kebab:!text-module-600 dark:group-focus-within/kebab:!text-module-800
+                group-[.selected]/nav-item:!text-module-600 dark:group-[.selected]/nav-item:!text-module-800
+                transition-[color] duration-300" aria-hidden="true"
+            ></i>
+        </button>
+        <button class="expanded sidebar-nav-item-kebab absolute module-color-{{color}} bg-module-default group-[:hover:not(.selected)]/nav-item:[&:not(:hover):not(:focus-within)]:bg-transparent group-[:not(:hover):not(:focus-within):not(.selected)]/nav-item:invisible h-[inherit] group/kebab overflow-hidden p-0 right-0 rtl:right-auto rtl:left-0 w-0"
+                aria-label="{{secondaryActionLabel}}" tabindex="0" aria-haspopup="menu" aria-expanded="true">
+            <i class="{{buildIcon 'sicon-kebab'}} module-color-{{color}} group-hover/kebab:!text-module-default group-focus-within/kebab:!text-module-default group-[.selected]/nav-item:!text-module-default transition-[color] duration-300"></i>
+        </button>
+    {{/if}}
+{{/if}}

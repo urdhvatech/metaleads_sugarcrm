@@ -1,0 +1,28 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<span class="collapsed h-full inline-block w-full" rel="tooltip" data-bs-placement="{{tooltipPlacement}}" title="{{str label module}}" data-bs-custom-class="!ml-[1.125rem] rtl:!mr-[1.125rem]">
+    <span class="{{buildIcon icon}} inline-flex items-center justify-center h-full w-full bg-transparent group-hover/nav-item:!text-sidebar-item-default group-focus-within/nav-item:!text-sidebar-item-default group-[.selected]/nav-item:!text-sidebar-item-default group-[.active]/nav-item:!text-sidebar-item-default cursor-pointer relative transition-[color] duration-300 z-20"></span>
+    {{#unless secondaryAction}}
+        <span class="   sidebar-nav-item-tab bg-sidebar-item-default group/kebab
+                        hover:!bg-blue-200 dark:hover:!bg-blue-300
+                        group-[.selected]/nav-item:!bg-blue-200 dark:group-[.selected]/nav-item:!bg-blue-300
+                        fixed h-14 left-14 rtl:right-14 p-0 rounded-tr-sm rounded-br-sm rtl:rounded-tr-none rtl:rounded-br-none rtl:rounded-tl-sm rtl:rounded-bl-sm top-[inherit] w-0 overflow-hidden inline-flex items-center justify-center"
+              tabindex="0" aria-haspopup="true" aria-expanded="false" role="button">
+
+            <i class="  {{buildIcon 'sicon-kebab'}} text-sidebar-item-default text-module-default
+                        group-hover/kebab:!text-blue-600 dark:group-hover/kebab:!text-blue-800
+                        group-[.selected]/nav-item:!text-blue-600 dark:group-[.selected]/nav-item:!text-blue-800
+                        transition-[color] duration-300 text-xs" aria-hidden="true"></i>
+        </span>
+    {{/unless}}
+</span>

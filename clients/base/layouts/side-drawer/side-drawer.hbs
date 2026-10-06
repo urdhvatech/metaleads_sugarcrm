@@ -1,0 +1,27 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="drawer-tabs w-full bg-[--background-base] rounded-tl-lg rtl:rounded-tl-none rtl:rounded-tr-lg"></div>
+<div class="drawer-content bg-[--background-base] border-[--border-base] border-l rtl:border-l-0 rtl:border-r h-full"></div>
+<div class="close-drawer absolute bg-[--background-base] border border-[--border-base] border-r-0 rtl:border-r rtl:border-l-0 -left-6 rtl:left-auto rtl:-right-6 top-6 overflow-hidden rounded-l-sm rtl:rounded-l-none rtl:rounded-r-sm">
+    <button type="button" class="btn bg-transparent border-0 p-1.5 rounded-none" data-action="drawerClose" rel="tooltip" title="{{str 'LBL_CLOSE_FOCUS_DRAWER'}}" data-bs-placement="left">
+        <i class="sicon sicon-close"></i>
+    </button>
+</div>
+<div class="scroll-drawer absolute bg-[--background-base] border border-[--border-base] border-r-0 rtl:border-r rtl:border-l-0 -left-6 rtl:left-auto rtl:-right-6 flex flex-col top-15 overflow-hidden rounded-l-sm rtl:rounded-l-none rtl:rounded-r-sm">
+    <button type="button" class="btn btn-prev bg-transparent border-0 p-1.5 rounded-none" data-action="scroll" data-action-type="prev" disabled rel="tooltip" title="{{str 'LNK_LIST_PREVIOUS'}}" data-bs-placement="left">
+        <i class="sicon sicon-chevron-up"></i>
+    </button>
+    <button type="button" class="btn btn-next bg-transparent border-0 p-1.5 rounded-none" data-action="scroll" data-action-type="next" disabled rel="tooltip" title="{{str 'LNK_LIST_NEXT'}}" data-bs-placement="left">
+        <i class="sicon sicon-chevron-down"></i>
+    </button>
+</div>

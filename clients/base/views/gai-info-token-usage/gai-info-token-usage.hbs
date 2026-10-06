@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="gai-info-token-usage-container">
+    {{#if loading}}
+            {{#if isDarkMode}}
+                <img class="loader w-full object-cover object-top"
+                    src="styleguide/assets/img/gai/loading/ai-loader-dark.svg"
+                    alt="Dark Mode loader"/>
+            {{else}}
+                <img class="loader w-full object-cover object-top"
+                    src="styleguide/assets/img/gai/loading/ai-loader.svg"
+                    alt="Light Mode loader"/>
+            {{/if}}
+    {{else}}
+    <ul class="list-disc ps-5 ml-0">
+        <li>
+            <span class="font-semibold text-sm leading-4 token-usage">
+                <b>{{tokenUsage}}% </b>
+            </span>{{str "LBL_GAI_TOKEN_USAGE_MESSAGE_1"}}
+        </li>
+    </ul>
+    {{/if}}
+</div>

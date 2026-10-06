@@ -1,0 +1,63 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if actions.length}}
+    <ul role="menu" class="m-0 rounded-md overflow-hidden list-none group-[:not(:first-child)]/sidebar-nav-flyout-actions:mt-1">
+        {{#each actions}}
+            {{#if type}}
+                {{#eq type 'divider'}}
+                    <li class="divider border-b border-[--separator-color]"></li>
+                {{else}}
+                    {{field ../../../this template="detail"}}
+                {{/eq}}
+            {{else}}
+                <li role="menuitem"{{#if name}} data-name="{{name}}"{{/if}}{{#unless preventClose}} data-flyout-action="close"{{/unless}}>
+                    {{#if event}}
+                        <button
+                            class="ellipsis_inline bg-[--foreground-base] py-1.5 pl-3 pr-2 text-left rtl:text-right text-xs text-[--text-base] hover:bg-gray-100 dark:hover:bg-gray-800 group/action-button w-full"
+                            data-navbar-menu-item="{{label}}"
+                            data-bs-placement="bottom"
+                            title="{{str label ../../../module}}"
+                            data-event="{{event}}"
+                            data-event-target="{{eventTarget}}"
+                            track="click:{{event}}"
+                        >
+                    {{else}}
+                         <a
+                            class="ellipsis_inline bg-[--foreground-base] py-1.5 pl-3 pr-2 rtl:text-right text-xs text-[--text-base] hover:bg-gray-100 dark:hover:bg-gray-800 group/action-button"
+                            data-navbar-menu-item="{{label}}"
+                            data-bs-placement="bottom"
+                            title="{{str label ../../../module}}"
+                            href="{{route}}"
+                            data-route="{{route}}"
+                            {{#if openwindow}}
+                                data-openwindow="true"
+                            {{/if}}
+                            track="click:{{route}}"
+                        >
+                    {{/if}}
+
+                    {{#if icon}}
+                        <span class="w-6 h-6 my-1.5 bg-transparent inline-flex flex-row items-center justify-center {{#if ../../../moduleColor}} module-color-{{../../../../moduleColor}} group-hover/action-button:bg-module-default group-focus-within/action-button:bg-module-default {{else}} group-hover/action-button:bg-sidebar-item-default group-focus-within/action-button:bg-sidebar-item-default {{/if}} mr-1 rounded-sm">
+                            <i class="{{buildIcon icon}} {{#if ../../../moduleColor}} module-color-{{../../../../moduleColor}} group-hover/action-button:text-module-default group-focus-within/action-button:text-module-default {{else}} group-hover/action-button:text-sidebar-item-default group-focus-within/action-button:text-sidebar-item-default {{/if}}"></i>
+                        </span>
+                    {{/if}}
+                    <span class="group-hover/action-button:font-semibold my-1.5 text-[--text-base] text-sm">
+                        {{str label ../../module}}
+                    </span>
+
+                    {{#if event}}</button>{{else}}</a>{{/if}}
+                </li>
+            {{/if}}
+        {{/each}}
+    </ul>
+{{/if}}

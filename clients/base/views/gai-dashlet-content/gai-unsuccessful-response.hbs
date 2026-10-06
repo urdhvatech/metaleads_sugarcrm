@@ -1,0 +1,62 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if warning}}
+    <div class="flex border border-fuschia-600 dark:border-fuschia-500 flex flex-row rounded-md p-2 mt-0 mr-5 mb-5 ml-5">
+        <i class="sicon sicon-16 sicon-warning-lg text-fuschia-600 dark:text-fuschia-500 self-start pr-3 pt-0.5"></i>
+        <p class="text-sm overflow-hidden text-ellipsis text-gray-800 dark:text-gray-300 unsuccessful-message">
+            <strong>
+                <span class="text-fuschia-600 dark:text-fuschia-500">{{str "LBL_GAI_WARNING"}}: </span>
+            </strong> {{str "LBL_GAI_WARNING_SUMMARIZATION_MESSAGE"}}
+        </p>
+    </div>
+{{/if}}
+{{#if error}}
+    <div class="flex border border-fuschia-600 dark:border-fuschia-500 flex flex-row rounded-md p-2 mt-0 mr-5 mb-5 ml-5">
+        <i class="sicon sicon-16 sicon-warning-circle-lg text-fuschia-600 dark:text-fuschia-500 self-start pr-3 pt-0.5"></i>
+        <p class="text-sm overflow-hidden text-ellipsis text-gray-800 dark:text-gray-300 unsuccessful-message">
+            <strong>
+                <span class="text-fuschia-600 dark:text-fuschia-500">{{str "LBL_GAI_ERROR"}}: </span>
+            </strong> {{errorMessage}}
+        </p>
+    </div>
+{{/if}}
+{{#if notice}}
+    <div class="flex border border-fuschia-600 dark:border-fuschia-500 flex flex-row rounded-md p-2 mt-0 mr-5 mb-5 ml-5">
+        <i class="sicon sicon-16 sicon-warning-lg text-fuschia-600 dark:text-fuschia-500 self-start pr-3 pt-0.5"></i>
+        <p class="text-sm overflow-hidden text-ellipsis text-gray-800 dark:text-gray-300 unsuccessful-message">
+            <strong>
+                <span class="text-fuschia-600 dark:text-fuschia-500">{{str "LBL_GAI_NOTICE"}}: </span>
+            </strong> {{str "LBL_GAI_WARNING_SUMMARIZATION_MESSAGE_NO_DATA"}}
+        </p>
+    </div>
+{{/if}}
+{{#if waiting}}
+    <div class="flex border border-fuschia-600 dark:border-fuschia-500 flex flex-row rounded-md p-2 mt-0 mr-5 mb-5 ml-5">
+        <i class="sicon sicon-16 sicon-warning-circle-lg text-fuschia-600 dark:text-fuschia-500 self-start pr-3 pt-0.5"></i>
+        <p class="text-sm overflow-hidden text-ellipsis text-gray-800 dark:text-gray-300 unsuccessful-message">
+            <strong>
+                <span class="text-fuschia-600 dark:text-fuschia-500">{{str "LBL_GAI_INFO"}}: </span>
+            </strong> {{waitingMessage}}
+        </p>
+    </div>
+{{/if}}
+{{#if info}}
+    <div class="flex border border-fuschia-600 dark:border-fuschia-500 flex flex-row rounded-md p-2 mt-0 mr-5 mb-5 ml-5">
+        <i class="sicon sicon-16 sicon-warning-circle-lg text-fuschia-600 dark:text-fuschia-500 self-start pr-3 pt-0.5"></i>
+        <p class="text-sm overflow-hidden text-ellipsis text-gray-800 dark:text-gray-300 unsuccessful-message">
+            <strong>
+                <span class="text-fuschia-600 dark:text-fuschia-500">{{str "LBL_GAI_INFO"}}: </span>
+            </strong> {{infoMessage}}
+        </p>
+    </div>
+{{/if}}

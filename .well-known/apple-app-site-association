@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "687658U29F.com.sugarcrm.nomad.appstore"
+        ],
+        "components": [
+          {
+            "/": "*",
+            "comment": "Matches any URL"
+          }
+        ]
+      }
+    ]
+  }
+}

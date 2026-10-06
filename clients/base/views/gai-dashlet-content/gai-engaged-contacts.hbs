@@ -1,0 +1,53 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if engagedContacts}}
+    <div class="flex relative flex flex-col pb-3">
+        <div class="flex flex-col">
+            {{#each engagedContacts}}
+                {{#isString this}}
+                    <div class="text-base font-semibold pb-3 text-fuschia-600 dark:text-fuschia-500">{{@key}}</div>
+                    <div class="flex">
+                        <div class="text-sm leading-4 text-gray-800 dark:text-gray-300">{{this}}</div>
+                    </div>
+                {{else}}
+                    {{#if @key}}
+                        <div class="text-base font-semibold pb-3 text-fuschia-600 dark:text-fuschia-500">{{@key}}</div>
+                    {{/if}}
+                    <div class="flex flex-col gap-3">
+                        {{#each this}}
+                            <div class="flex flex-col gap-1">
+                                <div role="button"
+                                    class="inline-flex items-center border border-gray-300 dark:bg-gray-800
+                                        dark:border-gray-600 p-1 rounded-xl max-w-fit engaged-pill"
+                                    data-module="{{moduleName}}"
+                                    data-id="{{objectId}}"
+                                    data-name="{{name}}"
+                                    >
+                                    <i class="sicon {{icon}} label-module-size-sm {{iconColor}}
+                                        mr-2 w-5 h-5 rounded-full inline-flex items-center justify-center">
+                                    </i>
+                                    <a href="{{link}}"
+                                        class="font-normal text-sm leading-[18px] no-underline whitespace-nowrap
+                                        overflow-hidden text-ellipsis text-blue-600 dark:text-blue-300"
+                                        title="{{name}}{{#if title}}, {{title}}{{/if}}">
+                                            {{name}}{{#if title}}, {{title}}{{/if}}
+                                    </a>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/isString}}
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<span class="expanded ellipsis_inline h-full inline-block ltr:pr-[1.125rem] rtl:pl-[1.125rem] w-full group-hover/nav-item:bg-gray-100 group-focus-within/nav-item:bg-gray-100 dark:group-hover/nav-item:bg-gray-800/50 dark:group-focus-within/nav-item:bg-gray-800/50" data-bs-placement="{{tooltipPlacement}}" title="{{str label module}}" aria-label="{{str label module}}">
+    <span class="{{buildIcon icon}} inline-flex items-center justify-center h-full w-14 bg-transparent group-hover/nav-item:!text-sidebar-item-default group-focus-within/nav-item:!text-sidebar-item-default group-[.active]/nav-item:!text-sidebar-item-default group-[.selected]/nav-item:!text-sidebar-item-default cursor-pointer relative transition-[color] duration-300 z-20"></span>
+    <span class="text-sm text-gray-500 dark:text-gray-400 group-hover/nav-item:font-semibold group-focus-within/nav-item:font-semibold">
+        {{str label module}}
+    </span>
+    {{#unless secondaryAction}}
+        <span class="   sidebar-nav-item-tab group/kebab
+                        hover:bg-sidebar-item-default
+                        focus-within:bg-sidebar-item-default
+                        group-[.selected]/nav-item:bg-sidebar-item-default h-[inherit]
+                        group-[:not(:hover):not(:focus-within):not(.selected)]/nav-item:invisible
+                        absolute bg-transparent overflow-hidden p-0 right-0 rtl:right-auto rtl:left-0 w-0 inline-flex items-center justify-center">
+
+            <i class="  {{buildIcon 'sicon-kebab'}}
+                        group-hover/kebab:!text-sidebar-item-default
+                        group-focus-within/kebab:!text-sidebar-item-default
+                        group-[.selected]/nav-item:!text-sidebar-item-default
+                        transition-[color] duration-300 text-xs"></i>
+        </span>
+    {{/unless}}
+</span>

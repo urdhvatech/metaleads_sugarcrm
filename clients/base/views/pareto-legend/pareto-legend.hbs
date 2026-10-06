@@ -1,0 +1,58 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div id="legend-container" class="flex h-full pl-1.25 pr-2 flex-wrap">
+    <div class="flex-1 inline-flex items-center justify-between overflow-hidden">
+        <div class="inline-flex overflow-hidden items-center ml-3" id="inline-elements">
+            {{#each _barLegend}}
+                <div data-container="legend-item-container{{../_id}}">
+                    <li data-container="dropdown-legend-item" class="hidden" data-id="{{id}}">
+                        <a class="dropdown-item-li">
+                            <div class="flex items-center">
+                                <canvas height="14" width="14" class="h-3 ltr:mr-2 rtl:ml-2"></canvas>
+                                <span class="truncate" id="legend-item-label">{{label}}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <div data-container="inline-legend-item" class="flex {{#if ../_useMargin}}ml-3{{/if}} cursor-pointer" data-id="{{id}}">
+                        <canvas height="16" width="16" class="h-4 ltr:mr-1 rtl:ml-1"></canvas>
+                        <span class="truncate" id="legend-item-label">{{label}}</span>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div id="dropdown-container{{_id}}" class="!hidden flex relative min-w-fit items-center justify-end detail btn-group actions">
+            <a class="flex btn dropdown-toggle actionbtn-toggle chart-legend-dropdown"
+            data-bs-toggle="dropdown" data-bs-display="static" id="dropdown-toggle">
+                <span id="dropdown-toggle-text"></span>
+                <i class="sicon sicon-chevron-down ltr:ml-1 rtl:mr-1"></i>
+            </a>
+            <ul
+                data-menu="dropdown"
+                class="dropdown-menu dropdown-restrictions absolute max-h-[15rem] max-w-[12.5rem] w-50"
+                role="menu"
+                id="dropdown-elements{{_id}}"
+            >
+            </ul>
+        </div>
+        <div class="flex flex-wrap flex-auto justify-end ml-auto mr-2" id="line-legend-container">
+            {{#each _lineLegend}}
+                <div data-container="line-legend-item-container{{../_id}}">
+                    <div data-container="line-legend-item" class="flex flex-col items-center {{#if ../_useMargin}}ml-2.5{{/if}}" id="{{id}}">
+                        <canvas height="15" width="50"></canvas>
+                        <span class="truncate" id="legend-item-label">{{label}}</span>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

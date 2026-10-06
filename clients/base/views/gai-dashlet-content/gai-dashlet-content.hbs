@@ -1,0 +1,90 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="flex h-full w-full pt-5 relative flex-col box-border">
+    {{partial
+        'gai-unsuccessful-response'
+        this warning=warning error=error notice=notice waiting=waiting info=info
+        errorMessage=errorMessage waitingMessage=waitingMessage moduleName=this.module infoMessage=infoMessage
+    }}
+    {{#if summary}}
+        <div class="flex px-5 relative flex flex-col h-full {{#if loading}}overflow-auto{{/if}}">
+            <div class="flex flex-col">
+                <div  class="text-gray-800 dark:text-gray-300 dateModifiedText mb-3 text-xs leading-4">
+                    {{str 'LBL_GAI_LAST_UPDATED'}} {{formatDate dateModified}}
+                </div>
+                {{#each summary}}
+                    <div class="mb-3">
+                        {{#if @key}}
+                            <div class="flex justify-between">
+                                <span class="text-base font-semibold pb-3 text-fuschia-600 dark:text-fuschia-500">{{@key}}</span>
+                                {{partial
+                                    'gai-category-actions'
+                                    ../../this categoryKey=@key categoryActions=../../categoryActions
+                                }}
+                            </div>
+                        {{/if}}
+                        {{#isArray this}}
+                            {{partial
+                                'gai-summary-fragment'
+                                ../../this summaryFragment=../this hasBulletPoints=../../hasBulletPoints
+                            }}
+                        {{else}}
+                            <div class="{{#if hasBulletPoints}}px-2.5 {{/if}}flex">
+                                {{#if hasBulletPoints}}
+                                    <div
+                                        class="rounded-full mr-2 w-1.5 h-1.5 mt-1.5 min-w-[6px] bg-gray-800 dark:bg-gray-300">
+                                    </div>
+                                {{/if}}
+                                {{#isObject this}}
+                                    {{#each this}}
+                                        <div class="flex justify-between">
+                                            <span class="text-base font-semibold pb-3 text-fuschia-600 dark:text-fuschia-500">{{@key}}</span>
+                                            {{partial
+                                                'gai-category-actions'
+                                                ../../this categoryKey=@key categoryActions=../../categoryActions
+                                            }}
+                                        </div>
+                                    {{/each}}
+                                {{else}}
+                                    <div class="text-sm leading-4 text-gray-800 dark:text-gray-300">{{this}}</div>
+                                {{/isObject}}
+                            </div>
+                        {{/isArray}}
+                    </div>
+                {{/each}}
+            </div>
+            {{partial
+                'gai-needed-followup'
+                this neededFollowup=neededFollowup loading=loading
+            }}
+            {{partial
+                'gai-engaged-contacts'
+                this engagedContacts=engagedContacts loading=loading
+            }}
+        </div>
+    {{/if}}
+    {{#if loading}}
+            {{#unless (or hasOldSummary waitingForIngest)}}
+                {{partial
+                    'gai-loading'
+                    ../this isDarkMode=isDarkMode
+                }}
+            {{/unless}}
+        <div
+            data-identifier="loadingMessage"
+            class="h-8 py-2 pl-3 flex absolute bottom-5 inset-x-5 z-10 p-3
+                text-white items-center box-border loading-background">
+                {{loadingMessage}}
+        </div>
+    {{/if}}
+</div>

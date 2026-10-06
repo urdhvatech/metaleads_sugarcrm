@@ -1,0 +1,20 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<span class="collapsed h-full w-full" rel="tooltip" data-bs-placement="{{tooltipPlacement}}" title="{{str 'LBL_OMNICHANNEL' module}}" data-bs-custom-class="!ml-[1.125rem] rtl:!mr-[1.125rem]">
+    <i class="{{buildIcon 'sicon-sugar-live-lg'}} inline-flex items-center justify-center h-full w-full bg-transparent group-hover/nav-item:!text-blue-200 group-focus-within/nav-item:!text-blue-200 group-[.active]/nav-item:!text-blue-200 group-[.selected]/nav-item:!text-blue-200 relative z-20 transition-[color] duration-300"></i>
+    <i class="{{buildIcon 'sicon-check-circle'}} omnichannel-logged-in bg-[--sidebar-nav-background] absolute hidden rounded-lg text-2xs top-1/4 z-20"></i>
+    {{#unless secondaryAction}}
+        <span class="sidebar-nav-item-tab bg-sidebar-item-default fixed h-14 left-14 p-0 rounded-tr-sm rounded-br-sm top-[inherit] w-0"
+              tabindex="0" aria-haspopup="true" aria-expanded="false" role="button"></span>
+    {{/unless}}
+</span>

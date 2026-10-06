@@ -1,0 +1,35 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if value}}
+    <div class="flex">
+        {{#with model.attributes }}
+            <div class="record-icon" data-bs-placement="top" rel="tooltip" title="{{moduleIconToolTip last_interaction_parent_type}}">
+                {{moduleLabel last_interaction_parent_type 'sm'}}
+            </div>
+            <div class="ellipsis_inline relate-field-container w-full">
+                <a class="ellipsis_inline ltr:pl-1.5 rtl:pr-1.5 {{ last_interaction_parent_type }}"
+                   data-module="{{ last_interaction_parent_type }}"
+                   data-model-id="{{ last_interaction_parent_id }}"
+                   data-link-target="focus"
+                   data-bs-placement="bottom"
+                   data-bs-html="true"
+                   rel="tooltip"
+                   href="#{{ buildRoute module=last_interaction_parent_type id=last_interaction_parent_id }}"
+                   data-bs-original-title="{{../../value}}<br/>{{last_interaction_parent_name}}">
+                    {{../../value}}
+                </a>
+                {{partial 'focus-icon' ../../this ../../this}}
+            </div>
+        {{/with}}
+    </div>
+{{/if}}

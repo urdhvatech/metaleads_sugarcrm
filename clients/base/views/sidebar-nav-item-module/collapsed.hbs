@@ -1,0 +1,22 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<span class="collapsed h-full inline-block w-full" rel="tooltip" data-bs-placement="{{tooltipPlacement}}" title="{{str label module}}" data-bs-custom-class="!ml-[1.125rem] rtl:!mr-[1.125rem]">
+    <span class="h-full w-14 inline-flex items-center justify-center module-color-{{color}} text-[--sicon] group-hover/nav-item:!text-module-default group-focus-within/nav-item:!text-module-default group-[.active]/nav-item:!text-module-default group-[.selected]/nav-item:!text-module-default {{#unless useAbbreviation}}{{buildIcon icon}}{{/unless}} relative transition-[color] duration-300 z-20">
+        {{#if useAbbreviation}}
+            {{abbreviation}}
+        {{/if}}
+    </span>
+    {{#unless secondaryAction}}
+        <span class="sidebar-nav-item-tab module-color-{{color}} bg-module-default fixed h-14 left-14 rtl:right-14 p-0 rounded-tr-sm rounded-br-sm top-[inherit] w-0"></span>
+    {{/unless}}
+</span>

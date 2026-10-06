@@ -1,0 +1,60 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#each summaryFragment}}
+    <div class="px-2">
+        {{#if @key}}
+            <div class="flex">
+                {{#if ../../hasBulletPoints}}
+                    <div class="rounded-full mr-2 w-1.5 h-1.5 mt-1.5 min-w-[6px] bg-gray-800 dark:bg-gray-300">
+                    </div>
+                {{/if}}
+                <div class="text-base font-semibold pb-3 text-fuschia-600 dark:text-fuschia-500">{{@key}}:</div>
+            </div>
+        {{/if}}
+        {{#isArray this}}
+            {{partial
+                'summary-fragment'
+                ../../this summaryFragment=../this hasBulletPoints=../../hasBulletPoints
+            }}
+        {{else}}
+            {{#isObject this}}
+                <div class="mb-1">
+                    {{#each this}}
+                        <div class="flex">
+                            {{#if hasBulletPoints}}
+                                <div class="rounded-full mr-2 w-1.5 h-1.5 mt-1.5
+                                        min-w-[6px] bg-gray-800 dark:bg-gray-300">
+                                </div>
+                            {{/if}}
+                            {{#if @key}}
+                                <span class="text-base font-semibold pb-3
+                                    text-fuschia-600 dark:text-fuschia-500 mr-2">{{@key}}:
+                                </span>
+                            {{/if}}
+                            <span class="text-sm leading-4 text-gray-800 dark:text-gray-300">{{this}}</span>
+                        </div>
+                    {{/each}}
+                </div>
+            {{else}}
+                <div class="flex">
+                    {{#if ../../../hasBulletPoints}}
+                        <div class="rounded-full mr-2 w-1.5 h-1.5 mt-1.5
+                                min-w-[6px] bg-gray-800 dark:bg-gray-300">
+                        </div>
+                    {{/if}}
+                    <div class="text-sm leading-4 text-gray-800 dark:text-gray-300">{{this}}</div>
+                </div>
+            {{/isObject}}
+        {{/isArray}}
+    </div>
+{{/each}}

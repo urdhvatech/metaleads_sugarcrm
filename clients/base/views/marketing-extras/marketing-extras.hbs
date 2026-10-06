@@ -1,0 +1,59 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<style id="hide-mc-iframe-loading" type="text/css">
+    #marketing-content {
+        visibility: hidden !important;
+    }
+</style>
+
+<div class="iframe-container">
+    <iframe title="Marketing Content" id="marketing-content" scrolling="no"></iframe>
+</div>
+<script type="text/javascript">
+    // This script runs immediately when the browser parses the script tag
+    // after the Handlebars output is inserted into the DOM.
+    (function() {
+        const iframe = document.getElementById('marketing-content');
+
+        function showMarketingContentIframe() {
+            // Remove style that's hiding the iframe while it's loading
+            let helperStyle = document.getElementById('hide-mc-iframe-loading');
+            if (helperStyle) {
+                helperStyle.remove();
+            }
+        }
+
+        if (iframe) {
+            // This will catch loads that happen *after* this script executes.
+            iframe.addEventListener('load', showMarketingContentIframe);
+            // Immediately check if the iframe has *already* finished loading
+            // This handles the race condition where the iframe loads *before* this script executes.
+            try {
+                // Check if the iframe's document is accessible and its state is 'complete'
+                // state can be 'loading', 'interactive', or 'complete'
+                if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+                    // The iframe content is already loaded or finished loading right now.
+                    // Execute the handler directly.
+                    showMarketingContentIframe();
+                }
+            } catch (e) {
+                // This block catches SecurityErrors if same-origin policy prevents access to contentDocument.
+                // It might also catch other errors if the iframe element is somehow not fully ready yet,
+                // though readyState check is usually safe once the element is in the DOM.
+                console.warn('Could not check iframe readyState immediately (potential same-origin issue or timing):', e);
+            }
+        } else {
+            console.error('Iframe with id "marketing-content" not found immediately after script execution. Check Handlebars output and DOM insertion.');
+        }
+    })();
+</script>

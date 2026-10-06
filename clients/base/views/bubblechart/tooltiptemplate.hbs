@@ -1,0 +1,34 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+
+<div class="pb-1 whitespace-nowrap overflow-hidden text-ellipsis">
+    <b>{{account_name}}</b>
+</div>
+<div class="table">
+    <p class="table-row">
+        <span class="table-cell pr-1.5 break-words text-right text-gray-300 max-w-24 overflow-hidden text-ellipsis">{{str 'LBL_CREATED' 'Opportunities'}}</span>
+        <span class="table-cell max-w-32 overflow-hidden text-ellipsis">{{assigned_user_name}}</span>
+    </p>
+    <p class="table-row">
+        <span class="table-cell pr-1.5 break-words text-right text-gray-300 max-w-24 overflow-hidden text-ellipsis">{{str 'LBL_LIKELY' 'Opportunities'}}</span>
+        <span class="table-cell max-w-32 overflow-hidden text-ellipsis">{{likely}}</span>
+    </p>
+    <p class="table-row">
+        <span class="table-cell pr-1.5 break-words text-right text-gray-300 max-w-24 overflow-hidden text-ellipsis">{{str 'LBL_DATE_CLOSED' 'Opportunities'}}</span>
+        <span class="table-cell max-w-32 overflow-hidden text-ellipsis">{{close_date}}</span>
+    </p>
+    <p class="table-row">
+        <span class="table-cell pr-1.5 break-words text-right text-gray-300 max-w-24 overflow-hidden text-ellipsis">{{str 'LBL_PROBABILITY' 'Opportunities'}}</span>
+        <span class="table-cell max-w-32 overflow-hidden text-ellipsis">{{probability}}%</span>
+    </p>
+</div>

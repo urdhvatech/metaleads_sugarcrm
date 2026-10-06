@@ -1,0 +1,61 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if neededFollowup}}
+   <div class="flex flex-col">
+        {{#each neededFollowup}}
+            {{#isString this}}
+                <div class="flex">
+                    <div class="text-sm leading-4 text-gray-800 dark:text-gray-300">{{this}}</div>
+                </div>
+            {{else}}
+                <div class="flex flex-col gap-3">
+                    {{#each this}}
+                         <div class="flex flex-col gap-1 relate-field-container ellipsis_inline" data-bs-placement="bottom">
+                            <div class="flex flex-row justify-between items-center group">
+                                <div role="button"
+                                    class="inline-flex items-center border overflow-hidden max-w-full p-1 rounded-xl
+                                    border-gray-300 dark:bg-gray-800 dark:border-gray-600 mb-0.5 follow-up-pill">
+                                        <i class="sicon {{icon}} label-module-size-sm {{iconColor}}
+                                            mr-2 w-5 h-5 rounded-full inline-flex items-center justify-center">
+                                        </i>
+                                        <a href="{{link}}"
+                                            class="font-normal no-underline whitespace-nowrap overflow-hidden
+                                                text-ellipsis text-xs leading-[18px] text-blue-600 dark:text-blue-300"
+                                            title="{{name}}"
+                                            data-module="{{moduleName}}"
+                                            data-id="{{objectId}}"
+                                                >{{name}}
+                                        </a>
+                                </div>
+                                <span class="focus-icon-container">
+                                        <span class="focus-icon sicon sicon-focus-drawer  opacity-0 group-hover:opacity-100" tabindex="0" role="button"
+                                            aria-label="{{str 'LBL_FOCUS_DRAWER_DASHBOARD'}}"
+                                            rel="tooltip"
+                                            data-original-title="{{str 'LBL_FOCUS_DRAWER_DASHBOARD'}}"
+                                            data-bs-placement="bottom"
+                                            data-module="{{moduleName}}"
+                                            data-id="{{objectId}}"
+                                            data-name="{{name}}"
+                                        ></span>
+                                </span>
+                            </div>
+                            <div class="text-gray-800 dark:text-gray-300 font-normal text-xs">{{followUp}}</div>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/isString}}
+        {{/each}}
+    </div>
+{{else}}
+        <div>{{invalidNeededFollowup}}</div>
+{{/if}}
