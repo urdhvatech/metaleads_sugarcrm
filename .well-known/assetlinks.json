@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.sugarcrm.nomad",
+      "sha256_cert_fingerprints": [
+        "51:5A:9B:54:22:DE:67:16:6F:55:55:49:9A:E0:DF:89:A9:EA:7B:60:5E:60:94:9D:D6:30:8F:9A:AD:11:EF:E7",
+        "2E:AE:08:39:63:7A:85:04:69:16:D4:02:D7:35:40:05:DF:4E:5B:C1:16:29:4B:B0:B6:24:66:92:E6:6C:8D:9C"
+      ]
+    }
+  }
+]

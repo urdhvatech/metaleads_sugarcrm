@@ -25,3 +25,4 @@
 /upload/*
 !/upload/index.html
 /upload_backup/
+/vendor/
