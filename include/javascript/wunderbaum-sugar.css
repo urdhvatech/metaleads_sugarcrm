@@ -1,0 +1,88 @@
+/* Add this to your view's CSS file */
+.wb-preview-icon {
+    display: none;
+    margin-left: 8px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    background-color: transparent;
+}
+
+.wb-preview-icon:hover {
+    opacity: 1;
+}
+
+.wb-row:hover .wb-preview-icon {
+    display: inline-block;
+}
+
+.wb-preview-icon::before {
+    font-size: 14px;
+}
+
+/* Wunderbaum tree base styling */
+.wunderbaum {
+    overflow: hidden !important;
+    --wb-border-color: transparent;
+    --wb-alternate-row-color: transparent;
+    --wb-alternate-row-color-hover: transparent;
+    --wb-header-color: transparent;
+    --wb-hover-color: transparent;
+    --wb-active-color: transparent;
+    --wb-active-hover-color: transparent;
+    --wb-active-border-color: transparent;
+    --wb-focus-border-color: transparent;
+    --wb-grid-color: transparent;
+    --wb-dim-color: transparent;
+    --wb-filter-dim-color: transparent;
+    --wb-active-hover-border-color: transparent
+}
+
+/* Dark mode support for Wunderbaum tree */
+.wunderbaum[data-theme="dark"] {
+    --wb-node-text-color: #cbd5e1;
+    --wb-background-color: #0f1729;
+}
+
+/* Dark mode preview icon color */
+.wunderbaum[data-theme="dark"] .wb-preview-icon {
+    color: #9BA1A6;
+}
+
+/* Icons inherit text color */
+.wunderbaum i.wb-icon,
+.wunderbaum i.wb-expander,
+.wunderbaum i.wb-checkbox {
+    color: var(--wb-node-text-color);
+}
+
+/* Remove all borders and prevent focus outline */
+.wunderbaum div.wb-row,
+.wunderbaum .wb-active,
+.wunderbaum:focus,
+.wunderbaum:focus-within {
+    border-color: transparent !important;
+    outline: none !important;
+}
+
+/* Hide active state styling and visual feedback on interactions */
+.wunderbaum .wb-active,
+.wunderbaum div.wb-node-list div.wb-row:hover,
+.wunderbaum div.wb-node-list div.wb-row.wb-active,
+.wunderbaum div.wb-node-list div.wb-row.wb-selected,
+.wunderbaum div.wb-node-list div.wb-row.wb-active:hover,
+.wunderbaum div.wb-node-list div.wb-row.wb-selected:hover {
+    background-color: var(--wb-background-color) !important;
+    box-shadow: none !important;
+}
+
+/* No results message styling */
+.product-catalog-no-results {
+    padding: 16px;
+    text-align: center;
+    display: none;
+}
+
+.product-catalog-no-results:not(.hidden) {
+    display: block;
+}

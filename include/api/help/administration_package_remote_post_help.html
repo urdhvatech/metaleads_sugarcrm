@@ -1,0 +1,104 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Upload a package from remote instance to local instance
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Package builder uses this endpoint to upload a package from remote instance to local instance. This endpoint is only available to administrators.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            connectionInfo
+        </td>
+        <td>
+            array
+        </td>
+        <td>
+            Remote instance's url, username, and password.
+            <br>
+            Example: <code>{url:'http://localhost/sugarcrm',user:'abc',pass:'123'}</code>
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            stagedVersions
+        </td>
+        <td>
+            array
+        </td>
+        <td>
+            Staged versions of package.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            id
+        </td>
+        <td>
+            string
+        </td>
+        <td>
+            Package id.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+Sample response if the package is uploaded successfully:
+<pre class="pre-scrollable">
+    {
+        "access": true,
+        "fileInstallId": "56365210-4cce-11ea-a7bf-acde48001122"
+    }
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v11_26
+        </td>
+        <td>
+            Added <code>/Administration/package/remote</code> POST endpoint.
+        </td>
+    </tr>
+</table>

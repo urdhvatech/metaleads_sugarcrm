@@ -1,0 +1,98 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the result of an intelligence summarization using <code>evalId</code>.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>module</td>
+            <td>string</td>
+            <td>The module to which the summary relates</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>recordId</td>
+            <td>string</td>
+            <td>The ID of the related record</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>evalId</td>
+            <td>string</td>
+            <td>The evaluation ID associated with the summarization</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request Example</h3>
+<pre class="pre-scrollable">
+GET /rest/v11/Accounts/abc123/intelligence/summary/retrieve/xyz-eval-id
+</pre>
+
+<h3>Response Examples</h3>
+<h4>Completed Summary</h4>
+<pre class="pre-scrollable">
+{
+  "evalId": "xyz-eval-id",
+  "status": "completed",
+  "data": {
+    "id": "abc123",
+    "summary": "AI-generated summary content...",
+    "language": "en_us",
+    "date_modified": "2025-07-01T12:00:00Z"
+  },
+  "currentLanguage": "en_us"
+}
+</pre>
+
+<h4>Processing Status</h4>
+<pre class="pre-scrollable">
+{
+  "evalId": "xyz-eval-id",
+  "usecaseType": "gai_summary",
+  "status": "processing"
+}
+</pre>
+
+<h3>Error Responses</h3>
+<ul>
+    <li><strong>401 Unauthorized</strong> – User lacks access or GAI backend is not configured</li>
+    <li><strong>404 Not Found</strong> – Eval ID was not found</li>
+    <li><strong>422 Unprocessable Entity</strong> – Empty or invalid summary response</li>
+    <li><strong>500 Server Error</strong> – Internal server error with message</li>
+</ul>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>v11.27</td>
+        <td>Added /{module}/{recordId}/intelligence/summary/retrieve/{evalId}</code> GET endpoint</td>
+    </tr>
+</table>

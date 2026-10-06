@@ -1,0 +1,126 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves or creates a translated summary for a specific record and language.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint retrieves a translated summary of a record's data in the specified language.
+    If a translation already exists and is up to date, it is returned immediately. If it does not exist or is outdated,
+    a new translation is generated asynchronously. The system ensures that only completed summaries can be translated.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>module</td>
+            <td>string</td>
+            <td>Name of the module</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>recordId</td>
+            <td>string</td>
+            <td>The ID of the record to fetch or translate the summary for</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>language</td>
+            <td>string</td>
+            <td>Language code of the desired translation</td>
+            <td>True</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request Example</h3>
+<pre class="pre-scrollable">
+POST /rest/v11/Accounts/abc123/intelligence/summary/translate
+{
+  "module": "Accounts",
+  "recordId": "abc123",
+  "language": "fr_FR"
+}
+</pre>
+
+<h3>Response Example (Translated Summary Exists)</h3>
+<pre class="pre-scrollable">
+{
+  "status": "completed",
+  "currentLanguage": "fr_FR",
+  "summaryLanguage": "fr_FR",
+  "summary": "Résumé existant du contenu",
+  "lastSyncDate": "2025-06-30T12:00:00Z",
+  "neededFollowup": {
+    "Needed Follow-ups": [
+      {
+        "moduleName": "Calls",
+        "objectId": "12345678-aaaa-bbbb-cccc-987654321000",
+        "name": "Appel de découverte",
+        "followUp": "Programmer un appel de suivi pour confirmer les prochaines étapes.",
+        "icon": "sicon-call-lg",
+        "iconColor": "label-module-color-blue",
+        "link": "#Calls/12345678-aaaa-bbbb-cccc-987654321000"
+      }
+    ]
+  }
+}
+</pre>
+
+<h3>Response Example (Summary Not Yet Available)</h3>
+<pre class="pre-scrollable">
+{
+  "status": "not_found"
+}
+</pre>
+
+<h2>Error Handling</h2>
+<ul>
+    <li><strong>401 Unauthorized:</strong> Returned if the user does not have permission to access summary data
+        (throws <code>SugarApiExceptionNotAuthorized</code>).
+    </li>
+    <li><strong>404 Not Found:</strong> Returned when the original summary has not yet been completed or linked
+        (status: <code>not_found</code>).
+    </li>
+    <li><strong>500 Internal Server Error:</strong> For unexpected exceptions (e.g., translation failure or
+        ingestion issues).
+    </li>
+</ul>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Version</th>
+            <th>Change</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>v11.16</td>
+            <td>Added <code>/{module}/{recordId}/intelligence/summary/translate</code> POST endpoint to support translated summary creation.
+            </td>
+        </tr>
+    </tbody>
+</table>

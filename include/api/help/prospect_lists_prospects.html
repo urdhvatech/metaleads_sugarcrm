@@ -1,0 +1,196 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Get Prospect Lists Prospects.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will return a set of records for a <b>prospect_lists_prospects</b> table, filtered by an expression.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            filter
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The filter expression. Filter expressions are explained below.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            limit
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            A maximum number of records to return. Default is 20.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The number of records to skip over before records are returned. Default is 0.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            deleted
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Boolean to show deleted records in the result set. Default is false.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            order
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            How to sort the returned records, date_modified=ASC will sort in ascending order, DESC in descending.
+            <br>
+            Example: <code>order[0][date_modified]=ASC</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Filter Expressions</h3>
+<span class="lead">
+There are three types of filters, which can be used in any combination (joined with <code>AND</code>):
+</span>
+
+<h4>date_modified</h4>
+<div class="well well-small">
+    This will filter the results since a given modification date.
+    <h5>Example</h5>
+    <pre class="pre-scrollable">
+filter[0][date_modified][$gte]=2024/08/18 14:49:33
+</pre>
+</div>
+
+<h4>prospect_list_id</h4>
+<div class="well well-small">
+    This will filter the results for a specific prospect list id.
+    <h5>Example</h5>
+    <pre class="pre-scrollable">
+filter[0][prospect_list_id]=223098a0-597f-11ef-bb2f-0242ac130004
+</pre>
+</div>
+
+<h4>related_type</h4>
+<div class="well well-small">
+    This will filter the results of specific prospect related types. The list is comma separated module names.
+    <h5>Example</h5>
+    <pre class="pre-scrollable">
+filter[0][related_type][$in]=Contacts,Leads,Prospects
+</pre>
+</div>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            results
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            An array of results containing matched records.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+  "results": {
+    "223098a0-597f-11ef-bb2f-0242ac130004": {
+      "id": "223098a0-597f-11ef-bb2f-0242ac130004",
+      "prospect_list_id": "223098a0-597f-11ef-bb2f-0242ac130003",
+      "related_id": "af977540-5e1d-11ef-b90b-0242ac130004",
+      "related_type": "Contacts",
+      "date_modified": "2024-08-19 17:05:09",
+      "deleted": 0,
+      "email_address": "kid.sugar@example.tw"
+    }
+  }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v11.25
+        </td>
+        <td>
+            Added <code>/prospect_lists_prospects</code> GET endpoint.
+        </td>
+    </tr>
+</table>

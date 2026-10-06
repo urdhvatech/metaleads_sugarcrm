@@ -1,0 +1,58 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves historical delta changes for a module based on a timestamp and list of records.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint returns field-level change data for a given set of records in a module, comparing their current state to the state at the specified <code>deltaDate</code>. It is used to track and return only the fields that have changed since the provided timestamp.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>module</td>
+        <td>String</td>
+        <td>The module name for which to retrieve delta changes (e.g., <code>Opportunities</code>).</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>recordIds</td>
+        <td>Array</td>
+        <td>Array of record IDs from the given module to evaluate for delta changes.</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>deltaDate</td>
+        <td>String</td>
+        <td>A timestamp (ISO 8601) (e.g., <code>2024-01-01T00:00:00Z</code>) representing the point in time to compare the current record state against.</td>
+        <td>True</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Response</h2>
+<span class="lead">
+    Returns an array of changed fields for each record ID, including old and new values as decorated by the delta decorator.
+</span>

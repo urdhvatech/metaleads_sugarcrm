@@ -1,0 +1,77 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Checking the SMTP provider service connection is valid.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Endpoint is used to make a basic call to the service (getting Email Address).
+</span>
+
+<h2>Request</h2>
+<code class="codesample">
+    GET /EAPM/test?application=GoogleEmail&eapm_id=ba7931f0-dfe2-11ef-bf98-0242ac120
+</code>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>application </td>
+        <td>String</td>
+        <td>Type of application ('GoogleEmail', 'MicrosoftEmail') </td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>eapm_id </td>
+        <td>String</td>
+        <td>EAPM record ID</td>
+        <td>Yes</td>
+    </tr>
+    </tbody>
+</table>
+
+</pre>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "isConnected": false
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v11_26
+        </td>
+        <td>
+            Added <code>/EAPM/test</code> GET endpoint.
+        </td>
+    </tr>
+</table>

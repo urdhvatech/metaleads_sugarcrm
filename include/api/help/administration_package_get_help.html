@@ -1,0 +1,75 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Get a package
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Use this endpoint to get the content of a package. This endpoint is only available to administrators.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            id
+        </td>
+        <td>
+            string
+        </td>
+        <td>
+            Package id.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+Package content is returned in the response as based64 encoded string.
+
+Sample response:
+<pre class="pre-scrollable">
+{
+    "name": "project_P1.zip",
+    "content": "UEsDBAoAAAAAAFk0NlopkO0zlgkAAJYJAAAMAAAAbWFu"
+}
+</pre>
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v11_26
+        </td>
+        <td>
+            Added <code>/Administration/package/:id</code> GET endpoint.
+        </td>
+    </tr>
+</table>
