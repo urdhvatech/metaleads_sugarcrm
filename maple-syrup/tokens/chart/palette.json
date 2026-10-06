@@ -1,0 +1,237 @@
+{
+  "chart": {
+    "palette": {
+      "0": {
+        "comment": "Chart palette color 1",
+        "group": "chart/palette",
+        "name": "cyan-300",
+        "value": "{color.base.cyan.300}",
+        "order": 1
+      },
+      "1": {
+        "comment": "Chart palette color 2",
+        "group": "chart/palette",
+        "name": "red-300",
+        "value": "{color.base.red.300}",
+        "order": 2
+      },
+      "2": {
+        "comment": "Chart palette color 3",
+        "group": "chart/palette",
+        "name": "emerald-300",
+        "value": "{color.base.emerald.300}",
+        "order": 3
+      },
+      "3": {
+        "comment": "Chart palette color 4",
+        "group": "chart/palette",
+        "name": "fuschia-300",
+        "value": "{color.base.fuschia.300}",
+        "order": 4
+      },
+      "4": {
+        "comment": "Chart palette color 5",
+        "group": "chart/palette",
+        "name": "blue-300",
+        "value": "{color.base.blue.300}",
+        "order": 5
+      },
+      "5": {
+        "comment": "Chart palette color 6",
+        "group": "chart/palette",
+        "name": "orange-300",
+        "value": "{color.base.orange.300}",
+        "order": 6
+      },
+      "6": {
+        "comment": "Chart palette color 7",
+        "group": "chart/palette",
+        "name": "green-300",
+        "value": "{color.base.green.300}",
+        "order": 7
+      },
+      "7": {
+        "comment": "Chart palette color 8",
+        "group": "chart/palette",
+        "name": "purple-300",
+        "value": "{color.base.purple.300}",
+        "order": 8
+      },
+      "8": {
+        "comment": "Chart palette color 9",
+        "group": "chart/palette",
+        "name": "cobalt-300",
+        "value": "{color.base.cobalt.300}",
+        "order": 9
+      },
+      "9": {
+        "comment": "Chart palette color 10",
+        "group": "chart/palette",
+        "name": "pink-300",
+        "value": "{color.base.pink.300}",
+        "order": 10
+      },
+      "10": {
+        "comment": "Chart palette color 11",
+        "group": "chart/palette",
+        "name": "teal-300",
+        "value": "{color.base.teal.300}",
+        "order": 11
+      },
+      "11": {
+        "comment": "Chart palette color 12",
+        "group": "chart/palette",
+        "name": "cyan-200",
+        "value": "{color.base.cyan.200}",
+        "order": 12
+      },
+      "12": {
+        "comment": "Chart palette color 13",
+        "group": "chart/palette",
+        "name": "red-200",
+        "value": "{color.base.red.200}",
+        "order": 13
+      },
+      "13": {
+        "comment": "Chart palette color 14",
+        "group": "chart/palette",
+        "name": "emerald-200",
+        "value": "{color.base.emerald.200}",
+        "order": 14
+      },
+      "14": {
+        "comment": "Chart palette color 15",
+        "group": "chart/palette",
+        "name": "fuschia-200",
+        "value": "{color.base.fuschia.200}",
+        "order": 15
+      },
+      "15": {
+        "comment": "Chart palette color 16",
+        "group": "chart/palette",
+        "name": "blue-200",
+        "value": "{color.base.blue.200}",
+        "order": 16
+      },
+      "16": {
+        "comment": "Chart palette color 17",
+        "group": "chart/palette",
+        "name": "orange-200",
+        "value": "{color.base.orange.200}",
+        "order": 17
+      },
+      "17": {
+        "comment": "Chart palette color 18",
+        "group": "chart/palette",
+        "name": "green-200",
+        "value": "{color.base.green.200}",
+        "order": 18
+      },
+      "18": {
+        "comment": "Chart palette color 19",
+        "group": "chart/palette",
+        "name": "purple-200",
+        "value": "{color.base.purple.200}",
+        "order": 19
+      },
+      "19": {
+        "comment": "Chart palette color 20",
+        "group": "chart/palette",
+        "name": "cobalt-200",
+        "value": "{color.base.cobalt.200}",
+        "order": 20
+      },
+      "20": {
+        "comment": "Chart palette color 21",
+        "group": "chart/palette",
+        "name": "pink-200",
+        "value": "{color.base.pink.200}",
+        "order": 21
+      },
+      "21": {
+        "comment": "Chart palette color 22",
+        "group": "chart/palette",
+        "name": "teal-200",
+        "value": "{color.base.teal.200}",
+        "order": 22
+      },
+      "22": {
+        "comment": "Chart palette color 23",
+        "group": "chart/palette",
+        "name": "cyan-400",
+        "value": "{color.base.cyan.400}",
+        "order": 23
+      },
+      "23": {
+        "comment": "Chart palette color 24",
+        "group": "chart/palette",
+        "name": "red-400",
+        "value": "{color.base.red.400}",
+        "order": 24
+      },
+      "24": {
+        "comment": "Chart palette color 25",
+        "group": "chart/palette",
+        "name": "emerald-400",
+        "value": "{color.base.emerald.400}",
+        "order": 25
+      },
+      "25": {
+        "comment": "Chart palette color 26",
+        "group": "chart/palette",
+        "name": "fuschia-400",
+        "value": "{color.base.fuschia.400}",
+        "order": 26
+      },
+      "26": {
+        "comment": "Chart palette color 27",
+        "group": "chart/palette",
+        "name": "blue-400",
+        "value": "{color.base.blue.400}",
+        "order": 27
+      },
+      "27": {
+        "comment": "Chart palette color 28",
+        "group": "chart/palette",
+        "name": "orange-400",
+        "value": "{color.base.orange.400}",
+        "order": 28
+      },
+      "28": {
+        "comment": "Chart palette color 29",
+        "group": "chart/palette",
+        "name": "green-400",
+        "value": "{color.base.green.400}",
+        "order": 29
+      },
+      "29": {
+        "comment": "Chart palette color 30",
+        "group": "chart/palette",
+        "name": "purple-400",
+        "value": "{color.base.purple.400}",
+        "order": 30
+      },
+      "30": {
+        "comment": "Chart palette color 31",
+        "group": "chart/palette",
+        "name": "cobalt-400",
+        "value": "{color.base.cobalt.400}",
+        "order": 31
+      },
+      "31": {
+        "comment": "Chart palette color 32",
+        "group": "chart/palette",
+        "name": "pink-400",
+        "value": "{color.base.pink.400}",
+        "order": 32
+      },
+      "32": {
+        "comment": "Chart palette color 33",
+        "group": "chart/palette",
+        "name": "teal-400",
+        "value": "{color.base.teal.400}",
+        "order": 33
+      }
+    }
+  }
+}

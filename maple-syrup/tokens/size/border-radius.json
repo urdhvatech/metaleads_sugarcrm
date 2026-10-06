@@ -1,0 +1,55 @@
+{
+  "size": {
+	"border-radius": {
+	  "none": {
+		"comment": "A zero border radius value.",
+		"group": "size/base",
+		"name": "rounded-none",
+		"name_min": "none",
+		"value": "0px"
+	  },      
+	  "small": {
+		"comment": "Default border radius for small buttons. Using Tailwind sm variant",
+		"group": "size/base",
+		"name": "rounded-sm",
+		"name_min": "sm",
+		"value": "0.25rem"
+	  },      
+	  "base": {
+		"comment": "Default border radius for primary buttons. Using Tailwind lg variant.",
+		"group": "size/base",
+		"name": "rounded",
+		"name_min": "DEFAULT",
+		"value": "0.5rem"
+	  },      
+	  "medium": {
+		"comment": "For compatibility purposes, add in medium which is the same as base.",
+		"group": "size/base",
+		"name": "rounded-md",
+		"name_min": "md",
+		"value": "0.5rem"
+	  },
+	  "large": {
+		"comment": "Default border radius for dashlets. Using Tailwind 2xl variant.",
+		"group": "size/base",
+		"name": "rounded-lg",
+		"name_min": "lg",
+		"value": "1rem"
+	  },      
+	  "x-large": {
+		"comment": "Default border radius for main elements of application. Using Tailwind 3xl variant.",
+		"group": "size/base",
+		"name": "rounded-xl",
+		"name_min": "xl",
+		"value": "1.5rem"
+	  },      
+	  "full": {
+		"comment": "Rounded border radius for text fields.",
+		"group": "size/base",
+		"name": "rounded-full",
+		"name_min": "full",
+		"value": "9999px"
+	  }      
+	}
+  }
+}

@@ -1,0 +1,2935 @@
+/*--------------------------------
+
+SugarIcons icon font
+Generated using nucleoapp.com
+
+-------------------------------- */
+
+
+@font-face {
+  font-family: 'SugarIcons';
+  src: url('@{sicon-font-path}/SugarIcons.eot');
+  src: url('@{sicon-font-path}/SugarIcons.eot') format('embedded-opentype'),
+       url('@{sicon-font-path}/SugarIcons.woff2') format('woff2'),
+       url('@{sicon-font-path}/SugarIcons.woff') format('woff'),
+       url('@{sicon-font-path}/SugarIcons.ttf') format('truetype'),
+       url('@{sicon-font-path}/SugarIcons.svg') format('svg');
+}
+
+/* base class */
+.sicon {
+  flex-shrink: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* size examples - relative units */
+.sicon-sm {
+	font-size: 0.8em;
+}
+
+.sicon-lg {
+  font-size: 1.2em;
+}
+
+/* size examples - absolute units */
+.sicon-16 {
+  font-size: 16px;
+}
+
+.sicon-32 {
+  font-size: 32px;
+}
+
+/* rotate the icon infinitely */
+.sicon-is-spinning {
+  animation: sicon-spin 1s infinite linear;
+}
+
+@keyframes sicon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* transform */
+.sicon-rotate-90  {
+	transform: rotate(90deg);
+}
+
+.sicon-rotate-180 {
+	transform: rotate(180deg);
+}
+
+.sicon-rotate-270 {
+	transform: rotate(270deg);
+}
+
+.sicon-flip-y {
+	transform: scaleY(-1);
+}
+
+.sicon-flip-x {
+	transform: scaleX(-1);
+}
+
+/* icons */
+@sicon-voice-recognition-lg: "\ea03";
+@sicon-landing-pages-xl: "\ea05";
+@sicon-summation-details-xxl: "\ea06";
+@sicon-summation-xxl: "\ea07";
+@sicon-rows-and-columns-xxl: "\ea08";
+@sicon-pdf-file-xxl: "\ea09";
+@sicon-matrix-xxl: "\ea0a";
+@sicon-csv-file-xxl: "\ea0b";
+@sicon-check-circle-xl-32: "\ea0c";
+@sicon-warning-xl-32: "\ea0d";
+@sicon-warning-circle-xl-32: "\ea0e";
+@sicon-info-fill-xl-32: "\ea0f";
+@sicon-purchase-xl: "\ea10";
+@sicon-wizard-circle-xl: "\ea11";
+@sicon-wizard-circle-line-xl: "\ea12";
+@sicon-web-xl: "\ea13";
+@sicon-web-activity-detail-xl: "\ea14";
+@sicon-user-group-xl: "\ea15";
+@sicon-user-group-3-xl: "\ea16";
+@sicon-user-check-xl: "\ea17";
+@sicon-trash-xl: "\ea18";
+@sicon-transactions-lg: "\ea19";
+@sicon-task-xl: "\ea1a";
+@sicon-targets-xl: "\ea1b";
+@sicon-sort-fields-xxl: "\ea1d";
+@sicon-tablet-xl: "\ea1e";
+@sicon-user-group-lg: "\ea1f";
+@sicon-smart-phone-lg: "\ea20";
+@sicon-smart-guides-xl: "\ea21";
+@sicon-smart-guide-sugar_actions-xl: "\ea22";
+@sicon-smart-guide-templates-xl: "\ea23";
+@sicon-smart-guide-stage-templates-xl: "\ea24";
+@sicon-smart-guide-activity-templates-xl: "\ea25";
+@sicon-smart_guides-stages-xl: "\ea26";
+@sicon-slicers-xl: "\ea27";
+@sicon-revenue-line-items-xl: "\ea28";
+@sicon-quotes-xl: "\ea29";
+@sicon-quoted-line-items-xl: "\ea2a";
+@sicon-purchased-line-items-xl: "\ea2b";
+@sicon-projects-xl: "\ea2c";
+@sicon-project-tasks-xl: "\ea2d";
+@sicon-plug-lg: "\ea2e";
+@sicon-phone-xl: "\ea2f";
+@sicon-package-xl: "\ea30";
+@sicon-opportunity-xl: "\ea31";
+@sicon-note-xl: "\ea32";
+@sicon-mobile-xl: "\ea33";
+@sicon-messages-xl: "\ea34";
+@sicon-meetings-xl: "\ea35";
+@sicon-lock-lg: "\ea36";
+@sicon-leads-xl: "\ea37";
+@sicon-layout-xl: "\ea38";
+@sicon-upload-lg: "\ea39";
+@sicon-knowledgebase-xl: "\ea3a";
+@sicon-kebab-xl: "\ea3b";
+@sicon-insights-xl: "\ea3c";
+@sicon-image: "\ea3d";
+@sicon-format-color: "\ea3e";
+@sicon-external-users-xl: "\ea3f";
+@sicon-event-mgmt-xl: "\ea40";
+@sicon-escalation-xl: "\ea41";
+@sicon-edit-xl: "\ea42";
+@sicon-dot-circle-o-lg: "\ea43";
+@sicon-docusign-xl: "\ea44";
+@sicon-document-templates-xl: "\ea45";
+@sicon-documents-xl: "\ea46";
+@sicon-desktop-xl: "\ea47";
+@sicon-discover-xl: "\ea48";
+@sicon-document-line-lg: "\ea49";
+@sicon-data-privacy-xl: "\ea4a";
+@sicon-dashboard-xl: "\ea4b";
+@sicon-dashboard-default-xl: "\ea4c";
+@sicon-copy-xl: "\ea4d";
+@sicon-copy-meeting-xl: "\ea4e";
+@sicon-copy-calendar-link-xl: "\ea4f";
+@sicon-contracts-xl: "\ea50";
+@sicon-contact-xl: "\ea51";
+@sicon-comment-xl: "\ea52";
+@sicon-comment-line-xl: "\ea53";
+@sicon-cloud-download-xl: "\ea54";
+@sicon-cloud-download-lg: "\ea55";
+@sicon-clicks-lg: "\ea56";
+@sicon-close-xl: "\ea57";
+@sicon-chevron-left-xl: "\ea58";
+@sicon-checkbox-btn-lg: "\ea59";
+@sicon-checkbox-btn-checked-lg: "\ea5a";
+@sicon-catalog-xl: "\ea5b";
+@sicon-campaigns-xl: "\ea5c";
+@sicon-cases-xl: "\ea5d";
+@sicon-bug-xl: "\ea5e";
+@sicon-bool: "\ea5f";
+@sicon-automate-web-hooks-xl: "\ea60";
+@sicon-all-fields-xxl: "\ea61";
+@sicon-ai-xl: "\ea62";
+@sicon-add-target-lg: "\ea63";
+@sicon-activity-feed-xl: "\ea64";
+@sicon-account-xl: "\ea65";
+@sicon-yen-lg: "\ea66";
+@sicon-world-lg: "\ea67";
+@sicon-web-lg: "\ea68";
+@sicon-window-lg: "\ea69";
+@sicon-windmill-lg: "\ea6a";
+@sicon-wifi-lg: "\ea6b";
+@sicon-warning-line-lg: "\ea6c";
+@sicon-warning-lg: "\ea6d";
+@sicon-warning-circle-lg: "\ea6e";
+@sicon-wand-lg: "\ea6f";
+@sicon-dashboard-fill-lg: "\ea70";
+@sicon-view-report-lg: "\ea71";
+@sicon-user-lg: "\ea72";
+@sicon-video-lg: "\ea73";
+@sicon-multiply-line-lg: "\ea74";
+@sicon-studio: "\ea75";
+@sicon-user-check-lg: "\ea76";
+@sicon-undo-lg: "\ea77";
+@sicon-trash-lg: "\ea78";
+@sicon-trainer-lg: "\ea79";
+@sicon-tracking-activity-lg: "\ea7a";
+@sicon-thumbs-up-line-lg: "\ea7b";
+@sicon-thumbs-up-lg: "\ea7c";
+@sicon-thumbs-down-line-lg: "\ea7d";
+@sicon-thumbs-down-lg: "\ea7e";
+@sicon-theme-lg: "\ea7f";
+@sicon-telescope-lg: "\ea80";
+@sicon-task-lg: "\ea81";
+@sicon-target-lists-lg: "\ea82";
+@sicon-target-lg: "\ea83";
+@sicon-tag-lg: "\ea84";
+@sicon-target-email-lg: "\ea85";
+@sicon-sync-off-lg: "\ea86";
+@sicon-sync-lg: "\ea87";
+@sicon-switch-name: "\ea88";
+@sicon-sugar-predict-lg: "\ea8a";
+@sicon-sugar-live-lg: "\ea8b";
+@sicon-subtract-line-lg: "\ea8c";
+@sicon-studio-lg: "\ea8d";
+@sicon-storage-lg: "\ea8e";
+@sicon-statistics-lg: "\ea8f";
+@sicon-star-outline-lg: "\ea90";
+@sicon-shuttle-lg: "\ea91";
+@sicon-stadium-lg: "\ea92";
+@sicon-star-fill-lg: "\ea93";
+@sicon-soundwave-lg: "\ea94";
+@sicon-spades-lg: "\ea95";
+@sicon-skull-lg: "\ea96";
+@sicon-slicers-lg: "\ea97";
+@sicon-shortcuts-lg: "\ea98";
+@sicon-shield-lg: "\ea99";
+@sicon-share-lg: "\ea9a";
+@sicon-settings-lg: "\ea9b";
+@sicon-send-lg: "\ea9c";
+@sicon-search-lg: "\ea9d";
+@sicon-scoring-lg: "\ea9e";
+@sicon-scissors-lg: "\ea9f";
+@sicon-scheduler-lg: "\eaa0";
+@sicon-save-lg: "\eaa1";
+@sicon-role-mgmt-lg: "\eaa2";
+@sicon-right-paren-line-lg: "\eaa3";
+@sicon-revenue-line-items-lg: "\eaa4";
+@sicon-resize-lg: "\eaa5";
+@sicon-recommendations-lg: "\eaa6";
+@sicon-record-fill-lg: "\eaa7";
+@sicon-redo-lg: "\eaa8";
+@sicon-reset-lg: "\eaa9";
+@sicon-reply-lg: "\eaaa";
+@sicon-record-line-lg: "\eaab";
+@sicon-quoted-line-items-lg: "\eaac";
+@sicon-quote-lg: "\eaad";
+@sicon-purchased-line-items-lg: "\eaae";
+@sicon-questionnaire-lg: "\eaaf";
+@sicon-purchase-lg: "\eab0";
+@sicon-projects-lg: "\eab1";
+@sicon-processes-lg: "\eab2";
+@sicon-process-email-templates-lg: "\eab3";
+@sicon-process-definitions-lg: "\eab4";
+@sicon-process-business-rules-lg: "\eab5";
+@sicon-privacy-lg: "\eab6";
+@sicon-preview-lg: "\eab7";
+@sicon-presentation-lg: "\eab8";
+@sicon-pound-lg: "\eab9";
+@sicon-plus-lg: "\eaba";
+@sicon-plant-lg: "\eabb";
+@sicon-playlist-lg: "\eabc";
+@sicon-planet-lg: "\eabd";
+@sicon-pin-lg: "\eabe";
+@sicon-pin-fill-lg: "\eabf";
+@sicon-phone-lg: "\eac0";
+@sicon-pages-lg: "\eac1";
+@sicon-package-lg: "\eac2";
+@sicon-organic-lg: "\eac3";
+@sicon-opportunity-lg: "\eac4";
+@sicon-note-lg: "\eac5";
+@sicon-news-lg: "\eac6";
+@sicon-briefcase: "\eac7";
+@sicon-money-bag-lg: "\eac8";
+@sicon-mobile-lg: "\eac9";
+@sicon-message-lg: "\eaca";
+@sicon-meetings-lg: "\eacb";
+@sicon-medicine-lg: "\eacc";
+@sicon-medical-clipboard-lg: "\eacd";
+@sicon-media-player-lg: "\eace";
+@sicon-logout-lg: "\eacf";
+@sicon-marketplace-lg: "\ead0";
+@sicon-martini-lg: "\ead1";
+@sicon-login-lockout-lg: "\ead2";
+@sicon-lotus-lg: "\ead3";
+@sicon-login-lg: "\ead4";
+@sicon-list-lg: "\ead5";
+@sicon-left-paren-line-lg: "\ead6";
+@sicon-lead-lg: "\ead7";
+@sicon-layout-lg: "\ead8";
+@sicon-launch-lg: "\ead9";
+@sicon-knowledgebase-lg: "\eada";
+@sicon-kebab-lg: "\eadb";
+@sicon-jacuzzi-lg: "\eadc";
+@sicon-invalid-circle-lg: "\eadd";
+@sicon-insights-lg: "\eade";
+@sicon-info-circle-lg: "\eadf";
+@sicon-info-lg: "\eae0";
+@sicon-info-fill-lg: "\eae1";
+@sicon-home-lg: "\eae2";
+@sicon-hide-lg: "\eae3";
+@sicon-help-lg: "\eae4";
+@sicon-help-circle-lg: "\eae5";
+@sicon-hearts-lg: "\eae6";
+@sicon-hamburger-lg: "\eae7";
+@sicon-grid-lg: "\eae8";
+@sicon-graph-lg: "\eae9";
+@sicon-google-lg: "\eaea";
+@sicon-format-lg: "\eaeb";
+@sicon-forecasts-lg: "\eaec";
+@sicon-flag-lg: "\eaed";
+@sicon-fire-lg: "\eaee";
+@sicon-filter-lg: "\eaef";
+@sicon-features-lg: "\eaf0";
+@sicon-fan-lg: "\eaf1";
+@sicon-external-authentication-lg: "\eaf2";
+@sicon-expand-lg: "\eaf3";
+@sicon-exchange-lg: "\eaf4";
+@sicon-events-lg: "\eaf5";
+@sicon-euro-lg: "\eaf6";
+@sicon-escalation-lg: "\eaf7";
+@sicon-error-lg: "\eaf8";
+@sicon-entries-lg: "\eaf9";
+@sicon-email-lg: "\eafa";
+@sicon-edit-lg: "\eafb";
+@sicon-download-lg: "\eafc";
+@sicon-door-lg: "\eafd";
+@sicon-dollar-lg: "\eafe";
+@sicon-dollar-bill-lg: "\eaff";
+@sicon-document-lg: "\eb00";
+@sicon-divide-line-lg: "\eb01";
+@sicon-diamonds-lg: "\eb02";
+@sicon-details-lg: "\eb03";
+@sicon-default-module-lg: "\eb04";
+@sicon-decentralize-lg: "\eb05";
+@sicon-database-lg: "\eb06";
+@sicon-data-privacy-lg: "\eb07";
+@sicon-dashboard-line-lg: "\eb08";
+@sicon-dashboard-lg: "\eb09";
+@sicon-daily-lg: "\eb0a";
+@sicon-portal: "\eb0b";
+@sicon-customer-journey-stages-lg: "\eb0c";
+@sicon-customer-journey-lg: "\eb0d";
+@sicon-credit-card-lg: "\eb0e";
+@sicon-copy-lg: "\eb0f";
+@sicon-contracts-lg: "\eb10";
+@sicon-content-delivery-lg: "\eb11";
+@sicon-contact-lg: "\eb12";
+@sicon-comment-lg: "\eb13";
+@sicon-coffee-lg: "\eb14";
+@sicon-collapse-lg: "\eb15";
+@sicon-cocktail-lg: "\eb16";
+@sicon-close-lg: "\eb17";
+@sicon-clock-lg: "\eb18";
+@sicon-chevron-up-lg: "\eb19";
+@sicon-chevron-right-lg: "\eb1a";
+@sicon-chevron-left-lg: "\eb1b";
+@sicon-check-lg: "\eb1c";
+@sicon-chevron-down-lg: "\eb1d";
+@sicon-cents-lg: "\eb1e";
+@sicon-check-circle-line-lg: "\eb1f";
+@sicon-check-circle-lg: "\eb20";
+@sicon-case-lg: "\eb21";
+@sicon-campaigns-lg: "\eb22";
+@sicon-calendar-lg: "\eb23";
+@sicon-calculator-lg: "\eb24";
+@sicon-business-centers-lg: "\eb25";
+@sicon-bool-lg: "\eb26";
+@sicon-blueprint-lg: "\eb27";
+@sicon-bell-lg: "\eb28";
+@sicon-bitcoin-lg: "\eb29";
+@sicon-refresh-lg: "\eb2a";
+@sicon-timeline: "\eb2b";
+@sicon-tile-view-grid: "\eb2c";
+@sicon-bell-lg-line: "\eb2d";
+@sicon-bell-cross-lg: "\eb2e";
+@sicon-arrow-right-lg: "\eb2f";
+@sicon-archive-lg: "\eb30";
+@sicon-archive-box-lg: "\eb31";
+@sicon-analytics-lg: "\eb32";
+@sicon-airplane-lg: "\eb33";
+@sicon-advanced-filter: "\eb34";
+@sicon-address: "\eb35";
+@sicon-add-target: "\eb36";
+@sicon-add-line-lg: "\eb37";
+@sicon-add-dashlet-lg: "\eb38";
+@sicon-add-circle-lg: "\eb39";
+@sicon-actionbutton: "\eb3a";
+@sicon-account-lg: "\eb3b";
+@sicon-tracker: "\eb3c";
+@sicon-marketplace: "\eb3d";
+@sicon-minus: "\eb3e";
+@sicon-asterisk: "\eb3f";
+@sicon-workflow: "\eb40";
+@sicon-wifi: "\eb41";
+@sicon-weekly-lg: "\eb42";
+@sicon-web-logic: "\eb43";
+@sicon-warning-triangle: "\eb44";
+@sicon-warning-circle: "\eb45";
+@sicon-virus-lg: "\eb46";
+@sicon-video: "\eb47";
+@sicon-video-player-lg: "\eb48";
+@sicon-vertical-split: "\eb49";
+@sicon-varchar: "\eb4a";
+@sicon-validate: "\eb4b";
+@sicon-user: "\eb4c";
+@sicon-user-sm: "\eb4d";
+@sicon-user-group: "\eb4e";
+@sicon-user-check: "\eb4f";
+@sicon-url: "\eb50";
+@sicon-upload: "\eb51";
+@sicon-upgrade: "\eb52";
+@sicon-update: "\eb53";
+@sicon-unlock: "\eb54";
+@sicon-unlink: "\eb55";
+@sicon-underline: "\eb56";
+@sicon-twitter: "\eb57";
+@sicon-tv-lg: "\eb58";
+@sicon-trophy: "\eb59";
+@sicon-trash: "\eb5a";
+@sicon-tile-view: "\eb5b";
+@sicon-tiktok: "\eb5c";
+@sicon-thumbs-up: "\eb5d";
+@sicon-text: "\eb5e";
+@sicon-thumbs-down: "\eb5f";
+@sicon-text-formatting: "\eb60";
+@sicon-text-align-left: "\eb61";
+@sicon-text-align-right: "\eb62";
+@sicon-text-align-center: "\eb63";
+@sicon-team-perm: "\eb64";
+@sicon-team-mgmt: "\eb65";
+@sicon-tax-rates: "\eb66";
+@sicon-tag: "\eb67";
+@sicon-swap: "\eb68";
+@sicon-sun_rays: "\eb69";
+@sicon-sugar-u: "\eb6a";
+@sicon-sugar-predict: "\eb6b";
+@sicon-sugar-club: "\eb6d";
+@sicon-sugar-club-bw: "\eb6e";
+@sicon-subtract: "\eb6f";
+@sicon-package: "\eb70";
+@sicon-string: "\eb71";
+@sicon-stars_group: "\eb72";
+@sicon-star-outline: "\eb73";
+@sicon-star-fill: "\eb74";
+@sicon-stacked: "\eb75";
+@sicon-single-bed: "\eb76";
+@sicon-sidebyside: "\eb77";
+@sicon-shippers: "\eb78";
+@sicon-settings: "\eb79";
+@sicon-send: "\eb7a";
+@sicon-search: "\eb7b";
+@sicon-search-small: "\eb7c";
+@sicon-scheduler: "\eb7d";
+@sicon-save: "\eb7e";
+@sicon-route: "\eb7f";
+@sicon-role-mgmt: "\eb80";
+@sicon-reports: "\eb81";
+@sicon-reset: "\eb82";
+@sicon-reply: "\eb83";
+@sicon-reply-all: "\eb84";
+@sicon-repair: "\eb85";
+@sicon-remove-field: "\eb86";
+@sicon-remove: "\eb87";
+@sicon-relate: "\eb88";
+@sicon-remove-field-hover: "\eb89";
+@sicon-relate-fields: "\eb8a";
+@sicon-refresh: "\eb8b";
+@sicon-redo: "\eb8c";
+@sicon-product-types: "\eb8d";
+@sicon-radioenum: "\eb8e";
+@sicon-quotes: "\eb8f";
+@sicon-preview: "\eb90";
+@sicon-dropdown-editor: "\eb91";
+@sicon-plus: "\eb92";
+@sicon-plus-sm: "\eb93";
+@sicon-play: "\eb94";
+@sicon-phonefill: "\eb95";
+@sicon-phone: "\eb96";
+@sicon-pdf-manager: "\eb97";
+@sicon-password-mgmt: "\eb98";
+@sicon-parent: "\eb99";
+@sicon-parallel: "\eb9a";
+@sicon-ellipsis: "\eb9b";
+@sicon-opportunities: "\eb9c";
+@sicon-oauth-key: "\eb9d";
+@sicon-number: "\eb9e";
+@sicon-note: "\eb9f";
+@sicon-nodes: "\eba0";
+@sicon-multienum: "\eba1";
+@sicon-name: "\eba2";
+@sicon-my-sites: "\eba3";
+@sicon-moon_crescent: "\eba4";
+@sicon-module-loader: "\eba5";
+@sicon-module-builder: "\eba6";
+@sicon-mobile: "\eba7";
+@sicon-machine-learning-lg: "\eba8";
+@sicon-map-pin: "\eba9";
+@sicon-message: "\ebaa";
+@sicon-mask: "\ebab";
+@sicon-mask-disabled: "\ebac";
+@sicon-manufacturers: "\ebad";
+@sicon-linkedin: "\ebae";
+@sicon-logout: "\ebaf";
+@sicon-logo-snapchat: "\ebb0";
+@sicon-logo-linkedin: "\ebb1";
+@sicon-logo-instagram: "\ebb2";
+@sicon-logo-fb-simple: "\ebb3";
+@sicon-login: "\ebb4";
+@sicon-log-viewer: "\ebb5";
+@sicon-lock: "\ebb6";
+@sicon-list: "\ebb7";
+@sicon-list-view: "\ebb8";
+@sicon-kebab: "\ebb9";
+@sicon-link: "\ebba";
+@sicon-launch: "\ebbb";
+@sicon-laptop: "\ebbc";
+@sicon-languages: "\ebbd";
+@sicon-lab: "\ebbe";
+@sicon-focus-drawer: "\ebbf";
+@sicon-italics: "\ebc0";
+@sicon-int: "\ebc1";
+@sicon-info: "\ebc2";
+@sicon-inbox: "\ebc3";
+@sicon-import: "\ebc4";
+@sicon-iframe: "\ebc5";
+@sicon-html: "\ebc6";
+@sicon-horizontal-split: "\ebc7";
+@sicon-hide: "\ebc8";
+@sicon-help: "\ebc9";
+@sicon-gavel: "\ebca";
+@sicon-full-screen: "\ebcb";
+@sicon-full-screen-exit: "\ebcc";
+@sicon-forward: "\ebcd";
+@sicon-forecasts: "\ebce";
+@sicon-font-size: "\ebcf";
+@sicon-folder: "\ebd0";
+@sicon-folder-open: "\ebd1";
+@sicon-folder-line: "\ebd2";
+@sicon-dashboard-default: "\ebd3";
+@sicon-float: "\ebd4";
+@sicon-filter: "\ebd5";
+@sicon-file-upload: "\ebd6";
+@sicon-fields: "\ebd7";
+@sicon-facebook: "\ebd8";
+@sicon-expand-right: "\ebd9";
+@sicon-expand-left: "\ebda";
+@sicon-exclusive: "\ebdb";
+@sicon-equal: "\ebdc";
+@sicon-enum: "\ebdd";
+@sicon-entries: "\ebde";
+@sicon-end-event: "\ebdf";
+@sicon-encrypt: "\ebe0";
+@sicon-email: "\ebe1";
+@sicon-email-queue: "\ebe2";
+@sicon-email-inbound: "\ebe3";
+@sicon-email-contacts: "\ebe4";
+@sicon-email-campaign: "\ebe5";
+@sicon-email-archive: "\ebe6";
+@sicon-checkbox-btn: "\ebe7";
+@sicon-edit: "\ebe8";
+@sicon-chevron-down: "\ebe9";
+@sicon-download: "\ebea";
+@sicon-document: "\ebeb";
+@sicon-document-line: "\ebec";
+@sicon-display-modules: "\ebed";
+@sicon-diagnostics: "\ebee";
+@sicon-decimal: "\ebef";
+@sicon-datetimecombo: "\ebf0";
+@sicon-datetime: "\ebf1";
+@sicon-date: "\ebf2";
+@sicon-data-table: "\ebf3";
+@sicon-data-privacy: "\ebf4";
+@sicon-dashboard: "\ebf5";
+@sicon-arrow-left: "\ebf6";
+@sicon-customer-journey: "\ebf7";
+@sicon-currency: "\ebf8";
+@sicon-currencies: "\ebf9";
+@sicon-copy: "\ebfa";
+@sicon-contracts: "\ebfb";
+@sicon-content-security: "\ebfc";
+@sicon-connectors: "\ebfd";
+@sicon-config-nav: "\ebfe";
+@sicon-config-api: "\ebff";
+@sicon-clubs-lg: "\ec00";
+@sicon-clouds: "\ec01";
+@sicon-cloud: "\ec02";
+@sicon-cloud-insights: "\ec03";
+@sicon-close: "\ec04";
+@sicon-clock: "\ec05";
+@sicon-chevron-up: "\ec06";
+@sicon-chevron-right: "\ec07";
+@sicon-chevron-left: "\ec08";
+@sicon-automate-scroll: "\ec09";
+@sicon-catalog: "\ec0a";
+@sicon-checkbox-btn-checked: "\ec0b";
+@sicon-check: "\ec0c";
+@sicon-check-circle: "\ec0d";
+@sicon-add-folder: "\ec0e";
+@sicon-casino-lg: "\ec0f";
+@sicon-caret-up: "\ec10";
+@sicon-caret-down: "\ec11";
+@sicon-car-front: "\ec12";
+@sicon-calendar: "\ec13";
+@sicon-bug: "\ec14";
+@sicon-bold: "\ec15";
+@sicon-blockquote-lg: "\ec16";
+@sicon-bin-lg: "\ec17";
+@sicon-bed-lg: "\ec18";
+@sicon-ban: "\ec19";
+@sicon-automate-stacked: "\ec1a";
+@sicon-autoincrement: "\ec1b";
+@sicon-activity: "\ec1c";
+@sicon-attach: "\ec1d";
+@sicon-arrow-up: "\ec1e";
+@sicon-arrow-up-circle-line: "\ec1f";
+@sicon-arrow-top-right: "\ec20";
+@sicon-arrow-right: "\ec21";
+@sicon-arrow-right-double: "\ec22";
+@sicon-add-existing: "\ec23";
+@sicon-arrow-left-double: "\ec24";
+@sicon-arrow-down: "\ec25";
+@sicon-archive: "\ec26";
+@sicon-amazon: "\ec27";
+@sicon-airplane: "\ec28";
+@sicon-ai: "\ec29";
+@sicon-account: "\ec2a";
+@sicon-box-3d-xl-48: "\ec2b";
+@sicon-research-xl-48: "\ec2c";
+@sicon-swap-vertical: "\ec2d";
+@sicon-analyze-performance-lg: "\ec2e";
+@sicon-recs-existing-customers-lg: "\ec2f";
+@sicon-recs-new-customers: "\ec32";
+@sicon-recycling: "\ec35";
+@sicon-binoculars: "\ec36";
+@sicon-matrix: "\ec38";
+@sicon-sales-vs-gaps: "\ec39";
+@sicon-variance: "\ec3a";
+@sicon-trends: "\ec3b";
+@sicon-alerts: "\ec3d";
+@sicon-product-insights: "\ec3e";
+@sicon-full_picture: "\ec3f";
+@sicon-generate_new: "\ec40";
+@sicon-drag: "\ec41";
+@sicon-minimize: "\ec43";
+@sicon-new-chat: "\ec44";
+@sicon-sugar-logo-12: "\ec45";
+@sicon-sugar-logo-lg: "\ec46";
+@sicon-sugar-logo-16: "\ec47";
+@sicon-sugar-logo-24: "\ec48";
+
+.sicon-voice-recognition-lg::before {
+  content: @sicon-voice-recognition-lg;
+}
+
+.sicon-landing-pages-xl::before {
+  content: @sicon-landing-pages-xl;
+}
+
+.sicon-summation-details-xxl::before {
+  content: @sicon-summation-details-xxl;
+}
+
+.sicon-summation-xxl::before {
+  content: @sicon-summation-xxl;
+}
+
+.sicon-rows-and-columns-xxl::before {
+  content: @sicon-rows-and-columns-xxl;
+}
+
+.sicon-pdf-file-xxl::before {
+  content: @sicon-pdf-file-xxl;
+}
+
+.sicon-matrix-xxl::before {
+  content: @sicon-matrix-xxl;
+}
+
+.sicon-csv-file-xxl::before {
+  content: @sicon-csv-file-xxl;
+}
+
+.sicon-check-circle-xl-32::before {
+  content: @sicon-check-circle-xl-32;
+}
+
+.sicon-warning-xl-32::before {
+  content: @sicon-warning-xl-32;
+}
+
+.sicon-warning-circle-xl-32::before {
+  content: @sicon-warning-circle-xl-32;
+}
+
+.sicon-info-fill-xl-32::before {
+  content: @sicon-info-fill-xl-32;
+}
+
+.sicon-purchase-xl::before {
+  content: @sicon-purchase-xl;
+}
+
+.sicon-wizard-circle-xl::before {
+  content: @sicon-wizard-circle-xl;
+}
+
+.sicon-wizard-circle-line-xl::before {
+  content: @sicon-wizard-circle-line-xl;
+}
+
+.sicon-web-xl::before {
+  content: @sicon-web-xl;
+}
+
+.sicon-web-activity-detail-xl::before {
+  content: @sicon-web-activity-detail-xl;
+}
+
+.sicon-user-group-xl::before {
+  content: @sicon-user-group-xl;
+}
+
+.sicon-user-group-3-xl::before {
+  content: @sicon-user-group-3-xl;
+}
+
+.sicon-user-check-xl::before {
+  content: @sicon-user-check-xl;
+}
+
+.sicon-trash-xl::before {
+  content: @sicon-trash-xl;
+}
+
+.sicon-transactions-lg::before {
+  content: @sicon-transactions-lg;
+}
+
+.sicon-task-xl::before {
+  content: @sicon-task-xl;
+}
+
+.sicon-targets-xl::before {
+  content: @sicon-targets-xl;
+}
+
+.sicon-sort-fields-xxl::before {
+  content: @sicon-sort-fields-xxl;
+}
+
+.sicon-tablet-xl::before {
+  content: @sicon-tablet-xl;
+}
+
+.sicon-user-group-lg::before {
+  content: @sicon-user-group-lg;
+}
+
+.sicon-smart-phone-lg::before {
+  content: @sicon-smart-phone-lg;
+}
+
+.sicon-smart-guides-xl::before {
+  content: @sicon-smart-guides-xl;
+}
+
+.sicon-smart-guide-sugar_actions-xl::before {
+  content: @sicon-smart-guide-sugar_actions-xl;
+}
+
+.sicon-smart-guide-templates-xl::before {
+  content: @sicon-smart-guide-templates-xl;
+}
+
+.sicon-smart-guide-stage-templates-xl::before {
+  content: @sicon-smart-guide-stage-templates-xl;
+}
+
+.sicon-smart-guide-activity-templates-xl::before {
+  content: @sicon-smart-guide-activity-templates-xl;
+}
+
+.sicon-smart_guides-stages-xl::before {
+  content: @sicon-smart_guides-stages-xl;
+}
+
+.sicon-slicers-xl::before {
+  content: @sicon-slicers-xl;
+}
+
+.sicon-revenue-line-items-xl::before {
+  content: @sicon-revenue-line-items-xl;
+}
+
+.sicon-quotes-xl::before {
+  content: @sicon-quotes-xl;
+}
+
+.sicon-quoted-line-items-xl::before {
+  content: @sicon-quoted-line-items-xl;
+}
+
+.sicon-purchased-line-items-xl::before {
+  content: @sicon-purchased-line-items-xl;
+}
+
+.sicon-projects-xl::before {
+  content: @sicon-projects-xl;
+}
+
+.sicon-project-tasks-xl::before {
+  content: @sicon-project-tasks-xl;
+}
+
+.sicon-plug-lg::before {
+  content: @sicon-plug-lg;
+}
+
+.sicon-phone-xl::before {
+  content: @sicon-phone-xl;
+}
+
+.sicon-package-xl::before {
+  content: @sicon-package-xl;
+}
+
+.sicon-opportunity-xl::before {
+  content: @sicon-opportunity-xl;
+}
+
+.sicon-note-xl::before {
+  content: @sicon-note-xl;
+}
+
+.sicon-mobile-xl::before {
+  content: @sicon-mobile-xl;
+}
+
+.sicon-messages-xl::before {
+  content: @sicon-messages-xl;
+}
+
+.sicon-meetings-xl::before {
+  content: @sicon-meetings-xl;
+}
+
+.sicon-lock-lg::before {
+  content: @sicon-lock-lg;
+}
+
+.sicon-leads-xl::before {
+  content: @sicon-leads-xl;
+}
+
+.sicon-layout-xl::before {
+  content: @sicon-layout-xl;
+}
+
+.sicon-upload-lg::before {
+  content: @sicon-upload-lg;
+}
+
+.sicon-knowledgebase-xl::before {
+  content: @sicon-knowledgebase-xl;
+}
+
+.sicon-kebab-xl::before {
+  content: @sicon-kebab-xl;
+}
+
+.sicon-insights-xl::before {
+  content: @sicon-insights-xl;
+}
+
+.sicon-image::before {
+  content: @sicon-image;
+}
+
+.sicon-format-color::before {
+  content: @sicon-format-color;
+}
+
+.sicon-external-users-xl::before {
+  content: @sicon-external-users-xl;
+}
+
+.sicon-event-mgmt-xl::before {
+  content: @sicon-event-mgmt-xl;
+}
+
+.sicon-escalation-xl::before {
+  content: @sicon-escalation-xl;
+}
+
+.sicon-edit-xl::before {
+  content: @sicon-edit-xl;
+}
+
+.sicon-dot-circle-o-lg::before {
+  content: @sicon-dot-circle-o-lg;
+}
+
+.sicon-docusign-xl::before {
+  content: @sicon-docusign-xl;
+}
+
+.sicon-document-templates-xl::before {
+  content: @sicon-document-templates-xl;
+}
+
+.sicon-documents-xl::before {
+  content: @sicon-documents-xl;
+}
+
+.sicon-desktop-xl::before {
+  content: @sicon-desktop-xl;
+}
+
+.sicon-discover-xl::before {
+  content: @sicon-discover-xl;
+}
+
+.sicon-document-line-lg::before {
+  content: @sicon-document-line-lg;
+}
+
+.sicon-data-privacy-xl::before {
+  content: @sicon-data-privacy-xl;
+}
+
+.sicon-dashboard-xl::before {
+  content: @sicon-dashboard-xl;
+}
+
+.sicon-dashboard-default-xl::before {
+  content: @sicon-dashboard-default-xl;
+}
+
+.sicon-copy-xl::before {
+  content: @sicon-copy-xl;
+}
+
+.sicon-copy-meeting-xl::before {
+  content: @sicon-copy-meeting-xl;
+}
+
+.sicon-copy-calendar-link-xl::before {
+  content: @sicon-copy-calendar-link-xl;
+}
+
+.sicon-contracts-xl::before {
+  content: @sicon-contracts-xl;
+}
+
+.sicon-contact-xl::before {
+  content: @sicon-contact-xl;
+}
+
+.sicon-comment-xl::before {
+  content: @sicon-comment-xl;
+}
+
+.sicon-comment-line-xl::before {
+  content: @sicon-comment-line-xl;
+}
+
+.sicon-cloud-download-xl::before {
+  content: @sicon-cloud-download-xl;
+}
+
+.sicon-cloud-download-lg::before {
+  content: @sicon-cloud-download-lg;
+}
+
+.sicon-clicks-lg::before {
+  content: @sicon-clicks-lg;
+}
+
+.sicon-close-xl::before {
+  content: @sicon-close-xl;
+}
+
+.sicon-chevron-left-xl::before {
+  content: @sicon-chevron-left-xl;
+}
+
+.sicon-checkbox-btn-lg::before {
+  content: @sicon-checkbox-btn-lg;
+}
+
+.sicon-checkbox-btn-checked-lg::before {
+  content: @sicon-checkbox-btn-checked-lg;
+}
+
+.sicon-catalog-xl::before {
+  content: @sicon-catalog-xl;
+}
+
+.sicon-campaigns-xl::before {
+  content: @sicon-campaigns-xl;
+}
+
+.sicon-cases-xl::before {
+  content: @sicon-cases-xl;
+}
+
+.sicon-bug-xl::before {
+  content: @sicon-bug-xl;
+}
+
+.sicon-bool::before {
+  content: @sicon-bool;
+}
+
+.sicon-automate-web-hooks-xl::before {
+  content: @sicon-automate-web-hooks-xl;
+}
+
+.sicon-all-fields-xxl::before {
+  content: @sicon-all-fields-xxl;
+}
+
+.sicon-ai-xl::before {
+  content: @sicon-ai-xl;
+}
+
+.sicon-add-target-lg::before {
+  content: @sicon-add-target-lg;
+}
+
+.sicon-activity-feed-xl::before {
+  content: @sicon-activity-feed-xl;
+}
+
+.sicon-account-xl::before {
+  content: @sicon-account-xl;
+}
+
+.sicon-yen-lg::before {
+  content: @sicon-yen-lg;
+}
+
+.sicon-world-lg::before {
+  content: @sicon-world-lg;
+}
+
+.sicon-web-lg::before {
+  content: @sicon-web-lg;
+}
+
+.sicon-window-lg::before {
+  content: @sicon-window-lg;
+}
+
+.sicon-windmill-lg::before {
+  content: @sicon-windmill-lg;
+}
+
+.sicon-wifi-lg::before {
+  content: @sicon-wifi-lg;
+}
+
+.sicon-warning-line-lg::before {
+  content: @sicon-warning-line-lg;
+}
+
+.sicon-warning-lg::before {
+  content: @sicon-warning-lg;
+}
+
+.sicon-warning-circle-lg::before {
+  content: @sicon-warning-circle-lg;
+}
+
+.sicon-wand-lg::before {
+  content: @sicon-wand-lg;
+}
+
+.sicon-dashboard-fill-lg::before {
+  content: @sicon-dashboard-fill-lg;
+}
+
+.sicon-view-report-lg::before {
+  content: @sicon-view-report-lg;
+}
+
+.sicon-user-lg::before {
+  content: @sicon-user-lg;
+}
+
+.sicon-video-lg::before {
+  content: @sicon-video-lg;
+}
+
+.sicon-multiply-line-lg::before {
+  content: @sicon-multiply-line-lg;
+}
+
+.sicon-studio::before {
+  content: @sicon-studio;
+}
+
+.sicon-user-check-lg::before {
+  content: @sicon-user-check-lg;
+}
+
+.sicon-undo-lg::before {
+  content: @sicon-undo-lg;
+}
+
+.sicon-trash-lg::before {
+  content: @sicon-trash-lg;
+}
+
+.sicon-trainer-lg::before {
+  content: @sicon-trainer-lg;
+}
+
+.sicon-tracking-activity-lg::before {
+  content: @sicon-tracking-activity-lg;
+}
+
+.sicon-thumbs-up-line-lg::before {
+  content: @sicon-thumbs-up-line-lg;
+}
+
+.sicon-thumbs-up-lg::before {
+  content: @sicon-thumbs-up-lg;
+}
+
+.sicon-thumbs-down-line-lg::before {
+  content: @sicon-thumbs-down-line-lg;
+}
+
+.sicon-thumbs-down-lg::before {
+  content: @sicon-thumbs-down-lg;
+}
+
+.sicon-theme-lg::before {
+  content: @sicon-theme-lg;
+}
+
+.sicon-telescope-lg::before {
+  content: @sicon-telescope-lg;
+}
+
+.sicon-task-lg::before {
+  content: @sicon-task-lg;
+}
+
+.sicon-target-lists-lg::before {
+  content: @sicon-target-lists-lg;
+}
+
+.sicon-target-lg::before {
+  content: @sicon-target-lg;
+}
+
+.sicon-tag-lg::before {
+  content: @sicon-tag-lg;
+}
+
+.sicon-target-email-lg::before {
+  content: @sicon-target-email-lg;
+}
+
+.sicon-sync-off-lg::before {
+  content: @sicon-sync-off-lg;
+}
+
+.sicon-sync-lg::before {
+  content: @sicon-sync-lg;
+}
+
+.sicon-switch-name::before {
+  content: @sicon-switch-name;
+}
+
+.sicon-sugar-predict-lg::before {
+  content: @sicon-sugar-predict-lg;
+}
+
+.sicon-sugar-live-lg::before {
+  content: @sicon-sugar-live-lg;
+}
+
+.sicon-subtract-line-lg::before {
+  content: @sicon-subtract-line-lg;
+}
+
+.sicon-studio-lg::before {
+  content: @sicon-studio-lg;
+}
+
+.sicon-storage-lg::before {
+  content: @sicon-storage-lg;
+}
+
+.sicon-statistics-lg::before {
+  content: @sicon-statistics-lg;
+}
+
+.sicon-star-outline-lg::before {
+  content: @sicon-star-outline-lg;
+}
+
+.sicon-shuttle-lg::before {
+  content: @sicon-shuttle-lg;
+}
+
+.sicon-stadium-lg::before {
+  content: @sicon-stadium-lg;
+}
+
+.sicon-star-fill-lg::before {
+  content: @sicon-star-fill-lg;
+}
+
+.sicon-soundwave-lg::before {
+  content: @sicon-soundwave-lg;
+}
+
+.sicon-spades-lg::before {
+  content: @sicon-spades-lg;
+}
+
+.sicon-skull-lg::before {
+  content: @sicon-skull-lg;
+}
+
+.sicon-slicers-lg::before {
+  content: @sicon-slicers-lg;
+}
+
+.sicon-shortcuts-lg::before {
+  content: @sicon-shortcuts-lg;
+}
+
+.sicon-shield-lg::before {
+  content: @sicon-shield-lg;
+}
+
+.sicon-share-lg::before {
+  content: @sicon-share-lg;
+}
+
+.sicon-settings-lg::before {
+  content: @sicon-settings-lg;
+}
+
+.sicon-send-lg::before {
+  content: @sicon-send-lg;
+}
+
+.sicon-search-lg::before {
+  content: @sicon-search-lg;
+}
+
+.sicon-scoring-lg::before {
+  content: @sicon-scoring-lg;
+}
+
+.sicon-scissors-lg::before {
+  content: @sicon-scissors-lg;
+}
+
+.sicon-scheduler-lg::before {
+  content: @sicon-scheduler-lg;
+}
+
+.sicon-save-lg::before {
+  content: @sicon-save-lg;
+}
+
+.sicon-role-mgmt-lg::before {
+  content: @sicon-role-mgmt-lg;
+}
+
+.sicon-right-paren-line-lg::before {
+  content: @sicon-right-paren-line-lg;
+}
+
+.sicon-revenue-line-items-lg::before {
+  content: @sicon-revenue-line-items-lg;
+}
+
+.sicon-resize-lg::before {
+  content: @sicon-resize-lg;
+}
+
+.sicon-recommendations-lg::before {
+  content: @sicon-recommendations-lg;
+}
+
+.sicon-record-fill-lg::before {
+  content: @sicon-record-fill-lg;
+}
+
+.sicon-redo-lg::before {
+  content: @sicon-redo-lg;
+}
+
+.sicon-reset-lg::before {
+  content: @sicon-reset-lg;
+}
+
+.sicon-reply-lg::before {
+  content: @sicon-reply-lg;
+}
+
+.sicon-record-line-lg::before {
+  content: @sicon-record-line-lg;
+}
+
+.sicon-quoted-line-items-lg::before {
+  content: @sicon-quoted-line-items-lg;
+}
+
+.sicon-quote-lg::before {
+  content: @sicon-quote-lg;
+}
+
+.sicon-purchased-line-items-lg::before {
+  content: @sicon-purchased-line-items-lg;
+}
+
+.sicon-questionnaire-lg::before {
+  content: @sicon-questionnaire-lg;
+}
+
+.sicon-purchase-lg::before {
+  content: @sicon-purchase-lg;
+}
+
+.sicon-projects-lg::before {
+  content: @sicon-projects-lg;
+}
+
+.sicon-processes-lg::before {
+  content: @sicon-processes-lg;
+}
+
+.sicon-process-email-templates-lg::before {
+  content: @sicon-process-email-templates-lg;
+}
+
+.sicon-process-definitions-lg::before {
+  content: @sicon-process-definitions-lg;
+}
+
+.sicon-process-business-rules-lg::before {
+  content: @sicon-process-business-rules-lg;
+}
+
+.sicon-privacy-lg::before {
+  content: @sicon-privacy-lg;
+}
+
+.sicon-preview-lg::before {
+  content: @sicon-preview-lg;
+}
+
+.sicon-presentation-lg::before {
+  content: @sicon-presentation-lg;
+}
+
+.sicon-pound-lg::before {
+  content: @sicon-pound-lg;
+}
+
+.sicon-plus-lg::before {
+  content: @sicon-plus-lg;
+}
+
+.sicon-plant-lg::before {
+  content: @sicon-plant-lg;
+}
+
+.sicon-playlist-lg::before {
+  content: @sicon-playlist-lg;
+}
+
+.sicon-planet-lg::before {
+  content: @sicon-planet-lg;
+}
+
+.sicon-pin-lg::before {
+  content: @sicon-pin-lg;
+}
+
+.sicon-pin-fill-lg::before {
+  content: @sicon-pin-fill-lg;
+}
+
+.sicon-phone-lg::before {
+  content: @sicon-phone-lg;
+}
+
+.sicon-pages-lg::before {
+  content: @sicon-pages-lg;
+}
+
+.sicon-package-lg::before {
+  content: @sicon-package-lg;
+}
+
+.sicon-organic-lg::before {
+  content: @sicon-organic-lg;
+}
+
+.sicon-opportunity-lg::before {
+  content: @sicon-opportunity-lg;
+}
+
+.sicon-note-lg::before {
+  content: @sicon-note-lg;
+}
+
+.sicon-news-lg::before {
+  content: @sicon-news-lg;
+}
+
+.sicon-briefcase::before {
+  content: @sicon-briefcase;
+}
+
+.sicon-money-bag-lg::before {
+  content: @sicon-money-bag-lg;
+}
+
+.sicon-mobile-lg::before {
+  content: @sicon-mobile-lg;
+}
+
+.sicon-message-lg::before {
+  content: @sicon-message-lg;
+}
+
+.sicon-meetings-lg::before {
+  content: @sicon-meetings-lg;
+}
+
+.sicon-medicine-lg::before {
+  content: @sicon-medicine-lg;
+}
+
+.sicon-medical-clipboard-lg::before {
+  content: @sicon-medical-clipboard-lg;
+}
+
+.sicon-media-player-lg::before {
+  content: @sicon-media-player-lg;
+}
+
+.sicon-logout-lg::before {
+  content: @sicon-logout-lg;
+}
+
+.sicon-marketplace-lg::before {
+  content: @sicon-marketplace-lg;
+}
+
+.sicon-martini-lg::before {
+  content: @sicon-martini-lg;
+}
+
+.sicon-login-lockout-lg::before {
+  content: @sicon-login-lockout-lg;
+}
+
+.sicon-lotus-lg::before {
+  content: @sicon-lotus-lg;
+}
+
+.sicon-login-lg::before {
+  content: @sicon-login-lg;
+}
+
+.sicon-list-lg::before {
+  content: @sicon-list-lg;
+}
+
+.sicon-left-paren-line-lg::before {
+  content: @sicon-left-paren-line-lg;
+}
+
+.sicon-lead-lg::before {
+  content: @sicon-lead-lg;
+}
+
+.sicon-layout-lg::before {
+  content: @sicon-layout-lg;
+}
+
+.sicon-launch-lg::before {
+  content: @sicon-launch-lg;
+}
+
+.sicon-knowledgebase-lg::before {
+  content: @sicon-knowledgebase-lg;
+}
+
+.sicon-kebab-lg::before {
+  content: @sicon-kebab-lg;
+}
+
+.sicon-jacuzzi-lg::before {
+  content: @sicon-jacuzzi-lg;
+}
+
+.sicon-invalid-circle-lg::before {
+  content: @sicon-invalid-circle-lg;
+}
+
+.sicon-insights-lg::before {
+  content: @sicon-insights-lg;
+}
+
+.sicon-info-circle-lg::before {
+  content: @sicon-info-circle-lg;
+}
+
+.sicon-info-lg::before {
+  content: @sicon-info-lg;
+}
+
+.sicon-info-fill-lg::before {
+  content: @sicon-info-fill-lg;
+}
+
+.sicon-home-lg::before {
+  content: @sicon-home-lg;
+}
+
+.sicon-hide-lg::before {
+  content: @sicon-hide-lg;
+}
+
+.sicon-help-lg::before {
+  content: @sicon-help-lg;
+}
+
+.sicon-help-circle-lg::before {
+  content: @sicon-help-circle-lg;
+}
+
+.sicon-hearts-lg::before {
+  content: @sicon-hearts-lg;
+}
+
+.sicon-hamburger-lg::before {
+  content: @sicon-hamburger-lg;
+}
+
+.sicon-grid-lg::before {
+  content: @sicon-grid-lg;
+}
+
+.sicon-graph-lg::before {
+  content: @sicon-graph-lg;
+}
+
+.sicon-google-lg::before {
+  content: @sicon-google-lg;
+}
+
+.sicon-format-lg::before {
+  content: @sicon-format-lg;
+}
+
+.sicon-forecasts-lg::before {
+  content: @sicon-forecasts-lg;
+}
+
+.sicon-flag-lg::before {
+  content: @sicon-flag-lg;
+}
+
+.sicon-fire-lg::before {
+  content: @sicon-fire-lg;
+}
+
+.sicon-filter-lg::before {
+  content: @sicon-filter-lg;
+}
+
+.sicon-features-lg::before {
+  content: @sicon-features-lg;
+}
+
+.sicon-fan-lg::before {
+  content: @sicon-fan-lg;
+}
+
+.sicon-external-authentication-lg::before {
+  content: @sicon-external-authentication-lg;
+}
+
+.sicon-expand-lg::before {
+  content: @sicon-expand-lg;
+}
+
+.sicon-exchange-lg::before {
+  content: @sicon-exchange-lg;
+}
+
+.sicon-events-lg::before {
+  content: @sicon-events-lg;
+}
+
+.sicon-euro-lg::before {
+  content: @sicon-euro-lg;
+}
+
+.sicon-escalation-lg::before {
+  content: @sicon-escalation-lg;
+}
+
+.sicon-error-lg::before {
+  content: @sicon-error-lg;
+}
+
+.sicon-entries-lg::before {
+  content: @sicon-entries-lg;
+}
+
+.sicon-email-lg::before {
+  content: @sicon-email-lg;
+}
+
+.sicon-edit-lg::before {
+  content: @sicon-edit-lg;
+}
+
+.sicon-download-lg::before {
+  content: @sicon-download-lg;
+}
+
+.sicon-door-lg::before {
+  content: @sicon-door-lg;
+}
+
+.sicon-dollar-lg::before {
+  content: @sicon-dollar-lg;
+}
+
+.sicon-dollar-bill-lg::before {
+  content: @sicon-dollar-bill-lg;
+}
+
+.sicon-document-lg::before {
+  content: @sicon-document-lg;
+}
+
+.sicon-divide-line-lg::before {
+  content: @sicon-divide-line-lg;
+}
+
+.sicon-diamonds-lg::before {
+  content: @sicon-diamonds-lg;
+}
+
+.sicon-details-lg::before {
+  content: @sicon-details-lg;
+}
+
+.sicon-default-module-lg::before {
+  content: @sicon-default-module-lg;
+}
+
+.sicon-decentralize-lg::before {
+  content: @sicon-decentralize-lg;
+}
+
+.sicon-database-lg::before {
+  content: @sicon-database-lg;
+}
+
+.sicon-data-privacy-lg::before {
+  content: @sicon-data-privacy-lg;
+}
+
+.sicon-dashboard-line-lg::before {
+  content: @sicon-dashboard-line-lg;
+}
+
+.sicon-dashboard-lg::before {
+  content: @sicon-dashboard-lg;
+}
+
+.sicon-daily-lg::before {
+  content: @sicon-daily-lg;
+}
+
+.sicon-portal::before {
+  content: @sicon-portal;
+}
+
+.sicon-customer-journey-stages-lg::before {
+  content: @sicon-customer-journey-stages-lg;
+}
+
+.sicon-customer-journey-lg::before {
+  content: @sicon-customer-journey-lg;
+}
+
+.sicon-credit-card-lg::before {
+  content: @sicon-credit-card-lg;
+}
+
+.sicon-copy-lg::before {
+  content: @sicon-copy-lg;
+}
+
+.sicon-contracts-lg::before {
+  content: @sicon-contracts-lg;
+}
+
+.sicon-content-delivery-lg::before {
+  content: @sicon-content-delivery-lg;
+}
+
+.sicon-contact-lg::before {
+  content: @sicon-contact-lg;
+}
+
+.sicon-comment-lg::before {
+  content: @sicon-comment-lg;
+}
+
+.sicon-coffee-lg::before {
+  content: @sicon-coffee-lg;
+}
+
+.sicon-collapse-lg::before {
+  content: @sicon-collapse-lg;
+}
+
+.sicon-cocktail-lg::before {
+  content: @sicon-cocktail-lg;
+}
+
+.sicon-close-lg::before {
+  content: @sicon-close-lg;
+}
+
+.sicon-clock-lg::before {
+  content: @sicon-clock-lg;
+}
+
+.sicon-chevron-up-lg::before {
+  content: @sicon-chevron-up-lg;
+}
+
+.sicon-chevron-right-lg::before {
+  content: @sicon-chevron-right-lg;
+}
+
+.sicon-chevron-left-lg::before {
+  content: @sicon-chevron-left-lg;
+}
+
+.sicon-check-lg::before {
+  content: @sicon-check-lg;
+}
+
+.sicon-chevron-down-lg::before {
+  content: @sicon-chevron-down-lg;
+}
+
+.sicon-cents-lg::before {
+  content: @sicon-cents-lg;
+}
+
+.sicon-check-circle-line-lg::before {
+  content: @sicon-check-circle-line-lg;
+}
+
+.sicon-check-circle-lg::before {
+  content: @sicon-check-circle-lg;
+}
+
+.sicon-case-lg::before {
+  content: @sicon-case-lg;
+}
+
+.sicon-campaigns-lg::before {
+  content: @sicon-campaigns-lg;
+}
+
+.sicon-calendar-lg::before {
+  content: @sicon-calendar-lg;
+}
+
+.sicon-calculator-lg::before {
+  content: @sicon-calculator-lg;
+}
+
+.sicon-business-centers-lg::before {
+  content: @sicon-business-centers-lg;
+}
+
+.sicon-bool-lg::before {
+  content: @sicon-bool-lg;
+}
+
+.sicon-blueprint-lg::before {
+  content: @sicon-blueprint-lg;
+}
+
+.sicon-bell-lg::before {
+  content: @sicon-bell-lg;
+}
+
+.sicon-bitcoin-lg::before {
+  content: @sicon-bitcoin-lg;
+}
+
+.sicon-refresh-lg::before {
+  content: @sicon-refresh-lg;
+}
+
+.sicon-timeline::before {
+  content: @sicon-timeline;
+}
+
+.sicon-tile-view-grid::before {
+  content: @sicon-tile-view-grid;
+}
+
+.sicon-bell-lg-line::before {
+  content: @sicon-bell-lg-line;
+}
+
+.sicon-bell-cross-lg::before {
+  content: @sicon-bell-cross-lg;
+}
+
+.sicon-arrow-right-lg::before {
+  content: @sicon-arrow-right-lg;
+}
+
+.sicon-archive-lg::before {
+  content: @sicon-archive-lg;
+}
+
+.sicon-archive-box-lg::before {
+  content: @sicon-archive-box-lg;
+}
+
+.sicon-analytics-lg::before {
+  content: @sicon-analytics-lg;
+}
+
+.sicon-airplane-lg::before {
+  content: @sicon-airplane-lg;
+}
+
+.sicon-advanced-filter::before {
+  content: @sicon-advanced-filter;
+}
+
+.sicon-address::before {
+  content: @sicon-address;
+}
+
+.sicon-add-target::before {
+  content: @sicon-add-target;
+}
+
+.sicon-add-line-lg::before {
+  content: @sicon-add-line-lg;
+}
+
+.sicon-add-dashlet-lg::before {
+  content: @sicon-add-dashlet-lg;
+}
+
+.sicon-add-circle-lg::before {
+  content: @sicon-add-circle-lg;
+}
+
+.sicon-actionbutton::before {
+  content: @sicon-actionbutton;
+}
+
+.sicon-account-lg::before {
+  content: @sicon-account-lg;
+}
+
+.sicon-tracker::before {
+  content: @sicon-tracker;
+}
+
+.sicon-marketplace::before {
+  content: @sicon-marketplace;
+}
+
+.sicon-minus::before {
+  content: @sicon-minus;
+}
+
+.sicon-asterisk::before {
+  content: @sicon-asterisk;
+}
+
+.sicon-workflow::before {
+  content: @sicon-workflow;
+}
+
+.sicon-wifi::before {
+  content: @sicon-wifi;
+}
+
+.sicon-weekly-lg::before {
+  content: @sicon-weekly-lg;
+}
+
+.sicon-web-logic::before {
+  content: @sicon-web-logic;
+}
+
+.sicon-warning-triangle::before {
+  content: @sicon-warning-triangle;
+}
+
+.sicon-warning-circle::before {
+  content: @sicon-warning-circle;
+}
+
+.sicon-virus-lg::before {
+  content: @sicon-virus-lg;
+}
+
+.sicon-video::before {
+  content: @sicon-video;
+}
+
+.sicon-video-player-lg::before {
+  content: @sicon-video-player-lg;
+}
+
+.sicon-vertical-split::before {
+  content: @sicon-vertical-split;
+}
+
+.sicon-varchar::before {
+  content: @sicon-varchar;
+}
+
+.sicon-validate::before {
+  content: @sicon-validate;
+}
+
+.sicon-user::before {
+  content: @sicon-user;
+}
+
+.sicon-user-sm::before {
+  content: @sicon-user-sm;
+}
+
+.sicon-user-group::before {
+  content: @sicon-user-group;
+}
+
+.sicon-user-check::before {
+  content: @sicon-user-check;
+}
+
+.sicon-url::before {
+  content: @sicon-url;
+}
+
+.sicon-upload::before {
+  content: @sicon-upload;
+}
+
+.sicon-upgrade::before {
+  content: @sicon-upgrade;
+}
+
+.sicon-update::before {
+  content: @sicon-update;
+}
+
+.sicon-unlock::before {
+  content: @sicon-unlock;
+}
+
+.sicon-unlink::before {
+  content: @sicon-unlink;
+}
+
+.sicon-underline::before {
+  content: @sicon-underline;
+}
+
+.sicon-twitter::before {
+  content: @sicon-twitter;
+}
+
+.sicon-tv-lg::before {
+  content: @sicon-tv-lg;
+}
+
+.sicon-trophy::before {
+  content: @sicon-trophy;
+}
+
+.sicon-trash::before {
+  content: @sicon-trash;
+}
+
+.sicon-tile-view::before {
+  content: @sicon-tile-view;
+}
+
+.sicon-tiktok::before {
+  content: @sicon-tiktok;
+}
+
+.sicon-thumbs-up::before {
+  content: @sicon-thumbs-up;
+}
+
+.sicon-text::before {
+  content: @sicon-text;
+}
+
+.sicon-thumbs-down::before {
+  content: @sicon-thumbs-down;
+}
+
+.sicon-text-formatting::before {
+  content: @sicon-text-formatting;
+}
+
+.sicon-text-align-left::before {
+  content: @sicon-text-align-left;
+}
+
+.sicon-text-align-right::before {
+  content: @sicon-text-align-right;
+}
+
+.sicon-text-align-center::before {
+  content: @sicon-text-align-center;
+}
+
+.sicon-team-perm::before {
+  content: @sicon-team-perm;
+}
+
+.sicon-team-mgmt::before {
+  content: @sicon-team-mgmt;
+}
+
+.sicon-tax-rates::before {
+  content: @sicon-tax-rates;
+}
+
+.sicon-tag::before {
+  content: @sicon-tag;
+}
+
+.sicon-swap::before {
+  content: @sicon-swap;
+}
+
+.sicon-sun_rays::before {
+  content: @sicon-sun_rays;
+}
+
+.sicon-sugar-u::before {
+  content: @sicon-sugar-u;
+}
+
+.sicon-sugar-predict::before {
+  content: @sicon-sugar-predict;
+}
+
+.sicon-sugar-club::before {
+  content: @sicon-sugar-club;
+}
+
+.sicon-sugar-club-bw::before {
+  content: @sicon-sugar-club-bw;
+}
+
+.sicon-subtract::before {
+  content: @sicon-subtract;
+}
+
+.sicon-package::before {
+  content: @sicon-package;
+}
+
+.sicon-string::before {
+  content: @sicon-string;
+}
+
+.sicon-stars_group::before {
+  content: @sicon-stars_group;
+}
+
+.sicon-star-outline::before {
+  content: @sicon-star-outline;
+}
+
+.sicon-star-fill::before {
+  content: @sicon-star-fill;
+}
+
+.sicon-stacked::before {
+  content: @sicon-stacked;
+}
+
+.sicon-single-bed::before {
+  content: @sicon-single-bed;
+}
+
+.sicon-sidebyside::before {
+  content: @sicon-sidebyside;
+}
+
+.sicon-shippers::before {
+  content: @sicon-shippers;
+}
+
+.sicon-settings::before {
+  content: @sicon-settings;
+}
+
+.sicon-send::before {
+  content: @sicon-send;
+}
+
+.sicon-search::before {
+  content: @sicon-search;
+}
+
+.sicon-search-small::before {
+  content: @sicon-search-small;
+}
+
+.sicon-scheduler::before {
+  content: @sicon-scheduler;
+}
+
+.sicon-save::before {
+  content: @sicon-save;
+}
+
+.sicon-route::before {
+  content: @sicon-route;
+}
+
+.sicon-role-mgmt::before {
+  content: @sicon-role-mgmt;
+}
+
+.sicon-reports::before {
+  content: @sicon-reports;
+}
+
+.sicon-reset::before {
+  content: @sicon-reset;
+}
+
+.sicon-reply::before {
+  content: @sicon-reply;
+}
+
+.sicon-reply-all::before {
+  content: @sicon-reply-all;
+}
+
+.sicon-repair::before {
+  content: @sicon-repair;
+}
+
+.sicon-remove-field::before {
+  content: @sicon-remove-field;
+}
+
+.sicon-remove::before {
+  content: @sicon-remove;
+}
+
+.sicon-relate::before {
+  content: @sicon-relate;
+}
+
+.sicon-remove-field-hover::before {
+  content: @sicon-remove-field-hover;
+}
+
+.sicon-relate-fields::before {
+  content: @sicon-relate-fields;
+}
+
+.sicon-refresh::before {
+  content: @sicon-refresh;
+}
+
+.sicon-redo::before {
+  content: @sicon-redo;
+}
+
+.sicon-product-types::before {
+  content: @sicon-product-types;
+}
+
+.sicon-radioenum::before {
+  content: @sicon-radioenum;
+}
+
+.sicon-quotes::before {
+  content: @sicon-quotes;
+}
+
+.sicon-preview::before {
+  content: @sicon-preview;
+}
+
+.sicon-dropdown-editor::before {
+  content: @sicon-dropdown-editor;
+}
+
+.sicon-plus::before {
+  content: @sicon-plus;
+}
+
+.sicon-plus-sm::before {
+  content: @sicon-plus-sm;
+}
+
+.sicon-play::before {
+  content: @sicon-play;
+}
+
+.sicon-phonefill::before {
+  content: @sicon-phonefill;
+}
+
+.sicon-phone::before {
+  content: @sicon-phone;
+}
+
+.sicon-pdf-manager::before {
+  content: @sicon-pdf-manager;
+}
+
+.sicon-password-mgmt::before {
+  content: @sicon-password-mgmt;
+}
+
+.sicon-parent::before {
+  content: @sicon-parent;
+}
+
+.sicon-parallel::before {
+  content: @sicon-parallel;
+}
+
+.sicon-ellipsis::before {
+  content: @sicon-ellipsis;
+}
+
+.sicon-opportunities::before {
+  content: @sicon-opportunities;
+}
+
+.sicon-oauth-key::before {
+  content: @sicon-oauth-key;
+}
+
+.sicon-number::before {
+  content: @sicon-number;
+}
+
+.sicon-note::before {
+  content: @sicon-note;
+}
+
+.sicon-nodes::before {
+  content: @sicon-nodes;
+}
+
+.sicon-multienum::before {
+  content: @sicon-multienum;
+}
+
+.sicon-name::before {
+  content: @sicon-name;
+}
+
+.sicon-my-sites::before {
+  content: @sicon-my-sites;
+}
+
+.sicon-moon_crescent::before {
+  content: @sicon-moon_crescent;
+}
+
+.sicon-module-loader::before {
+  content: @sicon-module-loader;
+}
+
+.sicon-module-builder::before {
+  content: @sicon-module-builder;
+}
+
+.sicon-mobile::before {
+  content: @sicon-mobile;
+}
+
+.sicon-machine-learning-lg::before {
+  content: @sicon-machine-learning-lg;
+}
+
+.sicon-map-pin::before {
+  content: @sicon-map-pin;
+}
+
+.sicon-message::before {
+  content: @sicon-message;
+}
+
+.sicon-mask::before {
+  content: @sicon-mask;
+}
+
+.sicon-mask-disabled::before {
+  content: @sicon-mask-disabled;
+}
+
+.sicon-manufacturers::before {
+  content: @sicon-manufacturers;
+}
+
+.sicon-linkedin::before {
+  content: @sicon-linkedin;
+}
+
+.sicon-logout::before {
+  content: @sicon-logout;
+}
+
+.sicon-logo-snapchat::before {
+  content: @sicon-logo-snapchat;
+}
+
+.sicon-logo-linkedin::before {
+  content: @sicon-logo-linkedin;
+}
+
+.sicon-logo-instagram::before {
+  content: @sicon-logo-instagram;
+}
+
+.sicon-logo-fb-simple::before {
+  content: @sicon-logo-fb-simple;
+}
+
+.sicon-login::before {
+  content: @sicon-login;
+}
+
+.sicon-log-viewer::before {
+  content: @sicon-log-viewer;
+}
+
+.sicon-lock::before {
+  content: @sicon-lock;
+}
+
+.sicon-list::before {
+  content: @sicon-list;
+}
+
+.sicon-list-view::before {
+  content: @sicon-list-view;
+}
+
+.sicon-kebab::before {
+  content: @sicon-kebab;
+}
+
+.sicon-link::before {
+  content: @sicon-link;
+}
+
+.sicon-launch::before {
+  content: @sicon-launch;
+}
+
+.sicon-laptop::before {
+  content: @sicon-laptop;
+}
+
+.sicon-languages::before {
+  content: @sicon-languages;
+}
+
+.sicon-lab::before {
+  content: @sicon-lab;
+}
+
+.sicon-focus-drawer::before {
+  content: @sicon-focus-drawer;
+}
+
+.sicon-italics::before {
+  content: @sicon-italics;
+}
+
+.sicon-int::before {
+  content: @sicon-int;
+}
+
+.sicon-info::before {
+  content: @sicon-info;
+}
+
+.sicon-inbox::before {
+  content: @sicon-inbox;
+}
+
+.sicon-import::before {
+  content: @sicon-import;
+}
+
+.sicon-iframe::before {
+  content: @sicon-iframe;
+}
+
+.sicon-html::before {
+  content: @sicon-html;
+}
+
+.sicon-horizontal-split::before {
+  content: @sicon-horizontal-split;
+}
+
+.sicon-hide::before {
+  content: @sicon-hide;
+}
+
+.sicon-help::before {
+  content: @sicon-help;
+}
+
+.sicon-gavel::before {
+  content: @sicon-gavel;
+}
+
+.sicon-full-screen::before {
+  content: @sicon-full-screen;
+}
+
+.sicon-full-screen-exit::before {
+  content: @sicon-full-screen-exit;
+}
+
+.sicon-forward::before {
+  content: @sicon-forward;
+}
+
+.sicon-forecasts::before {
+  content: @sicon-forecasts;
+}
+
+.sicon-font-size::before {
+  content: @sicon-font-size;
+}
+
+.sicon-folder::before {
+  content: @sicon-folder;
+}
+
+.sicon-folder-open::before {
+  content: @sicon-folder-open;
+}
+
+.sicon-folder-line::before {
+  content: @sicon-folder-line;
+}
+
+.sicon-dashboard-default::before {
+  content: @sicon-dashboard-default;
+}
+
+.sicon-float::before {
+  content: @sicon-float;
+}
+
+.sicon-filter::before {
+  content: @sicon-filter;
+}
+
+.sicon-file-upload::before {
+  content: @sicon-file-upload;
+}
+
+.sicon-fields::before {
+  content: @sicon-fields;
+}
+
+.sicon-facebook::before {
+  content: @sicon-facebook;
+}
+
+.sicon-expand-right::before {
+  content: @sicon-expand-right;
+}
+
+.sicon-expand-left::before {
+  content: @sicon-expand-left;
+}
+
+.sicon-exclusive::before {
+  content: @sicon-exclusive;
+}
+
+.sicon-equal::before {
+  content: @sicon-equal;
+}
+
+.sicon-enum::before {
+  content: @sicon-enum;
+}
+
+.sicon-entries::before {
+  content: @sicon-entries;
+}
+
+.sicon-end-event::before {
+  content: @sicon-end-event;
+}
+
+.sicon-encrypt::before {
+  content: @sicon-encrypt;
+}
+
+.sicon-email::before {
+  content: @sicon-email;
+}
+
+.sicon-email-queue::before {
+  content: @sicon-email-queue;
+}
+
+.sicon-email-inbound::before {
+  content: @sicon-email-inbound;
+}
+
+.sicon-email-contacts::before {
+  content: @sicon-email-contacts;
+}
+
+.sicon-email-campaign::before {
+  content: @sicon-email-campaign;
+}
+
+.sicon-email-archive::before {
+  content: @sicon-email-archive;
+}
+
+.sicon-checkbox-btn::before {
+  content: @sicon-checkbox-btn;
+}
+
+.sicon-edit::before {
+  content: @sicon-edit;
+}
+
+.sicon-chevron-down::before {
+  content: @sicon-chevron-down;
+}
+
+.sicon-download::before {
+  content: @sicon-download;
+}
+
+.sicon-document::before {
+  content: @sicon-document;
+}
+
+.sicon-document-line::before {
+  content: @sicon-document-line;
+}
+
+.sicon-display-modules::before {
+  content: @sicon-display-modules;
+}
+
+.sicon-diagnostics::before {
+  content: @sicon-diagnostics;
+}
+
+.sicon-decimal::before {
+  content: @sicon-decimal;
+}
+
+.sicon-datetimecombo::before {
+  content: @sicon-datetimecombo;
+}
+
+.sicon-datetime::before {
+  content: @sicon-datetime;
+}
+
+.sicon-date::before {
+  content: @sicon-date;
+}
+
+.sicon-data-table::before {
+  content: @sicon-data-table;
+}
+
+.sicon-data-privacy::before {
+  content: @sicon-data-privacy;
+}
+
+.sicon-dashboard::before {
+  content: @sicon-dashboard;
+}
+
+.sicon-arrow-left::before {
+  content: @sicon-arrow-left;
+}
+
+.sicon-customer-journey::before {
+  content: @sicon-customer-journey;
+}
+
+.sicon-currency::before {
+  content: @sicon-currency;
+}
+
+.sicon-currencies::before {
+  content: @sicon-currencies;
+}
+
+.sicon-copy::before {
+  content: @sicon-copy;
+}
+
+.sicon-contracts::before {
+  content: @sicon-contracts;
+}
+
+.sicon-content-security::before {
+  content: @sicon-content-security;
+}
+
+.sicon-connectors::before {
+  content: @sicon-connectors;
+}
+
+.sicon-config-nav::before {
+  content: @sicon-config-nav;
+}
+
+.sicon-config-api::before {
+  content: @sicon-config-api;
+}
+
+.sicon-clubs-lg::before {
+  content: @sicon-clubs-lg;
+}
+
+.sicon-clouds::before {
+  content: @sicon-clouds;
+}
+
+.sicon-cloud::before {
+  content: @sicon-cloud;
+}
+
+.sicon-cloud-insights::before {
+  content: @sicon-cloud-insights;
+}
+
+.sicon-close::before {
+  content: @sicon-close;
+}
+
+.sicon-clock::before {
+  content: @sicon-clock;
+}
+
+.sicon-chevron-up::before {
+  content: @sicon-chevron-up;
+}
+
+.sicon-chevron-right::before {
+  content: @sicon-chevron-right;
+}
+
+.sicon-chevron-left::before {
+  content: @sicon-chevron-left;
+}
+
+.sicon-automate-scroll::before {
+  content: @sicon-automate-scroll;
+}
+
+.sicon-catalog::before {
+  content: @sicon-catalog;
+}
+
+.sicon-checkbox-btn-checked::before {
+  content: @sicon-checkbox-btn-checked;
+}
+
+.sicon-check::before {
+  content: @sicon-check;
+}
+
+.sicon-check-circle::before {
+  content: @sicon-check-circle;
+}
+
+.sicon-add-folder::before {
+  content: @sicon-add-folder;
+}
+
+.sicon-casino-lg::before {
+  content: @sicon-casino-lg;
+}
+
+.sicon-caret-up::before {
+  content: @sicon-caret-up;
+}
+
+.sicon-caret-down::before {
+  content: @sicon-caret-down;
+}
+
+.sicon-car-front::before {
+  content: @sicon-car-front;
+}
+
+.sicon-calendar::before {
+  content: @sicon-calendar;
+}
+
+.sicon-bug::before {
+  content: @sicon-bug;
+}
+
+.sicon-bold::before {
+  content: @sicon-bold;
+}
+
+.sicon-blockquote-lg::before {
+  content: @sicon-blockquote-lg;
+}
+
+.sicon-bin-lg::before {
+  content: @sicon-bin-lg;
+}
+
+.sicon-bed-lg::before {
+  content: @sicon-bed-lg;
+}
+
+.sicon-ban::before {
+  content: @sicon-ban;
+}
+
+.sicon-automate-stacked::before {
+  content: @sicon-automate-stacked;
+}
+
+.sicon-autoincrement::before {
+  content: @sicon-autoincrement;
+}
+
+.sicon-activity::before {
+  content: @sicon-activity;
+}
+
+.sicon-attach::before {
+  content: @sicon-attach;
+}
+
+.sicon-arrow-up::before {
+  content: @sicon-arrow-up;
+}
+
+.sicon-arrow-up-circle-line::before {
+  content: @sicon-arrow-up-circle-line;
+}
+
+.sicon-arrow-top-right::before {
+  content: @sicon-arrow-top-right;
+}
+
+.sicon-arrow-right::before {
+  content: @sicon-arrow-right;
+}
+
+.sicon-arrow-right-double::before {
+  content: @sicon-arrow-right-double;
+}
+
+.sicon-add-existing::before {
+  content: @sicon-add-existing;
+}
+
+.sicon-arrow-left-double::before {
+  content: @sicon-arrow-left-double;
+}
+
+.sicon-arrow-down::before {
+  content: @sicon-arrow-down;
+}
+
+.sicon-archive::before {
+  content: @sicon-archive;
+}
+
+.sicon-amazon::before {
+  content: @sicon-amazon;
+}
+
+.sicon-airplane::before {
+  content: @sicon-airplane;
+}
+
+.sicon-ai::before {
+  content: @sicon-ai;
+}
+
+.sicon-account::before {
+  content: @sicon-account;
+}
+
+.sicon-box-3d-xl-48::before {
+  content: @sicon-box-3d-xl-48;
+}
+
+.sicon-research-xl-48::before {
+  content: @sicon-research-xl-48;
+}
+
+.sicon-swap-vertical::before {
+  content: @sicon-swap-vertical;
+}
+
+.sicon-analyze-performance-lg::before {
+  content: @sicon-analyze-performance-lg;
+}
+
+.sicon-recs-existing-customers-lg::before {
+  content: @sicon-recs-existing-customers-lg;
+}
+
+.sicon-recs-new-customers::before {
+  content: @sicon-recs-new-customers;
+}
+
+.sicon-recycling::before {
+  content: @sicon-recycling;
+}
+
+.sicon-binoculars::before {
+  content: @sicon-binoculars;
+}
+
+.sicon-matrix::before {
+  content: @sicon-matrix;
+}
+
+.sicon-sales-vs-gaps::before {
+  content: @sicon-sales-vs-gaps;
+}
+
+.sicon-variance::before {
+  content: @sicon-variance;
+}
+
+.sicon-trends::before {
+  content: @sicon-trends;
+}
+
+.sicon-alerts::before {
+  content: @sicon-alerts;
+}
+
+.sicon-product-insights::before {
+  content: @sicon-product-insights;
+}
+
+.sicon-full_picture::before {
+  content: @sicon-full_picture;
+}
+
+.sicon-generate_new::before {
+  content: @sicon-generate_new;
+}
+
+.sicon-drag::before {
+  content: @sicon-drag;
+}
+
+.sicon-minimize::before {
+  content: @sicon-minimize;
+}
+
+.sicon-new-chat::before {
+  content: @sicon-new-chat;
+}
+
+.sicon-sugar-logo-12::before {
+  content: @sicon-sugar-logo-12;
+}
+
+.sicon-sugar-logo-lg::before {
+  content: @sicon-sugar-logo-lg;
+}
+
+.sicon-sugar-logo-16::before {
+  content: @sicon-sugar-logo-16;
+}
+
+.sicon-sugar-logo-24::before {
+  content: @sicon-sugar-logo-24;
+}
+

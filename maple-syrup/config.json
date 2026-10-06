@@ -1,0 +1,107 @@
+{  
+  "source": ["tokens/**/**/*.@(json|json5)"],
+  "platforms": {
+    "js/color": {
+      "description": "Builds a .js file for the color palette, to enable easy use for JS applications.",
+      "transformGroup": "js",
+      "buildPath": "build/color/js/",
+      "files": [{
+        "destination": "sugarColorPalette.js",
+        "format": "javascript/es6",
+        "filter": "isBaseColor"
+      }],
+      "options": {
+        "fileHeader": "SugarCRM license"
+      }
+    },
+    "tailwind/color": {
+      "description": "Builds a .js file for the color palette, to enable easy use in your Tailwind CSS config.",
+      "transformGroup": "custom/tailwindcss",
+      "buildPath": "build/color/tailwind/",
+      "files": [{
+        "destination": "sugarPalette.js",
+        "format": "tailwind/js",
+        "filter": "isBaseColor"
+      }],
+      "options": {
+        "fileHeader": "SugarCRM license"
+      }
+    },
+    "tailwind/size": {
+      "description": "Builds a .js file for the sizing values, to enable easy use in your Tailwind CSS config.",
+      "transformGroup": "custom/tailwindcss",
+      "buildPath": "build/size/tailwind/",
+      "files": [{
+        "destination": "borderRadius.js",
+        "format": "tailwind/js/minimized",
+        "filter": "isBaseSize"
+      }],
+      "options": {
+        "fileHeader": "SugarCRM license"
+      }
+    },
+    "json/chart-palette": {
+      "description": "Builds a .json file for the chart color palette.",
+      "transformGroup": "js",
+      "buildPath": "build/color/json/",
+      "files": [{
+        "destination": "chartPalette.json",
+        "format": "json/chart-palette",
+        "filter": "isChartPalette"
+      }],
+      "options": {
+        "fileHeader": "SugarCRM license"
+      }
+    },
+    "json/color-palette": {
+      "description": "Builds a .json file for the sugar color palette.",
+      "transformGroup": "custom/json",
+      "buildPath": "build/color/json/",
+      "files": [{
+        "destination": "sugarColorPalette.json",
+        "format": "json/color-palette",
+        "filter": "isBaseColor"
+      }],
+      "options": {
+        "fileHeader": "SugarCRM license"
+      }
+    },
+    "theme": {
+      "description": "Builds a .css that's portable to use in any application. Provides base styling properties and palette.",
+      "transformGroup": "custom/theme/variables",
+      "buildPath": "build/theme/",
+      "files": [
+        {
+          "destination": "sugar-base.css",
+          "format": "css/variables",
+          "filter": "isBase",
+          "options": {
+            "fileHeader": "SugarCRM license",
+            "outputReferences": true,
+            "selector": ":root"
+          }
+        },
+        {
+          "destination": "sugar-light.css",
+          "format": "css/variables",
+          "filter": "isLight",
+          "options": {
+            "fileHeader": "SugarCRM license",
+            "outputReferences": true,
+            "selector": "body.sugar-light-theme, .sugar-light-theme" 
+          }
+        },
+        {
+          "destination": "sugar-dark.css",
+          "format": "css/variables",
+          "filter": "isDark",
+          "options": {
+            "fileHeader": "SugarCRM license",
+            "outputReferences": true,
+            "selector": "body.sugar-dark-theme, .sugar-dark-theme" 
+          }
+        }
+      ]
+    }
+  }
+}

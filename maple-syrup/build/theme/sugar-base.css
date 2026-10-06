@@ -1,0 +1,222 @@
+/**
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ * 
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+:root {
+  --rounded-full: 9999px; /* Rounded border radius for text fields. */
+  --rounded-xl: 1.5rem; /* Default border radius for main elements of application. Using Tailwind 3xl variant. */
+  --rounded-lg: 1rem; /* Default border radius for dashlets. Using Tailwind 2xl variant. */
+  --rounded-md: 0.5rem; /* For compatibility purposes, add in medium which is the same as base. */
+  --rounded: 0.5rem; /* Default border radius for primary buttons. Using Tailwind lg variant. */
+  --rounded-sm: 0.25rem; /* Default border radius for small buttons. Using Tailwind sm variant */
+  --rounded-none: 0px; /* A zero border radius value. */
+  --rose-950: #4d0519;
+  --rose-900: #861336;
+  --rose-800: #a1123a;
+  --rose-700: #bf123d;
+  --rose-600: #e21d48;
+  --rose-500: #f43e5c;
+  --rose-400: #fb6f84;
+  --rose-300: #fda5af;
+  --rose-200: #fecdd3;
+  --rose-100: #ffe5e7;
+  --rose-50: #fff0f1;
+  --pink-950: #500724;
+  --pink-900: #811842;
+  --pink-800: #9b174c;
+  --pink-700: #bf185d;
+  --pink-600: #db2979;
+  --pink-500: #ec4699;
+  --pink-400: #f471b5;
+  --pink-300: #f9a9d5;
+  --pink-200: #fbd0e8;
+  --pink-100: #fce8f4;
+  --pink-50: #fdf2f8;
+  --fuschia-950: #4a044e;
+  --fuschia-900: #000000;
+  --fuschia-800: #85198f;
+  --fuschia-700: #a31daf;
+  --fuschia-600: #bf27d3;
+  --fuschia-500: #d948ef;
+  --fuschia-400: #e87bf9;
+  --fuschia-300: #f0abfc;
+  --fuschia-200: #f5d2fe;
+  --fuschia-100: #f9e5ff;
+  --fuschia-50: #fdf5ff;
+  --purple-950: #3c0764;
+  --purple-900: #591c87;
+  --purple-800: #6a21a6;
+  --purple-700: #7e22ce;
+  --purple-600: #9234ea;
+  --purple-500: #a855f7;
+  --purple-400: #bf83fc;
+  --purple-300: #d8b4fe;
+  --purple-200: #ead6ff;
+  --purple-100: #f2e5ff;
+  --purple-50: #faf5ff;
+  --violet-950: #2e1065;
+  --violet-900: #4d1d95;
+  --violet-800: #5a21b5;
+  --violet-700: #6b26d9;
+  --violet-600: #7c3bed;
+  --violet-500: #895af6;
+  --violet-400: #a689fa;
+  --violet-300: #c3b4fd;
+  --violet-200: #ded7fe;
+  --violet-100: #ebe7fe;
+  --violet-50: #f6f5ff;
+  --indigo-950: #1e1b4b;
+  --indigo-900: #312e7f;
+  --indigo-800: #372fa2;
+  --indigo-700: #463acb;
+  --indigo-600: #5048e5;
+  --indigo-500: #6467f2;
+  --indigo-400: #828df8;
+  --indigo-300: #a6b4fc;
+  --indigo-200: #c8d3fe;
+  --indigo-100: #e0e8ff;
+  --indigo-50: #f0f3ff;
+  --cobalt-950: #172554;
+  --cobalt-900: #1e3b8a;
+  --cobalt-800: #1e3fae;
+  --cobalt-700: #1d4fd7;
+  --cobalt-600: #2463eb;
+  --cobalt-500: #3c83f6;
+  --cobalt-400: #61a6fa;
+  --cobalt-300: #91c3fd;
+  --cobalt-200: #bedbfe;
+  --cobalt-100: #dcebfe;
+  --cobalt-50: #f0f6ff;
+  --blue-950: #082f49;
+  --blue-900: #0c4a6e;
+  --blue-800: #075783;
+  --blue-700: #0369a0;
+  --blue-600: #0284c5;
+  --blue-500: #0da2e7;
+  --blue-400: #3abff8;
+  --blue-300: #7ed4fc;
+  --blue-200: #bae5fd;
+  --blue-100: #e1f3fe;
+  --blue-50: #f0f9ff;
+  --cyan-950: #083344;
+  --cyan-900: #164f64;
+  --cyan-800: #155f75;
+  --cyan-700: #0e7490;
+  --cyan-600: #088eaf;
+  --cyan-500: #07b6d5;
+  --cyan-400: #20d3ee;
+  --cyan-300: #67e8f9;
+  --cyan-200: #a6f4fc;
+  --cyan-100: #cdfafe;
+  --cyan-50: #ebfeff;
+  --teal-950: #042f2e;
+  --teal-900: #134e4a;
+  --teal-800: #115f5a;
+  --teal-700: #0f756d;
+  --teal-600: #0d968b;
+  --teal-500: #14b8a5;
+  --teal-400: #2bd4bd;
+  --teal-300: #5dead5;
+  --teal-200: #98f6e3;
+  --teal-100: #cbfbf0;
+  --teal-50: #f2fdfa;
+  --emerald-950: #022c22;
+  --emerald-900: #064c39;
+  --emerald-800: #066046;
+  --emerald-700: #047756;
+  --emerald-600: #059467;
+  --emerald-500: #10b77f;
+  --emerald-400: #36d399;
+  --emerald-300: #6ee7b7;
+  --emerald-200: #a5f3cf;
+  --emerald-100: #d1fae5;
+  --emerald-50: #edfdf5;
+  --green-950: #052e16;
+  --green-900: #14522d;
+  --green-800: #166434;
+  --green-700: #157f3c;
+  --green-600: #16a249;
+  --green-500: #21c45d;
+  --green-400: #4ade80;
+  --green-300: #85efac;
+  --green-200: #bbf7d0;
+  --green-100: #defce9;
+  --green-50: #f2fdf5;
+  --lime-950: #1a2e05;
+  --lime-900: #355214;
+  --lime-800: #406312;
+  --lime-700: #4c7b0f;
+  --lime-600: #66a50d;
+  --lime-500: #82cb15;
+  --lime-400: #a1e633;
+  --lime-300: #bef263;
+  --lime-200: #d9f99f;
+  --lime-100: #ebfcca;
+  --lime-50: #f7fee7;
+  --yellow-950: #412006;
+  --yellow-900: #733f12;
+  --yellow-800: #864e0e;
+  --yellow-700: #a26107;
+  --yellow-600: #c88a04;
+  --yellow-500: #e7b008;
+  --yellow-400: #facc14;
+  --yellow-300: #fddf49;
+  --yellow-200: #fef08b;
+  --yellow-100: #fef9c3;
+  --yellow-50: #fefce7;
+  --amber-950: #451a03;
+  --amber-900: #76350f;
+  --amber-800: #90400e;
+  --amber-700: #b35309;
+  --amber-600: #db7706;
+  --amber-500: #f59f0a;
+  --amber-400: #fbbd23;
+  --amber-300: #fcd44f;
+  --amber-200: #fde68b;
+  --amber-100: #fef3c8;
+  --amber-50: #fffbeb;
+  --orange-950: #451507;
+  --orange-900: #7d2d12;
+  --orange-800: #9b3412;
+  --orange-700: #c03f0c;
+  --orange-600: #e9590c;
+  --orange-500: #f97415;
+  --orange-400: #fb923c;
+  --orange-300: #fdba72;
+  --orange-200: #fed6a9;
+  --orange-100: #ffedd6;
+  --orange-50: #fff6eb;
+  --red-950: #430a0a;
+  --red-900: #811d1d;
+  --red-800: #981b1b;
+  --red-700: #ba1c1c;
+  --red-600: #dc2828;
+  --red-500: #ef4343;
+  --red-400: #f87272;
+  --red-300: #fca6a6;
+  --red-200: #fec8c8;
+  --red-100: #fee1e1;
+  --red-50: #fef1f1;
+  --gray-950: #020617;
+  --gray-900: #0f1729;
+  --gray-800: #1d283a;
+  --gray-700: #344256;
+  --gray-600: #48566a;
+  --gray-500: #65758b;
+  --gray-400: #94a3b8;
+  --gray-300: #cbd5e1;
+  --gray-200: #e1e7ef;
+  --gray-100: #f1f5f9;
+  --gray-50: #f8fafc;
+  --transparent: #000000; /* original */
+  --white: #ffffff;
+  --black: #000000;
+  --text-secondary: var(--gray-500); /* Secondary text in application. */
+}

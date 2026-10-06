@@ -1,0 +1,15 @@
+{
+  "component": {
+    "base": {
+      "text": {
+        "secondary": {
+          "comment": "Secondary text in application.",
+          "group": "component/base",
+          "name": "text-secondary",
+          "value": "{color.base.gray.500.value}"
+        }
+      }
+    }
+  }
+}
+

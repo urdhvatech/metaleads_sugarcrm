@@ -1,0 +1,61 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 06 Feb 2024 21:21:50 GMT
+ */
+
+export const ColorBlack = "#000000";
+export const ColorWhite = "#ffffff";
+export const ColorTransparent = "#000000";
+export const ColorGray50 = "#0f0f0f"; // Gray 6
+export const ColorGray100 = "#f8fafc"; // Gray 10
+export const ColorGray200 = "#f1f3f4"; // Gray 20
+export const ColorGray300 = "#e5eaed"; // Gray 30
+export const ColorGray400 = "#d9dddf"; // Gray 40
+export const ColorGray500 = "#b8bcbe"; // Gray 50
+export const ColorGray600 = "#9ba1a6"; // Gray 60
+export const ColorGray700 = "#6f777b"; // Gray 70
+export const ColorGray800 = "#4d5154"; // Gray 80
+export const ColorGray900 = "#2b2d2e"; // Gray 90
+export const ColorGray950 = "#16191d"; // Gray 95
+export const ColorGray980 = "#0f1215"; // Gray 98
+export const ColorBlue50 = "#eaf6ff"; // Light blue half
+export const ColorBlue100 = "#d6eeff"; // Light blue
+export const ColorBlue200 = "#bedef4"; // Light blue accent
+export const ColorBlue300 = "#79ade0"; // Dark mode
+export const ColorBlue400 = "#0679c8"; // Sugar blue
+export const ColorBlue600 = "#005d9c"; // Dark blue
+export const ColorBlue800 = "#002e4e"; // Dark blue half
+export const ColorBlue900 = "#002036"; // Dark blue accent
+export const ColorArmy200 = "#e4fbb4"; // Light army
+export const ColorArmy400 = "#6cdf46"; // Standard army
+export const ColorArmy600 = "#537600"; // Dark army
+export const ColorCoral200 = "#fde2eb"; // Light coral
+export const ColorCoral400 = "#f476b1"; // Standard coral
+export const ColorCoral600 = "#a23354"; // Dark coral
+export const ColorGreen200 = "#baffcc"; // Light green
+export const ColorGreen400 = "#00ba83"; // Standard green
+export const ColorGreen600 = "#056f37"; // Dark green
+export const ColorOcean200 = "#c6ddff"; // Light ocean
+export const ColorOcean400 = "#517bf8"; // Standard ocean
+export const ColorOcean600 = "#29388c"; // Dark ocean
+export const ColorOrange200 = "#ffdebc"; // Light orange
+export const ColorOrange400 = "#ff9445"; // Standard orange
+export const ColorOrange600 = "#9b4617"; // Dark orange
+export const ColorPacific200 = "#c0edff"; // Light pacific
+export const ColorPacific400 = "#36b0ff"; // Standard pacific
+export const ColorPacific600 = "#145c95"; // Dark pacific
+export const ColorPink200 = "#f7d0fd"; // Light pink
+export const ColorPink400 = "#cd74f2"; // Standard pink
+export const ColorPink600 = "#832a83"; // Dark pink
+export const ColorPurple200 = "#e2d4fd"; // Light purple
+export const ColorPurple400 = "#8f5ff5"; // Standard purple
+export const ColorPurple600 = "#4c2d85"; // Dark purple
+export const ColorRed200 = "#ffd4d0"; // Light red
+export const ColorRed400 = "#fa374f"; // Standard red
+export const ColorRed600 = "#bb0e1b"; // Dark red
+export const ColorTeal200 = "#c5fffb"; // Light teal
+export const ColorTeal400 = "#00e0e0"; // Standard teal
+export const ColorTeal600 = "#00636e"; // Dark teal
+export const ColorYellow200 = "#fff7ad"; // Light yellow
+export const ColorYellow400 = "#ffd132"; // Standard yellow
+export const ColorYellow600 = "#866500"; // Dark yellow

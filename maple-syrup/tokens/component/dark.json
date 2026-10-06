@@ -1,0 +1,74 @@
+{
+  "component": {
+    "dark": {
+      "background": {
+        "comment": "Primary element color in application; dashboard, focus drawer, etc.",
+        "group": "component/dark",
+        "name": "background-base",
+        "value": "{color.base.gray.800.value}"
+      },
+      "foreground": {
+        "comment": "Secondary element color in application; dashlets, list view, sidebar, etc.",
+        "group": "component/dark",
+        "name": "foreground-base",
+        "value": "{color.base.gray.900.value}"
+      },
+      "border": { 
+        "comment": "Default border colour for application and secondary button.",
+        "group": "component/dark", 
+        "name": "border-base",
+        "value": "{color.base.gray.700.value}"
+      },
+      "button": {
+        "primary": {
+          "background": {
+            "comment": "Primary button background color.",
+            "group": "component/dark",
+            "name": "button-primary-background",
+            "value": "{color.base.blue.400.value}"
+          },
+          "text": {
+            "comment": "Primary button text color.",
+            "group": "component/dark",
+            "name": "button-primary-text",
+            "value": "{color.base.gray.800.value}"
+          }
+        },
+        "secondary": {
+          "background": {
+            "comment": "Background color for secondary button.",
+            "group": "component/dark",
+            "name": "button-secondary-background",
+            "value": "{color.base.transparent.value}"
+          },
+          "text": {
+            "comment": "Secondary button text color.",
+            "group": "component/dark",
+            "name": "button-secondary-text",
+            "value": "{color.base.blue.300.value}"
+          }
+        }
+      },
+      "sicon": {
+        "comment": "SugarIcon base color.",
+        "group": "component/dark",
+        "name": "sicon",
+        "value": "{color.base.gray.500.value}"
+      },
+      "text": {
+        "base": {
+          "comment": "Text color to use everywhere in the application.",
+          "group": "component/dark",
+          "name": "text-base",
+          "value": "{color.base.gray.300.value}"
+        },
+        "action": {
+          "comment": "Text color for non-button elements that result in an action.",
+          "group": "component/dark",
+          "name": "text-action",
+          "value": "{color.base.blue.300.value}"
+        }
+      }
+    }
+  }
+}
