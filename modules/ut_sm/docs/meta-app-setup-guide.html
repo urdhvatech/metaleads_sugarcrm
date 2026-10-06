@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meta Leads — How to create a Meta app and connect SuiteCRM</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --border: #d8d8d8;
+      --bg: #f6f6f4;
+      --card: #fff;
+      --accent: #1c2b4a;
+      --ok: #1f6b3a;
+      --stop: #8a2b2b;
+      --code: #f3f1eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 32px 24px 28px;
+    }
+    header .wrap, main, footer { max-width: 880px; margin: 0 auto; }
+    header h1 { margin: 0 0 8px; font-size: 26px; font-weight: 650; }
+    header p { margin: 0; color: #d5dbe8; font-size: 15px; }
+    main { padding: 28px 24px 64px; }
+    h2 {
+      margin: 36px 0 12px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      font-size: 20px;
+    }
+    h2:first-child { border-top: 0; margin-top: 0; }
+    h3 { margin: 20px 0 8px; font-size: 16px; }
+    p, li { font-size: 15px; }
+    ol.steps { padding-left: 22px; }
+    ol.steps > li { margin: 8px 0; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 12px 0 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #eef0f4; font-weight: 600; }
+    code, .url {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      background: var(--code);
+      padding: 1px 6px;
+      border-radius: 4px;
+      word-break: break-all;
+    }
+    .url-block {
+      display: block;
+      background: var(--code);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 8px 0 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      word-break: break-all;
+    }
+    .ok { color: var(--ok); font-weight: 600; }
+    .stop { color: var(--stop); font-weight: 600; }
+    .note {
+      border-left: 4px solid var(--accent);
+      padding: 10px 14px;
+      background: #eef1f7;
+      margin: 12px 0 18px;
+      font-size: 14px;
+    }
+    .warn {
+      border-left: 4px solid var(--stop);
+      padding: 10px 14px;
+      background: #f8eeee;
+      margin: 12px 0 18px;
+      font-size: 14px;
+    }
+    ul.check { list-style: none; padding-left: 0; }
+    ul.check li { padding: 4px 0 4px 28px; position: relative; }
+    ul.check li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      border: 1px solid #888;
+      border-radius: 3px;
+      background: #fff;
+    }
+    footer {
+      padding: 0 24px 40px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media print {
+      body { background: #fff; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Meta Leads setup guide</h1>
+      <p>Create a Meta app with the Lead Ads use case, then connect it to SuiteCRM. Products are added automatically from the use case — do not add them separately.</p>
+    </div>
+  </header>
+
+  <main>
+    <h2>Before you start</h2>
+    <ul>
+      <li>SuiteCRM with Meta Leads installed and licensed</li>
+      <li>A SuiteCRM admin login</li>
+      <li>A Facebook user who can advertise on the Pages (including Pages in a Business Portfolio)</li>
+      <li>A public <strong>HTTPS</strong> SuiteCRM URL. Localhost will not receive Meta webhooks.</li>
+    </ul>
+    <div class="note">
+      Replace <code>https://your-crm.example.com</code> with your real SuiteCRM site URL. No trailing slash.
+      The redirect URI and webhook URL must match SuiteCRM character-for-character (<code>https</code>, <code>www</code>, path).
+    </div>
+
+    <h2>URLs used by SuiteCRM</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>SuiteCRM field</th>
+          <th>Value to paste in Meta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>OAuth Redirect URI</td>
+          <td><code>https://your-crm.example.com/index.php?entryPoint=ut_sm_oauth_handler</code></td>
+        </tr>
+        <tr>
+          <td>Callback URL (Webhook URL)</td>
+          <td><code>https://your-crm.example.com/index.php?entryPoint=ut_sm_inbound</code></td>
+        </tr>
+        <tr>
+          <td>Verify Token</td>
+          <td>Any secret you choose, for example <code>SuiteCRM_MetaLeads_2026</code>. Letters, numbers, <code>.</code> <code>_</code> <code>-</code> only (3–255 characters). Must be identical in Meta and SuiteCRM.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Step 1 — Create the Meta app</h2>
+    <ol class="steps">
+      <li>Open <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener">https://developers.facebook.com/apps/</a></li>
+      <li>Click <strong>Create app</strong>.</li>
+      <li>When Meta asks how the app will be used, select only this use case:<br>
+        <strong>Capture &amp; manage ad leads with Marketing API</strong></li>
+      <li>Enter an app name (for example <code>Your Company CRM Leads</code>) and a contact email.</li>
+      <li>Connect a <strong>Business Portfolio</strong> if asked.</li>
+      <li>Create the app.</li>
+    </ol>
+
+    <div class="card">
+      <h3>Use cases — select vs do not select</h3>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Use case</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ok">Select</td>
+            <td>Capture &amp; manage ad leads with Marketing API</td>
+            <td>This is the Lead Ads + CRM flow. Meta adds Facebook Login for Business and Webhooks automatically.</td>
+          </tr>
+          <tr>
+            <td class="stop">Do not select</td>
+            <td>Authenticate and request data from users with Facebook Login</td>
+            <td>Consumer login. SuiteCRM users do not sign in with Facebook.</td>
+          </tr>
+          <tr>
+            <td class="stop">Do not select</td>
+            <td>Manage everything on your Page</td>
+            <td>Page posting and moderation. Extra permissions you cannot easily remove.</td>
+          </tr>
+          <tr>
+            <td class="stop">Do not select</td>
+            <td>Create &amp; manage ads with Marketing API</td>
+            <td>Creating campaigns. This CRM only reads leads.</td>
+          </tr>
+          <tr>
+            <td class="stop">Do not select</td>
+            <td>Measure ad performance data with Marketing API</td>
+            <td>Ad insights. Not used.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>After you select the Lead Ads use case, Meta automatically adds these products. Do not search for <strong>Add product</strong> to add them again:</p>
+      <ul>
+        <li>Facebook Login for Business</li>
+        <li>Webhooks</li>
+      </ul>
+    </div>
+
+    <h2>Step 2 — Customize permissions</h2>
+    <ol class="steps">
+      <li>In the app dashboard open <strong>Use cases</strong>.</li>
+      <li>Open <strong>Capture &amp; manage ad leads with Marketing API</strong>.</li>
+      <li>Click <strong>Customize</strong>.</li>
+    </ol>
+
+    <h3>Required by Meta (grey / cannot remove — leave them)</h3>
+    <p>These are required for this use case. <code>business_management</code> is required so Pages in a Business Portfolio appear in SuiteCRM.</p>
+    <ul>
+      <li><code>leads_retrieval</code></li>
+      <li><code>pages_manage_ads</code></li>
+      <li><code>pages_read_engagement</code></li>
+      <li><code>pages_show_list</code></li>
+      <li><code>business_management</code></li>
+      <li><code>ads_management</code></li>
+      <li><code>ads_read</code></li>
+      <li><code>public_profile</code></li>
+      <li>Ads Management Standard Access</li>
+    </ul>
+    <div class="warn">
+      The trash icon next to <code>business_management</code> is grey because this use case requires it. That is expected. Do not add a second use case just to get this permission, and do not try to delete it.
+    </div>
+
+    <h3>Add this optional permission (required for SuiteCRM webhooks)</h3>
+    <ol class="steps">
+      <li>Find <code>pages_manage_metadata</code>.</li>
+      <li>Click <strong>Add</strong>.</li>
+    </ol>
+    <p>SuiteCRM uses this to subscribe each Page to <code>leadgen</code> so new leads are pushed in real time.</p>
+
+    <h3>Do not add</h3>
+    <ul>
+      <li><code>email</code></li>
+      <li>Business Asset User Profile Access</li>
+      <li><code>catalog_management</code></li>
+      <li>Page posting, messaging, or Instagram content permissions</li>
+    </ul>
+
+    <h2>Step 3 — Facebook Login for Business (OAuth redirect)</h2>
+    <ol class="steps">
+      <li>Open <strong>Facebook Login for Business</strong> → <strong>Settings</strong> (or the Login section under the Lead Ads use case).</li>
+      <li>Turn on <strong>Client OAuth login</strong> and <strong>Web OAuth login</strong> if those toggles are shown.</li>
+      <li>Under <strong>Valid OAuth Redirect URIs</strong> paste exactly:</li>
+    </ol>
+    <div class="url-block">https://your-crm.example.com/index.php?entryPoint=ut_sm_oauth_handler</div>
+    <ol class="steps" start="4">
+      <li>Click <strong>Check URI</strong> if shown, then <strong>Save</strong>.</li>
+      <li>In SuiteCRM go to <strong>Admin → Meta Leads</strong> and put the same URL in <strong>OAuth Redirect URI</strong>.</li>
+    </ol>
+    <div class="note">
+      If you use Login <strong>Configurations</strong>: token type = <strong>User access token</strong> (not system user). Request Pages (and Instagram only if you want linked IG accounts listed). Include the Lead Ads permissions above plus <code>pages_manage_metadata</code>.
+    </div>
+
+    <h2>Step 4 — Webhooks (Page leadgen)</h2>
+    <p>Configure this from the Lead Ads use case → <strong>Webhooks</strong>, or the left menu <strong>Webhooks</strong>.</p>
+    <ol class="steps">
+      <li>In SuiteCRM <strong>Admin → Meta Leads</strong>, enter the Callback URL and Verify Token and click <strong>Save Settings</strong> first. Meta cannot verify the webhook until SuiteCRM already has these values.</li>
+      <li>In Meta, set object / product to <strong>Page</strong> (not Instagram, not User, not Ad Account).</li>
+      <li>Callback URL:</li>
+    </ol>
+    <div class="url-block">https://your-crm.example.com/index.php?entryPoint=ut_sm_inbound</div>
+    <ol class="steps" start="4">
+      <li>Verify token: the same secret saved in SuiteCRM.</li>
+      <li>Click verify. Meta sends a GET request; SuiteCRM must return the challenge.</li>
+      <li>Subscribe to field <strong><code>leadgen</code> only</strong>. Do not subscribe to feed, messages, or name.</li>
+    </ol>
+
+    <h2>Step 5 — Copy App ID and App Secret into SuiteCRM</h2>
+    <ol class="steps">
+      <li>In Meta open <strong>App settings → Basic</strong>.</li>
+      <li>Copy <strong>App ID</strong> and <strong>App Secret</strong>.</li>
+      <li>Set a <strong>Privacy Policy URL</strong> (required before the app can go Live / Publish).</li>
+      <li>In SuiteCRM <strong>Admin → Meta Leads</strong> paste App ID, App Secret, OAuth Redirect URI, Callback URL, and Verify Token.</li>
+      <li>Click <strong>Save Settings</strong>.</li>
+    </ol>
+
+    <h2>Step 6 — Authorize and connect Pages</h2>
+    <ol class="steps">
+      <li>On the same SuiteCRM screen click <strong>Authorize with Facebook</strong>.</li>
+      <li>Log in as a Facebook user who can advertise on the Pages.</li>
+      <li>Grant the Lead Ads permissions, including business management.</li>
+      <li>Allow every Page you want in the CRM, including Business Portfolio Pages.</li>
+      <li>Confirm SuiteCRM shows <strong>Connected</strong> and lists Pages under <strong>Connected Accounts</strong>.</li>
+    </ol>
+    <div class="note">
+      SuiteCRM requests these scopes on Authorize:
+      <code>pages_show_list</code>,
+      <code>leads_retrieval</code>,
+      <code>pages_read_engagement</code>,
+      <code>pages_manage_metadata</code>,
+      <code>pages_manage_ads</code>,
+      <code>business_management</code>.
+      Meta also requires <code>ads_management</code> and <code>ads_read</code> for this use case; leave those on the app even though the CRM does not create ads.
+    </div>
+
+    <h2>Step 7 — Enable forms</h2>
+    <ol class="steps">
+      <li>Next to each Page click <strong>Configure</strong>.</li>
+      <li>Click <strong>Refresh Forms</strong>.</li>
+      <li>Enable the Lead Ads forms that should import into SuiteCRM.</li>
+      <li>Map custom questions to Lead fields if needed. Email and name usually map automatically.</li>
+      <li>Click <strong>Save Configuration</strong>.</li>
+    </ol>
+
+    <h2>Step 8 — Send a test lead</h2>
+    <ol class="steps">
+      <li>Open <a href="https://developers.facebook.com/tools/lead-ads-testing" target="_blank" rel="noopener">https://developers.facebook.com/tools/lead-ads-testing</a></li>
+      <li>Select this app, the Page, and an enabled form.</li>
+      <li>Create a test lead.</li>
+      <li>In SuiteCRM open <strong>Leads</strong> and confirm the record was created.</li>
+    </ol>
+    <p>SuiteCRM cron should be running so token refresh and missed-lead reconciliation can run.</p>
+
+    <h2>Step 9 — Go Live (other people’s Pages)</h2>
+    <p>Until App Review is approved, only app Admins, Developers, and Testers can connect Pages.</p>
+    <ol class="steps">
+      <li>Complete <strong>Business Verification</strong> on the Meta Business Portfolio.</li>
+      <li>Submit <strong>App Review</strong> for the Lead Ads use case permissions (including <code>pages_manage_metadata</code>).</li>
+      <li>In the review notes, explain how to log into SuiteCRM, open Admin → Meta Leads, click Authorize with Facebook, confirm Pages appear (including Business Portfolio Pages), enable a form, and create a test lead.</li>
+      <li>After approval, <strong>Publish</strong> the app.</li>
+      <li>In SuiteCRM click <strong>Disconnect</strong>, then <strong>Authorize with Facebook</strong> again.</li>
+    </ol>
+
+    <h2>Checklist</h2>
+    <div class="card">
+      <h3>In Meta</h3>
+      <ul class="check">
+        <li>Use case: Capture &amp; manage ad leads with Marketing API only</li>
+        <li>Added optional permission: pages_manage_metadata</li>
+        <li>Did not add email or extra use cases</li>
+        <li>OAuth redirect URI matches SuiteCRM exactly</li>
+        <li>Webhooks → Page → leadgen</li>
+        <li>Callback URL and verify token match SuiteCRM</li>
+        <li>Privacy policy URL set</li>
+      </ul>
+      <h3>In SuiteCRM</h3>
+      <ul class="check">
+        <li>Admin → Meta Leads → credentials saved</li>
+        <li>Authorize with Facebook completed</li>
+        <li>Pages listed under Connected Accounts</li>
+        <li>Forms enabled on Configure</li>
+        <li>Test lead created a SuiteCRM Lead</li>
+      </ul>
+    </div>
+
+    <h2>Quick reference</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Create-app use case</td>
+          <td>Capture &amp; manage ad leads with Marketing API</td>
+        </tr>
+        <tr>
+          <td>Products</td>
+          <td>Added automatically: Facebook Login for Business, Webhooks</td>
+        </tr>
+        <tr>
+          <td>Extra permission to Add</td>
+          <td><code>pages_manage_metadata</code></td>
+        </tr>
+        <tr>
+          <td>OAuth redirect</td>
+          <td><code>.../index.php?entryPoint=ut_sm_oauth_handler</code></td>
+        </tr>
+        <tr>
+          <td>Webhook</td>
+          <td>Page object, field <code>leadgen</code>, <code>.../index.php?entryPoint=ut_sm_inbound</code></td>
+        </tr>
+        <tr>
+          <td>SuiteCRM screen</td>
+          <td>Admin → Meta Leads</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    Internal reference for Meta Leads (ut_sm). Meta dashboard labels can change; the use case name and URLs above are what SuiteCRM expects.
+  </footer>
+</body>
+</html>
