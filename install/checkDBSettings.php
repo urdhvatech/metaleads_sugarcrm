@@ -180,6 +180,7 @@ function checkDBSettings($silent = false)
     }
 
     //Test FTS Settings
+/*
     if (empty($_SESSION['setup_fts_type'])) {
         installLog('ERROR:: Elastic Search is required.');
         $errors['ERR_FTS'] = $mod_strings['LBL_FTS_REQUIRED'];
@@ -209,7 +210,7 @@ function checkDBSettings($silent = false)
     }
 
     installLog('End DB Check Process *************');
-
+*/
     if ($silent) {
         return $errors;
     } else {
