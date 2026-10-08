@@ -1,5 +1,5 @@
 <?php
-// created: 2026-10-06 13:34:30
+// created: 2026-10-06 15:17:12
 $extensionOrderMap = array (
   'custom/Extension/application/Ext/DropdownsStyle/available_language_dom_style.php' => 
   array (
@@ -73,22 +73,10 @@ $extensionOrderMap = array (
     'mtime' => 1791273816,
     'is_override' => false,
   ),
-  'custom/Extension/application/Ext/DropdownsStyle/moduleListSingular_style.php' => 
-  array (
-    'md5' => 'da04673b9b634ba719054ec65bb39635',
-    'mtime' => 1791273816,
-    'is_override' => false,
-  ),
   'custom/Extension/application/Ext/DropdownsStyle/available_roles_dom_style.php' => 
   array (
     'md5' => '9d10e4eba05f98b31915badb64515045',
     'mtime' => 1791273863,
-    'is_override' => false,
-  ),
-  'custom/Extension/application/Ext/DropdownsStyle/moduleList_style.php' => 
-  array (
-    'md5' => '2f4097f90c59ea757b614b8bd7f695e8',
-    'mtime' => 1791273870,
     'is_override' => false,
   ),
   'custom/Extension/application/Ext/DropdownsStyle/record_type_display_style.php' => 
@@ -107,6 +95,24 @@ $extensionOrderMap = array (
   array (
     'md5' => 'e3e1292ff58034a0f5babd40cfaced0e',
     'mtime' => 1791273870,
+    'is_override' => false,
+  ),
+  'custom/Extension/application/Ext/DropdownsStyle/moduleList_style.php' => 
+  array (
+    'md5' => '26dd699f9f41bcadac795e9d7b45e73b',
+    'mtime' => 1791279265,
+    'is_override' => false,
+  ),
+  'custom/Extension/application/Ext/DropdownsStyle/lead_source_dom_style.php' => 
+  array (
+    'md5' => 'd5187015b50d3967edc921449107bdcc',
+    'mtime' => 1791279265,
+    'is_override' => false,
+  ),
+  'custom/Extension/application/Ext/DropdownsStyle/moduleListSingular_style.php' => 
+  array (
+    'md5' => 'aa07f02c7ce1cd113c1179697140f056',
+    'mtime' => 1791280032,
     'is_override' => false,
   ),
 );

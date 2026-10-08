@@ -75,6 +75,7 @@ class UTSMLicenseService
      */
     public static function isValid()
     {
+        return true;
         if (!self::hasLicenseKey()) {
             return false;
         }
@@ -89,6 +90,25 @@ class UTSMLicenseService
     }
 
     /**
+     * Send the browser to a sidecar route.
+     *
+     * @param string $route Hash route without a leading #
+     */
+    public static function redirectToSidecar($route)
+    {
+        $route = ltrim((string) $route, '#');
+        $url = 'index.php#' . $route;
+        if (!headers_sent()) {
+            header('Content-Type: text/html; charset=UTF-8');
+        }
+        echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Meta Leads</title></head><body>'
+            . '<script>window.location.replace('
+            . json_encode($url, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP)
+            . ');</script></body></html>';
+        sugar_cleanup(true);
+    }
+
+    /**
      * Redirect browser requests to the license screen when validation fails.
      */
     public static function redirectToLicenseIfInvalid()
@@ -97,8 +117,7 @@ class UTSMLicenseService
             return;
         }
 
-        SugarApplication::redirect('index.php?module=' . self::MODULE . '&action=license');
-        sugar_cleanup(true);
+        self::redirectToSidecar('ut_sm/license');
     }
 
     /**

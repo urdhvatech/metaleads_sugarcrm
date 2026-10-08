@@ -12,7 +12,49 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-require_once 'modules/AOW_WorkFlow/aow_utils.php';
+if (is_file('modules/AOW_WorkFlow/aow_utils.php')) {
+    require_once 'modules/AOW_WorkFlow/aow_utils.php';
+}
+
+if (!function_exists('getRoundRobinUser')) {
+    /**
+     * Next user id in a round-robin list. Used when SuiteCRM AOW helpers are absent.
+     *
+     * @param array $users
+     * @param string $id
+     * @return string
+     */
+    function getRoundRobinUser($users, $id)
+    {
+        $users = array_values($users);
+        if (empty($users)) {
+            return '';
+        }
+
+        $admin = BeanFactory::newBean('Administration');
+        $admin->retrieveSettings('ut_sm_rr');
+        $settingKey = 'ut_sm_rr_' . $id;
+        $last = isset($admin->settings[$settingKey]) ? (string) $admin->settings[$settingKey] : '';
+        $index = array_search($last, $users, true);
+        if ($index === false || $index >= (count($users) - 1)) {
+            return $users[0];
+        }
+
+        return $users[$index + 1];
+    }
+}
+
+if (!function_exists('setLastUser')) {
+    /**
+     * @param string $userId
+     * @param string $id
+     */
+    function setLastUser($userId, $id)
+    {
+        $admin = BeanFactory::newBean('Administration');
+        $admin->saveSetting('ut_sm_rr', (string) $id, (string) $userId);
+    }
+}
 
 /**
  * Per-account lead assignment (keep empty, round robin, specific user, security group).

@@ -17,6 +17,6 @@ $outfitters_config = array(
     'validate_users' => false,
     'manage_licensed_users' => false, //Enable the user management tool to determine which users will be licensed to use the add-on. validate_users must be set to true if this is enabled. If the add-on must be licensed for all users then set this to false.
     'validation_frequency' => 'weekly', //default: weekly options: hourly, daily, weekly
-    'continue_url' => 'index.php?module=ut_sm&action=settings', //[optional] Will show a button after license validation that will redirect to this page. Could be used to redirect to a configuration page such as index.php?module=MyCustomModule&action=config
+    'continue_url' => '#ut_sm/settings', //[optional] Will show a button after license validation that will redirect to this page.
 );
 

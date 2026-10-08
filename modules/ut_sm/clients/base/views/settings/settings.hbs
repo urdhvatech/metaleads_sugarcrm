@@ -1,0 +1,387 @@
+{{!--
+Meta Leads OAuth and connected-account settings.
+
+This screen is not a Sugar record. Sugar's headerpane, record-panel, and
+span/help-block rules collapse labels, inputs, and help text onto one row,
+so the markup below uses its own classes.
+--}}
+<style>
+.ut-sm-settings {
+    color: var(--text-color);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 48px;
+    box-sizing: border-box;
+}
+.ut-sm-settings .ut-sm-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 0 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    background: transparent;
+}
+.ut-sm-settings .ut-sm-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+.ut-sm-settings .ut-sm-heading img {
+    display: block;
+    height: 36px;
+    width: auto;
+    flex: 0 0 auto;
+}
+.ut-sm-settings .ut-sm-heading h1 {
+    display: block;
+    height: auto;
+    width: auto;
+    margin: 0;
+    overflow: visible;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--text-color);
+    white-space: normal;
+}
+.ut-sm-settings .ut-sm-body { padding: 0; }
+.ut-sm-settings .ut-sm-section {
+    margin: 0 0 20px;
+    padding: 20px;
+    /*background: var(--secondary-content-background);*/
+    border: 1px solid var(--border-base);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.ut-sm-settings .ut-sm-section h2 {
+    margin: 0 0 14px;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.ut-sm-settings .ut-sm-field { display: block; margin: 0 0 16px; }
+.ut-sm-settings .ut-sm-field label {
+    display: block;
+    float: none;
+    width: auto;
+    max-width: none;
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #e5eaed;
+    white-space: normal;
+}
+.ut-sm-settings .ut-sm-field input[type="text"],
+.ut-sm-settings .ut-sm-field input[type="password"],
+.ut-sm-settings .ut-sm-field input[type="number"] {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 32px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 6px 10px;
+    background: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-base);
+    border-radius: 4px;
+}
+.ut-sm-settings .ut-sm-field input[type="number"] { width: 120px; }
+.ut-sm-settings .ut-sm-help {
+    display: block;
+    clear: both;
+    margin: 6px 0 14px;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #adadad;
+    white-space: normal;
+}
+.ut-sm-settings .ut-sm-card {
+    padding: 14px 16px;
+    border: 1px solid var(--border-base);
+    border-radius: 4px;
+    /*background: var(--secondary-content-background);*/
+}
+.ut-sm-settings .ut-sm-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 10px;
+}
+.ut-sm-settings .ut-sm-status-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.ut-sm-settings .ut-sm-status .ut-sm-pill {
+    margin-left: auto;
+}
+.ut-sm-settings .ut-sm-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.ut-sm-settings .ut-sm-pill-success { background: #d4edda; color: #155724; }
+.ut-sm-settings .ut-sm-pill-danger { background: #f8d7da; color: #721c24; }
+.ut-sm-settings .ut-sm-pill-instagram { background: #fce7f3; color: #9d174d; }
+.ut-sm-settings .ut-sm-pill-facebook { background: #e0e7ff; color: #3730a3; }
+.ut-sm-settings .ut-sm-account-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #188038;
+    font-weight: 700;
+}
+.ut-sm-settings .ut-sm-account-status .sicon {
+    color: #188038;
+    font-weight: 700;
+}
+.ut-sm-settings .ut-sm-configure .sicon {
+    margin-right: 4px;
+}
+.ut-sm-settings .ut-sm-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+.ut-sm-settings .ut-sm-note {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    border: 1px solid var(--border-base);
+    border-radius: 4px;
+    background: var(--primary-content-background);
+    color: var(--text-color);
+}
+.ut-sm-settings .ut-sm-note-warning {
+    background: #fff8e6;
+    border-color: #ffe08a;
+    color: #856404;
+}
+.ut-sm-settings .ut-sm-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 0 0 14px;
+}
+.ut-sm-settings .ut-sm-stat {
+    padding: 10px 12px;
+    border: 1px solid var(--border-base);
+    border-radius: 4px;
+    background: var(--primary-content-background);
+}
+.ut-sm-settings .ut-sm-stat-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text-color-light);
+}
+.ut-sm-settings .ut-sm-stat-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.ut-sm-settings .ut-sm-table-wrap { overflow-x: auto; }
+.ut-sm-settings table.ut-sm-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--primary-content-background);
+}
+.ut-sm-settings table.ut-sm-table th,
+.ut-sm-settings table.ut-sm-table td {
+    padding: 10px;
+    border: 1px solid var(--border-base);
+    text-align: left;
+    vertical-align: middle;
+    color: var(--text-color);
+    white-space: normal;
+}
+.ut-sm-settings table.ut-sm-table th {
+    /*background: var(--secondary-content-background);*/
+    font-weight: 600;
+}
+</style>
+
+<div class="ut-sm-settings">
+    <div class="ut-sm-header">
+        <div class="ut-sm-heading">
+            <img src="modules/ut_sm/images/metalead.png" alt="{{str "LBL_UT_SM_OAUTH_PAGE_TITLE" "ut_sm"}}">
+            <h1>{{str "LBL_UT_SM_OAUTH_PAGE_TITLE" "ut_sm"}}</h1>
+        </div>
+    </div>
+
+    {{#if settings}}
+    <div class="ut-sm-body">
+        <section class="ut-sm-section">
+            <h2>{{str "LBL_UT_SM_FACEBOOK_APP_CONFIGURATION" "ut_sm"}}</h2>
+            <div class="ut-sm-field">
+                <label for="ut-sm-app-id">{{str "LBL_UT_SM_FACEBOOK_APP_ID" "ut_sm"}}</label>
+                <input type="text" id="ut-sm-app-id" name="app_id" value="{{settings.app_id}}" required>
+            </div>
+            <div class="ut-sm-field">
+                <label for="ut-sm-app-secret">{{str "LBL_UT_SM_FACEBOOK_APP_SECRET" "ut_sm"}}</label>
+                <input type="password" id="ut-sm-app-secret" name="app_secret" value="{{settings.app_secret}}" autocomplete="off" required>
+            </div>
+            <div class="ut-sm-field">
+                <label for="ut-sm-redirect">{{str "LBL_UT_SM_OAUTH_REDIRECT_URI" "ut_sm"}}</label>
+                <input type="text" id="ut-sm-redirect" name="oauth_redirect_uri" value="{{settings.oauth_redirect_uri}}" required>
+                <p class="ut-sm-help">{{str "LBL_UT_SM_OAUTH_REDIRECT_URI_HELP" "ut_sm"}}</p>
+            </div>
+            <div class="ut-sm-field">
+                <label for="ut-sm-callback">{{str "LBL_UT_SM_CALLBACK_URL" "ut_sm"}}</label>
+                <input type="text" id="ut-sm-callback" name="callback_url" value="{{settings.callback_url}}" required>
+                <p class="ut-sm-help">{{str "LBL_UT_SM_CALLBACK_URL_HELP" "ut_sm"}}</p>
+            </div>
+            <div class="ut-sm-field">
+                <label for="ut-sm-verify">{{str "LBL_UT_SM_VERIFY_TOKEN" "ut_sm"}}</label>
+                <input type="text" id="ut-sm-verify" name="verify_token" value="{{settings.verify_token}}" required>
+                <p class="ut-sm-help">{{str "LBL_UT_SM_VERIFY_TOKEN_HELP" "ut_sm"}}</p>
+            </div>
+            <div class="ut-sm-field">
+                <label for="ut-sm-hours">{{str "LBL_UT_SM_RECONCILIATION_HOURS" "ut_sm"}}</label>
+                <input type="number" id="ut-sm-hours" name="reconciliation_hours" min="1" max="168" value="{{settings.reconciliation_hours}}">
+                <p class="ut-sm-help">{{str "LBL_UT_SM_RECONCILIATION_HOURS_HELP" "ut_sm"}}</p>
+            </div>
+            <div class="ut-sm-actions">
+                <a class="btn icon-and-text" data-action="save" href="javascript:void(0);"><i class="sicon sicon-check" aria-hidden="true" style="color: white;"></i>{{str "LBL_UT_SM_SAVE_SETTINGS" "ut_sm"}}</a>
+                <a class="btn" data-action="cancel" href="javascript:void(0);">{{str "LBL_UT_SM_CANCEL" "ut_sm"}}</a>
+            </div>
+        </section>
+
+        <section class="ut-sm-section">
+            <h2><i class="sicon sicon-user" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_OAUTH_AUTHORIZATION" "ut_sm"}}</h2>
+            <div class="ut-sm-card">
+                <p class="ut-sm-help">{{str "LBL_UT_SM_OAUTH_AUTH_SUBTITLE" "ut_sm"}}</p>
+                <p class="ut-sm-status">
+                    <span class="ut-sm-status-label">
+                        <i class="sicon sicon-check" aria-hidden="true" style="color: #3498db;"></i>
+                        <strong>{{str "LBL_UT_SM_APP_CONNECTION_STATUS" "ut_sm"}}:</strong>
+                    </span>
+                    {{#if settings.is_connected}}
+                        <span class="ut-sm-pill ut-sm-pill-success">{{str "LBL_UT_SM_CONNECTED" "ut_sm"}}</span>
+                    {{else}}
+                        <span class="ut-sm-pill ut-sm-pill-danger">{{str "LBL_UT_SM_NOT_CONNECTED" "ut_sm"}}</span>
+                    {{/if}}
+                </p>
+                {{#if settings.is_connected}}
+                    <p>{{str "LBL_UT_SM_APP_CONNECTED" "ut_sm"}}</p>
+                    {{#if settings.token_expires_at}}
+                        <p class="ut-sm-note{{#if settings.token_needs_refresh}} ut-sm-note-warning{{/if}}">
+                            {{str "LBL_UT_SM_TOKEN_EXPIRES_AT" "ut_sm"}}: {{settings.token_expires_at}}
+                            {{#if settings.token_needs_refresh}} {{str "LBL_UT_SM_TOKEN_NEEDS_REFRESH" "ut_sm"}}{{/if}}
+                        </p>
+                    {{/if}}
+                    <div class="ut-sm-actions">
+                        <a class="btn icon-and-text" data-action="refresh-tokens" href="javascript:void(0);"><i class="sicon sicon-reset" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_REFRESH_TOKENS_NOW" "ut_sm"}}</a>
+                        <a class="btn btn-danger" data-action="disconnect" href="javascript:void(0);">{{str "LBL_UT_SM_DISCONNECT" "ut_sm"}}</a>
+                    </div>
+                {{else}}
+                    {{#if settings.has_app_credentials}}
+                        {{#if settings.oauth_url}}
+                            <p>{{str "LBL_UT_SM_AUTH_INFO" "ut_sm"}}</p>
+                            <div class="ut-sm-actions">
+                                <a class="btn btn-primary" data-action="authorize" href="javascript:void(0);">{{str "LBL_UT_SM_AUTHORIZE_WITH_FACEBOOK" "ut_sm"}}</a>
+                            </div>
+                        {{else}}
+                            <p class="ut-sm-note ut-sm-note-warning">{{str "LBL_UT_SM_OAUTH_URL_FAILED" "ut_sm"}}</p>
+                        {{/if}}
+                    {{else}}
+                        <p>{{str "LBL_UT_SM_CONFIGURE_APP_FIRST" "ut_sm"}}</p>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </section>
+
+        <section class="ut-sm-section">
+            <h2><i class="sicon sicon-reset" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_RECONCILIATION_TITLE" "ut_sm"}}</h2>
+            <div class="ut-sm-card">
+                <p class="ut-sm-help">{{str "LBL_UT_SM_RECONCILIATION_HELP" "ut_sm"}}</p>
+                {{#if hasReconciliationRun}}
+                    <div class="ut-sm-stats">
+                        <div class="ut-sm-stat"><span class="ut-sm-stat-label">{{str "LBL_UT_SM_RECONCILIATION_LAST_RUN" "ut_sm"}}</span><span class="ut-sm-stat-value">{{settings.reconciliation.last_run}}</span></div>
+                        <div class="ut-sm-stat"><span class="ut-sm-stat-label">{{str "LBL_UT_SM_RECONCILIATION_CHECKED" "ut_sm"}}</span><span class="ut-sm-stat-value">{{settings.reconciliation.checked}}</span></div>
+                        <div class="ut-sm-stat"><span class="ut-sm-stat-label">{{str "LBL_UT_SM_RECONCILIATION_IMPORTED" "ut_sm"}}</span><span class="ut-sm-stat-value">{{settings.reconciliation.imported}}</span></div>
+                        <div class="ut-sm-stat"><span class="ut-sm-stat-label">{{str "LBL_UT_SM_RECONCILIATION_DUPLICATES" "ut_sm"}}</span><span class="ut-sm-stat-value">{{settings.reconciliation.duplicate}}</span></div>
+                        <div class="ut-sm-stat"><span class="ut-sm-stat-label">{{str "LBL_UT_SM_RECONCILIATION_FAILED_COUNT" "ut_sm"}}</span><span class="ut-sm-stat-value">{{settings.reconciliation.failed}}</span></div>
+                        <div class="ut-sm-stat"><span class="ut-sm-stat-label">{{str "LBL_UT_SM_RECONCILIATION_RETRIED" "ut_sm"}}</span><span class="ut-sm-stat-value">{{settings.reconciliation.retried}}</span></div>
+                    </div>
+                    {{#if hasReconciliationError}}
+                        <p class="ut-sm-note ut-sm-note-warning">{{str "LBL_UT_SM_RECONCILIATION_LAST_ERROR" "ut_sm"}}: {{settings.reconciliation.last_error}}</p>
+                    {{/if}}
+                {{else}}
+                    <p>{{str "LBL_UT_SM_RECONCILIATION_NEVER_RUN" "ut_sm"}}</p>
+                {{/if}}
+                <div class="ut-sm-actions">
+                    {{#if settings.is_connected}}
+                        <a class="btn icon-and-text" data-action="reconcile" href="javascript:void(0);"><i class="sicon sicon-reset" aria-hidden="true" style="margin-right: 6px;"></i> {{str "LBL_UT_SM_RECONCILIATION_RUN_NOW" "ut_sm"}}</a>
+                    {{/if}}
+                    <span class="ut-sm-help" style="margin-bottom: 8px;"></i>{{str "LBL_UT_SM_RECONCILIATION_WINDOW" "ut_sm"}}: {{settings.reconciliation.lookback_hours}} {{str "LBL_UT_SM_RECONCILIATION_HOURS_SUFFIX" "ut_sm"}}</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="ut-sm-section">
+            <h2><i class="sicon sicon-account-lg" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_CONNECTED_ACCOUNTS" "ut_sm"}}</h2>
+            <p class="ut-sm-help">{{str "LBL_UT_SM_CONNECTED_ACCOUNTS_HELP" "ut_sm"}}</p>
+            {{#if hasConnectedAccounts}}
+                <div class="ut-sm-table-wrap">
+                    <table class="ut-sm-table">
+                        <thead>
+                            <tr>
+                                <th>{{str "LBL_UT_SM_CONNECTED_ACCOUNT" "ut_sm"}}</th>
+                                <th>{{str "LBL_UT_SM_ACCOUNT_TYPE" "ut_sm"}}</th>
+                                <th>{{str "LBL_UT_SM_STATUS" "ut_sm"}}</th>
+                                <th>{{str "LBL_UT_SM_LEAD_FORMS_COL" "ut_sm"}}</th>
+                                <th>{{str "LBL_UT_SM_ASSIGNMENT_COL" "ut_sm"}}</th>
+                                <th>{{str "LBL_UT_SM_ACTION" "ut_sm"}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each settings.connected_accounts}}
+                            <tr>
+                                <td>{{page_name}}</td>
+                                <td>
+                                    {{#if is_instagram}}
+                                        <span class="ut-sm-pill ut-sm-pill-instagram">{{str "LBL_UT_SM_TYPE_INSTAGRAM" "ut_sm"}}</span>
+                                    {{else}}
+                                        <span class="ut-sm-pill ut-sm-pill-facebook">{{str "LBL_UT_SM_TYPE_FACEBOOK" "ut_sm"}}</span>
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    <span class="ut-sm-account-status">
+                                        <i class="sicon sicon-check" aria-hidden="true"></i>
+                                        {{status}}
+                                    </span>
+                                </td>
+                                <td>{{lead_forms_label}}</td>
+                                <td>{{assignment_label}}</td>
+                                <td><a class="btn btn-primary ut-sm-configure" data-action="configure" data-id="{{id}}" href="javascript:void(0);"><i class="sicon sicon-edit" aria-hidden="true"></i>{{str "LBL_UT_SM_CONFIGURE" "ut_sm"}}</a></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{else}}
+                <p class="ut-sm-note">{{str "LBL_UT_SM_NO_CONNECTED_ACCOUNTS" "ut_sm"}}</p>
+            {{/if}}
+        </section>
+    </div>
+    {{/if}}
+</div>

@@ -1,5 +1,5 @@
 <?php
- // created: 2026-10-06 13:33:36
+ // created: 2026-10-06 15:17:12
 
 $app_dropdowns_style['moduleListSingular_style']=array (
   'Home' => 
@@ -601,5 +601,13 @@ $app_dropdowns_style['moduleListSingular_style']=array (
   'EmbeddedFiles' => 
   array (
     'backgroundColor' => '#29388c',
+  ),
+  'ut_sm' => 
+  array (
+    'backgroundColor' => '#36b0ff',
+  ),
+  'ut_MetaLeadSubmissions' => 
+  array (
+    'backgroundColor' => '#517bf8',
   ),
 );

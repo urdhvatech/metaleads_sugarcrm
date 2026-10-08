@@ -36,14 +36,14 @@ if (empty($current_user) || !$current_user->is_admin) {
 
 require_once 'modules/ut_sm/services/LicenseService.php';
 if (!UTSMLicenseService::isValid()) {
-    SugarApplication::redirect('index.php?module=ut_sm&action=license');
-    sugar_cleanup(true);
+    UTSMLicenseService::redirectToSidecar('ut_sm/license');
 }
 
 function utSmRedirectWithMessage($type, $message)
 {
+    require_once 'modules/ut_sm/services/LicenseService.php';
     $param = $type === 'error' ? 'oauth_error' : 'oauth_success';
-    SugarApplication::redirect('index.php?module=ut_sm&action=settings&' . $param . '=' . urlencode($message));
+    UTSMLicenseService::redirectToSidecar('ut_sm/settings?' . $param . '=' . rawurlencode($message));
 }
 
 function utSmValidateFormToken()
@@ -81,13 +81,34 @@ if (!empty($_REQUEST['action_param']) && $_REQUEST['action_param'] === 'refresh_
     );
 }
 
+if (!empty($_REQUEST['action_param']) && $_REQUEST['action_param'] === 'authorize') {
+    if (empty($appId) || empty($redirectUri)) {
+        utSmRedirectWithMessage('error', utSmLbl('LBL_UT_SM_OAUTH_CONFIG_MISSING', 'Missing OAuth app configuration. Save settings first.'));
+    }
+    require_once 'modules/ut_sm/services/GraphClient.php';
+    $oauthState = bin2hex(
+        function_exists('random_bytes') ? random_bytes(16) : openssl_random_pseudo_bytes(16)
+    );
+    $_SESSION['ut_sm_oauth_state'] = $oauthState;
+    $params = array(
+        'client_id' => $appId,
+        'redirect_uri' => $redirectUri,
+        'scope' => 'pages_show_list,leads_retrieval,pages_read_engagement,pages_manage_metadata,pages_manage_ads,business_management,ads_management,ads_read',
+        'response_type' => 'code',
+        'state' => $oauthState,
+    );
+    $oauthUrl = 'https://www.facebook.com/' . UTSMGraphClient::API_VERSION . '/dialog/oauth?' . http_build_query($params);
+    header('Location: ' . $oauthUrl);
+    sugar_cleanup(true);
+}
+
 if (!empty($_REQUEST['action_param']) && $_REQUEST['action_param'] === 'reconcile_now') {
     $reconciliation = new UTSMReconciliationService();
     $result = $reconciliation->run();
     if (!$result['ok']) {
         if (!empty($result['error']) && $result['error'] === 'License is not valid') {
-            SugarApplication::redirect('index.php?module=ut_sm&action=license');
-            sugar_cleanup(true);
+            require_once 'modules/ut_sm/services/LicenseService.php';
+            UTSMLicenseService::redirectToSidecar('ut_sm/license');
         }
         utSmRedirectWithMessage(
             'error',
@@ -157,7 +178,7 @@ if (empty($code)) {
     utSmRedirectWithMessage('error', utSmLbl('LBL_UT_SM_OAUTH_CODE_MISSING', 'OAuth code was not received.'));
 }
 
-// Validate OAuth state
+// Validate OAuth state saved by the browser session when authorization started.
 $state = isset($_REQUEST['state']) ? (string) $_REQUEST['state'] : '';
 $sessionState = isset($_SESSION['ut_sm_oauth_state']) ? (string) $_SESSION['ut_sm_oauth_state'] : '';
 unset($_SESSION['ut_sm_oauth_state']);

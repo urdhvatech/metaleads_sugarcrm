@@ -87,7 +87,8 @@ class UTSMImportTrackerService
         $pageId = !empty($data['page_id']) ? $this->db->quote($data['page_id']) : 'NULL';
         $formId = !empty($data['form_id']) ? $this->db->quote($data['form_id']) : 'NULL';
         $accountId = !empty($data['account_id']) ? $this->db->quote($data['account_id']) : 'NULL';
-        $metaCreated = !empty($data['meta_created_time']) ? $this->db->quote($data['meta_created_time']) : 'NULL';
+        $metaCreatedRaw = $this->toDbDateTime(isset($data['meta_created_time']) ? $data['meta_created_time'] : '');
+        $metaCreated = $metaCreatedRaw !== '' ? $this->db->quote($metaCreatedRaw) : 'NULL';
         $status = !empty($data['import_status']) ? $this->db->quote($data['import_status']) : $this->db->quote(self::STATUS_PENDING);
         $source = !empty($data['import_source']) ? $this->db->quote($data['import_source']) : 'NULL';
         $leadId = !empty($data['lead_id']) ? $this->db->quote($data['lead_id']) : 'NULL';
@@ -116,7 +117,7 @@ class UTSMImportTrackerService
             if (!empty($data['account_id'])) {
                 $sets[] = "account_id = '{$accountId}'";
             }
-            if (!empty($data['meta_created_time'])) {
+            if ($metaCreated !== 'NULL') {
                 $sets[] = "meta_created_time = '{$metaCreated}'";
             }
             if (!empty($data['import_source'])) {
@@ -161,6 +162,33 @@ class UTSMImportTrackerService
         );
 
         return $id;
+    }
+
+    /**
+     * Convert a Meta timestamp to a MySQL datetime in UTC.
+     *
+     * Graph returns values such as 2026-10-07T10:22:37+0000, which MariaDB
+     * rejects for a datetime column.
+     *
+     * @param mixed $value
+     * @return string Y-m-d H:i:s, or an empty string when the value cannot be parsed
+     */
+    protected function toDbDateTime($value)
+    {
+        $value = trim((string) $value);
+        if ($value === '') {
+            return '';
+        }
+        if (preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $value)) {
+            return $value;
+        }
+        try {
+            $date = new DateTime($value);
+            $date->setTimezone(new DateTimeZone('UTC'));
+            return $date->format('Y-m-d H:i:s');
+        } catch (Exception $e) {
+            return '';
+        }
     }
 
     /**

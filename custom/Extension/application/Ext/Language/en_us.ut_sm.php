@@ -10,6 +10,7 @@
  */
 
 $app_list_strings['moduleList']['ut_sm'] = 'Meta Leads';
+$app_list_strings['moduleListSingular']['ut_sm'] = 'Meta Leads';
 
 $app_list_strings['lead_source_dom']['Website'] = 'Website';
 $app_list_strings['lead_source_dom']['Facebook'] = 'Facebook';

@@ -1,0 +1,138 @@
+{{!--
+Meta Leads license validation.
+--}}
+<style>
+.ut-sm-license .headerpane { position: relative; }
+.ut-sm-license .ut-sm-body { padding: 8px 24px 40px; max-width: 980px; }
+.ut-sm-license .ut-sm-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.ut-sm-license .ut-sm-brand img { height: 42px; width: auto; }
+.ut-sm-license .license-key { max-width: 420px; font-family: monospace; }
+.ut-sm-license .user-lists { display: flex; gap: 16px; flex-wrap: wrap; }
+.ut-sm-license .user-lists select { min-width: 240px; min-height: 220px; }
+.ut-sm-license .user-lists .list-actions { display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+</style>
+
+<div class="ut-sm-license">
+    <div class="headerpane">
+        <h1>
+            <span class="record-cell">
+                <span class="module-title">{{str "LBL_META_LEADS_LICENSE" "ut_sm"}}</span>
+            </span>
+            <div class="btn-toolbar pull-right">
+                <a class="btn btn-invisible" data-action="cancel" href="javascript:void(0);">{{str "LBL_UT_SM_CANCEL" "ut_sm"}}</a>
+            </div>
+        </h1>
+    </div>
+
+    {{#if license}}
+    <div class="ut-sm-body">
+        <div class="record-panel">
+            <div class="record-panel-content">
+                <div class="ut-sm-brand">
+                    <img src="modules/ut_sm/images/urdhvatech-logo.png" alt="Urdhva Tech">
+                    <strong>{{license.strings.LBL_METALEADS_LICENSE_TITLE}}</strong>
+                </div>
+                <div class="alert alert-info">{{{license.strings.LBL_STEPS_TO_LOCATE_KEY}}}</div>
+                <div class="control-group">
+                    <label for="ut-sm-license-key">{{license.strings.LBL_LICENSE_KEY}}</label>
+                    <input type="text" class="span8 license-key" id="ut-sm-license-key" name="license_key" value="{{license.license_key}}" maxlength="100">
+                    <a class="btn btn-primary" data-action="validate" href="javascript:void(0);">{{license.strings.LBL_VALIDATE_LABEL}}</a>
+                </div>
+                {{#if validationFailed}}
+                    <div class="alert alert-danger">{{validationMessage}}</div>
+                {{/if}}
+                {{#if validated}}
+                    <div class="alert alert-success">
+                        {{#if validationMessage}}{{validationMessage}}{{else}}{{license.strings.LBL_VALIDATED_LABEL}}{{/if}}
+                        {{#unless license.validate_users}}
+                            <div style="margin-top:10px;">
+                                <a class="btn btn-primary" data-action="continue" href="javascript:void(0);">Continue</a>
+                            </div>
+                        {{/unless}}
+                    </div>
+                {{else}}
+                    {{#if license.is_valid}}
+                        <div class="alert alert-success">
+                            {{license.strings.LBL_VALIDATED_LABEL}}
+                            <div style="margin-top:10px;">
+                                <a class="btn btn-primary" data-action="continue" href="javascript:void(0);">Continue</a>
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+
+        {{#if license.validate_users}}
+            {{#unless license.manage_licensed_users}}
+            <div class="record-panel">
+                <div class="row-fluid record-panel-header"><h4>License Information</h4></div>
+                <div class="record-panel-content">
+                    <p><strong>{{license.strings.LBL_CURRENT_USERS}}:</strong> {{license.current_users}}</p>
+                    <p><strong>{{license.strings.LBL_LICENSED_USERS}}:</strong> {{license.licensed_user_count}}</p>
+                    {{#if needsMoreUsers}}
+                        <div class="alert alert-warning">
+                            <p>License upgrade required.</p>
+                            <a class="btn btn-primary" data-action="increase" href="javascript:void(0);">Increase to {{license.current_users}} users</a>
+                        </div>
+                    {{/if}}
+                    {{#if usersPassed}}
+                        <div class="alert alert-success">
+                            License verified.
+                            <div style="margin-top:10px;">
+                                <a class="btn btn-primary" data-action="continue" href="javascript:void(0);">Continue</a>
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/unless}}
+
+            {{#if license.manage_licensed_users}}
+            <div class="record-panel">
+                <div class="row-fluid record-panel-header"><h4>{{license.strings.LBL_MANAGE_USERS_TITLE}}</h4></div>
+                <div class="record-panel-content">
+                    {{#unless validated}}
+                        {{#unless license.is_valid}}
+                            <div class="alert alert-info">{{license.strings.LBL_VALIDATION_REQUIRED}}</div>
+                        {{/unless}}
+                    {{/unless}}
+                    <p><strong>{{license.strings.LBL_LICENSED_USERS}}:</strong> <span data-role="licensed-count">{{license.licensed_user_count}}</span></p>
+                    <div class="user-lists">
+                        <div>
+                            <label>{{license.strings.LBL_UNLICENSED_USER_LIST}}</label>
+                            <select name="unlicensed_users" multiple="multiple">
+                                {{#each license.users}}
+                                    {{#unless licensed}}
+                                        <option value="{{id}}">{{name}}</option>
+                                    {{/unless}}
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="list-actions">
+                            <a class="btn" data-action="add-users" href="javascript:void(0);">&gt;</a>
+                            <a class="btn" data-action="remove-users" href="javascript:void(0);">&lt;</a>
+                        </div>
+                        <div>
+                            <label>{{license.strings.LBL_LICENSED_USER_LIST}}</label>
+                            <select name="licensed_users" multiple="multiple">
+                                {{#each license.users}}
+                                    {{#if licensed}}
+                                        <option value="{{id}}">{{name}}</option>
+                                    {{/if}}
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <p class="help-block">{{license.strings.LBL_HOWTO_REDUCE_LICENSE}}</p>
+                    <a class="btn btn-primary" data-action="save-users" href="javascript:void(0);">{{str "LBL_SAVE_BUTTON_LABEL"}}</a>
+                    {{#if usersPassed}}
+                        <a class="btn btn-primary" data-action="continue" href="javascript:void(0);">Continue</a>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+        {{/if}}
+    </div>
+    {{/if}}
+</div>

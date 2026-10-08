@@ -1,5 +1,5 @@
 <?php
-// created: 2026-10-06 13:34:30
+// created: 2026-10-07 16:16:44
 $extensionOrderMap = array (
   'custom/Extension/modules/Opportunities/Ext/Vardefs/customer_journey_parent.php' => 
   array (
@@ -89,6 +89,12 @@ $extensionOrderMap = array (
   array (
     'md5' => 'fe0d87b5f2d3de58dc76887e453bd630',
     'mtime' => 1791273863,
+    'is_override' => false,
+  ),
+  'custom/Extension/modules/Opportunities/Ext/Vardefs/full_text_search_admin.php' => 
+  array (
+    'md5' => '98d7d7fd13954508dc68b3a0c1f064ce',
+    'mtime' => 1791370004,
     'is_override' => false,
   ),
 );

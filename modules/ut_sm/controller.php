@@ -46,15 +46,15 @@ class UT_SMController extends SugarController
      */
     public function action_settings()
     {
-        $this->view = 'settings';
+        $this->redirectToSidecar('ut_sm/settings');
     }
     public function action_index()
     {
-        $this->view = 'settings';
+        $this->redirectToSidecar('ut_sm/settings');
     }
     public function action_listview()
     {
-        $this->view = 'settings';
+        $this->redirectToSidecar('ut_sm/settings');
     }
 
     /**
@@ -65,11 +65,25 @@ class UT_SMController extends SugarController
      */
     public function action_account_settings()
     {
-        $this->view = 'account_settings';
+        $record = isset($_REQUEST['record']) ? trim((string) $_REQUEST['record']) : '';
+        $route = 'ut_sm/settings';
+        if ($record !== '') {
+            $route = 'ut_sm/account/' . rawurlencode($record);
+        }
+        $this->redirectToSidecar($route);
     }
 
     public function action_license()
     {
-        $this->view = 'license';
+        $this->redirectToSidecar('ut_sm/license');
+    }
+
+    /**
+     * @param string $route
+     */
+    protected function redirectToSidecar($route)
+    {
+        require_once 'modules/ut_sm/services/LicenseService.php';
+        UTSMLicenseService::redirectToSidecar($route);
     }
 }
