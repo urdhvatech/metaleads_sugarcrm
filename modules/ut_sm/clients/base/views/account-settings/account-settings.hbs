@@ -2,122 +2,277 @@
 Per-account lead assignment, forms, and field mapping.
 --}}
 <style>
-.ut-sm-account .headerpane { position: relative; }
-.ut-sm-account .ut-sm-body { padding: 8px 24px 40px; max-width: 980px; }
-.ut-sm-account .checkbox-list { max-height: 240px; overflow: auto; border: 1px solid var(--border-color, #e5e7eb); padding: 10px 14px; }
-.ut-sm-account .checkbox-grid { max-height: 280px; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px 16px; }
+.ut-sm-account {
+    color: var(--text-color);
+    width: 100%;
+    max-width: 900px;
+    margin: 16px auto 24px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-base);
+    border-radius: 5px;
+}
+.ut-sm-account .ut-sm-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 0 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    background: transparent;
+}
+.ut-sm-account .ut-sm-heading h1 {
+    display: block;
+    height: auto;
+    width: auto;
+    margin: 0;
+    overflow: visible;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--text-color);
+    white-space: normal;
+}
+.ut-sm-account .ut-sm-body { padding: 0; }
+.ut-sm-account .ut-sm-section {
+    margin: 0 0 20px;
+    padding: 20px;
+    border: 1px solid var(--border-base);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.ut-sm-account .ut-sm-section h2 {
+    margin: 0 0 14px;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.ut-sm-account .ut-sm-field { display: block; margin: 0 0 16px; }
+.ut-sm-account .ut-sm-field > label,
+.ut-sm-account .ut-sm-section > label {
+    display: block;
+    float: none;
+    width: auto;
+    max-width: none;
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #e5eaed;
+    white-space: normal;
+}
+.ut-sm-account select {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 32px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 6px 10px;
+    background: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-base);
+    border-radius: 4px;
+}
+.ut-sm-account .ut-sm-help {
+    display: block;
+    clear: both;
+    margin: 6px 0 14px;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #adadad;
+    white-space: normal;
+}
+.ut-sm-account .ut-sm-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.ut-sm-account .ut-sm-pill-instagram { background: #fce7f3; color: #9d174d; }
+.ut-sm-account .ut-sm-pill-facebook { background: #e0e7ff; color: #3730a3; }
+.ut-sm-account .ut-sm-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+.ut-sm-account .ut-sm-note {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    border: 1px solid var(--border-base);
+    border-radius: 4px;
+    background: var(--primary-content-background);
+    color: var(--text-color);
+}
+.ut-sm-account .checkbox-list {
+    max-height: 240px;
+    overflow: auto;
+    border: 1px solid var(--border-base);
+    border-radius: 4px;
+    padding: 10px 14px;
+}
+.ut-sm-account .checkbox-list label,
+.ut-sm-account .checkbox-grid label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    float: none;
+    width: auto;
+    max-width: none;
+    margin: 0 0 8px;
+    font-weight: 500;
+    color: var(--text-color);
+    white-space: normal;
+}
+.ut-sm-account .checkbox-grid {
+    max-height: 280px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 6px 16px;
+}
 .ut-sm-account .mapping-block { margin-bottom: 16px; }
-.ut-sm-account .label-instagram { background: #fce7f3; color: #9d174d; }
-.ut-sm-account .label-facebook { background: #e0e7ff; color: #3730a3; }
+.ut-sm-account .mapping-block h3 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.ut-sm-account .ut-sm-table-wrap { overflow-x: auto; }
+.ut-sm-account table.ut-sm-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--primary-content-background);
+    table-layout: fixed;
+}
+.ut-sm-account .mapping-block table.ut-sm-table th:first-child,
+.ut-sm-account .mapping-block table.ut-sm-table td:first-child {
+    width: 40%;
+}
+.ut-sm-account .mapping-block table.ut-sm-table th:last-child,
+.ut-sm-account .mapping-block table.ut-sm-table td:last-child {
+    width: 60%;
+}
+.ut-sm-account .mapping-block table.ut-sm-table td:first-child {
+    overflow-wrap: anywhere;
+}
+.ut-sm-account table.ut-sm-table th,
+.ut-sm-account table.ut-sm-table td {
+    padding: 10px;
+    border: 1px solid var(--border-base);
+    text-align: left;
+    vertical-align: middle;
+    color: var(--text-color);
+    white-space: normal;
+}
+.ut-sm-account table.ut-sm-table th {
+    /*background: var(--secondary-content-background);*/
+    font-weight: 600;
+}
 </style>
 
 <div class="ut-sm-account">
-    <div class="headerpane">
-        <h1>
-            <span class="record-cell">
-                <span class="module-title">
-                    {{str "LBL_UT_SM_LEAD_SETTINGS_FOR" "ut_sm"}}
-                    {{#if account}}{{account.page_name}}{{/if}}
-                </span>
-            </span>
-            <div class="btn-toolbar pull-right">
-                <a class="btn btn-invisible" data-action="cancel" href="javascript:void(0);">{{str "LBL_UT_SM_CANCEL" "ut_sm"}}</a>
-                <a class="btn btn-primary" data-action="save" href="javascript:void(0);">{{str "LBL_UT_SM_SAVE_CONFIGURATION" "ut_sm"}}</a>
-            </div>
-        </h1>
+    <div class="ut-sm-header">
+        <div class="ut-sm-heading">
+            <h1>
+                {{str "LBL_UT_SM_LEAD_SETTINGS_FOR" "ut_sm"}}
+                {{#if account}}{{account.page_name}}{{/if}}
+            </h1>
+        </div>
     </div>
 
     {{#if account}}
     <div class="ut-sm-body">
         <p>
             {{#if account.is_instagram}}
-                <span class="label label-instagram">{{str "LBL_UT_SM_TYPE_INSTAGRAM" "ut_sm"}}</span>
+                <span class="ut-sm-pill ut-sm-pill-instagram">{{str "LBL_UT_SM_TYPE_INSTAGRAM" "ut_sm"}}</span>
             {{else}}
-                <span class="label label-facebook">{{str "LBL_UT_SM_TYPE_FACEBOOK" "ut_sm"}}</span>
+                <span class="ut-sm-pill ut-sm-pill-facebook">{{str "LBL_UT_SM_TYPE_FACEBOOK" "ut_sm"}}</span>
             {{/if}}
         </p>
 
-        <div class="record-panel">
-            <div class="row-fluid record-panel-header"><h4>{{str "LBL_UT_SM_LEAD_ASSIGNMENT" "ut_sm"}}</h4></div>
-            <div class="record-panel-content">
-                <div class="control-group">
-                    <label for="ut-sm-assignment-type">{{str "LBL_UT_SM_ASSIGN_NEW_LEADS_TO" "ut_sm"}}</label>
-                    <select id="ut-sm-assignment-type" name="assignment_type">
-                        <option value="keep_empty" {{#eq account.assignment_type "keep_empty"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_KEEP_EMPTY" "ut_sm"}}</option>
-                        <option value="round_robin" {{#eq account.assignment_type "round_robin"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_ROUND_ROBIN" "ut_sm"}}</option>
-                        <option value="specific_user" {{#eq account.assignment_type "specific_user"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_SPECIFIC_USER" "ut_sm"}}</option>
-                        <option value="security_group" {{#eq account.assignment_type "security_group"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_SECURITY_GROUP" "ut_sm"}}</option>
-                    </select>
-                </div>
-
-                <div class="control-group" data-panel="round_robin" {{#unless showRoundRobin}}style="display:none"{{/unless}}>
-                    <label>{{str "LBL_UT_SM_RR_USERS" "ut_sm"}}</label>
-                    <p class="help-block">{{str "LBL_UT_SM_RR_USERS_HELP" "ut_sm"}}</p>
-                    {{#if hasUsers}}
-                        <div class="checkbox-list checkbox-grid">
-                            {{#each account.users}}
-                                <label><input type="checkbox" name="rr_user_ids" value="{{id}}" {{#if rr_checked}}checked{{/if}}> {{name}}</label>
-                            {{/each}}
-                        </div>
-                    {{else}}
-                        <div class="alert alert-info">{{str "LBL_UT_SM_NO_USERS" "ut_sm"}}</div>
-                    {{/if}}
-                </div>
-
-                <div class="control-group" data-panel="specific_user" {{#unless showSpecificUser}}style="display:none"{{/unless}}>
-                    <label for="ut-sm-user">{{str "LBL_UT_SM_USER" "ut_sm"}}</label>
-                    <select id="ut-sm-user" name="assignment_user_id">
-                        <option value="">{{str "LBL_UT_SM_SELECT_USER" "ut_sm"}}</option>
-                        {{#each account.users}}
-                            <option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>
-                        {{/each}}
-                    </select>
-                </div>
-
-                <div class="control-group" data-panel="security_group" {{#unless showSecurityGroup}}style="display:none"{{/unless}}>
-                    <label for="ut-sm-group">{{str "LBL_UT_SM_SECURITY_GROUP" "ut_sm"}}</label>
-                    {{#if hasSecurityGroups}}
-                        <select id="ut-sm-group" name="assignment_group_id">
-                            <option value="">{{str "LBL_UT_SM_SELECT_GROUP" "ut_sm"}}</option>
-                            {{#each account.security_groups}}
-                                <option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>
-                            {{/each}}
-                        </select>
-                        <p class="help-block">{{str "LBL_UT_SM_SECURITY_GROUP_HELP" "ut_sm"}}</p>
-                    {{else}}
-                        <div class="alert alert-info">{{str "LBL_UT_SM_NO_SECURITY_GROUPS" "ut_sm"}}</div>
-                    {{/if}}
-                </div>
+        <section class="ut-sm-section">
+            <h2><i class="sicon sicon-user" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_LEAD_ASSIGNMENT" "ut_sm"}}</h2>
+            <div class="ut-sm-field">
+                <label for="ut-sm-assignment-type">{{str "LBL_UT_SM_ASSIGN_NEW_LEADS_TO" "ut_sm"}}</label>
+                <select id="ut-sm-assignment-type" name="assignment_type">
+                    <option value="keep_empty" {{#eq account.assignment_type "keep_empty"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_KEEP_EMPTY" "ut_sm"}}</option>
+                    <option value="round_robin" {{#eq account.assignment_type "round_robin"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_ROUND_ROBIN" "ut_sm"}}</option>
+                    <option value="specific_user" {{#eq account.assignment_type "specific_user"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_SPECIFIC_USER" "ut_sm"}}</option>
+                </select>
             </div>
-        </div>
 
-        <div class="record-panel">
-            <div class="row-fluid record-panel-header"><h4>{{str "LBL_UT_SM_LEAD_FORMS" "ut_sm"}}</h4></div>
-            <div class="record-panel-content">
-                <p class="help-block">{{str "LBL_UT_SM_LEAD_FORMS_HELP" "ut_sm"}}</p>
-                <p><a class="btn" data-action="refresh-forms" href="javascript:void(0);">{{str "LBL_UT_SM_REFRESH_FORMS" "ut_sm"}}</a></p>
-                {{#if hasForms}}
-                    <div class="checkbox-list">
-                        {{#each account.forms}}
-                            <label><input type="checkbox" name="enabled_form_ids" value="{{form_id}}" {{#if enabled}}checked{{/if}}> {{form_name}}</label>
+            <div class="ut-sm-field" data-panel="round_robin" {{#unless showRoundRobin}}style="display:none"{{/unless}}>
+                <label>{{str "LBL_UT_SM_RR_USERS" "ut_sm"}}</label>
+                <p class="ut-sm-help">{{str "LBL_UT_SM_RR_USERS_HELP" "ut_sm"}}</p>
+                {{#if hasUsers}}
+                    <div class="checkbox-list checkbox-grid">
+                        {{#each account.users}}
+                            <label><input type="checkbox" name="rr_user_ids" value="{{id}}" {{#if rr_checked}}checked{{/if}}> {{name}}</label>
                         {{/each}}
                     </div>
                 {{else}}
-                    <div class="alert alert-info">{{str "LBL_UT_SM_NO_FORMS_YET" "ut_sm"}}</div>
+                    <p class="ut-sm-note">{{str "LBL_UT_SM_NO_USERS" "ut_sm"}}</p>
                 {{/if}}
             </div>
-        </div>
 
-        <div class="record-panel">
-            <div class="row-fluid record-panel-header"><h4>{{str "LBL_UT_SM_FIELD_MAPPING" "ut_sm"}}</h4></div>
-            <div class="record-panel-content">
-                <p class="help-block">{{str "LBL_UT_SM_FIELD_MAPPING_HELP" "ut_sm"}}</p>
-                {{#if hasFormMappings}}
-                    {{#each account.forms_with_mappings}}
-                        <div class="mapping-block">
-                            <h5>{{str "LBL_UT_SM_FORM_MAPPING_HEADING" "ut_sm"}}: {{form_name}}</h5>
-                            {{#if has_mappings}}
-                                <table class="table table-striped">
+            <div class="ut-sm-field" data-panel="specific_user" {{#unless showSpecificUser}}style="display:none"{{/unless}}>
+                <label for="ut-sm-user">{{str "LBL_UT_SM_USER" "ut_sm"}}</label>
+                <select id="ut-sm-user" name="assignment_user_id">
+                    <option value="">{{str "LBL_UT_SM_SELECT_USER" "ut_sm"}}</option>
+                    {{#each account.users}}
+                        <option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="ut-sm-field" data-panel="security_group" {{#unless showSecurityGroup}}style="display:none"{{/unless}}>
+                <label for="ut-sm-group">{{str "LBL_UT_SM_SECURITY_GROUP" "ut_sm"}}</label>
+                {{#if hasSecurityGroups}}
+                    <select id="ut-sm-group" name="assignment_group_id">
+                        <option value="">{{str "LBL_UT_SM_SELECT_GROUP" "ut_sm"}}</option>
+                        {{#each account.security_groups}}
+                            <option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <p class="ut-sm-help">{{str "LBL_UT_SM_SECURITY_GROUP_HELP" "ut_sm"}}</p>
+                {{else}}
+                    <p class="ut-sm-note">{{str "LBL_UT_SM_NO_SECURITY_GROUPS" "ut_sm"}}</p>
+                {{/if}}
+            </div>
+        </section>
+
+        <section class="ut-sm-section">
+            <h2><i class="sicon sicon-user" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_LEAD_FORMS" "ut_sm"}}</h2>
+            <p class="ut-sm-help">{{str "LBL_UT_SM_LEAD_FORMS_HELP" "ut_sm"}}</p>
+            <p><a class="btn" data-action="refresh-forms" href="javascript:void(0);"><i class="sicon sicon-reset" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_REFRESH_FORMS" "ut_sm"}}</a></p>
+            {{#if hasForms}}
+                <div class="checkbox-list">
+                    {{#each account.forms}}
+                        <label><input type="checkbox" name="enabled_form_ids" value="{{form_id}}" {{#if enabled}}checked{{/if}}> {{form_name}}</label>
+                    {{/each}}
+                </div>
+            {{else}}
+                <p class="ut-sm-note">{{str "LBL_UT_SM_NO_FORMS_YET" "ut_sm"}}</p>
+            {{/if}}
+        </section>
+
+        <section class="ut-sm-section">
+            <h2><i class="sicon sicon-edit" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_FIELD_MAPPING" "ut_sm"}}</h2>
+            <p class="ut-sm-help">{{str "LBL_UT_SM_FIELD_MAPPING_HELP" "ut_sm"}}</p>
+            {{#if hasFormMappings}}
+                {{#each account.forms_with_mappings}}
+                    <div class="mapping-block">
+                        <h3>{{str "LBL_UT_SM_FORM_MAPPING_HEADING" "ut_sm"}}: {{form_name}}</h3>
+                        {{#if has_mappings}}
+                            <div class="ut-sm-table-wrap">
+                                <table class="ut-sm-table">
                                     <thead>
                                         <tr>
                                             <th>{{str "LBL_UT_SM_META_FIELD" "ut_sm"}}</th>
@@ -139,20 +294,25 @@ Per-account lead assignment, forms, and field mapping.
                                         {{/each}}
                                     </tbody>
                                 </table>
-                                {{#if has_warnings}}
-                                    {{#each warnings}}
-                                        <div class="alert alert-info">{{this}}</div>
-                                    {{/each}}
-                                {{/if}}
-                            {{else}}
-                                <div class="alert alert-info">{{str "LBL_UT_SM_NO_QUESTIONS_FOR_FORM" "ut_sm"}}</div>
+                            </div>
+                            {{#if has_warnings}}
+                                {{#each warnings}}
+                                    <p class="ut-sm-note">{{this}}</p>
+                                {{/each}}
                             {{/if}}
-                        </div>
-                    {{/each}}
-                {{else}}
-                    <div class="alert alert-info">{{str "LBL_UT_SM_NO_MAPPING_YET" "ut_sm"}}</div>
-                {{/if}}
-            </div>
+                        {{else}}
+                            <p class="ut-sm-note">{{str "LBL_UT_SM_NO_QUESTIONS_FOR_FORM" "ut_sm"}}</p>
+                        {{/if}}
+                    </div>
+                {{/each}}
+            {{else}}
+                <p class="ut-sm-note">{{str "LBL_UT_SM_NO_MAPPING_YET" "ut_sm"}}</p>
+            {{/if}}
+        </section>
+
+        <div class="ut-sm-actions">
+            <a class="btn icon-and-text" data-action="save" href="javascript:void(0);"><i class="sicon sicon-check" aria-hidden="true" style="color: white;"></i>{{str "LBL_UT_SM_SAVE_CONFIGURATION" "ut_sm"}}</a>
+            <a class="btn" data-action="cancel" href="javascript:void(0);">{{str "LBL_UT_SM_CANCEL" "ut_sm"}}</a>
         </div>
     </div>
     {{/if}}

@@ -8,7 +8,7 @@
  * @copyright Urdhva Tech
  * @license As specified in the License Agreement supplied with this package.
  */
-
+/*
 $viewdefs['ut_sm']['base']['layout']['account-settings'] = array(
     'components' => array(
         array(
@@ -30,6 +30,16 @@ $viewdefs['ut_sm']['base']['layout']['account-settings'] = array(
                     ),
                 ),
             ),
+        ),
+    ),
+);
+*/
+$viewdefs['ut_sm']['base']['layout']['account-settings'] = array(
+    'type' => 'simple',
+    'components' =>
+    array(
+        array(
+            'view' => 'account-settings',
         ),
     ),
 );

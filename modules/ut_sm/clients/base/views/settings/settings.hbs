@@ -10,9 +10,11 @@ so the markup below uses its own classes.
     color: var(--text-color);
     width: 100%;
     max-width: 900px;
-    margin: 0 auto;
-    padding: 20px 20px 48px;
+    margin: 16px auto 24px;
+    padding: 20px;
     box-sizing: border-box;
+    border: 1px solid var(--border-base);
+    border-radius: 5px;
 }
 .ut-sm-settings .ut-sm-header {
     display: flex;
@@ -22,6 +24,16 @@ so the markup below uses its own classes.
     margin-bottom: 20px;
     border-bottom: 2px solid #3498db;
     background: transparent;
+}
+.ut-sm-settings .ut-sm-footer {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 2px solid #3498db;
+}
+.ut-sm-settings .ut-sm-footer img {
+    display: block;
+    height: 40px;
+    width: auto;
 }
 .ut-sm-settings .ut-sm-heading {
     display: flex;
@@ -384,4 +396,9 @@ so the markup below uses its own classes.
         </section>
     </div>
     {{/if}}
+    <div class="ut-sm-footer">
+        <a href="https://urdhva-tech.com" target="_blank" rel="noopener noreferrer">
+            <img src="modules/ut_sm/images/urdhvatech-horizontal-small.png" alt="Urdhva Tech">
+        </a>
+    </div>
 </div>
