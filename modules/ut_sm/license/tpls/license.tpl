@@ -275,13 +275,117 @@
     }
 </script>
 <style type="text/css">
-    .sugarai_license_key {
-        background-color: #ffffff;
-        border: 1px solid #4E8CCF;
-        text-align: center;
-        padding: 10px 30px;
-        font-size: 1.2em;
-        margin-right: 10px;
+    .moduleTitle { display: none; }
+    .ut-sm-license {
+        max-width: 980px;
+        margin: 20px auto 28px;
+        background: #fff;
+        border: 1px solid #e6e8eb;
+        border-radius: 8px;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+        color: #3d4a5c;
+        font-size: 14px;
+    }
+    .ut-sm-license-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 22px;
+        border-bottom: 1px solid #eceff3;
+    }
+    .ut-sm-license-header img {
+        display: block;
+        height: 36px;
+        width: auto;
+    }
+    .ut-sm-license-divider {
+        width: 1px;
+        height: 28px;
+        background: #d0d5dd;
+        flex: 0 0 auto;
+    }
+    .ut-sm-license-header h1 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #1f2933;
+    }
+    .ut-sm-license-steps {
+        margin: 18px 22px 0;
+        padding: 14px 18px;
+        background: #eef6ff;
+        border-left: 4px solid #3b82f6;
+        color: #3d4a5c;
+        line-height: 1.75;
+    }
+    .ut-sm-license-steps a {
+        color: #e11d48;
+        text-decoration: none;
+    }
+    .ut-sm-license-steps a:hover {
+        text-decoration: underline;
+    }
+    .ut-sm-license-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 18px;
+        padding: 20px 22px 8px;
+        border-top: 1px solid #eceff3;
+    }
+    .ut-sm-license-row label {
+        flex: 0 0 140px;
+        margin: 0;
+        font-weight: 400;
+        color: #4b5563;
+    }
+    .ut-sm-license input.sugarai_license_key {
+        display: block;
+        flex: 1 1 auto;
+        float: none;
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+        min-height: 32px;
+        margin: 0;
+        padding: 6px 10px;
+        background: #000000 !important;
+        color: #e5eaed !important;
+        border: 1px solid #2b2d2e !important;
+        caret-color: #e5eaed;
+        border-radius: 4px;
+        text-align: left;
+        font-size: 13px;
+        box-shadow: none;
+        box-sizing: border-box;
+    }
+    .ut-sm-license input.sugarai_license_key:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px #000000 inset !important;
+        -webkit-text-fill-color: #e5eaed !important;
+    }
+    .ut-sm-license input.ut-sm-license-validate {
+        flex: 0 0 auto;
+        width: auto !important;
+        height: auto;
+        margin: 0;
+        padding: 8px 28px;
+        background: #3b6fd8 !important;
+        border: 1px solid #3b6fd8 !important;
+        border-radius: 4px;
+        color: #fff !important;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: none;
+    }
+    .ut-sm-license input.ut-sm-license-validate:hover {
+        background: #315fb8;
+    }
+    .ut-sm-license-status {
+        padding: 4px 22px 18px 178px;
     }
     #sugarai_license_increase {
         color: red;
@@ -335,37 +439,32 @@
     <input type="hidden" name="licensed_users" id="licensed_users" value="{$licensed_users}">
     <input type="hidden" name="available_users" id="available_users" value="{$available_licensed_users}">
 
-<table width="100%" border="1" cellspacing="0" cellpadding="0" class="edit view">
-    <tr><th align="left" scope="row" colspan="4"><h4>{$LICENSE.LBL_STEPS_TO_LOCATE_KEY_TITLE}</h4></th></tr>
-    <tr>
-        <td align="left" scope="row" colspan="4">
+    <div class="ut-sm-license">
+        <div class="ut-sm-license-header">
+            <img src="modules/ut_sm/images/urdhvatech-horizontal-small.png" alt="Urdhva Tech">
+            <span class="ut-sm-license-divider"></span>
+            <h1>{$MOD.LBL_META_LEADS_LICENSE}</h1>
+        </div>
+        <div class="ut-sm-license-steps">
             {$LICENSE.LBL_STEPS_TO_LOCATE_KEY}
-        </td>
-   </tr>
-    <tr>
-        <td width="20%" scope="row" style="vertical-align: middle">{$LICENSE.LBL_LICENSE_KEY}</td>
-        <td width="30%" colspan="3" scope="row">
-            <input id='sugarai_license_key' name='sugarai_license_key' class='sugarai_license_key' tabindex='1' size='50' maxlength='100' type="text" value="{$license_key}">
-            <input title="{$LICENSE.LBL_VALIDATE_LABEL}" class="button primary" onclick="return sugarai_validate_license();" type="submit" name="button" id="btn-sugarai-validate-license" value=" {$LICENSE.LBL_VALIDATE_LABEL} ">
-            <span id="sugarai_validating_license" style="display: none"><img src="themes/default/images/img_loading.gif" alt="Loading"></img> Validating...</span>
-            <span id="sugarai_validation_fail" style="display: none"><img src="themes/default/images/no.gif" alt="Failed"></img> Failed: <span id="sugarai_fail_message"></span></span>
+        </div>
+        <div class="ut-sm-license-row">
+            <label for="sugarai_license_key">{$LICENSE.LBL_LICENSE_KEY}</label>
+            <input id="sugarai_license_key" name="sugarai_license_key" class="sugarai_license_key" tabindex="1" maxlength="100" type="text" value="{$license_key}">
+            <input title="{$LICENSE.LBL_VALIDATE_LABEL}" class="ut-sm-license-validate" onclick="return sugarai_validate_license();" type="submit" name="button" id="btn-sugarai-validate-license" value="{$LICENSE.LBL_VALIDATE_LABEL}">
+        </div>
+        <div class="ut-sm-license-status">
+            <span id="sugarai_validating_license" style="display: none"><img src="themes/default/images/img_loading.gif" alt="Loading"> Validating...</span>
+            <span id="sugarai_validation_fail" style="display: none"><img src="themes/default/images/no.gif" alt="Failed"> Failed: <span id="sugarai_fail_message"></span></span>
             <span id="sugarai_validation_success" style="display: none">
-                <img src="themes/default/images/yes.gif" alt="Success"></img> Success!
+                <img src="themes/default/images/yes.gif" alt="Success"> Success!
                 {if $validate_users == false && !empty($continue_url)}
-                    <br/><br/>
+                    <br><br>
                     <input title="Continue" class="button primary" onclick="javascript:sugarai_continue_url();" type="button" name="button" value=" Continue ">
                 {/if}
             </span>
-        </td>
-    </tr>
-    <tr>
-        <td width="20%" scope="row"></td>
-        <td width="30%" scope="row"></td>
-        <td width="20%" scope="row"></td>
-        <td width="30%" scope="row"></td>
-    </tr>
-
-</table>
+        </div>
+    </div>
 </form>
 
 {if $validate_users == true}
