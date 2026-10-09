@@ -13,6 +13,7 @@ $mod_strings['LBL_META_LEADS_LICENSE'] = 'Meta Leads License';
 $mod_strings['LBL_UT_SM_OAUTH_SETTINGS_TITLE'] = 'Meta Leads OAuth Settings';
 $mod_strings['LBL_UT_SM_OAUTH_PAGE_TITLE'] = 'Meta Leads OAuth Settings';
 $mod_strings['LBL_UT_SM_ERROR'] = 'Error';
+$mod_strings['LBL_UT_SM_LICENSE_NOT_CONFIGURED'] = 'License is not configured';
 $mod_strings['LBL_UT_SM_SUCCESS'] = 'Success';
 
 $mod_strings['LBL_UT_SM_FACEBOOK_APP_CONFIGURATION'] = 'Meta Leads App Configuration';

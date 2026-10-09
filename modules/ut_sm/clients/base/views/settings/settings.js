@@ -42,7 +42,7 @@
             error: _.bind(function(error) {
                 app.alert.dismiss('ut-sm-settings-load');
                 if (this._isLicenseError(error)) {
-                    app.router.navigate('ut_sm/license', {trigger: true, replace: true});
+                    app.router.navigate('bwc/index.php?module=ut_sm&action=license', {trigger: true, replace: true});
                     return;
                 }
                 this._showError(error);
@@ -109,7 +109,7 @@
             verify_token: this.$('[name=verify_token]').val(),
             reconciliation_hours: this.$('[name=reconciliation_hours]').val()
         };
-        this._post('ut_sm/settings', payload, 'create');
+        this._licensedPost('ut_sm/settings', payload);
     },
 
     /**
@@ -138,7 +138,7 @@
      * Refresh the stored user token and page subscriptions.
      */
     refreshTokens: function() {
-        this._post('ut_sm/refreshTokens', {});
+        this._licensedPost('ut_sm/refreshTokens');
     },
 
     /**
@@ -158,7 +158,7 @@
      * Run reconciliation immediately.
      */
     reconcile: function() {
-        this._post('ut_sm/reconcile', {});
+        this._licensedPost('ut_sm/reconcile');
     },
 
     /**
@@ -168,9 +168,74 @@
      */
     configureAccount: function(evt) {
         var id = this.$(evt.currentTarget).data('id');
-        if (id) {
-            app.router.navigate('ut_sm/account/' + id, {trigger: true});
+        if (!id) {
+            return;
         }
+        var url = app.api.buildURL('ut_sm', 'account/' + encodeURIComponent(id));
+        app.alert.show('ut-sm-account-open', {
+            level: 'process',
+            title: app.lang.get('LBL_LOADING')
+        });
+        app.api.call('read', url, null, {
+            success: _.bind(function() {
+                app.alert.dismiss('ut-sm-account-open');
+                app.router.navigate('ut_sm/account/' + id, {trigger: true});
+            }, this),
+            error: _.bind(function(error) {
+                app.alert.dismiss('ut-sm-account-open');
+                if (this._isLicenseError(error)) {
+                    this._showLicenseAlert();
+                    return;
+                }
+                this._showError(error);
+            }, this)
+        });
+    },
+
+    /**
+     * Run a settings action. A missing license shows the alert and leaves this page unchanged.
+     *
+     * @param {string} path
+     * @param {Object} [payload]
+     */
+    _licensedPost: function(path, payload) {
+        if (this._actionInProgress) {
+            return;
+        }
+        this._actionInProgress = true;
+        var parts = path.split('/');
+        var url = app.api.buildURL(parts.shift(), parts.join('/'));
+        app.alert.show('ut-sm-settings-working', {
+            level: 'process',
+            title: app.lang.get('LBL_LOADING')
+        });
+        app.api.call('create', url, payload || {}, {
+            success: _.bind(function(data) {
+                this._actionInProgress = false;
+                app.alert.dismiss('ut-sm-settings-working');
+                this.settings = data || this.settings;
+                this.hasConnectedAccounts = !_.isEmpty(this.settings.connected_accounts);
+                this.hasReconciliationRun = !!(this.settings.reconciliation && this.settings.reconciliation.last_run);
+                this.hasReconciliationError = !!(this.settings.reconciliation && this.settings.reconciliation.last_error);
+                this.render();
+                if (data && data.message) {
+                    app.alert.show('ut-sm-settings-saved', {
+                        level: 'success',
+                        messages: data.message,
+                        autoClose: true
+                    });
+                }
+            }, this),
+            error: _.bind(function(error) {
+                this._actionInProgress = false;
+                app.alert.dismiss('ut-sm-settings-working');
+                if (this._isLicenseError(error)) {
+                    this._showLicenseAlert();
+                    return;
+                }
+                this._showError(error);
+            }, this)
+        });
     },
 
     /**
@@ -204,7 +269,7 @@
             error: _.bind(function(error) {
                 app.alert.dismiss('ut-sm-settings-save');
                 if (this._isLicenseError(error)) {
-                    app.router.navigate('ut_sm/license', {trigger: true});
+                    app.router.navigate('bwc/index.php?module=ut_sm&action=license', {trigger: true});
                     return;
                 }
                 this._showError(error);
@@ -217,7 +282,28 @@
      * @return {boolean}
      */
     _isLicenseError: function(error) {
-        return this._errorMessage(error).indexOf('LICENSE_REQUIRED') !== -1;
+        var details = [
+            this._errorMessage(error),
+            error && error.code,
+            error && error.responseText,
+            error && error.payload && error.payload.error_message
+        ];
+        return details.join(' ').indexOf('LICENSE_REQUIRED') !== -1;
+    },
+
+    /**
+     * Red Sugar alert when a settings action is blocked by the license check.
+     */
+    _showLicenseAlert: function() {
+        var message = app.lang.get('LBL_UT_SM_LICENSE_NOT_CONFIGURED', this.module);
+        if (!message || message === 'LBL_UT_SM_LICENSE_NOT_CONFIGURED') {
+            message = 'License is not configured';
+        }
+        app.alert.show('ut-sm-license-required', {
+            level: 'error',
+            messages: message,
+            autoClose: false
+        });
     },
 
     /**

@@ -24,9 +24,9 @@ class UTSMLicenseService
      */
     public static function hasLicenseKey()
     {
-        require_once 'modules/' . self::MODULE . '/license/OutfittersLicense.php';
+        require_once 'modules/' . self::MODULE . '/license/SugarAILicense.php';
 
-        $key = trim((string) UT_SM_OutfittersLicense::getKey(self::MODULE));
+        $key = trim((string) UT_SM_SugarAILicense::getKey(self::MODULE));
 
         return $key !== '';
     }
@@ -44,7 +44,11 @@ class UTSMLicenseService
         $administration = new Administration();
         $administration->retrieveSettings();
 
-        $settingKey = 'SugarOutfitters_' . $outfitters_config['shortname'];
+        if (empty($sugarai_config['shortname'])) {
+            return false;
+        }
+
+        $settingKey = 'SugarAI_' . $sugarai_config['shortname'];
         $raw = !empty($administration->settings[$settingKey])
             ? trim((string) $administration->settings[$settingKey])
             : '';
@@ -75,7 +79,7 @@ class UTSMLicenseService
      */
     public static function isValid()
     {
-        return true;
+        //return false;
         if (!self::hasLicenseKey()) {
             return false;
         }
@@ -84,9 +88,9 @@ class UTSMLicenseService
             return false;
         }
 
-        require_once 'modules/' . self::MODULE . '/license/OutfittersLicense.php';
+        require_once 'modules/' . self::MODULE . '/license/SugarAILicense.php';
 
-        return UT_SM_OutfittersLicense::isValid(self::MODULE) === true;
+        return UT_SM_SugarAILicense::isValid(self::MODULE) === true;
     }
 
     /**
@@ -117,7 +121,7 @@ class UTSMLicenseService
             return;
         }
 
-        self::redirectToSidecar('ut_sm/license');
+        self::redirectToSidecar('bwc/index.php?module=ut_sm&action=license');
     }
 
     /**

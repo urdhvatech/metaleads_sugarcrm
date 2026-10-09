@@ -17,13 +17,16 @@ $admin_option_defs['Administration']['ut_sm_settings'] = array(
     'LBL_UT_SM_SETTINGS_DESC',
     '#ut_sm/settings',
 );
-$admin_option_defs['Administration']['ut_sm_license'] = array(
+/*$admin_option_defs['Administration']['ut_sm_license'] = array(
     'Administration',
     'icon' => 'sicon-lock',
     'LBL_UT_SM_LICENSE',
     'LBL_UT_SM_DESC',
     '#ut_sm/license',
 );
+*/
+$admin_option_defs['Administration']['ut_whatsapp_license']= array('UrdhvaTech','LBL_UT_SM_LICENSE','LBL_UT_SM_DESC','javascript:void(parent.SUGAR.App.router.navigate("#bwc/index.php?module=ut_sm&action=license", {trigger: true}));');
+
 $admin_group_header[] = array(
     'LBL_UT_SM_SETTINGS_TITLE',
     '',

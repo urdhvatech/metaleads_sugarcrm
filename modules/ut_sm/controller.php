@@ -73,9 +73,14 @@ class UT_SMController extends SugarController
         $this->redirectToSidecar($route);
     }
 
+    /*public function action_license()
+    {
+        $this->redirectToSidecar('bwc/index.php?module=ut_sm&action=license');
+    }*/
+
     public function action_license()
     {
-        $this->redirectToSidecar('ut_sm/license');
+        $this->view = 'license';
     }
 
     /**

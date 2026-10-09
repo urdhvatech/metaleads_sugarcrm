@@ -39,8 +39,8 @@
             }, this),
             error: _.bind(function(error) {
                 app.alert.dismiss('ut-sm-account-load');
-                if (this._errorMessage(error).indexOf('LICENSE_REQUIRED') !== -1) {
-                    app.router.navigate('ut_sm/license', {trigger: true, replace: true});
+                if (this._isLicenseError(error)) {
+                    this._showLicenseAlert();
                     return;
                 }
                 this._showError(error);
@@ -127,8 +127,40 @@
      * Reload Meta lead forms for this account.
      */
     refreshForms: function() {
+        if (this._actionInProgress) {
+            return;
+        }
+        this._actionInProgress = true;
         var url = app.api.buildURL('ut_sm', 'account/' + encodeURIComponent(this.accountId) + '/refreshForms');
-        this._request('create', url);
+        app.alert.show('ut-sm-account-working', {
+            level: 'process',
+            title: app.lang.get('LBL_LOADING')
+        });
+        app.api.call('create', url, {}, {
+            success: _.bind(function(data) {
+                this._actionInProgress = false;
+                app.alert.dismiss('ut-sm-account-working');
+                this.account = data || this.account;
+                this._setAccountFlags();
+                this.render();
+                if (data && data.message) {
+                    app.alert.show('ut-sm-account-saved', {
+                        level: 'success',
+                        messages: data.message,
+                        autoClose: true
+                    });
+                }
+            }, this),
+            error: _.bind(function(error) {
+                this._actionInProgress = false;
+                app.alert.dismiss('ut-sm-account-working');
+                if (this._isLicenseError(error)) {
+                    this._showLicenseAlert();
+                    return;
+                }
+                this._showError(error);
+            }, this)
+        });
     },
 
     /**
@@ -153,12 +185,17 @@
      * @param {Object} [payload]
      */
     _request: function(method, url, payload) {
+        if (this._actionInProgress) {
+            return;
+        }
+        this._actionInProgress = true;
         app.alert.show('ut-sm-account-save', {
             level: 'process',
             title: app.lang.get('LBL_LOADING')
         });
         app.api.call(method, url, payload || {}, {
             success: _.bind(function(data) {
+                this._actionInProgress = false;
                 app.alert.dismiss('ut-sm-account-save');
                 this.account = data || this.account;
                 this._setAccountFlags();
@@ -172,9 +209,10 @@
                 }
             }, this),
             error: _.bind(function(error) {
+                this._actionInProgress = false;
                 app.alert.dismiss('ut-sm-account-save');
-                if (this._errorMessage(error).indexOf('LICENSE_REQUIRED') !== -1) {
-                    app.router.navigate('ut_sm/license', {trigger: true});
+                if (this._isLicenseError(error)) {
+                    this._showLicenseAlert();
                     return;
                 }
                 this._showError(error);
@@ -184,7 +222,33 @@
 
     /**
      * @param {Object} error
+     * @return {boolean}
      */
+    _isLicenseError: function(error) {
+        var details = [
+            this._errorMessage(error),
+            error && error.code,
+            error && error.responseText,
+            error && error.payload && error.payload.error_message
+        ];
+        return details.join(' ').indexOf('LICENSE_REQUIRED') !== -1;
+    },
+
+    /**
+     * Red Sugar alert when an account action is blocked by the license check.
+     */
+    _showLicenseAlert: function() {
+        var message = app.lang.get('LBL_UT_SM_LICENSE_NOT_CONFIGURED', this.module);
+        if (!message || message === 'LBL_UT_SM_LICENSE_NOT_CONFIGURED') {
+            message = 'License is not configured';
+        }
+        app.alert.show('ut-sm-license-required', {
+            level: 'error',
+            messages: message,
+            autoClose: false
+        });
+    },
+
     _showError: function(error) {
         app.alert.show('ut-sm-account-error', {
             level: 'error',

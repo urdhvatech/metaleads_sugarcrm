@@ -77,6 +77,10 @@ Per-account lead assignment, forms, and field mapping.
     border: 1px solid var(--border-base);
     border-radius: 4px;
 }
+.ut-sm-account select.ut-sm-select-half {
+    width: 50%;
+    max-width: 50%;
+}
 .ut-sm-account .ut-sm-help {
     display: block;
     clear: both;
@@ -102,6 +106,16 @@ Per-account lead assignment, forms, and field mapping.
     align-items: center;
     gap: 8px;
     margin-top: 4px;
+}
+.ut-sm-account .ut-sm-footer {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 2px solid #3498db;
+}
+.ut-sm-account .ut-sm-footer img {
+    display: block;
+    height: 40px;
+    width: auto;
 }
 .ut-sm-account .ut-sm-note {
     margin: 10px 0 0;
@@ -137,7 +151,13 @@ Per-account lead assignment, forms, and field mapping.
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 6px 16px;
 }
-.ut-sm-account .mapping-block { margin-bottom: 16px; }
+.ut-sm-account .mapping-block {
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid var(--border-base);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 .ut-sm-account .mapping-block h3 {
     margin: 0 0 10px;
     font-size: 14px;
@@ -201,7 +221,7 @@ Per-account lead assignment, forms, and field mapping.
             <h2><i class="sicon sicon-user" aria-hidden="true" style="margin-right: 6px;"></i>{{str "LBL_UT_SM_LEAD_ASSIGNMENT" "ut_sm"}}</h2>
             <div class="ut-sm-field">
                 <label for="ut-sm-assignment-type">{{str "LBL_UT_SM_ASSIGN_NEW_LEADS_TO" "ut_sm"}}</label>
-                <select id="ut-sm-assignment-type" name="assignment_type">
+                <select id="ut-sm-assignment-type" class="ut-sm-select-half" name="assignment_type">
                     <option value="keep_empty" {{#eq account.assignment_type "keep_empty"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_KEEP_EMPTY" "ut_sm"}}</option>
                     <option value="round_robin" {{#eq account.assignment_type "round_robin"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_ROUND_ROBIN" "ut_sm"}}</option>
                     <option value="specific_user" {{#eq account.assignment_type "specific_user"}}selected{{/eq}}>{{str "LBL_UT_SM_ASSIGN_SPECIFIC_USER" "ut_sm"}}</option>
@@ -224,7 +244,7 @@ Per-account lead assignment, forms, and field mapping.
 
             <div class="ut-sm-field" data-panel="specific_user" {{#unless showSpecificUser}}style="display:none"{{/unless}}>
                 <label for="ut-sm-user">{{str "LBL_UT_SM_USER" "ut_sm"}}</label>
-                <select id="ut-sm-user" name="assignment_user_id">
+                <select id="ut-sm-user" class="ut-sm-select-half" name="assignment_user_id">
                     <option value="">{{str "LBL_UT_SM_SELECT_USER" "ut_sm"}}</option>
                     {{#each account.users}}
                         <option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>
@@ -316,4 +336,9 @@ Per-account lead assignment, forms, and field mapping.
         </div>
     </div>
     {{/if}}
+    <div class="ut-sm-footer">
+        <a href="https://urdhva-tech.com" target="_blank" rel="noopener noreferrer">
+            <img src="modules/ut_sm/images/urdhvatech-horizontal-small.png" alt="Urdhva Tech">
+        </a>
+    </div>
 </div>

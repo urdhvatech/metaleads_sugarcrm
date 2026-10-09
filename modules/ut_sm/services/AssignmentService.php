@@ -16,6 +16,18 @@ if (is_file('modules/AOW_WorkFlow/aow_utils.php')) {
     require_once 'modules/AOW_WorkFlow/aow_utils.php';
 }
 
+/**
+ * config.name is varchar(32). A round-robin key built from the account id is longer than that,
+ * so the cursor is stored under a 32-character hash of the logical key.
+ *
+ * @param string $id
+ * @return string
+ */
+function utSmRoundRobinConfigName($id)
+{
+    return md5((string) $id);
+}
+
 if (!function_exists('getRoundRobinUser')) {
     /**
      * Next user id in a round-robin list. Used when SuiteCRM AOW helpers are absent.
@@ -33,7 +45,7 @@ if (!function_exists('getRoundRobinUser')) {
 
         $admin = BeanFactory::newBean('Administration');
         $admin->retrieveSettings('ut_sm_rr');
-        $settingKey = 'ut_sm_rr_' . $id;
+        $settingKey = 'ut_sm_rr_' . utSmRoundRobinConfigName($id);
         $last = isset($admin->settings[$settingKey]) ? (string) $admin->settings[$settingKey] : '';
         $index = array_search($last, $users, true);
         if ($index === false || $index >= (count($users) - 1)) {
@@ -52,7 +64,7 @@ if (!function_exists('setLastUser')) {
     function setLastUser($userId, $id)
     {
         $admin = BeanFactory::newBean('Administration');
-        $admin->saveSetting('ut_sm_rr', (string) $id, (string) $userId);
+        $admin->saveSetting('ut_sm_rr', utSmRoundRobinConfigName($id), (string) $userId);
     }
 }
 

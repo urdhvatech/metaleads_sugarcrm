@@ -36,7 +36,7 @@ if (empty($current_user) || !$current_user->is_admin) {
 
 require_once 'modules/ut_sm/services/LicenseService.php';
 if (!UTSMLicenseService::isValid()) {
-    UTSMLicenseService::redirectToSidecar('ut_sm/license');
+    UTSMLicenseService::redirectToLicenseIfInvalid();
 }
 
 function utSmRedirectWithMessage($type, $message)
@@ -108,7 +108,7 @@ if (!empty($_REQUEST['action_param']) && $_REQUEST['action_param'] === 'reconcil
     if (!$result['ok']) {
         if (!empty($result['error']) && $result['error'] === 'License is not valid') {
             require_once 'modules/ut_sm/services/LicenseService.php';
-            UTSMLicenseService::redirectToSidecar('ut_sm/license');
+            UTSMLicenseService::redirectToLicenseIfInvalid();
         }
         utSmRedirectWithMessage(
             'error',

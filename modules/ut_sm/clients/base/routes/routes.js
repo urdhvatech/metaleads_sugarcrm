@@ -40,7 +40,7 @@
                 name: 'ut-sm-license',
                 route: 'ut_sm/license',
                 callback: function() {
-                    loadAdminLayout('license');
+                    app.router.navigate('bwc/index.php?module=ut_sm&action=license', {trigger: true, replace: true});
                 }
             },
             {

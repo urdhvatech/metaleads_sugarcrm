@@ -159,9 +159,7 @@ class UtSmApi extends SugarApi
                 'App ID, App Secret, Redirect URI, Callback URL and Verify Token are required.'
             ));
         }
-        $GLOBALS['log']->fatal("--------------------------------");
-        $GLOBALS['log']->fatal(print_r($args, true));
-        $GLOBALS['log']->fatal("--------------------------------");
+        
         $isValidRedirect = (bool) filter_var($postedRedirectUri, FILTER_VALIDATE_URL);
         $isValidCallback = (bool) filter_var($postedCallbackUrl, FILTER_VALIDATE_URL);
         $isValidVerifyToken = (bool) preg_match('/^[A-Za-z0-9._-]{3,255}$/', $postedVerifyToken);
@@ -390,12 +388,12 @@ class UtSmApi extends SugarApi
         if ($key === '') {
             throw new SugarApiExceptionMissingParameter('Key is required.');
         }
-
-        require_once 'modules/ut_sm/license/OutfittersLicense.php';
+        
+        require_once 'modules/ut_sm/license/SugarAILicense.php';
         require 'modules/ut_sm/license/config.php';
         require_once 'modules/Administration/Administration.php';
 
-        $validated = UT_SM_OutfittersLicense::doValidate('ut_sm', $key);
+        $validated = UT_SM_SugarAILicense::doValidate('ut_sm', $key);
         $administration = new Administration();
         $administration->saveSetting(
             'SugarOutfitters',
@@ -447,7 +445,7 @@ class UtSmApi extends SugarApi
             throw new SugarApiExceptionMissingParameter('User count is required.');
         }
 
-        require_once 'modules/ut_sm/license/OutfittersLicense.php';
+        require_once 'modules/ut_sm/license/SugarAILicense.php';
         require 'modules/ut_sm/license/config.php';
         require_once 'modules/Administration/Administration.php';
 
@@ -491,10 +489,10 @@ class UtSmApi extends SugarApi
             throw new SugarApiExceptionInvalidParameter('No additional licenses were set to be added.');
         }
 
-        require_once 'modules/ut_sm/license/OutfittersLicense.php';
+        require_once 'modules/ut_sm/license/SugarAILicense.php';
         require 'modules/ut_sm/license/config.php';
 
-        $response = UT_SM_OutfittersLicense::doValidate('ut_sm');
+        $response = UT_SM_SugarAILicense::doValidate('ut_sm');
         if (empty($response['success']) || empty($response['result']['validated'])) {
             throw new SugarApiExceptionInvalidParameter('The license key could not validate. Please check the key and re-validate.');
         }
@@ -725,7 +723,7 @@ class UtSmApi extends SugarApi
      */
     protected function buildLicensePayload()
     {
-        require_once 'modules/ut_sm/license/OutfittersLicense.php';
+        require_once 'modules/ut_sm/license/SugarAILicense.php';
         require 'modules/ut_sm/license/config.php';
         require_once 'modules/ut_sm/services/LicenseService.php';
 
@@ -768,7 +766,7 @@ class UtSmApi extends SugarApi
             }
         }
 
-        $key = UT_SM_OutfittersLicense::getKey('ut_sm');
+        $key = UT_SM_SugarAILicense::getKey('ut_sm');
 
         return array(
             'license_key' => $key ? (string) $key : '',

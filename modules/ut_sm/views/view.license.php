@@ -1,14 +1,4 @@
 <?php
-/**
- * This file is part of the "Meta Leads" package.
- *
- * @package Meta Leads
- * @author Urdhva Tech <contact@urdhva-tech.com>
- * @link https://www.urdhva-tech.com
- * @copyright Urdhva Tech
- * @license As specified in the License Agreement supplied with this package.
- */
-
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 require_once('include/MVC/View/SugarView.php');
@@ -22,7 +12,7 @@ class ViewLicense extends SugarView
 
         return array(
            "<a href='index.php?module=Administration&action=index'>".translate('LBL_MODULE_NAME','Administration')."</a>",
-           translate('LBL_META_LEADS_LICENSE','ut_sm'),
+           translate('LBL_UT_SM_SETTINGS_TITLE','Administration').': '.translate('LBL_UT_SM_DESC','Administration'),
            );
     }
 
@@ -42,9 +32,9 @@ class ViewLicense extends SugarView
 
         //load license validation config
         require_once('modules/'.$currentModule.'/license/config.php');
-        require_once('modules/'.$currentModule.'/license/OutfittersLicense.php');
+        require_once('modules/'.$currentModule.'/license/SugarAILicense.php');
         
-      //  echo $this->getModuleTitle();
+        echo $this->getModuleTitle();
 
         $GLOBALS['log']->info("License Configuration");
 
@@ -60,13 +50,13 @@ class ViewLicense extends SugarView
         $license_strings = ViewLicense::loadLicenseStrings();
         $this->ss->assign("LICENSE", $license_strings);
         
-        $key = UT_SM_OutfittersLicense::getKey($currentModule);
+        $key = UT_SM_SugarAILicense::getKey($currentModule);
 
         if(!empty($key)) {
             $this->ss->assign("license_key", $key);
         }
         
-        $this->ss->assign("continue_url",$outfitters_config['continue_url']);
+        $this->ss->assign("continue_url",$sugarai_config['continue_url']);
 
         //todo: check version of SugarCRM instead
         $this->ss->assign("file_path", getJSPath("modules/".$currentModule."/license/lib/jquery-1.7.1.min.js"));
@@ -77,14 +67,14 @@ class ViewLicense extends SugarView
             $this->ss->assign("IS_SUGAR_6",false);
         }
 
-        if(!function_exists('curl_init')){
+        if (!extension_loaded('curl')) {
             global $current_language;
             $admin_mod_strings = return_module_language($current_language, 'Administration');
             $curl_not_enabled = $admin_mod_strings['ERR_ENABLE_CURL'];
             $this->ss->assign("CURL_NOT_ENABLED",$curl_not_enabled);
         }
 
-        if(isset($outfitters_config['validate_users']) && $outfitters_config['validate_users'] == true) {
+        if(isset($sugarai_config['validate_users']) && $sugarai_config['validate_users'] == true) {
             $this->ss->assign("validate_users", true);
             //get user count for all active, non-portal, non-group users
             $active_users = get_user_array(FALSE,'Active','',false,'',' AND portal_only=0 AND is_group=0');
@@ -96,7 +86,7 @@ class ViewLicense extends SugarView
             $this->ss->assign("user_count_param", '');
         }
         
-        if(isset($outfitters_config['manage_licensed_users']) && $outfitters_config['manage_licensed_users'] == true) {
+        if(isset($sugarai_config['manage_licensed_users']) && $sugarai_config['manage_licensed_users'] == true) {
             $this->ss->assign("manage_licensed_users", true);
             $this->ss->assign("validation_required", true);
             
@@ -105,14 +95,14 @@ class ViewLicense extends SugarView
             $administration = new Administration();
             $administration->retrieveSettings();
             
-            $last_validation = $administration->settings['SugarOutfitters_'.$outfitters_config['shortname']];
+            $last_validation = $administration->settings['SugarAI_'.$sugarai_config['shortname']];
 
             $trimmed_last = trim($last_validation);
             //only run a license check if one has been done in the past            
             if(!empty($trimmed_last))
             {
                 //if new then don't do
-                $validated = UT_SM_OutfittersLicense::doValidate($currentModule);
+                $validated = UT_SM_SugarAILicense::doValidate($currentModule);
 
                 $store = array(
                     'last_ran' => time(),
@@ -120,7 +110,7 @@ class ViewLicense extends SugarView
                 );
 
                 $serialized = base64_encode(serialize($store));
-                $administration->saveSetting('SugarOutfitters', $outfitters_config['shortname'], $serialized);
+                $administration->saveSetting('SugarAI', $sugarai_config['shortname'], $serialized);
 
                 $licensed_users = 0;
                 //check last validation
@@ -145,7 +135,7 @@ class ViewLicense extends SugarView
             
             $used_licenses = 0;
             global $db,$locale;
-            $result = $db->query("SELECT users.id, users.user_name, users.first_name, users.last_name FROM so_users INNER JOIN users ON so_users.user_id = users.id WHERE shortname = '".$db->quote($outfitters_config['shortname'])."'",false);
+            $result = $db->query("SELECT users.id, users.user_name, users.first_name, users.last_name FROM so_users INNER JOIN users ON so_users.user_id = users.id WHERE shortname = '".$db->quote($sugarai_config['shortname'])."'",false);
             while($row = $db->fetchByAssoc($result))
             {
                 $used_licenses++;
@@ -207,7 +197,7 @@ class ViewLicense extends SugarView
         foreach ( $license_strings_array as $license_strings_item ) {
             $license_strings = sugarArrayMerge($license_strings, $license_strings_item);
         }
-        $license_strings['LBL_SUITEAI_LICENSE'] = translate('LBL_SUITEAI_LICENSE','Administration');
+        
         return $license_strings;
     }
 }
