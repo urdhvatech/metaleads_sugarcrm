@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the "Meta Leads" package.
+ * This file is part of the "Meta Leads for SugarAI" package.
  *
- * @package Meta Leads
+ * @package Meta Leads for SugarAI
  * @author Urdhva Tech <contact@urdhva-tech.com>
  * @link https://www.urdhva-tech.com
  * @copyright Urdhva Tech
@@ -10,7 +10,7 @@
  */
 
 /**
- * SuiteCRM scheduled task: refresh Facebook long-lived tokens and re-sync page leadgen subscriptions.
+ * SugarAI scheduled task: refresh Facebook long-lived tokens and re-sync page leadgen subscriptions.
  * Also reconcile Meta leads.
  */
 if (!defined('sugarEntry') || !sugarEntry) {

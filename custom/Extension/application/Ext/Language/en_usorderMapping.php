@@ -1,5 +1,5 @@
 <?php
-// created: 2026-10-06 15:04:24
+// created: 2026-10-12 14:29:46
 $extensionOrderMap = array (
   'custom/Extension/application/Ext/Language/en_us.sugar_record_type_display_notes.php' => 
   array (
@@ -21,8 +21,8 @@ $extensionOrderMap = array (
   ),
   'custom/Extension/application/Ext/Language/en_us.ut_sm.php' => 
   array (
-    'md5' => '05f9cfcf8b48915b95a8312a999ff288',
-    'mtime' => 1791278776,
+    'md5' => 'c292ee522c3b26613438272ca2990f01',
+    'mtime' => 1791795438,
     'is_override' => false,
   ),
 );
