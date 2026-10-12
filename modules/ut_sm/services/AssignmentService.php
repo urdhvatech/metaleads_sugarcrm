@@ -30,7 +30,7 @@ function utSmRoundRobinConfigName($id)
 
 if (!function_exists('getRoundRobinUser')) {
     /**
-     * Next user id in a round-robin list. Used when SuiteCRM AOW helpers are absent.
+     * Next user id in a round-robin list. 
      *
      * @param array $users
      * @param string $id
@@ -70,8 +70,6 @@ if (!function_exists('setLastUser')) {
 
 /**
  * Per-account lead assignment (keep empty, round robin, specific user, security group).
- *
- * Reuses SuiteCRM AOW round-robin helpers for user rotation.
  */
 class UTSMAssignmentService
 {

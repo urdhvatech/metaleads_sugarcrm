@@ -15,7 +15,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 require_once __DIR__ . '/GraphClient.php';
 
 /**
- * Per-form Meta field to SuiteCRM Lead field mapping with intelligent defaults.
+ * Per-form Meta field to SugarAI Lead field mapping with intelligent defaults.
  *
  * Syncs Meta form questions, suggests conservative default mappings, and applies
  * mappings during lead import without overwriting administrator customizations.
@@ -42,7 +42,7 @@ class UTSMFieldMappingService
     }
 
     /**
-     * SuiteCRM Lead fields available in mapping dropdowns.
+     * SugarAI Lead fields available in mapping dropdowns.
      *
      * @return array list of {name, label, type, required}
      */
@@ -159,7 +159,7 @@ class UTSMFieldMappingService
     }
 
     /**
-     * Suggest a SuiteCRM field for a Meta question. Empty = Don't import.
+     * Suggest a SugarAI field for a Meta question. Empty = Don't import.
      *
      * @param string $key
      * @param string $label
@@ -690,7 +690,7 @@ class UTSMFieldMappingService
         if (count($parts) > 1 && empty($mapped['last_name'])) {
             $mapped['last_name'] = trim(implode(' ', array_slice($parts, 1)));
         } elseif (empty($mapped['last_name'])) {
-            // SuiteCRM requires last_name; put whole name there if only one token
+            // SugarAI requires last_name; put whole name there if only one token
             $mapped['last_name'] = $parts[0];
             $mapped['first_name'] = '';
         }

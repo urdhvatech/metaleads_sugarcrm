@@ -9,7 +9,7 @@
  * @license As specified in the License Agreement supplied with this package.
  */
 /**
- * SuiteCRM controller for the ut_sm Meta Lead Ads module.
+ * SugarAI controller for the ut_sm Meta Lead Ads module.
  */
 if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');

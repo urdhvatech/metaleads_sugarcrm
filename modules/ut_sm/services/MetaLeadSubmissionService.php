@@ -287,7 +287,7 @@ class UTSMMetaLeadSubmissionService
             return '';
         }
 
-        // SuiteCRM / browsers may store or show &quot; instead of "
+        // SugarAI / browsers may store or show &quot; instead of "
         $text = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         // In case it was double-encoded (&amp;quot;)
         if (strpos($text, '&quot;') !== false || strpos($text, '&#') !== false) {

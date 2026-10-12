@@ -450,7 +450,7 @@ if (!class_exists('SugarAI_API'))
 
             // get sugar fork
             $fork = 'SugarCRM';
-            $data['sugar_fork'] = isset($sugar_config['suitecrm_version']) ? 'SuiteCRM' : $fork;
+            $data['sugar_fork'] = isset($sugar_config['sugar_version']) ? 'SugarAI' : $fork;
 
             // get sugar_config data
             $data['db_type'] = empty($sugar_config['dbconfig']['db_type']) ? $not_set_value : $sugar_config['dbconfig']['db_type'];

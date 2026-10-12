@@ -26,7 +26,7 @@ require_once __DIR__ . '/MetaLeadSubmissionService.php';
  *
  * Fetches lead data from Graph API, applies form filters, field mapping,
  * duplicate detection (Lead → Contact → Account), assignment rules,
- * SuiteCRM Lead create/update, and Meta Lead Submission linkage.
+ * SugarAI Lead create/update, and Meta Lead Submission linkage.
  */
 class UTSMLeadImportService
 {

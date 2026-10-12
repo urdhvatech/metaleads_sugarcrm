@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meta Leads — How to create a Meta app and connect SuiteCRM</title>
+  <title>Meta Leads — How to create a Meta app and connect SugarAI</title>
   <style>
     :root {
       --text: #1a1a1a;
@@ -128,28 +128,28 @@
   <header>
     <div class="wrap">
       <h1>Meta Leads setup guide</h1>
-      <p>Create a Meta app with the Lead Ads use case, then connect it to SuiteCRM. Products are added automatically from the use case — do not add them separately.</p>
+      <p>Create a Meta app with the Lead Ads use case, then connect it to SugarAI. Products are added automatically from the use case — do not add them separately.</p>
     </div>
   </header>
 
   <main>
     <h2>Before you start</h2>
     <ul>
-      <li>SuiteCRM with Meta Leads installed and licensed</li>
-      <li>A SuiteCRM admin login</li>
+      <li>SugarAI with Meta Leads installed and licensed</li>
+      <li>A SugarAI admin login</li>
       <li>A Facebook user who can advertise on the Pages (including Pages in a Business Portfolio)</li>
-      <li>A public <strong>HTTPS</strong> SuiteCRM URL. Localhost will not receive Meta webhooks.</li>
+      <li>A public <strong>HTTPS</strong> SugarAI URL. Localhost will not receive Meta webhooks.</li>
     </ul>
     <div class="note">
-      Replace <code>https://your-crm.example.com</code> with your real SuiteCRM site URL. No trailing slash.
-      The redirect URI and webhook URL must match SuiteCRM character-for-character (<code>https</code>, <code>www</code>, path).
+      Replace <code>https://your-crm.example.com</code> with your real SugarAI site URL. No trailing slash.
+      The redirect URI and webhook URL must match SugarAI character-for-character (<code>https</code>, <code>www</code>, path).
     </div>
 
-    <h2>URLs used by SuiteCRM</h2>
+    <h2>URLs used by SugarAI</h2>
     <table>
       <thead>
         <tr>
-          <th>SuiteCRM field</th>
+          <th>SugarAI field</th>
           <th>Value to paste in Meta</th>
         </tr>
       </thead>
@@ -164,7 +164,7 @@
         </tr>
         <tr>
           <td>Verify Token</td>
-          <td>Any secret you choose, for example <code>SuiteCRM_MetaLeads_2026</code>. Letters, numbers, <code>.</code> <code>_</code> <code>-</code> only (3–255 characters). Must be identical in Meta and SuiteCRM.</td>
+          <td>Any secret you choose, for example <code>SugarAI_MetaLeads_2026</code>. Letters, numbers, <code>.</code> <code>_</code> <code>-</code> only (3–255 characters). Must be identical in Meta and SugarAI.</td>
         </tr>
       </tbody>
     </table>
@@ -199,7 +199,7 @@
           <tr>
             <td class="stop">Do not select</td>
             <td>Authenticate and request data from users with Facebook Login</td>
-            <td>Consumer login. SuiteCRM users do not sign in with Facebook.</td>
+            <td>Consumer login. SugarAI users do not sign in with Facebook.</td>
           </tr>
           <tr>
             <td class="stop">Do not select</td>
@@ -233,7 +233,7 @@
     </ol>
 
     <h3>Required by Meta (grey / cannot remove — leave them)</h3>
-    <p>These are required for this use case. <code>business_management</code> is required so Pages in a Business Portfolio appear in SuiteCRM.</p>
+    <p>These are required for this use case. <code>business_management</code> is required so Pages in a Business Portfolio appear in SugarAI.</p>
     <ul>
       <li><code>leads_retrieval</code></li>
       <li><code>pages_manage_ads</code></li>
@@ -249,12 +249,12 @@
       The trash icon next to <code>business_management</code> is grey because this use case requires it. That is expected. Do not add a second use case just to get this permission, and do not try to delete it.
     </div>
 
-    <h3>Add this optional permission (required for SuiteCRM webhooks)</h3>
+    <h3>Add this optional permission (required for SugarAI webhooks)</h3>
     <ol class="steps">
       <li>Find <code>pages_manage_metadata</code>.</li>
       <li>Click <strong>Add</strong>.</li>
     </ol>
-    <p>SuiteCRM uses this to subscribe each Page to <code>leadgen</code> so new leads are pushed in real time.</p>
+    <p>SugarAI uses this to subscribe each Page to <code>leadgen</code> so new leads are pushed in real time.</p>
 
     <h3>Do not add</h3>
     <ul>
@@ -273,7 +273,7 @@
     <div class="url-block">https://your-crm.example.com/index.php?entryPoint=ut_sm_oauth_handler</div>
     <ol class="steps" start="4">
       <li>Click <strong>Check URI</strong> if shown, then <strong>Save</strong>.</li>
-      <li>In SuiteCRM go to <strong>Admin → Meta Leads</strong> and put the same URL in <strong>OAuth Redirect URI</strong>.</li>
+      <li>In SugarAI go to <strong>Admin → Meta Leads</strong> and put the same URL in <strong>OAuth Redirect URI</strong>.</li>
     </ol>
     <div class="note">
       If you use Login <strong>Configurations</strong>: token type = <strong>User access token</strong> (not system user). Request Pages (and Instagram only if you want linked IG accounts listed). Include the Lead Ads permissions above plus <code>pages_manage_metadata</code>.
@@ -282,36 +282,36 @@
     <h2>Step 4 — Webhooks (Page leadgen)</h2>
     <p>Configure this from the Lead Ads use case → <strong>Webhooks</strong>, or the left menu <strong>Webhooks</strong>.</p>
     <ol class="steps">
-      <li>In SuiteCRM <strong>Admin → Meta Leads</strong>, enter the Callback URL and Verify Token and click <strong>Save Settings</strong> first. Meta cannot verify the webhook until SuiteCRM already has these values.</li>
+      <li>In SugarAI <strong>Admin → Meta Leads</strong>, enter the Callback URL and Verify Token and click <strong>Save Settings</strong> first. Meta cannot verify the webhook until SugarAI already has these values.</li>
       <li>In Meta, set object / product to <strong>Page</strong> (not Instagram, not User, not Ad Account).</li>
       <li>Callback URL:</li>
     </ol>
     <div class="url-block">https://your-crm.example.com/index.php?entryPoint=ut_sm_inbound</div>
     <ol class="steps" start="4">
-      <li>Verify token: the same secret saved in SuiteCRM.</li>
-      <li>Click verify. Meta sends a GET request; SuiteCRM must return the challenge.</li>
+      <li>Verify token: the same secret saved in SugarAI.</li>
+      <li>Click verify. Meta sends a GET request; SugarAI must return the challenge.</li>
       <li>Subscribe to field <strong><code>leadgen</code> only</strong>. Do not subscribe to feed, messages, or name.</li>
     </ol>
 
-    <h2>Step 5 — Copy App ID and App Secret into SuiteCRM</h2>
+    <h2>Step 5 — Copy App ID and App Secret into SugarAI</h2>
     <ol class="steps">
       <li>In Meta open <strong>App settings → Basic</strong>.</li>
       <li>Copy <strong>App ID</strong> and <strong>App Secret</strong>.</li>
       <li>Set a <strong>Privacy Policy URL</strong> (required before the app can go Live / Publish).</li>
-      <li>In SuiteCRM <strong>Admin → Meta Leads</strong> paste App ID, App Secret, OAuth Redirect URI, Callback URL, and Verify Token.</li>
+      <li>In SugarAI <strong>Admin → Meta Leads</strong> paste App ID, App Secret, OAuth Redirect URI, Callback URL, and Verify Token.</li>
       <li>Click <strong>Save Settings</strong>.</li>
     </ol>
 
     <h2>Step 6 — Authorize and connect Pages</h2>
     <ol class="steps">
-      <li>On the same SuiteCRM screen click <strong>Authorize with Facebook</strong>.</li>
+      <li>On the same SugarAI screen click <strong>Authorize with Facebook</strong>.</li>
       <li>Log in as a Facebook user who can advertise on the Pages.</li>
       <li>Grant the Lead Ads permissions, including business management.</li>
       <li>Allow every Page you want in the CRM, including Business Portfolio Pages.</li>
-      <li>Confirm SuiteCRM shows <strong>Connected</strong> and lists Pages under <strong>Connected Accounts</strong>.</li>
+      <li>Confirm SugarAI shows <strong>Connected</strong> and lists Pages under <strong>Connected Accounts</strong>.</li>
     </ol>
     <div class="note">
-      SuiteCRM requests these scopes on Authorize:
+      SugarAI requests these scopes on Authorize:
       <code>pages_show_list</code>,
       <code>leads_retrieval</code>,
       <code>pages_read_engagement</code>,
@@ -325,7 +325,7 @@
     <ol class="steps">
       <li>Next to each Page click <strong>Configure</strong>.</li>
       <li>Click <strong>Refresh Forms</strong>.</li>
-      <li>Enable the Lead Ads forms that should import into SuiteCRM.</li>
+      <li>Enable the Lead Ads forms that should import into SugarAI.</li>
       <li>Map custom questions to Lead fields if needed. Email and name usually map automatically.</li>
       <li>Click <strong>Save Configuration</strong>.</li>
     </ol>
@@ -335,18 +335,18 @@
       <li>Open <a href="https://developers.facebook.com/tools/lead-ads-testing" target="_blank" rel="noopener">https://developers.facebook.com/tools/lead-ads-testing</a></li>
       <li>Select this app, the Page, and an enabled form.</li>
       <li>Create a test lead.</li>
-      <li>In SuiteCRM open <strong>Leads</strong> and confirm the record was created.</li>
+      <li>In SugarAI open <strong>Leads</strong> and confirm the record was created.</li>
     </ol>
-    <p>SuiteCRM cron should be running so token refresh and missed-lead reconciliation can run.</p>
+    <p>SugarAI cron should be running so token refresh and missed-lead reconciliation can run.</p>
 
     <h2>Step 9 — Go Live (other people’s Pages)</h2>
     <p>Until App Review is approved, only app Admins, Developers, and Testers can connect Pages.</p>
     <ol class="steps">
       <li>Complete <strong>Business Verification</strong> on the Meta Business Portfolio.</li>
       <li>Submit <strong>App Review</strong> for the Lead Ads use case permissions (including <code>pages_manage_metadata</code>).</li>
-      <li>In the review notes, explain how to log into SuiteCRM, open Admin → Meta Leads, click Authorize with Facebook, confirm Pages appear (including Business Portfolio Pages), enable a form, and create a test lead.</li>
+      <li>In the review notes, explain how to log into SugarAI, open Admin → Meta Leads, click Authorize with Facebook, confirm Pages appear (including Business Portfolio Pages), enable a form, and create a test lead.</li>
       <li>After approval, <strong>Publish</strong> the app.</li>
-      <li>In SuiteCRM click <strong>Disconnect</strong>, then <strong>Authorize with Facebook</strong> again.</li>
+      <li>In SugarAI click <strong>Disconnect</strong>, then <strong>Authorize with Facebook</strong> again.</li>
     </ol>
 
     <h2>Checklist</h2>
@@ -356,18 +356,18 @@
         <li>Use case: Capture &amp; manage ad leads with Marketing API only</li>
         <li>Added optional permission: pages_manage_metadata</li>
         <li>Did not add email or extra use cases</li>
-        <li>OAuth redirect URI matches SuiteCRM exactly</li>
+        <li>OAuth redirect URI matches SugarAI exactly</li>
         <li>Webhooks → Page → leadgen</li>
-        <li>Callback URL and verify token match SuiteCRM</li>
+        <li>Callback URL and verify token match SugarAI</li>
         <li>Privacy policy URL set</li>
       </ul>
-      <h3>In SuiteCRM</h3>
+      <h3>In SugarAI</h3>
       <ul class="check">
         <li>Admin → Meta Leads → credentials saved</li>
         <li>Authorize with Facebook completed</li>
         <li>Pages listed under Connected Accounts</li>
         <li>Forms enabled on Configure</li>
-        <li>Test lead created a SuiteCRM Lead</li>
+        <li>Test lead created a SugarAI Lead</li>
       </ul>
     </div>
 
@@ -401,7 +401,7 @@
           <td>Page object, field <code>leadgen</code>, <code>.../index.php?entryPoint=ut_sm_inbound</code></td>
         </tr>
         <tr>
-          <td>SuiteCRM screen</td>
+          <td>SugarAI screen</td>
           <td>Admin → Meta Leads</td>
         </tr>
       </tbody>
@@ -409,7 +409,7 @@
   </main>
 
   <footer>
-    Internal reference for Meta Leads (ut_sm). Meta dashboard labels can change; the use case name and URLs above are what SuiteCRM expects.
+    Internal reference for Meta Leads (ut_sm). Meta dashboard labels can change; the use case name and URLs above are what SugarAI expects.
   </footer>
 </body>
 </html>

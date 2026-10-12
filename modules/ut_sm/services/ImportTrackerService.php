@@ -15,7 +15,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 /**
  * Import attempt tracking for webhook and reconciliation idempotency.
  *
- * Stores Meta leadgen_id, status, retry count, errors, and SuiteCRM lead linkage.
+ * Stores Meta leadgen_id, status, retry count, errors, and SugarAI lead linkage.
  */
 class UTSMImportTrackerService
 {
