@@ -311,7 +311,6 @@ class UtSmApi extends SugarApi
         $save = $configService->saveConfiguration($accountId, array(
             'assignment_type' => isset($args['assignment_type']) ? $args['assignment_type'] : 'keep_empty',
             'assignment_user_id' => isset($args['assignment_user_id']) ? $args['assignment_user_id'] : '',
-            'assignment_group_id' => isset($args['assignment_group_id']) ? $args['assignment_group_id'] : '',
             'rr_user_ids' => isset($args['rr_user_ids']) && is_array($args['rr_user_ids']) ? $args['rr_user_ids'] : array(),
             'enabled_form_ids' => isset($args['enabled_form_ids']) && is_array($args['enabled_form_ids']) ? $args['enabled_form_ids'] : array(),
             'field_map' => isset($args['field_map']) && is_array($args['field_map']) ? $args['field_map'] : array(),
@@ -650,9 +649,6 @@ class UtSmApi extends SugarApi
             }
         }
 
-        $savedGroupId = !empty($account['assignment_group_id']) ? (string) from_html($account['assignment_group_id']) : '';
-        $securityGroups = $this->listSecurityGroups($savedGroupId);
-
         $crmFieldOptions = $configService->getFieldMappingService()->getCrmFieldOptions();
         $formsWithMappings = $configService->getFormsWithMappings($account);
         foreach ($formsWithMappings as &$formRow) {
@@ -685,37 +681,10 @@ class UtSmApi extends SugarApi
             'is_instagram' => $isInstagram,
             'assignment_type' => $assignmentType,
             'assignment_user_id' => $savedUserId,
-            'assignment_group_id' => $savedGroupId,
             'users' => $userOptions,
-            'security_groups' => $securityGroups,
             'forms' => $configService->getFormsForAccount($accountId),
             'forms_with_mappings' => $formsWithMappings,
         );
-    }
-
-    /**
-     * @param string $savedGroupId
-     * @return array
-     */
-    protected function listSecurityGroups($savedGroupId)
-    {
-        $groups = array();
-        $db = DBManagerFactory::getInstance();
-        if (!$db->tableExists('securitygroups')) {
-            return $groups;
-        }
-
-        $sgRes = $db->query('SELECT id, name FROM securitygroups WHERE deleted = 0 ORDER BY name ASC');
-        while ($sgRow = $db->fetchByAssoc($sgRes)) {
-            $groupId = (string) from_html($sgRow['id']);
-            $groups[] = array(
-                'id' => $groupId,
-                'name' => from_html($sgRow['name']),
-                'selected' => ($savedGroupId !== '' && $savedGroupId === $groupId),
-            );
-        }
-
-        return $groups;
     }
 
     /**

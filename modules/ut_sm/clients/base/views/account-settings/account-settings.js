@@ -13,7 +13,6 @@
         this.accountId = this.context.get('accountId');
         this.showRoundRobin = false;
         this.showSpecificUser = false;
-        this.showSecurityGroup = false;
         if (!this.accountId) {
             app.router.navigate('ut_sm/settings', {trigger: true, replace: true});
             return;
@@ -70,7 +69,6 @@
     _setAssignmentFlags: function(type) {
         this.showRoundRobin = type === 'round_robin';
         this.showSpecificUser = type === 'specific_user';
-        this.showSecurityGroup = type === 'security_group';
     },
 
     /**
@@ -80,7 +78,6 @@
         var account = this.account || {};
         this._setAssignmentFlags(account.assignment_type);
         this.hasUsers = !_.isEmpty(account.users);
-        this.hasSecurityGroups = !_.isEmpty(account.security_groups);
         this.hasForms = !_.isEmpty(account.forms);
         this.hasFormMappings = !_.isEmpty(account.forms_with_mappings);
     },
@@ -116,7 +113,6 @@
         this._send('update', {
             assignment_type: this.$('[name=assignment_type]').val(),
             assignment_user_id: this.$('[name=assignment_user_id]').val(),
-            assignment_group_id: this.$('[name=assignment_group_id]').val(),
             rr_user_ids: rrUserIds,
             enabled_form_ids: enabledFormIds,
             field_map: fieldMap

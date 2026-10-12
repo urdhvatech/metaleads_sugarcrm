@@ -62,16 +62,11 @@ $mod_strings['LBL_UT_SM_ASSIGN_NEW_LEADS_TO'] = 'Assign new leads to';
 $mod_strings['LBL_UT_SM_ASSIGN_KEEP_EMPTY'] = 'Keep Empty';
 $mod_strings['LBL_UT_SM_ASSIGN_ROUND_ROBIN'] = 'Round Robin';
 $mod_strings['LBL_UT_SM_ASSIGN_SPECIFIC_USER'] = 'Specific User';
-$mod_strings['LBL_UT_SM_ASSIGN_SECURITY_GROUP'] = 'Security Group';
 $mod_strings['LBL_UT_SM_RR_USERS'] = 'Users';
 $mod_strings['LBL_UT_SM_RR_USERS_HELP'] = 'Select the users who participate in round robin for this account.';
 $mod_strings['LBL_UT_SM_USER'] = 'User';
 $mod_strings['LBL_UT_SM_SELECT_USER'] = '-- Select User --';
-$mod_strings['LBL_UT_SM_SECURITY_GROUP'] = 'Security Group';
-$mod_strings['LBL_UT_SM_SELECT_GROUP'] = '-- Select Security Group --';
-$mod_strings['LBL_UT_SM_SECURITY_GROUP_HELP'] = 'New leads are assigned round-robin among active users in this security group.';
 $mod_strings['LBL_UT_SM_NO_USERS'] = 'No active users found.';
-$mod_strings['LBL_UT_SM_NO_SECURITY_GROUPS'] = 'No security groups found.';
 
 $mod_strings['LBL_UT_SM_LEAD_FORMS'] = 'Lead Forms';
 $mod_strings['LBL_UT_SM_LEAD_FORMS_HELP'] = 'Select the forms whose leads should be imported into SugarCRM.';

@@ -251,21 +251,6 @@ Per-account lead assignment, forms, and field mapping.
                     {{/each}}
                 </select>
             </div>
-
-            <div class="ut-sm-field" data-panel="security_group" {{#unless showSecurityGroup}}style="display:none"{{/unless}}>
-                <label for="ut-sm-group">{{str "LBL_UT_SM_SECURITY_GROUP" "ut_sm"}}</label>
-                {{#if hasSecurityGroups}}
-                    <select id="ut-sm-group" name="assignment_group_id">
-                        <option value="">{{str "LBL_UT_SM_SELECT_GROUP" "ut_sm"}}</option>
-                        {{#each account.security_groups}}
-                            <option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>
-                        {{/each}}
-                    </select>
-                    <p class="ut-sm-help">{{str "LBL_UT_SM_SECURITY_GROUP_HELP" "ut_sm"}}</p>
-                {{else}}
-                    <p class="ut-sm-note">{{str "LBL_UT_SM_NO_SECURITY_GROUPS" "ut_sm"}}</p>
-                {{/if}}
-            </div>
         </section>
 
         <section class="ut-sm-section">

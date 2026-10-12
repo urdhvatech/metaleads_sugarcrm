@@ -12,17 +12,6 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-if (is_file('modules/AOW_WorkFlow/aow_utils.php')) {
-    require_once 'modules/AOW_WorkFlow/aow_utils.php';
-}
-
-/**
- * config.name is varchar(32). A round-robin key built from the account id is longer than that,
- * so the cursor is stored under a 32-character hash of the logical key.
- *
- * @param string $id
- * @return string
- */
 function utSmRoundRobinConfigName($id)
 {
     return md5((string) $id);
@@ -69,14 +58,13 @@ if (!function_exists('setLastUser')) {
 }
 
 /**
- * Per-account lead assignment (keep empty, round robin, specific user, security group).
+ * Per-account lead assignment (keep empty, round robin, specific user).
  */
 class UTSMAssignmentService
 {
     const TYPE_KEEP_EMPTY = 'keep_empty';
     const TYPE_ROUND_ROBIN = 'round_robin';
     const TYPE_SPECIFIC_USER = 'specific_user';
-    const TYPE_SECURITY_GROUP = 'security_group';
 
     /**
      * @param SugarBean $lead
@@ -99,19 +87,6 @@ class UTSMAssignmentService
                 $users = $this->filterActiveUsers($users);
                 if (!empty($users)) {
                     $rrKey = 'ut_sm_' . $account['id'];
-                    $next = getRoundRobinUser($users, $rrKey);
-                    if (!empty($next)) {
-                        $lead->assigned_user_id = $next;
-                        setLastUser($next, $rrKey);
-                    }
-                }
-                break;
-
-            case self::TYPE_SECURITY_GROUP:
-                $groupId = !empty($account['assignment_group_id']) ? $account['assignment_group_id'] : '';
-                $users = $this->getSecurityGroupUserIds($groupId);
-                if (!empty($users)) {
-                    $rrKey = 'ut_sm_sg_' . $account['id'];
                     $next = getRoundRobinUser($users, $rrKey);
                     if (!empty($next)) {
                         $lead->assigned_user_id = $next;
@@ -143,9 +118,6 @@ class UTSMAssignmentService
             case self::TYPE_SPECIFIC_USER:
                 $name = $this->getUserDisplayName(!empty($account['assignment_user_id']) ? $account['assignment_user_id'] : '');
                 return $name !== '' ? $name : 'Specific User';
-            case self::TYPE_SECURITY_GROUP:
-                $name = $this->getGroupDisplayName(!empty($account['assignment_group_id']) ? $account['assignment_group_id'] : '');
-                return $name !== '' ? $name : 'Security Group';
             case self::TYPE_KEEP_EMPTY:
             default:
                 return 'Keep Empty';
@@ -191,30 +163,6 @@ class UTSMAssignmentService
             }
         }
         return json_encode(array_values(array_unique($clean)));
-    }
-
-    /**
-     * @param string $groupId
-     * @return array Indexed list of user ids
-     */
-    public function getSecurityGroupUserIds($groupId)
-    {
-        if ($groupId === '' || !file_exists('modules/SecurityGroups/SecurityGroup.php')) {
-            return array();
-        }
-        require_once 'modules/SecurityGroups/SecurityGroup.php';
-        $group = BeanFactory::getBean('SecurityGroups', $groupId);
-        if (empty($group) || empty($group->id)) {
-            return array();
-        }
-        $members = $group->getMembers();
-        $ids = array();
-        foreach ($members as $userId => $row) {
-            if ($this->isActiveUser($userId)) {
-                $ids[] = $userId;
-            }
-        }
-        return array_values($ids);
     }
 
     /**
@@ -272,21 +220,5 @@ class UTSMAssignmentService
             $name = $user->user_name;
         }
         return $name;
-    }
-
-    /**
-     * @param string $groupId
-     * @return string
-     */
-    protected function getGroupDisplayName($groupId)
-    {
-        if ($groupId === '' || !file_exists('modules/SecurityGroups/SecurityGroup.php')) {
-            return '';
-        }
-        $group = BeanFactory::getBean('SecurityGroups', $groupId);
-        if (empty($group) || empty($group->id)) {
-            return '';
-        }
-        return !empty($group->name) ? $group->name : '';
     }
 }

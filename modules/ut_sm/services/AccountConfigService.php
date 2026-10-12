@@ -337,7 +337,7 @@ class UTSMAccountConfigService
 
     /**
      * @param string $accountId
-     * @param array $data assignment_type, assignment_user_id, assignment_group_id, rr_user_ids[], enabled_form_ids[], field_map[]
+     * @param array $data assignment_type, assignment_user_id, rr_user_ids[], enabled_form_ids[], field_map[]
      * @return array{ok:bool,error?:string}
      */
     public function saveConfiguration($accountId, array $data)
@@ -352,23 +352,17 @@ class UTSMAccountConfigService
             UTSMAssignmentService::TYPE_KEEP_EMPTY,
             UTSMAssignmentService::TYPE_ROUND_ROBIN,
             UTSMAssignmentService::TYPE_SPECIFIC_USER,
-            UTSMAssignmentService::TYPE_SECURITY_GROUP,
         );
         if (!in_array($type, $allowed, true)) {
             $type = UTSMAssignmentService::TYPE_KEEP_EMPTY;
         }
 
         $userId = !empty($data['assignment_user_id']) ? trim((string) $data['assignment_user_id']) : '';
-        $groupId = !empty($data['assignment_group_id']) ? trim((string) $data['assignment_group_id']) : '';
         $rrIds = isset($data['rr_user_ids']) && is_array($data['rr_user_ids']) ? $data['rr_user_ids'] : array();
         $rrJson = $this->assignment->encodeUserIds($rrIds);
 
-        // Clear unused fields per type
         if ($type !== UTSMAssignmentService::TYPE_SPECIFIC_USER) {
             $userId = '';
-        }
-        if ($type !== UTSMAssignmentService::TYPE_SECURITY_GROUP) {
-            $groupId = '';
         }
         if ($type !== UTSMAssignmentService::TYPE_ROUND_ROBIN) {
             $rrJson = '[]';
@@ -378,14 +372,13 @@ class UTSMAccountConfigService
         $idQ = $this->db->quote($accountId);
         $typeQ = $this->db->quote($type);
         $userIdQ = $this->db->quote($userId);
-        $groupIdQ = $this->db->quote($groupId);
         $rrJsonQ = $this->db->quote($rrJson);
 
         $this->db->query(
             "UPDATE ut_sm_page_subscriptions
              SET assignment_type = '{$typeQ}',
                  assignment_user_id = " . ($userId === '' ? 'NULL' : "'{$userIdQ}'") . ",
-                 assignment_group_id = " . ($groupId === '' ? 'NULL' : "'{$groupIdQ}'") . ",
+                 assignment_group_id = NULL,
                  assignment_rr_user_ids = '{$rrJsonQ}',
                  date_modified = '{$nowQ}'
              WHERE id = '{$idQ}'"
