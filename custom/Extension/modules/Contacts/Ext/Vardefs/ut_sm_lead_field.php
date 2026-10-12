@@ -9,10 +9,10 @@
  * @license As specified in the License Agreement supplied with this package.
  */
 
-$dictionary['Lead']['fields']['ut_metaleadsubmissions'] = array(
+$dictionary['Contact']['fields']['ut_metaleadsubmissions'] = array(
     'name' => 'ut_metaleadsubmissions',
     'type' => 'link',
-    'relationship' => 'lead_ut_metaleadsubmissions',
+    'relationship' => 'contact_ut_metaleadsubmissions',
     'source' => 'non-db',
     'module' => 'ut_MetaLeadSubmissions',
     'bean_name' => 'ut_MetaLeadSubmissions',
