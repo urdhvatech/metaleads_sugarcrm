@@ -81,17 +81,6 @@ $dictionary['Lead']['fields']['ut_campaign_name'] = array(
     'massupdate' => false,
 );
 
-$dictionary['Lead']['fields']['ut_metaleadsubmissions'] = array(
-    'name' => 'ut_metaleadsubmissions',
-    'type' => 'link',
-    'relationship' => 'lead_ut_metaleadsubmissions',
-    'source' => 'non-db',
-    'module' => 'ut_MetaLeadSubmissions',
-    'bean_name' => 'ut_MetaLeadSubmissions',
-    'side' => 'right',
-    'vname' => 'LBL_UT_METALEADSUBMISSIONS_SUBPANEL_TITLE',
-);
-
 $dictionary['Lead']['indices']['idx_leads_ut_leadgen_id'] = array(
     'name' => 'idx_leads_ut_leadgen_id',
     'type' => 'index',

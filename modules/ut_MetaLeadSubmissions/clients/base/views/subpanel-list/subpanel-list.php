@@ -20,14 +20,12 @@ $viewdefs['ut_MetaLeadSubmissions']['base']['view']['subpanel-list'] = array(
                     'label' => 'LBL_FORM_NAME',
                     'enabled' => true,
                     'default' => true,
-                    'link' => true,
                 ),
                 array(
                     'name' => 'meta_leadgen_id',
                     'label' => 'LBL_META_LEADGEN_ID',
                     'enabled' => true,
                     'default' => true,
-                    'link' => true,
                 ),
                 array(
                     'name' => 'page_name',
