@@ -69,7 +69,7 @@ $mod_strings['LBL_UT_SM_SELECT_USER'] = '-- Select User --';
 $mod_strings['LBL_UT_SM_NO_USERS'] = 'No active users found.';
 
 $mod_strings['LBL_UT_SM_LEAD_FORMS'] = 'Lead Forms';
-$mod_strings['LBL_UT_SM_LEAD_FORMS_HELP'] = 'Select the forms whose leads should be imported into SugarCRM.';
+$mod_strings['LBL_UT_SM_LEAD_FORMS_HELP'] = 'Select the forms whose leads should be imported into SugarAI.';
 $mod_strings['LBL_UT_SM_REFRESH_FORMS'] = 'Refresh Forms';
 $mod_strings['LBL_UT_SM_NO_FORMS_YET'] = 'No forms loaded yet. Click Refresh Forms to load Meta lead forms for this account.';
 $mod_strings['LBL_UT_SM_FORMS_REFRESH_FAILED'] = 'Could not refresh forms:';
@@ -80,7 +80,7 @@ $mod_strings['LBL_UT_SM_CONFIG_SAVE_FAILED'] = 'Could not save configuration.';
 $mod_strings['LBL_UT_SM_ACCOUNT_NOT_FOUND'] = 'Connected account not found.';
 
 $mod_strings['LBL_UT_SM_FIELD_MAPPING'] = 'Field Mapping';
-$mod_strings['LBL_UT_SM_FIELD_MAPPING_HELP'] = 'Map Meta form fields to SugarCRM Lead fields. Standard fields are mapped automatically; custom questions default to Don\'t import.';
+$mod_strings['LBL_UT_SM_FIELD_MAPPING_HELP'] = 'Map Meta form fields to SugarAI Lead fields. Standard fields are mapped automatically; custom questions default to Don\'t import.';
 $mod_strings['LBL_UT_SM_META_FIELD'] = 'Meta Field / Question';
 $mod_strings['LBL_UT_SM_SUGARAI_FIELD'] = 'SugarAI Field';
 $mod_strings['LBL_UT_SM_DONT_IMPORT'] = 'Don\'t import';
@@ -128,7 +128,7 @@ $mod_strings['LBL_UT_SM_RECONCILIATION_DUPLICATES'] = 'Duplicates';
 $mod_strings['LBL_UT_SM_RECONCILIATION_FAILED_COUNT'] = 'Failed';
 $mod_strings['LBL_UT_SM_RECONCILIATION_RETRIED'] = 'Retried';
 $mod_strings['LBL_UT_SM_RECONCILIATION_LAST_ERROR'] = 'Last Error';
-$mod_strings['LBL_UT_SM_RECONCILIATION_NEVER_RUN'] = 'Reconciliation has not run yet. It runs automatically every 30 minutes once SugarCRM cron is active.';
+$mod_strings['LBL_UT_SM_RECONCILIATION_NEVER_RUN'] = 'Reconciliation has not run yet. It runs automatically every 30 minutes once SugarAI cron is active.';
 $mod_strings['LBL_UT_SM_RECONCILIATION_RUN_NOW'] = 'Run Reconciliation Now';
 $mod_strings['LBL_UT_SM_RECONCILIATION_WINDOW'] = 'Lookback window:';
 $mod_strings['LBL_UT_SM_RECONCILIATION_HOURS_SUFFIX'] = 'hours';

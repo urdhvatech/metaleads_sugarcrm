@@ -19,7 +19,7 @@ if(!class_exists('UT_SM_SugarAILicense'))
                 global $currentModule;
                 $thisModule = $currentModule;
 
-                //if still empty...then get out of here...in an odd spot in SugarCRM
+                //if still empty...then get out of here...in an odd spot in SugarAI
                 if(empty($thisModule)) {
                     return true;
                 }
@@ -129,7 +129,7 @@ if(!class_exists('UT_SM_SugarAILicense'))
                 global $currentModule;
                 $thisModule = $currentModule;
 
-                //if still empty...then get out of here...in an odd spot in SugarCRM
+                //if still empty...then get out of here...in an odd spot in SugarAI
                 if(empty($thisModule)) {
                     return null;
                 }

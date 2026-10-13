@@ -58,7 +58,7 @@ class ViewLicense extends SugarView
         
         $this->ss->assign("continue_url",$sugarai_config['continue_url']);
 
-        //todo: check version of SugarCRM instead
+        //todo: check version of SugarAI instead
         $this->ss->assign("file_path", getJSPath("modules/".$currentModule."/license/lib/jquery-1.7.1.min.js"));
 
         if(preg_match( "/^6.*/", $sugar_version) ) {
