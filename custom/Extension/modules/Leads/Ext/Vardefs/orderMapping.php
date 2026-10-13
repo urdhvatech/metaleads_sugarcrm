@@ -1,5 +1,5 @@
 <?php
-// created: 2026-10-13 11:30:13
+// created: 2026-10-13 15:45:32
 $extensionOrderMap = array (
   'custom/Extension/modules/Leads/Ext/Vardefs/customer_journey_parent.php' => 
   array (
@@ -13,10 +13,16 @@ $extensionOrderMap = array (
     'mtime' => 1791370004,
     'is_override' => false,
   ),
+  'custom/Extension/modules/Leads/Ext/Vardefs/ut_metaleadsubmissions.php' => 
+  array (
+    'md5' => '2f195824656ca7d6bf69a019c928745b',
+    'mtime' => 1791872002,
+    'is_override' => false,
+  ),
   'custom/Extension/modules/Leads/Ext/Vardefs/ut_sm_lead_field.php' => 
   array (
-    'md5' => '32f7bfa7a33f45d0037bc666e4b448f5',
-    'mtime' => 1791806839,
+    'md5' => '350480f03d4357f357d85455be37a40f',
+    'mtime' => 1791872006,
     'is_override' => false,
   ),
 );

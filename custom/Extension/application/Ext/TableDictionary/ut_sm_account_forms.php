@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * This file is part of the "Meta Leads for SugarAI" package.
  *
@@ -9,6 +9,4 @@
  * @license As specified in the License Agreement supplied with this package.
  */
 
-include('custom/metadata/ut_sm_tablesMetaData.php');
-
-?>
+include('custom/metadata/ut_sm_account_formsMetaData.php');
